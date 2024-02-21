@@ -10,7 +10,7 @@ namespace PageantVotingSystem
         [STAThread]
         static void Main()
         {
-
+            //username: Ysmael PW: Jajalla
 
             bool logsuccess = false;
             string username, name, password, role;
