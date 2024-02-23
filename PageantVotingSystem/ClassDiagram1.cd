@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PageantVotingSystem.Criteria" Collapsed="true">
+    <Position X="12.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAACAAAAAAAAAAAAEAAAAAAAAAACA=</HashCode>
+      <FileName>Add\Criteria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PageantVotingSystem.User" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAIAAAAAAAAAAAAAAAAgCAQAAAAAAAAA=</HashCode>
+      <FileName>LogIn\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PageantVotingSystem.LogIn" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LogIn\LogIn.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PageantVotingSystem.Contestant" Collapsed="true">
+    <Position X="2.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAIAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Add\Contestant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PageantVotingSystem.Event">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAgAAAgAAAAAAEAAAQAAAAAAAACAAAAAAAECAA=</HashCode>
+      <FileName>Add\Event.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Segment" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="PageantVotingSystem.Round" Collapsed="true">
+    <Position X="10.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAABgAAAAAAAAAAQAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Add\Round.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="criteria" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="PageantVotingSystem.Segment" Collapsed="true">
+    <Position X="10.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAYgAAA=</HashCode>
+      <FileName>Add\Segment.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Round" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
