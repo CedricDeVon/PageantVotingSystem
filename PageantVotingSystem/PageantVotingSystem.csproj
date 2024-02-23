@@ -187,23 +187,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Addevent.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="LogIn\AddPage.cs" />
-    <Compile Include="Add\Round.cs" />
-    <Compile Include="Add\Criteria.cs" />
-    <Compile Include="Add\Contestant.cs" />
-    <Compile Include="Add\Event.cs" />
-    <Compile Include="ConnectDatabase\DataBaseHelper.cs" />
-    <Compile Include="ConnectDatabase\DataAccessLayer.cs" />
-    <Compile Include="LogIn\LogIn.cs" />
-    <Compile Include="LogIn\User.cs" />
-    <Compile Include="Add\Segment.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Utility\Configuration.cs" />
@@ -219,8 +208,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="packages.config" />
-    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

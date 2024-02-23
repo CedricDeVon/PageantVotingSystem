@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="PageantVotingSystem.Criteria" Collapsed="true">
+  <Class Name="PageantVotingSystem.Criteria">
     <Position X="12.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAAAAAAAAAAACAAAAAAAAAAAAEAAAAAAAAAACA=</HashCode>
+      <HashCode>AAAAQAAAAAAAAAAAACAAAAAAAAAAAAEAAAAAAAAAgCA=</HashCode>
       <FileName>Add\Criteria.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="PageantVotingSystem.User" Collapsed="true">
+  <Class Name="PageantVotingSystem.User">
     <Position X="7.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAIAAAAAAAAAAAAAAAAgCAQAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAIAAAAAAAAAAAAAAAAgGAQAAAAAEAAA=</HashCode>
       <FileName>LogIn\User.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="PageantVotingSystem.LogIn" Collapsed="true">
+  <Class Name="PageantVotingSystem.LogIn">
     <Position X="5.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -29,29 +29,26 @@
     </TypeIdentifier>
   </Class>
   <Class Name="PageantVotingSystem.Event">
-    <Position X="7.5" Y="1.75" Width="1.5" />
+    <Position X="6" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIAAAgAAAgAAAAAAEAAAQAAAAAAAACAAAAAAAECAA=</HashCode>
+      <HashCode>AAAIAAAgAAAgAQAAACAAAAQAAAAAAAACEAAAAAAECAA=</HashCode>
       <FileName>Add\Event.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="Segment" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="PageantVotingSystem.Round" Collapsed="true">
     <Position X="10.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAgAAABgAAAAAAAAAAQAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAgAAABgAAAAACAAAAQAiCAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Add\Round.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="criteria" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="PageantVotingSystem.Segment" Collapsed="true">
+  <Class Name="PageantVotingSystem.Segment">
     <Position X="10.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAYgAAA=</HashCode>
+      <HashCode>ACgAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAFAAAYgAAA=</HashCode>
       <FileName>Add\Segment.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>

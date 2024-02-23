@@ -10,7 +10,7 @@ namespace PageantVotingSystem
         protected string Password { get; set; }
         protected string UserRole { get; set; }
 
-        protected string filepath = "User.txt";
+        protected string filepath = "../../User.txt";
         public User()
         {
 
