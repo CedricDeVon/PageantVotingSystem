@@ -1,4 +1,10 @@
-USE pageant_voting_system_test;
+-- USE pageant_voting_system_development;
+-- USE pageant_voting_system_testing;
+-- USE pageant_voting_system_production;
+
+-- USE pageant_voting_system_development_backup;
+-- USE pageant_voting_system_testing_backup;
+-- USE pageant_voting_system_production_backup;
 
 SELECT * FROM gender;
 SELECT * FROM marital_status;

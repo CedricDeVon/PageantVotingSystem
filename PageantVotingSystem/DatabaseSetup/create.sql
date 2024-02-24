@@ -1,6 +1,9 @@
-CREATE DATABASE IF NOT EXISTS pageant_voting_system_test;
-
-USE pageant_voting_system_test;
+-- CREATE DATABASE IF NOT EXISTS pageant_voting_system_development;
+-- USE pageant_voting_system_development;
+-- CREATE DATABASE IF NOT EXISTS pageant_voting_system_testing;
+-- USE pageant_voting_system_testing;
+-- CREATE DATABASE IF NOT EXISTS pageant_voting_system_production;
+-- USE pageant_voting_system_production;
 
 CREATE TABLE IF NOT EXISTS contestant
 (

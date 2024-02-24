@@ -1,4 +1,6 @@
-USE pageant_voting_system_test;
+-- USE pageant_voting_system_development;
+-- USE pageant_voting_system_testing;
+-- USE pageant_voting_system_production;
 
 INSERT INTO gender (type)
 VALUES ("Male"), ("Female"), ("Non-Binary");

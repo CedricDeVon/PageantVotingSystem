@@ -237,7 +237,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Database\" />
+    <Folder Include="DatabaseSetup\" />
     <Folder Include="Documentation\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
