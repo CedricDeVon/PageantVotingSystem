@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Newtonsoft.Json;
 using System.IO;
-using Microsoft.Extensions.Logging;
-using Serilog;
+using PageantVotingSystem.Source.Utility;
+using System.Text;
+using System.Net.Sockets;
 
 namespace PageantVotingSystem
 {
@@ -16,38 +16,13 @@ namespace PageantVotingSystem
         /// The main entry point for the application.
         /// </summary>
 
-        [STAThread]    
+        [STAThread]
 
         static void Main()
         {
-
-
-
-            
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
-
-            var log = new LoggerConfiguration()
-                .WriteTo.File("../../Logs/log.txt")
-                .CreateLogger();
-            log.Information("Information");
-            log.Error("Error");
-            log.Verbose("Verbose");
-            log.Warning("Warning");
-
-
-            //dynamic array = JsonConvert.DeserializeObject(json);
-            //foreach (var item in array)
-            //{
-            //    Console.WriteLine("{0} {1}", item.temp, item.vcc);
-            //}
-
-            //MessageBox.Show(System.Environment.GetEnvironmentVariable("FIND_ME", EnvironmentVariableTarget.User));
-            //System.Environment.SetEnvironmentVariable("FIND_ME", "GOOD", EnvironmentVariableTarget.User);
-            //MessageBox.Show(System.Environment.GetEnvironmentVariable("FIND_ME", EnvironmentVariableTarget.User));
-
-            // System.Environment.SetEnvironmentVariable(variable, value [, Target]);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
         }
     }
 }

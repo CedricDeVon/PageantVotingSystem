@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
@@ -7,16 +6,6 @@ using System.Windows.Forms;
 
 namespace PageantVotingSystem
 {
-    public class Configuration
-    {
-        public string name;
-        public string databaseName;
-        public string databaseHostName;
-        public int databasePort;
-        public string databaseUserName;
-        public bool isStringBufferingEnabled;
-        public bool isLoggingEnabled;
-    }
 
     partial class Form1
     {
@@ -32,11 +21,6 @@ namespace PageantVotingSystem
         
         protected override void Dispose(bool disposing)
         {
-            foreach (string pair in ConfigurationManager.AppSettings.Keys)
-            {
-                MessageBox.Show($"{pair} {ConfigurationManager.AppSettings[pair]}");
-            }
-
             if (disposing && (components != null))
             {
                 components.Dispose();
