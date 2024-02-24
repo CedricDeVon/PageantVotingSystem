@@ -1,4 +1,4 @@
--- DELETE DATABASE IF EXISTS pageant_voting_system_development_backup;
+-- DROP DATABASE IF EXISTS pageant_voting_system_development_backup;
 -- CREATE DATABASE IF NOT EXISTS pageant_voting_system_development_backup;
 -- USE pageant_voting_system_development;
 -- CREATE TABLE IF NOT EXISTS pageant_voting_system_development_backup.user AS SELECT * FROM pageant_voting_system_development.user;
@@ -18,7 +18,7 @@
 -- CREATE TABLE IF NOT EXISTS pageant_voting_system_development_backup.remark AS SELECT * FROM pageant_voting_system_development.remark;
 -- CREATE TABLE IF NOT EXISTS pageant_voting_system_development_backup.scoring_system AS SELECT * FROM pageant_voting_system_development.scoring_system;
 
--- DELETE DATABASE IF EXISTS pageant_voting_system_testing_backup;
+-- DROP DATABASE IF EXISTS pageant_voting_system_testing_backup;
 -- CREATE DATABASE IF NOT EXISTS pageant_voting_system_testing_backup;
 -- USE pageant_voting_system_testing;
 -- CREATE TABLE IF NOT EXISTS pageant_voting_system_testing_backup.user AS SELECT * FROM pageant_voting_system_testing.user;
@@ -38,7 +38,7 @@
 -- CREATE TABLE IF NOT EXISTS pageant_voting_system_testing_backup.remark AS SELECT * FROM pageant_voting_system_testing.remark;
 -- CREATE TABLE IF NOT EXISTS pageant_voting_system_testing_backup.scoring_system AS SELECT * FROM pageant_voting_system_testing.scoring_system;
 
--- DELETE DATABASE IF EXISTS pageant_voting_system_production_backup;
+-- DROP DATABASE IF EXISTS pageant_voting_system_production_backup;
 -- CREATE DATABASE IF NOT EXISTS pageant_voting_system_production_backup;
 -- USE pageant_voting_system_production;
 -- CREATE TABLE IF NOT EXISTS pageant_voting_system_production_backup.user AS SELECT * FROM pageant_voting_system_production.user;
