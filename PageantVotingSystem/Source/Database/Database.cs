@@ -3,7 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 
 using MySql.Data.MySqlClient;
-using System.Data.SqlClient;
+using PageantVotingSystem.Source.Utility;
 
 namespace PageantVotingSystem.Source.Database
 {
@@ -22,8 +22,10 @@ namespace PageantVotingSystem.Source.Database
 
             set
             {
+                string oldDatabaseName = currentSettings.DatabaseName;
                 currentSettings = new DatabaseSettings(value);
                 usingStatement = (!string.IsNullOrEmpty(currentSettings.DatabaseName)) ? $"USE {currentSettings.DatabaseName}; " : "";
+                Logger.LogInformation($"Database name updated from '{oldDatabaseName}' to '{currentSettings.DatabaseName}'");
             }
         }
 
@@ -40,12 +42,17 @@ namespace PageantVotingSystem.Source.Database
                 mySqlCommand.Connection = mySqlConnection;
                 mySqlCommand.CommandText = $"{usingStatement}{mySqlStatement}";
                 mySqlConnection.Open();
+                Logger.LogInformation($"MySqlConnection opened at '{currentSettings.BaseConnectionString}'");
+                Logger.LogInformation($"MySql statement began execution");
                 List<Dictionary<string, object>> data = ReadData(mySqlCommand.ExecuteReader());
+                Logger.LogInformation($"MySql statement completed execution");
                 mySqlConnection.Close();
+                Logger.LogInformation($"MySqlConnection closed from '{currentSettings.BaseConnectionString}'");
                 return DatabaseOutput.Success(data);
             }
             catch (Exception exception)
             {
+                Logger.LogError(exception.Message);
                 return DatabaseOutput.Failure(exception);
             }
         }
@@ -54,10 +61,14 @@ namespace PageantVotingSystem.Source.Database
         {
             try
             {
-                return ExecuteStatement(File.ReadAllText(filePath));
+                Logger.LogInformation($"MySql file began execution at '{filePath}'");
+                DatabaseOutput databaseOutput = ExecuteStatement(File.ReadAllText(filePath));
+                Logger.LogInformation($"MySql file completed execution from '{filePath}'");
+                return databaseOutput;
             }
             catch (Exception exception)
             {
+                Logger.LogError(exception.Message);
                 return DatabaseOutput.Failure(exception);
             }
             

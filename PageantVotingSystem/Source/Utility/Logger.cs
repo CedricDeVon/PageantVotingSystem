@@ -30,7 +30,7 @@ namespace PageantVotingSystem.Source.Utility
         {
             if (logger != null && isLoggingEnabled && allowedToLog)
             {
-                logger.Information($"{ConfigurationSettings.Type} : {input}");
+                logger.Information($"{ConfigurationSettings.Type}: {input}");
             }
         }
 
@@ -38,7 +38,7 @@ namespace PageantVotingSystem.Source.Utility
         {
             if (logger != null && isLoggingEnabled && allowedToLog)
             {
-                logger.Error($"{ConfigurationSettings.Type} : {input}");
+                logger.Error($"{ConfigurationSettings.Type}: {input}");
             }            
         }
     }

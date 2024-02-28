@@ -19,7 +19,9 @@ namespace PageantVotingSystem.Source.Database
         public string UserName { get; private set; }
 
         public string ConnectionString { get; private set; }
-        
+
+        public string BaseConnectionString { get; private set; }
+
         public DatabaseSettings()
         {
             SetDeafultAttributes();
@@ -52,7 +54,7 @@ namespace PageantVotingSystem.Source.Database
             HostName = ConfigurationSettings.TypeValue("DatabaseHostName");
             PortNumber = ConfigurationSettings.TypeValue("DatabasePortNumber");
             UserName = ConfigurationSettings.TypeValue("DatabaseUserName");
-            ConnectionString = GenerateConnectionString();
+            GenerateConnectionString();
         }
 
         private string GenerateConfiguredDatabaseName(string name)
@@ -65,15 +67,15 @@ namespace PageantVotingSystem.Source.Database
             return $"{DatabaseName}.{TableName}";
         }
 
-        private string GenerateConnectionString()
+        private void GenerateConnectionString()
         {
-            string connectionString = $"server={HostName};";
-            connectionString += $"port={PortNumber};";
-            connectionString += $"uid={UserName};";
-            connectionString += $"port={PortNumber};";
-            connectionString += (!string.IsNullOrEmpty(DatabaseName)) ? $"database={DatabaseName};" : "";
-            connectionString += $"pwd={ConfigurationSettings.EnvironmentValue("StringBuffer")};";
-            return connectionString;
+            Logger.LogInformation("Connection string generated");
+            BaseConnectionString = $"server={HostName};";
+            BaseConnectionString += $"port={PortNumber};";
+            BaseConnectionString += $"uid={UserName};";
+            BaseConnectionString += (!string.IsNullOrEmpty(DatabaseName)) ? $"database={DatabaseName};" : "";
+            ConnectionString = BaseConnectionString;
+            ConnectionString += $"pwd={ConfigurationSettings.EnvironmentValue("StringBuffer")};";
         }
     }
 }
