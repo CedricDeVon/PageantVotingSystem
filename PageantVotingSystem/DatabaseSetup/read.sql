@@ -6,6 +6,8 @@
 -- USE pageant_voting_system_testing_backup;
 -- USE pageant_voting_system_production_backup;
 
+SELECT * FROM demo;
+
 SELECT * FROM gender;
 SELECT * FROM marital_status;
 SELECT * FROM remark;
