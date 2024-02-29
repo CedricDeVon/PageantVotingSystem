@@ -1,4 +1,4 @@
--- DROP DATABASE IF EXISTS pageant_voting_system_development_backup;
+﻿-- DROP DATABASE IF EXISTS pageant_voting_system_development_backup;
 -- CREATE DATABASE IF NOT EXISTS pageant_voting_system_development_backup;
 -- USE pageant_voting_system_development;
 -- CREATE TABLE IF NOT EXISTS pageant_voting_system_development_backup.user AS SELECT * FROM pageant_voting_system_development.user;

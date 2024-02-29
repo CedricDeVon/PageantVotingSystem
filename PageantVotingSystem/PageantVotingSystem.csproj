@@ -244,6 +244,12 @@
     <Folder Include="Documentation\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DatabaseSetup\create.sql" />
+    <Content Include="DatabaseSetup\sync_backups.sql" />
+    <Content Include="DatabaseSetup\select.sql" />
+    <Content Include="DatabaseSetup\legacy.sql" />
+    <Content Include="DatabaseSetup\insert.sql" />
+    <Content Include="DatabaseSetup\drop.sql" />
     <Content Include="DatabaseSetup\demo.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

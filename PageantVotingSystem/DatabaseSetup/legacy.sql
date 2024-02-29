@@ -1,7 +1,4 @@
-
-
-
-
+﻿
 
 -- SELECT contestant_id, FLOOR(SUM(base_value * percentage_weight)) as total_value FROM 
 -- (

@@ -1,4 +1,4 @@
--- USE pageant_voting_system_development;
+﻿-- USE pageant_voting_system_development;
 -- USE pageant_voting_system_testing;
 -- USE pageant_voting_system_production;
 
