@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageantVotingSystem", "PageantVotingSystem\PageantVotingSystem.csproj", "{A0A10ACF-24D7-4D3C-BCC1-E0C5ADCC3720}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageantVotingSystem_BackEnd", "PageantVotingSystem\PageantVotingSystem_BackEnd.csproj", "{A0A10ACF-24D7-4D3C-BCC1-E0C5ADCC3720}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageantVotingSystem_Sandbox", "PageantVotingSystem_Sandbox\PageantVotingSystem_Sandbox.csproj", "{D8399B1C-2E21-4F33-BA6A-244DE351064A}"
 EndProject
