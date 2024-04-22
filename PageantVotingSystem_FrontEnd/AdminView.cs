@@ -122,5 +122,10 @@ namespace Judging_System
             panel7.Visible = false;
             panel2.Visible = true;
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
