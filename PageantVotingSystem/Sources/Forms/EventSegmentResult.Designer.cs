@@ -54,6 +54,7 @@
             this.panel26 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel27 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -71,7 +72,6 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.panel14 = new System.Windows.Forms.Panel();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel31.SuspendLayout();
@@ -364,6 +364,14 @@
             this.panel12.Size = new System.Drawing.Size(1224, 33);
             this.panel12.TabIndex = 98;
             // 
+            // panel14
+            // 
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel14.Location = new System.Drawing.Point(277, 0);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(5, 33);
+            this.panel14.TabIndex = 53;
+            // 
             // label6
             // 
             this.label6.AutoEllipsis = true;
@@ -542,14 +550,6 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(1424, 50);
             this.panel9.TabIndex = 19;
-            // 
-            // panel14
-            // 
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel14.Location = new System.Drawing.Point(277, 0);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(5, 33);
-            this.panel14.TabIndex = 53;
             // 
             // EventSegmentResult
             // 

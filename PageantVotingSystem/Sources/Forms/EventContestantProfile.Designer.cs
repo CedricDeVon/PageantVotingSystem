@@ -207,6 +207,8 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.ageLabel = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel46.SuspendLayout();
@@ -1234,6 +1236,8 @@
             // 
             // panel74
             // 
+            this.panel74.Controls.Add(this.label8);
+            this.panel74.Controls.Add(this.ageLabel);
             this.panel74.Controls.Add(this.birthDateLabel);
             this.panel74.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel74.Location = new System.Drawing.Point(255, 0);
@@ -1244,13 +1248,13 @@
             // birthDateLabel
             // 
             this.birthDateLabel.AutoEllipsis = true;
-            this.birthDateLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.birthDateLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.birthDateLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.birthDateLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
             this.birthDateLabel.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.birthDateLabel.Location = new System.Drawing.Point(0, 0);
             this.birthDateLabel.Name = "birthDateLabel";
-            this.birthDateLabel.Size = new System.Drawing.Size(612, 35);
+            this.birthDateLabel.Size = new System.Drawing.Size(450, 35);
             this.birthDateLabel.TabIndex = 238;
             this.birthDateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -2204,6 +2208,34 @@
             this.panel9.Size = new System.Drawing.Size(1424, 50);
             this.panel9.TabIndex = 19;
             // 
+            // ageLabel
+            // 
+            this.ageLabel.AutoSize = true;
+            this.ageLabel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ageLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.ageLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.ageLabel.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.ageLabel.Location = new System.Drawing.Point(595, 0);
+            this.ageLabel.Name = "ageLabel";
+            this.ageLabel.Size = new System.Drawing.Size(17, 19);
+            this.ageLabel.TabIndex = 246;
+            this.ageLabel.Text = "0";
+            this.ageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.label8.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.label8.Location = new System.Drawing.Point(562, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(33, 19);
+            this.label8.TabIndex = 247;
+            this.label8.Text = "Age";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // EventContestantProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -2275,6 +2307,7 @@
             this.panel72.ResumeLayout(false);
             this.panel73.ResumeLayout(false);
             this.panel74.ResumeLayout(false);
+            this.panel74.PerformLayout();
             this.panel76.ResumeLayout(false);
             this.panel76.PerformLayout();
             this.panel65.ResumeLayout(false);
@@ -2505,5 +2538,7 @@
         private System.Windows.Forms.Panel panel118;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Panel panel119;
+        private System.Windows.Forms.Label ageLabel;
+        private System.Windows.Forms.Label label8;
     }
 }

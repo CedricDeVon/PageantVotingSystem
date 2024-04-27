@@ -51,7 +51,8 @@ namespace PageantVotingSystem.Sources.FormControls
 
         private JudgeVoteStatusItem GenerateItem(string orderNumber, string value, string hasJudged)
         {
-            return new JudgeVoteStatusItem(parentControl, orderNumber, value, hasJudged);
+            JudgeVoteStatusItem newItem = new JudgeVoteStatusItem(parentControl, orderNumber, value, hasJudged);
+            return newItem;
         }
 
         private void DisposeItem(JudgeVoteStatusItem targetItem)

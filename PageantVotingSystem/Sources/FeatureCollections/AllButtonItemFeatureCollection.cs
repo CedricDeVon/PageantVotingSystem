@@ -120,7 +120,7 @@ namespace PageantVotingSystem.Sources.FeatureCollections
                 return;
             }
 
-            if (IsToggled)
+            if (IsToggled && AreFocusAnimationsOn)
             {
                 ApplicationFormStyle.ButtonsNormal(itemButtons);
             }
@@ -137,7 +137,7 @@ namespace PageantVotingSystem.Sources.FeatureCollections
                 return;
             }
 
-            if (IsToggled)
+            if (IsToggled && AreUnfocusAnimationsOn)
             {
                 ApplicationFormStyle.ButtonsHighlighted(itemButtons);
             }

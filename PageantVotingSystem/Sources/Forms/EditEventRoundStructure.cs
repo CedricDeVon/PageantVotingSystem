@@ -2,6 +2,8 @@
 using System;
 using System.Windows.Forms;
 
+using PageantVotingSystem.Sources.Results;
+using PageantVotingSystem.Sources.Security;
 using PageantVotingSystem.Sources.Entities;
 using PageantVotingSystem.Sources.FormStyles;
 using PageantVotingSystem.Sources.FormControls;
@@ -11,7 +13,7 @@ namespace PageantVotingSystem.Sources.Forms
 {
     public partial class EditEventRoundStructure : Form
     {
-        private readonly InformationLayout informationBox;
+        private readonly InformationLayout informationLayout;
 
         private readonly TopSideNavigationLayout topSideNavigationLayout;
 
@@ -24,7 +26,7 @@ namespace PageantVotingSystem.Sources.Forms
             InitializeComponent();
 
             ApplicationFormStyle.SetupFormStyles(this);
-            informationBox = new InformationLayout(informationLayoutControl);
+            informationLayout = new InformationLayout(informationLayoutControl);
             topSideNavigationLayout = new TopSideNavigationLayout(topSideNavigationLayoutControl);
             topSideNavigationLayout.HideReloadButton();
             roundsLayout = new OrderedValueItemLayout(roundsLayoutControl);
@@ -41,16 +43,26 @@ namespace PageantVotingSystem.Sources.Forms
             roundCountLabel.Text = $"{segmentEntity.Rounds.Items.Count}";
             roundsLayout.RenderOrdered(segmentEntity.RoundNamesInReverseOrder);
             roundsLayout.Unfocus();
+            roundsDataLayoutControl.Hide();
         }
 
         private void Button_Click(object sender, EventArgs e)
         {
-            informationBox.StartLoadingMessageDisplay();
+            informationLayout.StartLoadingMessageDisplay();
 
             if (sender == roundSaveButton)
             {
+                Result securityResult = ApplicationSecurity.AuthenticateNewEventRoundLayout(currentSegmentEntity);
+                if (!securityResult.IsSuccessful)
+                {
+                    informationLayout.DisplayErrorMessage(securityResult.Message);
+                    return;
+                }
+
                 ApplicationFormNavigator.DisplayPrevious();
                 roundsLayout.Unfocus();
+                roundsLayout.Hide();
+                roundsDataLayoutControl.Hide();
                 roundNameInput.Text = "";
                 roundDescriptionInput.Text = "";
             }
@@ -68,16 +80,28 @@ namespace PageantVotingSystem.Sources.Forms
                 currentSegmentEntity.Rounds.ClearAllItems();
                 roundsLayout.Clear();
                 roundsLayout.Unfocus();
+                roundsLayout.Hide();
+                roundsDataLayoutControl.Hide();
                 roundCountLabel.Text = "0";
                 roundNameInput.Text = "";
                 roundDescriptionInput.Text = "";
             }
 
-            informationBox.StopLoadingMessageDisplay();
+            informationLayout.StopLoadingMessageDisplay();
         }
 
         private void RoundsLayoutItem_SingleClick(object sender, EventArgs e)
         {
+            OrderedValueItem b = (OrderedValueItem)sender;
+            if (b.Features.IsToggled)
+            {
+                roundsDataLayoutControl.Hide();
+            }
+            else
+            {
+                roundsDataLayoutControl.Show();
+            }
+
             if (roundsLayout.SelectedItem != null)
             {
                 OrderedValueItem oldOrderedValueItem = roundsLayout.SelectedItem;
@@ -98,6 +122,7 @@ namespace PageantVotingSystem.Sources.Forms
             OrderedValueItem oldOrderedValueItem = (OrderedValueItem)sender;
             RoundEntity oldRoundEntity = currentSegmentEntity.Rounds.Items[currentSegmentEntity.Rounds.ItemCount - Convert.ToInt32(oldOrderedValueItem.OrderedNumber)];
             roundsLayout.Unfocus();
+            roundsDataLayoutControl.Hide();
             roundNameInput.Text = "";
             roundDescriptionInput.Text = "";
             ApplicationFormNavigator.DisplayEditEventCriteriumStructureForm(currentSegmentEntity, oldRoundEntity);
@@ -136,6 +161,7 @@ namespace PageantVotingSystem.Sources.Forms
                     roundCountLabel.Text = "0";
                     roundNameInput.Text = "";
                     roundDescriptionInput.Text = "";
+                    roundsDataLayoutControl.Hide();
                 }
                 else
                 {

@@ -33,7 +33,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel20 = new System.Windows.Forms.Panel();
             this.panel29 = new System.Windows.Forms.Panel();
-            this.panel30 = new System.Windows.Forms.Panel();
+            this.criteriumDataLayoutControl = new System.Windows.Forms.Panel();
             this.panel62 = new System.Windows.Forms.Panel();
             this.panel63 = new System.Windows.Forms.Panel();
             this.panel66 = new System.Windows.Forms.Panel();
@@ -134,7 +134,7 @@
             this.panel4.SuspendLayout();
             this.panel20.SuspendLayout();
             this.panel29.SuspendLayout();
-            this.panel30.SuspendLayout();
+            this.criteriumDataLayoutControl.SuspendLayout();
             this.panel63.SuspendLayout();
             this.panel66.SuspendLayout();
             this.panel74.SuspendLayout();
@@ -213,36 +213,37 @@
             // panel29
             // 
             this.panel29.AutoScroll = true;
-            this.panel29.Controls.Add(this.panel30);
+            this.panel29.Controls.Add(this.criteriumDataLayoutControl);
             this.panel29.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel29.Location = new System.Drawing.Point(480, 0);
             this.panel29.Name = "panel29";
             this.panel29.Size = new System.Drawing.Size(744, 512);
             this.panel29.TabIndex = 110;
             // 
-            // panel30
+            // criteriumDataLayoutControl
             // 
-            this.panel30.Controls.Add(this.panel62);
-            this.panel30.Controls.Add(this.panel63);
-            this.panel30.Controls.Add(this.panel73);
-            this.panel30.Controls.Add(this.panel49);
-            this.panel30.Controls.Add(this.panel54);
-            this.panel30.Controls.Add(this.panel61);
-            this.panel30.Controls.Add(this.panel48);
-            this.panel30.Controls.Add(this.panel50);
-            this.panel30.Controls.Add(this.panel68);
-            this.panel30.Controls.Add(this.panel33);
-            this.panel30.Controls.Add(this.panel34);
-            this.panel30.Controls.Add(this.panel52);
-            this.panel30.Controls.Add(this.panel142);
-            this.panel30.Controls.Add(this.panel140);
-            this.panel30.Controls.Add(this.panel65);
-            this.panel30.Controls.Add(this.panel31);
-            this.panel30.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel30.Location = new System.Drawing.Point(0, 0);
-            this.panel30.Name = "panel30";
-            this.panel30.Size = new System.Drawing.Size(500, 512);
-            this.panel30.TabIndex = 110;
+            this.criteriumDataLayoutControl.Controls.Add(this.panel62);
+            this.criteriumDataLayoutControl.Controls.Add(this.panel63);
+            this.criteriumDataLayoutControl.Controls.Add(this.panel73);
+            this.criteriumDataLayoutControl.Controls.Add(this.panel49);
+            this.criteriumDataLayoutControl.Controls.Add(this.panel54);
+            this.criteriumDataLayoutControl.Controls.Add(this.panel61);
+            this.criteriumDataLayoutControl.Controls.Add(this.panel48);
+            this.criteriumDataLayoutControl.Controls.Add(this.panel50);
+            this.criteriumDataLayoutControl.Controls.Add(this.panel68);
+            this.criteriumDataLayoutControl.Controls.Add(this.panel33);
+            this.criteriumDataLayoutControl.Controls.Add(this.panel34);
+            this.criteriumDataLayoutControl.Controls.Add(this.panel52);
+            this.criteriumDataLayoutControl.Controls.Add(this.panel142);
+            this.criteriumDataLayoutControl.Controls.Add(this.panel140);
+            this.criteriumDataLayoutControl.Controls.Add(this.panel65);
+            this.criteriumDataLayoutControl.Controls.Add(this.panel31);
+            this.criteriumDataLayoutControl.Dock = System.Windows.Forms.DockStyle.Left;
+            this.criteriumDataLayoutControl.Location = new System.Drawing.Point(0, 0);
+            this.criteriumDataLayoutControl.Name = "criteriumDataLayoutControl";
+            this.criteriumDataLayoutControl.Size = new System.Drawing.Size(500, 512);
+            this.criteriumDataLayoutControl.TabIndex = 110;
+            this.criteriumDataLayoutControl.Visible = false;
             // 
             // panel62
             // 
@@ -1294,7 +1295,7 @@
             this.panel4.ResumeLayout(false);
             this.panel20.ResumeLayout(false);
             this.panel29.ResumeLayout(false);
-            this.panel30.ResumeLayout(false);
+            this.criteriumDataLayoutControl.ResumeLayout(false);
             this.panel63.ResumeLayout(false);
             this.panel66.ResumeLayout(false);
             this.panel74.ResumeLayout(false);
@@ -1383,7 +1384,7 @@
         private System.Windows.Forms.Panel panel29;
         public System.Windows.Forms.Panel panel18;
         public System.Windows.Forms.Panel criteriaLayoutControl;
-        private System.Windows.Forms.Panel panel30;
+        private System.Windows.Forms.Panel criteriumDataLayoutControl;
         private System.Windows.Forms.Panel panel31;
         private System.Windows.Forms.Panel panel142;
         private System.Windows.Forms.Panel panel140;

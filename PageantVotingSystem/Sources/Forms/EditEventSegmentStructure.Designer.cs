@@ -34,7 +34,7 @@
             this.panel20 = new System.Windows.Forms.Panel();
             this.panel29 = new System.Windows.Forms.Panel();
             this.panel24 = new System.Windows.Forms.Panel();
-            this.panel30 = new System.Windows.Forms.Panel();
+            this.segmentsDataLayoutControl = new System.Windows.Forms.Panel();
             this.panel48 = new System.Windows.Forms.Panel();
             this.panel50 = new System.Windows.Forms.Panel();
             this.panel51 = new System.Windows.Forms.Panel();
@@ -108,7 +108,7 @@
             this.panel4.SuspendLayout();
             this.panel20.SuspendLayout();
             this.panel29.SuspendLayout();
-            this.panel30.SuspendLayout();
+            this.segmentsDataLayoutControl.SuspendLayout();
             this.panel50.SuspendLayout();
             this.panel51.SuspendLayout();
             this.panel88.SuspendLayout();
@@ -177,7 +177,7 @@
             // 
             this.panel29.AutoScroll = true;
             this.panel29.Controls.Add(this.panel24);
-            this.panel29.Controls.Add(this.panel30);
+            this.panel29.Controls.Add(this.segmentsDataLayoutControl);
             this.panel29.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel29.Location = new System.Drawing.Point(480, 0);
             this.panel29.Name = "panel29";
@@ -192,23 +192,24 @@
             this.panel24.Size = new System.Drawing.Size(244, 512);
             this.panel24.TabIndex = 111;
             // 
-            // panel30
+            // segmentsDataLayoutControl
             // 
-            this.panel30.Controls.Add(this.panel48);
-            this.panel30.Controls.Add(this.panel50);
-            this.panel30.Controls.Add(this.panel68);
-            this.panel30.Controls.Add(this.panel33);
-            this.panel30.Controls.Add(this.panel34);
-            this.panel30.Controls.Add(this.panel52);
-            this.panel30.Controls.Add(this.panel142);
-            this.panel30.Controls.Add(this.panel140);
-            this.panel30.Controls.Add(this.panel65);
-            this.panel30.Controls.Add(this.panel31);
-            this.panel30.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel30.Location = new System.Drawing.Point(0, 0);
-            this.panel30.Name = "panel30";
-            this.panel30.Size = new System.Drawing.Size(500, 512);
-            this.panel30.TabIndex = 110;
+            this.segmentsDataLayoutControl.Controls.Add(this.panel48);
+            this.segmentsDataLayoutControl.Controls.Add(this.panel50);
+            this.segmentsDataLayoutControl.Controls.Add(this.panel68);
+            this.segmentsDataLayoutControl.Controls.Add(this.panel33);
+            this.segmentsDataLayoutControl.Controls.Add(this.panel34);
+            this.segmentsDataLayoutControl.Controls.Add(this.panel52);
+            this.segmentsDataLayoutControl.Controls.Add(this.panel142);
+            this.segmentsDataLayoutControl.Controls.Add(this.panel140);
+            this.segmentsDataLayoutControl.Controls.Add(this.panel65);
+            this.segmentsDataLayoutControl.Controls.Add(this.panel31);
+            this.segmentsDataLayoutControl.Dock = System.Windows.Forms.DockStyle.Left;
+            this.segmentsDataLayoutControl.Location = new System.Drawing.Point(0, 0);
+            this.segmentsDataLayoutControl.Name = "segmentsDataLayoutControl";
+            this.segmentsDataLayoutControl.Size = new System.Drawing.Size(500, 512);
+            this.segmentsDataLayoutControl.TabIndex = 110;
+            this.segmentsDataLayoutControl.Visible = false;
             // 
             // panel48
             // 
@@ -967,7 +968,7 @@
             this.panel4.ResumeLayout(false);
             this.panel20.ResumeLayout(false);
             this.panel29.ResumeLayout(false);
-            this.panel30.ResumeLayout(false);
+            this.segmentsDataLayoutControl.ResumeLayout(false);
             this.panel50.ResumeLayout(false);
             this.panel51.ResumeLayout(false);
             this.panel88.ResumeLayout(false);
@@ -1043,7 +1044,7 @@
         private System.Windows.Forms.Panel panel29;
         public System.Windows.Forms.Panel panel18;
         public System.Windows.Forms.Panel segmentsLayoutControl;
-        private System.Windows.Forms.Panel panel30;
+        private System.Windows.Forms.Panel segmentsDataLayoutControl;
         private System.Windows.Forms.Panel panel31;
         private System.Windows.Forms.Panel panel142;
         private System.Windows.Forms.Panel panel140;

@@ -82,7 +82,7 @@ namespace PageantVotingSystem.Sources.FormControls
             }
 
             SingleValuedItem targetItem = SelectedItem;
-            SelectedItem = (SelectedItem != Items.FirstItem) ?
+            SelectedItem = (SelectedItem != Items.FirstItemValue) ?
                 GenericDoublyLinkedListItem.GetPreviousItemValue<SingleValuedItem>(SelectedItem.Features.GenericItemReference) :
                 GenericDoublyLinkedListItem.GetNextItemValue<SingleValuedItem>(SelectedItem.Features.GenericItemReference);
             DisposeItem(Items.RemoveItem<SingleValuedItem>(targetItem.Features.GenericItemReference));

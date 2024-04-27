@@ -2,6 +2,8 @@
 using System;
 using System.Windows.Forms;
 
+using PageantVotingSystem.Sources.Results;
+using PageantVotingSystem.Sources.Security;
 using PageantVotingSystem.Sources.Entities;
 using PageantVotingSystem.Sources.FormStyles;
 using PageantVotingSystem.Sources.FormControls;
@@ -11,7 +13,7 @@ namespace PageantVotingSystem.Sources.Forms
 {
     public partial class EditEventCriteriumStructure : Form
     {
-        private readonly InformationLayout informationBox;
+        private readonly InformationLayout informationLayout;
 
         private readonly TopSideNavigationLayout topSideNavigationLayout;
         
@@ -26,7 +28,7 @@ namespace PageantVotingSystem.Sources.Forms
             InitializeComponent();
 
             ApplicationFormStyle.SetupFormStyles(this);
-            informationBox = new InformationLayout(informationLayoutControl);
+            informationLayout = new InformationLayout(informationLayoutControl);
             topSideNavigationLayout = new TopSideNavigationLayout(topSideNavigationLayoutControl);
             topSideNavigationLayout.HideReloadButton();
             criteriaLayout = new OrderedValueItemLayout(criteriaLayoutControl);
@@ -47,16 +49,25 @@ namespace PageantVotingSystem.Sources.Forms
             criteriumCountLabel.Text = $"{roundEntity.Criteria.ItemCount}";
             criteriaLayout.RenderOrdered(roundEntity.CriteriumNamesInReverseOrder);
             criteriaLayout.Unfocus();
+            criteriumDataLayoutControl.Hide();
         }
 
-        private void Button_Click(object sender, System.EventArgs e)
+        private void Button_Click(object sender, EventArgs e)
         {
-            informationBox.StartLoadingMessageDisplay();
+            informationLayout.StartLoadingMessageDisplay();
 
             if (sender == criteriumSaveButton)
             {
+                Result securityResult = ApplicationSecurity.AuthenticateNewEventCriteriumLayout(currentRoundEntity);
+                if (!securityResult.IsSuccessful)
+                {
+                    informationLayout.DisplayErrorMessage(securityResult.Message);
+                    return;
+                }
+
                 ApplicationFormNavigator.DisplayPrevious();
                 criteriaLayout.Unfocus();
+                criteriumDataLayoutControl.Hide();
                 criteriumNameInput.Text = "";
                 criteriumDescriptionInput.Text = "";
                 criteriumMaximumValueInput.Value = 0;
@@ -76,6 +87,7 @@ namespace PageantVotingSystem.Sources.Forms
             {
                 criteriaLayout.Clear();
                 criteriaLayout.Unfocus();
+                criteriumDataLayoutControl.Hide();
                 criteriumNameInput.Text = "";
                 criteriumDescriptionInput.Text = "";
                 criteriumMaximumValueInput.Value = 0;
@@ -83,11 +95,21 @@ namespace PageantVotingSystem.Sources.Forms
                 criteriumPercentageWeightInput.Value = 0;
             }
 
-            informationBox.StopLoadingMessageDisplay();
+            informationLayout.StopLoadingMessageDisplay();
         }
 
         private void CriteriaLayoutItem_SingleClick(object sender, EventArgs e)
         {
+            OrderedValueItem b = (OrderedValueItem)sender;
+            if (b.Features.IsToggled)
+            {
+                criteriumDataLayoutControl.Hide();
+            }
+            else
+            {
+                criteriumDataLayoutControl.Show();
+            }
+
             if (criteriaLayout.SelectedItem != null)
             {
                 OrderedValueItem oldOrderedValueItem = criteriaLayout.SelectedItem;
@@ -145,6 +167,7 @@ namespace PageantVotingSystem.Sources.Forms
                     criteriumMaximumValueInput.Value = 0;
                     criteriumMinimumValueInput.Value = 0;
                     criteriumPercentageWeightInput.Value = 0;
+                    criteriaLayoutControl.Hide();
                 }
                 else
                 {

@@ -326,7 +326,7 @@
             this.judgeQueryResultCountLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.judgeQueryResultCountLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
             this.judgeQueryResultCountLabel.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.judgeQueryResultCountLabel.Location = new System.Drawing.Point(319, 0);
+            this.judgeQueryResultCountLabel.Location = new System.Drawing.Point(327, 0);
             this.judgeQueryResultCountLabel.Name = "judgeQueryResultCountLabel";
             this.judgeQueryResultCountLabel.Size = new System.Drawing.Size(17, 19);
             this.judgeQueryResultCountLabel.TabIndex = 109;
@@ -340,11 +340,11 @@
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
             this.label6.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.label6.Location = new System.Drawing.Point(336, 0);
+            this.label6.Location = new System.Drawing.Point(344, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 19);
+            this.label6.Size = new System.Drawing.Size(56, 19);
             this.label6.TabIndex = 108;
-            this.label6.Text = "Result(s)";
+            this.label6.Text = "In Total";
             this.label6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // label4

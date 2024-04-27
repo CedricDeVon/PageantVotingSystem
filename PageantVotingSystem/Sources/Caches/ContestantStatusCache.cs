@@ -27,6 +27,11 @@ namespace PageantVotingSystem.Sources.Caches
             SetupRecorder.Add("ContestantStatusCache");
         }
 
+        public static bool IsNotFound(object type)
+        {
+            return !IsFound(type);
+        }
+
         public static bool IsFound(object type)
         {
             return types.Contains(type);

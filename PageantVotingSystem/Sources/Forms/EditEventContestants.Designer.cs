@@ -1123,6 +1123,11 @@
             this.contestantWeightInKilogramsInput.DecimalPlaces = 2;
             this.contestantWeightInKilogramsInput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contestantWeightInKilogramsInput.Location = new System.Drawing.Point(20, 10);
+            this.contestantWeightInKilogramsInput.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.contestantWeightInKilogramsInput.Name = "contestantWeightInKilogramsInput";
             this.contestantWeightInKilogramsInput.Size = new System.Drawing.Size(80, 21);
             this.contestantWeightInKilogramsInput.TabIndex = 220;
@@ -1243,6 +1248,11 @@
             this.contestantHeightInCentimetersInput.DecimalPlaces = 2;
             this.contestantHeightInCentimetersInput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contestantHeightInCentimetersInput.Location = new System.Drawing.Point(20, 10);
+            this.contestantHeightInCentimetersInput.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.contestantHeightInCentimetersInput.Name = "contestantHeightInCentimetersInput";
             this.contestantHeightInCentimetersInput.Size = new System.Drawing.Size(80, 21);
             this.contestantHeightInCentimetersInput.TabIndex = 219;

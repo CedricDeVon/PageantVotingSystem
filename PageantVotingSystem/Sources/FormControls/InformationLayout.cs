@@ -76,6 +76,7 @@ namespace PageantVotingSystem.Sources.FormControls
             label.Hide();
             loadingTimer.Stop();
             currentLoadingMessageIndex = 0;
+            label.Text = "";
         }
 
         private void Timer_Tick(object sender, EventArgs e)

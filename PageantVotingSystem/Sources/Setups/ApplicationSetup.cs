@@ -106,7 +106,8 @@ namespace PageantVotingSystem.Sources.Setups
                     new AdministerEventJudges(),
                     new AdministerEventLayout(),
                     new AdministerVotingSession(),
-                    new JudgeDashboard()
+                    new JudgeDashboard(),
+                    new JudgeContestantDashboard()
                 },
                 new Background(),
                 new InformationNotFound()

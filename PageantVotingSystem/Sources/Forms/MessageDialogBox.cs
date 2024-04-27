@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace PageantVotingSystem.Sources.Forms
 {
-    public partial class DialogBox : Form
+    public partial class MessageDialogBox : Form
     {
         public string Message
         {
@@ -12,34 +12,36 @@ namespace PageantVotingSystem.Sources.Forms
 
             set { messageLabel.Text = value; }
         }
+        
+        public MessageDialogBox()
+        {
+            SetAttributes();
+        }
 
-        public DialogBox(string message)
+        public MessageDialogBox(string message)
+        {
+            SetAttributes(message);
+        }
+
+        public void ConnectToGoBackButtonClickEvent(EventHandler eventHandler)
+        {
+            okButton.Click += eventHandler;
+        }
+
+        private void Button_Click(object sender, EventArgs e)
+        {
+            if (sender == okButton)
+            {
+                Hide();
+            }
+        }
+
+        private void SetAttributes(string message = "")
         {
             InitializeComponent();
 
             Message = message;
             Hide();
         }
-
-        public void ConnectToConfirmButtonClickEvent(EventHandler eventHandler)
-        {
-            confirmButton.Click += eventHandler;
-        }
-
-        public void ConnectToGoBackButtonClickEvent(EventHandler eventHandler)
-        {
-            goBackButton.Click += eventHandler;
-        }
-
-        private void Button_Click(object sender, EventArgs e)
-        {
-            if (sender == confirmButton ||
-                sender == goBackButton)
-            {
-                Hide();
-            }
-        }
-
-
     }
 }

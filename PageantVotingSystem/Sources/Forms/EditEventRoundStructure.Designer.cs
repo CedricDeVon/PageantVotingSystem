@@ -33,7 +33,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel20 = new System.Windows.Forms.Panel();
             this.panel29 = new System.Windows.Forms.Panel();
-            this.panel30 = new System.Windows.Forms.Panel();
+            this.roundsDataLayoutControl = new System.Windows.Forms.Panel();
             this.panel33 = new System.Windows.Forms.Panel();
             this.panel34 = new System.Windows.Forms.Panel();
             this.panel35 = new System.Windows.Forms.Panel();
@@ -98,7 +98,7 @@
             this.panel4.SuspendLayout();
             this.panel20.SuspendLayout();
             this.panel29.SuspendLayout();
-            this.panel30.SuspendLayout();
+            this.roundsDataLayoutControl.SuspendLayout();
             this.panel34.SuspendLayout();
             this.panel35.SuspendLayout();
             this.panel52.SuspendLayout();
@@ -161,27 +161,28 @@
             // panel29
             // 
             this.panel29.AutoScroll = true;
-            this.panel29.Controls.Add(this.panel30);
+            this.panel29.Controls.Add(this.roundsDataLayoutControl);
             this.panel29.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel29.Location = new System.Drawing.Point(480, 0);
             this.panel29.Name = "panel29";
             this.panel29.Size = new System.Drawing.Size(744, 510);
             this.panel29.TabIndex = 110;
             // 
-            // panel30
+            // roundsDataLayoutControl
             // 
-            this.panel30.Controls.Add(this.panel33);
-            this.panel30.Controls.Add(this.panel34);
-            this.panel30.Controls.Add(this.panel52);
-            this.panel30.Controls.Add(this.panel142);
-            this.panel30.Controls.Add(this.panel140);
-            this.panel30.Controls.Add(this.panel65);
-            this.panel30.Controls.Add(this.panel31);
-            this.panel30.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel30.Location = new System.Drawing.Point(0, 0);
-            this.panel30.Name = "panel30";
-            this.panel30.Size = new System.Drawing.Size(500, 510);
-            this.panel30.TabIndex = 110;
+            this.roundsDataLayoutControl.Controls.Add(this.panel33);
+            this.roundsDataLayoutControl.Controls.Add(this.panel34);
+            this.roundsDataLayoutControl.Controls.Add(this.panel52);
+            this.roundsDataLayoutControl.Controls.Add(this.panel142);
+            this.roundsDataLayoutControl.Controls.Add(this.panel140);
+            this.roundsDataLayoutControl.Controls.Add(this.panel65);
+            this.roundsDataLayoutControl.Controls.Add(this.panel31);
+            this.roundsDataLayoutControl.Dock = System.Windows.Forms.DockStyle.Left;
+            this.roundsDataLayoutControl.Location = new System.Drawing.Point(0, 0);
+            this.roundsDataLayoutControl.Name = "roundsDataLayoutControl";
+            this.roundsDataLayoutControl.Size = new System.Drawing.Size(500, 510);
+            this.roundsDataLayoutControl.TabIndex = 110;
+            this.roundsDataLayoutControl.Visible = false;
             // 
             // panel33
             // 
@@ -857,7 +858,7 @@
             this.panel4.ResumeLayout(false);
             this.panel20.ResumeLayout(false);
             this.panel29.ResumeLayout(false);
-            this.panel30.ResumeLayout(false);
+            this.roundsDataLayoutControl.ResumeLayout(false);
             this.panel34.ResumeLayout(false);
             this.panel35.ResumeLayout(false);
             this.panel35.PerformLayout();
@@ -927,7 +928,7 @@
         private System.Windows.Forms.Panel panel29;
         public System.Windows.Forms.Panel panel18;
         public System.Windows.Forms.Panel roundsLayoutControl;
-        private System.Windows.Forms.Panel panel30;
+        private System.Windows.Forms.Panel roundsDataLayoutControl;
         private System.Windows.Forms.Panel panel31;
         private System.Windows.Forms.Panel panel142;
         private System.Windows.Forms.Panel panel140;

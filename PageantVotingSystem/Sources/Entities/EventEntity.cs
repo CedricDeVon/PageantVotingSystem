@@ -59,7 +59,14 @@ namespace PageantVotingSystem.Sources.Entities
             SetAllAttributes(DateTime.Now.ToString());
             Segments = new GenericOrderedList<SegmentEntity>();
         }
-        
+
+        public EventEntity(int id)
+        {
+            SetAllAttributes(DateTime.Now.ToString());
+            Segments = new GenericOrderedList<SegmentEntity>();
+            Id = id;
+        }
+
         public EventEntity(string name)
         {
             SetAllAttributes(DateTime.Now.ToString());

@@ -222,11 +222,14 @@
     <Compile Include="Sources\Entities\EventLayoutItemEntity.cs" />
     <Compile Include="Sources\Entities\EventLayoutEntity.cs" />
     <Compile Include="Sources\Entities\ContestantResultEntity.cs" />
+    <Compile Include="Sources\Entities\EventLayoutSequenceEntity.cs" />
+    <Compile Include="Sources\Entities\JudgeCriteriumEntity.cs" />
     <Compile Include="Sources\Entities\ResultEntity.cs" />
     <Compile Include="Sources\Entities\RoundEntity.cs" />
     <Compile Include="Sources\Entities\SegmentEntity.cs" />
     <Compile Include="Sources\Entities\UserEntity.cs" />
     <Compile Include="Sources\FeatureCollections\AllButtonItemFeatureCollection.cs" />
+    <Compile Include="Sources\FeatureCollections\RegularItemFeatureCollection.cs" />
     <Compile Include="Sources\FormControls\EventResultItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -310,6 +313,18 @@
     </Compile>
     <Compile Include="Sources\Forms\JudgeDashboard.Designer.cs">
       <DependentUpon>JudgeDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Forms\MessageDialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\MessageDialogBox.Designer.cs">
+      <DependentUpon>MessageDialogBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Forms\JudgeContestantDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\JudgeContestantDashboard.Designer.cs">
+      <DependentUpon>JudgeContestantDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Sources\Forms\AdministerVotingSession.cs">
       <SubType>Form</SubType>
@@ -395,11 +410,11 @@
     <Compile Include="Sources\Forms\EventContestantProfile.Designer.cs">
       <DependentUpon>EventContestantProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sources\Forms\DialogBox.cs">
+    <Compile Include="Sources\Forms\ConfirmationDialogBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sources\Forms\DialogBox.Designer.cs">
-      <DependentUpon>DialogBox.cs</DependentUpon>
+    <Compile Include="Sources\Forms\ConfirmationDialogBox.Designer.cs">
+      <DependentUpon>ConfirmationDialogBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Sources\Forms\EventResults.cs">
       <SubType>Form</SubType>
@@ -550,6 +565,7 @@
     <Compile Include="Sources\Loggers\ApplicationFileLogger.cs" />
     <Compile Include="Sources\Loggers\ConsoleLogger.cs" />
     <Compile Include="Sources\Loggers\FileLogger.cs" />
+    <Compile Include="Sources\Miscellaneous\DateParser.cs" />
     <Compile Include="Sources\Miscellaneous\StringParser.cs" />
     <Compile Include="Sources\ResourceLoaders\ApplicationResourceLoader.cs" />
     <Compile Include="Sources\ResourceLoaders\ResourceData.cs" />
@@ -629,6 +645,12 @@
     <EmbeddedResource Include="Sources\Forms\JudgeDashboard.resx">
       <DependentUpon>JudgeDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sources\Forms\MessageDialogBox.resx">
+      <DependentUpon>MessageDialogBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\Forms\JudgeContestantDashboard.resx">
+      <DependentUpon>JudgeContestantDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sources\Forms\AdministerVotingSession.resx">
       <DependentUpon>AdministerVotingSession.cs</DependentUpon>
     </EmbeddedResource>
@@ -671,8 +693,8 @@
     <EmbeddedResource Include="Sources\Forms\EventContestantProfile.resx">
       <DependentUpon>EventContestantProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\DialogBox.resx">
-      <DependentUpon>DialogBox.cs</DependentUpon>
+    <EmbeddedResource Include="Sources\Forms\ConfirmationDialogBox.resx">
+      <DependentUpon>ConfirmationDialogBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\Forms\EditEventCriteriumStructure.resx">
       <DependentUpon>EditEventCriteriumStructure.cs</DependentUpon>

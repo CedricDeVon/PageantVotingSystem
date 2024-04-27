@@ -97,7 +97,7 @@ namespace PageantVotingSystem.Sources.FormControls
                 }
             }
             OrderedValueItem targetItem = SelectedItem;
-            SelectedItem = (SelectedItem != Items.FirstItem) ?
+            SelectedItem = (SelectedItem != Items.FirstItemValue) ?
                 GenericDoublyLinkedListItem.GetPreviousItemValue<OrderedValueItem>(SelectedItem.Features.GenericItemReference) :
                 GenericDoublyLinkedListItem.GetNextItemValue<OrderedValueItem>(SelectedItem.Features.GenericItemReference);
             DisposeItem(Items.RemoveItem<OrderedValueItem>(targetItem.Features.GenericItemReference));
@@ -113,7 +113,7 @@ namespace PageantVotingSystem.Sources.FormControls
         public void RenderOrdered(string value)
         {
             Items.AddToLast(GenerateItem("0", value).Features.GenericItemReference);
-            GenericDoublyLinkedListItem currentItem = ((OrderedValueItem)Items.LastItem).Features.GenericItemReference;
+            GenericDoublyLinkedListItem currentItem = ((OrderedValueItem)Items.LastItemValue).Features.GenericItemReference;
             while (currentItem != null)
             {
                 OrderedValueItem currentItemValue = (OrderedValueItem)currentItem.Value;

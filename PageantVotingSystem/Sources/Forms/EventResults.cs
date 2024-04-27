@@ -93,7 +93,7 @@ namespace PageantVotingSystem.Sources.Forms
 
         private void QueryResults()
         {
-            List<EventEntity> eventEntities = ApplicationDatabase.ReadManyEvents(
+            List<EventEntity> eventEntities = ApplicationDatabase.ReadManyEventsBasedOnManagerEmail(
                 eventNameInput.Text,
                 eventManagerEmailInput.Text);
             resultCountLabel.Text = $"{eventEntities.Count}";

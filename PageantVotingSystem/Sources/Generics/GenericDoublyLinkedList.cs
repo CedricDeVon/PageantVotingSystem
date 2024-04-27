@@ -5,16 +5,30 @@ namespace PageantVotingSystem.Sources.Generics
     {
         public int Count { get; private set; }
 
-        public object FirstItem
+        public object FirstItemValue
         {
             get { return firstItem.Value; }
 
             private set { }
         }
 
-        public object LastItem
+        public object LastItemValue
         {
             get { return lastItem.Value; }
+
+            private set { }
+        }
+
+        public GenericDoublyLinkedListItem FirstItem
+        {
+            get { return firstItem; }
+
+            private set { }
+        }
+
+        public GenericDoublyLinkedListItem LastItem
+        {
+            get { return lastItem; }
 
             private set { }
         }

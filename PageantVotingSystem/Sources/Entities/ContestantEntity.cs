@@ -2,6 +2,7 @@
 using System;
 
 using PageantVotingSystem.Sources.Configurations;
+using PageantVotingSystem.Sources.Miscellaneous;
 
 namespace PageantVotingSystem.Sources.Entities
 {
@@ -48,6 +49,7 @@ namespace PageantVotingSystem.Sources.Entities
         public ContestantEntity()
         {
             SetAllAttributesToDefault();
+            BirthDate = DateParser.ShortenDate(DateTime.Now);
         }
 
         public ContestantEntity(int id, string full_name, int orderNumber)
@@ -56,6 +58,7 @@ namespace PageantVotingSystem.Sources.Entities
             Id = id;
             FullName = full_name;
             OrderNumber = orderNumber;
+            BirthDate = DateParser.ShortenDate(DateTime.Now);
         }
 
         public override void ClearAllAttributes()

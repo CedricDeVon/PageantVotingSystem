@@ -3,6 +3,8 @@ using System;
 using System.Windows.Forms;
 
 using PageantVotingSystem.Sources.Caches;
+using PageantVotingSystem.Sources.Results;
+using PageantVotingSystem.Sources.Security;
 using PageantVotingSystem.Sources.Entities;
 using PageantVotingSystem.Sources.FormStyles;
 using PageantVotingSystem.Sources.FormControls;
@@ -12,7 +14,7 @@ namespace PageantVotingSystem.Sources.Forms
 {
     public partial class EditEventSegmentStructure : Form
     {
-        private readonly InformationLayout informationBox;
+        private readonly InformationLayout informationLayout;
 
         private readonly TopSideNavigationLayout topSideNavigationLayout;
 
@@ -23,7 +25,7 @@ namespace PageantVotingSystem.Sources.Forms
             InitializeComponent();
 
             ApplicationFormStyle.SetupFormStyles(this);
-            informationBox = new InformationLayout(informationLayoutControl);
+            informationLayout = new InformationLayout(informationLayoutControl);
             topSideNavigationLayout = new TopSideNavigationLayout(topSideNavigationLayoutControl);
             topSideNavigationLayout.HideReloadButton();
             segmentsLayout = new OrderedValueItemLayout(segmentsLayoutControl);
@@ -33,12 +35,20 @@ namespace PageantVotingSystem.Sources.Forms
 
         private void Button_Click(object sender, EventArgs e)
         {
-            informationBox.StartLoadingMessageDisplay();
+            informationLayout.StartLoadingMessageDisplay();
 
             if (sender == saveButton)
             {
+                Result securityResult = ApplicationSecurity.AuthenticateNewEventSegmentsLayout(EditEventCache.Event);
+                if (!securityResult.IsSuccessful)
+                {
+                    informationLayout.DisplayErrorMessage(securityResult.Message);
+                    return;
+                }
+
                 ApplicationFormNavigator.DisplayPrevious();
                 segmentsLayout.Unfocus();
+                segmentsDataLayoutControl.Hide();
                 segmentNameInput.Text = "";
                 segmentDescriptionInput.Text = "";
                 segmentMaximumContestantLimitInput.Value = 0;
@@ -57,17 +67,28 @@ namespace PageantVotingSystem.Sources.Forms
                 EditEventCache.Event.Segments.ClearAllItems();
                 segmentsLayout.Clear();
                 segmentsLayout.Unfocus();
+                segmentsDataLayoutControl.Hide();            
                 segmentCountLabel.Text = "0";
                 segmentNameInput.Text = "";
                 segmentDescriptionInput.Text = "";
                 segmentMaximumContestantLimitInput.Value = 0;
             }
 
-            informationBox.StopLoadingMessageDisplay();
+            informationLayout.StopLoadingMessageDisplay();
         }
 
         private void SegmentsLayoutItem_SingleClick(object sender, EventArgs e)
         {
+            OrderedValueItem b = (OrderedValueItem)sender;
+            if (b.Features.IsToggled)
+            {
+                segmentsDataLayoutControl.Hide();
+            }
+            else
+            {
+                segmentsDataLayoutControl.Show();
+            }
+
             if (segmentsLayout.SelectedItem != null)
             {
                 OrderedValueItem oldOrderedValueItem = segmentsLayout.SelectedItem;
@@ -90,6 +111,7 @@ namespace PageantVotingSystem.Sources.Forms
             OrderedValueItem oldOrderedValueItem = (OrderedValueItem)sender;
             SegmentEntity oldSegment = EditEventCache.Event.Segments.Items[EditEventCache.Event.Segments.ItemCount - Convert.ToInt32(oldOrderedValueItem.OrderedNumber)];
             segmentsLayout.Unfocus();
+            segmentsDataLayoutControl.Hide();
             segmentNameInput.Text = "";
             segmentDescriptionInput.Text = "";
             segmentMaximumContestantLimitInput.Value = 0;
@@ -130,6 +152,7 @@ namespace PageantVotingSystem.Sources.Forms
                     segmentNameInput.Text = "";
                     segmentDescriptionInput.Text = "";
                     segmentMaximumContestantLimitInput.Value = 0;
+                    segmentsDataLayoutControl.Hide();
                 }
                 else
                 {

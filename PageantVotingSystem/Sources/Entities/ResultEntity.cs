@@ -47,6 +47,7 @@ namespace PageantVotingSystem.Sources.Entities
             ResultRemarkType = resultRemarkType;
             ContestantId = contestantId;
             JudgeUserEmail = judgeUserEmail;
+
         }
     }
 }

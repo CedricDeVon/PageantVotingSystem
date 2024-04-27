@@ -15,6 +15,10 @@ namespace PageantVotingSystem.Sources.FeatureCollections
 
         public bool IsDisabled { get; set; }
 
+        public bool AreFocusAnimationsOn { get; set; }
+
+        public bool AreUnfocusAnimationsOn { get; set; }
+
         public object FormControl { get; private set; }
 
         public Panel ParentControl { get; private set; }
@@ -52,6 +56,8 @@ namespace PageantVotingSystem.Sources.FeatureCollections
             doubleClickDelayTimer = new Timer { Interval = 200 };
             doubleClickDelayTimer.Tick += new EventHandler(Timer_Tick);
             ParentControl.Controls.Add(itemControl);
+            AreFocusAnimationsOn = true;
+            AreUnfocusAnimationsOn = true;
         }
 
         public void Toggle()

@@ -3,6 +3,9 @@ using System;
 using System.Windows.Forms;
 
 using PageantVotingSystem.Sources.Caches;
+using PageantVotingSystem.Sources.Results;
+using PageantVotingSystem.Sources.Entities;
+using PageantVotingSystem.Sources.Security;
 using PageantVotingSystem.Sources.FormStyles;
 using PageantVotingSystem.Sources.FormControls;
 using PageantVotingSystem.Sources.FormNavigators;
@@ -11,7 +14,7 @@ namespace PageantVotingSystem.Sources.Forms
 {
     public partial class EditEventProfile : Form
     {
-        private readonly InformationLayout informationBox;
+        private readonly InformationLayout informationLayout;
 
         private readonly TopSideNavigationLayout topSideNavigationLayout;
 
@@ -22,7 +25,7 @@ namespace PageantVotingSystem.Sources.Forms
             InitializeComponent();
 
             ApplicationFormStyle.SetupFormStyles(this);
-            informationBox = new InformationLayout(informationLayoutControl);
+            informationLayout = new InformationLayout(informationLayoutControl);
             topSideNavigationLayout = new TopSideNavigationLayout(
                 topSideNavigationLayoutControl);
             topSideNavigationLayout.HideReloadButton();
@@ -33,11 +36,18 @@ namespace PageantVotingSystem.Sources.Forms
 
         private void Button_Click(object sender, EventArgs e)
         {
-            informationBox.StartLoadingMessageDisplay();
+            informationLayout.StartLoadingMessageDisplay();
 
             if (sender == saveButton)
             {
                 UpdateCache();
+                Result securityResult = ApplicationSecurity.AuthenticateNewEventProfile(EditEventCache.Event);
+                if (!securityResult.IsSuccessful)
+                {
+                    informationLayout.DisplayErrorMessage(securityResult.Message);
+                    return;
+                }
+
                 ApplicationFormNavigator.DisplayPrevious();
             }
             else if (sender == resetButton)
@@ -46,10 +56,10 @@ namespace PageantVotingSystem.Sources.Forms
                 ClearInputs();
             }
 
-            informationBox.StopLoadingMessageDisplay();
+            informationLayout.StopLoadingMessageDisplay();
         }
 
-        private void Form_VisibleChanged(object sender, EventArgs e)
+        public void Render()
         {
             UpdateInputs();
         }
@@ -73,7 +83,7 @@ namespace PageantVotingSystem.Sources.Forms
         private void UpdateCache()
         {
             SetCache(
-                DateTime.Now.ToString(),
+                scheduledData.Text,
                 name.Text,
                 hostAddress.Text,
                 description.Text,

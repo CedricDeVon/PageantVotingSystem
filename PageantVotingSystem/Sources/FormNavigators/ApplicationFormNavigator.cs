@@ -131,6 +131,7 @@ namespace PageantVotingSystem.Sources.FormNavigators
 
         public static void DisplayEditEventProfileForm()
         {
+            ((EditEventProfile)GetForm("EditEventProfile")).Render();
             DisplayNext("EditEventProfile");
         }
 
@@ -270,6 +271,12 @@ namespace PageantVotingSystem.Sources.FormNavigators
         public static void DisplayJudgeDashboardForm()
         {
             DisplayNext("JudgeDashboard");
+        }
+
+        public static void DisplayJudgeContestantDashboardForm(EventEntity eventEntity, ContestantEntity contestantEntity)
+        {
+            ((JudgeContestantDashboard)GetForm("JudgeContestantDashboard")).Render(eventEntity, contestantEntity);
+            DisplayNext("JudgeContestantDashboard");
         }
 
         public static void DisplayManagerOrJudgeDashboardForm(string userRoleType)

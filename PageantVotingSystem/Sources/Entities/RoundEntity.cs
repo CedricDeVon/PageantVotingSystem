@@ -50,7 +50,14 @@ namespace PageantVotingSystem.Sources.Entities
             SetAllAttributes();
             Criteria = new GenericOrderedList<CriteriumEntity>();
         }
-        
+
+        public RoundEntity(int id)
+        {
+            SetAllAttributes();
+            Criteria = new GenericOrderedList<CriteriumEntity>();
+            Id = id;
+        }
+
         public RoundEntity(string name)
         {
             SetAllAttributes();

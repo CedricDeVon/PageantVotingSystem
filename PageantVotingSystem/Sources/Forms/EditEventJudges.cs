@@ -5,6 +5,8 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 
 using PageantVotingSystem.Sources.Caches;
+using PageantVotingSystem.Sources.Results;
+using PageantVotingSystem.Sources.Security;
 using PageantVotingSystem.Sources.Databases;
 using PageantVotingSystem.Sources.FormStyles;
 using PageantVotingSystem.Sources.FormControls;
@@ -37,8 +39,17 @@ namespace PageantVotingSystem.Sources.Forms
 
         private void Button_Click(object sender, EventArgs e)
         {
+            informationLayout.StartLoadingMessageDisplay();
+
             if (sender == saveButton)
             {
+                Result securityResult = ApplicationSecurity.AuthenticateNewEventJudges(EditEventCache.Judges);
+                if (!securityResult.IsSuccessful)
+                {
+                    informationLayout.DisplayErrorMessage(securityResult.Message);
+                    return;
+                }
+
                 ApplicationFormNavigator.DisplayPrevious();
                 selectedJudgesLayout.Unfocus();
             }
@@ -54,6 +65,8 @@ namespace PageantVotingSystem.Sources.Forms
                 judgeQueryResultCountLabel.Text = "0";
                 selectedJudgesCountLabel.Text = "0";
             }
+
+            informationLayout.StopLoadingMessageDisplay();
         }
 
         private void JudgeQueryLayoutItem_SingleClick(object sender, EventArgs e)

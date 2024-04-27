@@ -52,7 +52,14 @@ namespace PageantVotingSystem.Sources.Entities
             SetAllAttributes();
             Rounds = new GenericOrderedList<RoundEntity>();
         }
-        
+
+        public SegmentEntity(int id)
+        {
+            SetAllAttributes();
+            Rounds = new GenericOrderedList<RoundEntity>();
+            Id = id;
+        }
+
         public SegmentEntity(string name)
         {
             SetAllAttributes();

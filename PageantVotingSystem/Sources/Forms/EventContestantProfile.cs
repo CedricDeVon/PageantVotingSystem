@@ -8,6 +8,7 @@ using PageantVotingSystem.Sources.FormNavigators;
 using PageantVotingSystem.Sources.Configurations;
 using PageantVotingSystem.Sources.Entities;
 using PageantVotingSystem.Sources.ResourceLoaders;
+using PageantVotingSystem.Sources.Miscellaneous;
 
 namespace PageantVotingSystem.Sources.Forms
 {
@@ -34,6 +35,7 @@ namespace PageantVotingSystem.Sources.Forms
             phoneNumberLabel.Text = contestantEntity.PhoneNumber;
             homeAddressLabel.Text = contestantEntity.HomeAddress;
             birthDateLabel.Text = contestantEntity.BirthDate;
+            ageLabel.Text = $"{DateParser.CalculateAge(contestantEntity.BirthDate)}";
             genderLabel.Text = contestantEntity.GenderType;
             maritalStatusLabel.Text = contestantEntity.MaritalStatusType;
             heightLabel.Text = $"{contestantEntity.HeightInCentimeters}";
@@ -55,6 +57,7 @@ namespace PageantVotingSystem.Sources.Forms
             phoneNumberLabel.Text = "";
             homeAddressLabel.Text = "";
             birthDateLabel.Text = "";
+            ageLabel.Text = "";
             genderLabel.Text = "";
             maritalStatusLabel.Text = "";
             heightLabel.Text = "";

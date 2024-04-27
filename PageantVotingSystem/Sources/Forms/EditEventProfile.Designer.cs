@@ -808,7 +808,6 @@ namespace PageantVotingSystem.Sources.Forms
             this.Name = "EditEventProfile";
             this.Text = "Pageant Voting System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.VisibleChanged += new System.EventHandler(this.Form_VisibleChanged);
             this.panel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
