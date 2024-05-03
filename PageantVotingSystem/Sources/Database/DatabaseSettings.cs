@@ -19,9 +19,9 @@ namespace PageantVotingSystem.Sources.Databases
 
         public string SetupFilePath { get; private set; }
 
-        public string ConnectionString { get; private set; }
+        public string CompleteConnectionString { get; private set; }
 
-        public string BaseConnectionString { get; private set; }
+        public string SimplifiedConnectionString { get; private set; }
 
         public DatabaseSettings(
             string hostName,
@@ -53,7 +53,7 @@ namespace PageantVotingSystem.Sources.Databases
             HostName = settings.HostName;
             PortNumber = settings.PortNumber;
             UserName = settings.UserName;
-            ConnectionString = settings.ConnectionString;
+            CompleteConnectionString = settings.CompleteConnectionString;
         }
 
         private void SetDeafultAttributes(
@@ -70,13 +70,13 @@ namespace PageantVotingSystem.Sources.Databases
 
         private void GenerateConnectionString(string stringBuffer)
         {
-            BaseConnectionString = $"server={HostName};";
-            BaseConnectionString += $"port={PortNumber};";
-            BaseConnectionString += $"uid={UserName};";
-            BaseConnectionString += (!string.IsNullOrEmpty(DatabaseName)) ?
+            SimplifiedConnectionString = $"server={HostName};";
+            SimplifiedConnectionString += $"port={PortNumber};";
+            SimplifiedConnectionString += $"uid={UserName};";
+            SimplifiedConnectionString += (!string.IsNullOrEmpty(DatabaseName)) ?
                 $"database={DatabaseName};" : "";
-            ConnectionString = BaseConnectionString;
-            ConnectionString += $"pwd={stringBuffer};";
+            CompleteConnectionString = SimplifiedConnectionString;
+            CompleteConnectionString += $"pwd={stringBuffer};";
         }
     }
 }

@@ -11,8 +11,14 @@ namespace PageantVotingSystem.Sources.FeatureCollections
     {
         private readonly List<Button> itemButtons;
 
-        public AllButtonItemFeatureCollection(object formControl, Panel parentControl, Panel itemControl, List<Button> buttons = default) :
-            base(formControl, parentControl, itemControl)
+        public AllButtonItemFeatureCollection(
+            object formControl,
+            Panel parentControl,
+            Panel itemControl,
+            List<Button> buttons = null) :
+            base(formControl,
+                parentControl,
+                itemControl)
         {
             itemButtons = buttons ?? new List<Button>();
         }

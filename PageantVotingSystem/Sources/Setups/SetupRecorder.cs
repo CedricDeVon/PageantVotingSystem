@@ -22,20 +22,6 @@ namespace PageantVotingSystem.Sources.Setups
             data.Remove(key);
         }
 
-        public static void SetToTrue(object key)
-        {
-            ThrowIfNotFound(key);
-
-            data[key] = true;
-        }
-
-        public static void SetToFalse(object key)
-        {
-            ThrowIfNotSetup(key);
-
-            data[key] = false;
-        }
-
         public static void ThrowIfAlreadySetup(object key)
         {
             if (data.ContainsKey(key) && data[key])

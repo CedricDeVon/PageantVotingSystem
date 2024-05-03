@@ -28,7 +28,6 @@ namespace PageantVotingSystem.Sources.Forms
             ApplicationFormStyle.SetupFormStyles(this);
             informationLayout = new InformationLayout(informationLayoutControl);
             topSideNavigationLayout = new TopSideNavigationLayout(topSideNavigationLayoutControl);
-            topSideNavigationLayout.HideReloadButton();
             roundsLayout = new OrderedValueItemLayout(roundsLayoutControl);
             roundsLayout.ItemSingleClick += new EventHandler(RoundsLayoutItem_SingleClick);
             roundsLayout.ItemDoubleClick += new EventHandler(RoundsLayoutItem_DoubleClick);
@@ -41,7 +40,7 @@ namespace PageantVotingSystem.Sources.Forms
             roundNameInput.Text = "";
             roundDescriptionInput.Text = "";
             roundCountLabel.Text = $"{segmentEntity.Rounds.Items.Count}";
-            roundsLayout.RenderOrdered(segmentEntity.RoundNamesInReverseOrder);
+            roundsLayout.Render(segmentEntity.RoundNamesInReverseOrder);
             roundsLayout.Unfocus();
             roundsDataLayoutControl.Hide();
         }
@@ -50,16 +49,9 @@ namespace PageantVotingSystem.Sources.Forms
         {
             informationLayout.StartLoadingMessageDisplay();
 
-            if (sender == roundSaveButton)
+            if (sender == goBackButton)
             {
-                Result securityResult = ApplicationSecurity.AuthenticateNewEventRoundLayout(currentSegmentEntity);
-                if (!securityResult.IsSuccessful)
-                {
-                    informationLayout.DisplayErrorMessage(securityResult.Message);
-                    return;
-                }
-
-                ApplicationFormNavigator.DisplayPrevious();
+                ApplicationFormNavigator.DisplayPreviousForm();
                 roundsLayout.Unfocus();
                 roundsLayout.Hide();
                 roundsDataLayoutControl.Hide();
@@ -72,7 +64,7 @@ namespace PageantVotingSystem.Sources.Forms
                 RoundEntity roundEntity = new RoundEntity();
                 roundEntity.Name = roundName;
                 currentSegmentEntity.Rounds.AddNewItem(roundEntity);
-                roundsLayout.RenderOrdered(roundName);
+                roundsLayout.Render(roundName);
                 roundCountLabel.Text = $"{currentSegmentEntity.Rounds.ItemCount}";
             }
             else if (sender == roundResetButton)
@@ -170,6 +162,12 @@ namespace PageantVotingSystem.Sources.Forms
                     roundDescriptionInput.Text = newRound.Description;
                 }
 
+                e.Handled = true;
+            }
+
+            if (e.KeyData == Keys.Escape)
+            {
+                ApplicationFormNavigator.DisplayPreviousForm();
                 e.Handled = true;
             }
         }

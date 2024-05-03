@@ -11,6 +11,7 @@ using PageantVotingSystem.Sources.Databases;
 using PageantVotingSystem.Sources.FormStyles;
 using PageantVotingSystem.Sources.FormControls;
 using PageantVotingSystem.Sources.FormNavigators;
+using PageantVotingSystem.Sources.Entities;
 
 namespace PageantVotingSystem.Sources.Forms
 {
@@ -31,7 +32,6 @@ namespace PageantVotingSystem.Sources.Forms
             ApplicationFormStyle.SetupFormStyles(this);
             informationLayout = new InformationLayout(informationLayoutControl);
             topSideNavigationLayout = new TopSideNavigationLayout(topSideNavigationLayoutControl);
-            topSideNavigationLayout.HideReloadButton();
             judgeQueryLayout = new SingleValuedItemLayout(judgeQueryLayoutControl);
             judgeQueryLayout.ItemSingleClick += new EventHandler(JudgeQueryLayoutItem_SingleClick);
             selectedJudgesLayout = new OrderedValueItemLayout(selectedJudgeLayoutControl);
@@ -41,29 +41,26 @@ namespace PageantVotingSystem.Sources.Forms
         {
             informationLayout.StartLoadingMessageDisplay();
 
-            if (sender == saveButton)
+            if (sender == goBackButton)
             {
-                Result securityResult = ApplicationSecurity.AuthenticateNewEventJudges(EditEventCache.Judges);
-                if (!securityResult.IsSuccessful)
-                {
-                    informationLayout.DisplayErrorMessage(securityResult.Message);
-                    return;
-                }
-
-                ApplicationFormNavigator.DisplayPrevious();
+                ApplicationFormNavigator.DisplayPreviousForm();
+                enterJudgeEmailQueryInput.Text = "";
+                judgeQueryResultCountLabel.Text = "0";
+                selectedJudgesCountLabel.Text = "0";
+                judgeQueryLayout.Clear();
+                selectedJudgesLayout.Clear();
                 selectedJudgesLayout.Unfocus();
             }
             else if (sender == resetButton)
             {
-                EditEventCache.Judges.ClearAllItems();
-
-                judgeQueryLayout.Clear();
-                selectedJudgesLayout.Clear();
-                selectedJudgesLayout.Unfocus();
+                EditEventCache.JudgeEntities.ClearAllItems();
 
                 enterJudgeEmailQueryInput.Text = "";
                 judgeQueryResultCountLabel.Text = "0";
                 selectedJudgesCountLabel.Text = "0";
+                judgeQueryLayout.Clear();
+                selectedJudgesLayout.Clear();
+                selectedJudgesLayout.Unfocus();
             }
 
             informationLayout.StopLoadingMessageDisplay();
@@ -74,14 +71,12 @@ namespace PageantVotingSystem.Sources.Forms
             if (judgeQueryLayout.SelectedItem != null)
             {
                 string judgeEmail = judgeQueryLayout.SelectedItem.Value;
+                EditEventCache.JudgeEntities.AddNewItem(judgeEmail);
                 judgeQueryLayout.Clear();
-
-                EditEventCache.Judges.AddNewItem(judgeEmail);
-                selectedJudgesLayout.RenderOrdered(judgeEmail);
-                
+                selectedJudgesLayout.Render(judgeEmail);                
                 enterJudgeEmailQueryInput.Text = "";
                 judgeQueryResultCountLabel.Text = $"{judgeQueryLayout.Items.Count}";
-                selectedJudgesCountLabel.Text = $"{EditEventCache.Judges.ItemCount}";
+                selectedJudgesCountLabel.Text = $"{EditEventCache.JudgeEntities.ItemCount}";
             }
         }
 
@@ -107,46 +102,60 @@ namespace PageantVotingSystem.Sources.Forms
 
         private void Form_KeyDown(object sender, KeyEventArgs e)
         {
-            if (selectedJudgesLayout.SelectedItem == null)
+            if (selectedJudgesLayout.SelectedItem != null && e.KeyCode == Keys.NumPad8)
             {
-                return;
-            }
-
-            if (e.KeyCode == Keys.NumPad8)
-            {
-                EditEventCache.Judges.MoveItemAtIndexUpwards(CalculateSelectedJudgeItemLayoutIndex());
+                EditEventCache.JudgeEntities.MoveItemAtIndexUpwards(CalculateSelectedJudgeItemLayoutIndex());
                 selectedJudgesLayout.MoveSelectedUpwards();
 
                 e.Handled = true;
             }
-            else if (e.KeyCode == Keys.NumPad2)
+            else if (selectedJudgesLayout.SelectedItem != null && e.KeyCode == Keys.NumPad2)
             {
-                EditEventCache.Judges.MoveItemAtIndexDownwards(CalculateSelectedJudgeItemLayoutIndex());
+                EditEventCache.JudgeEntities.MoveItemAtIndexDownwards(CalculateSelectedJudgeItemLayoutIndex());
                 selectedJudgesLayout.MoveSelectedDownwards();
 
                 e.Handled = true;
             }
-            else if (e.KeyCode == Keys.Delete)
+            else if (selectedJudgesLayout.SelectedItem != null && e.KeyCode == Keys.Delete)
             {
-                EditEventCache.Judges.RemoveItemAtIndex(CalculateSelectedJudgeItemLayoutIndex());
+                EditEventCache.JudgeEntities.RemoveItemAtIndex(CalculateSelectedJudgeItemLayoutIndex());
                 selectedJudgesLayout.RemoveSelected();
                 selectedJudgesLayout.Unfocus();
 
-                selectedJudgesCountLabel.Text = $"{EditEventCache.Judges.ItemCount}";
-                
+                selectedJudgesCountLabel.Text = $"{EditEventCache.JudgeEntities.ItemCount}";
+                e.Handled = true;
+            }
+
+            if (e.KeyData == Keys.Escape)
+            {
+                ApplicationFormNavigator.DisplayPreviousForm();
                 e.Handled = true;
             }
         }
 
+        public void Render()
+        {
+            judgeQueryLayout.Clear();
+            selectedJudgesLayout.Clear();
+            for (int orderdNumber = EditEventCache.JudgeEntities.Items.Count; orderdNumber > 0; orderdNumber--)
+            {
+                string judgeEntity = EditEventCache.JudgeEntities.Items[EditEventCache.JudgeEntities.Items.Count - orderdNumber];
+                selectedJudgesLayout.Render($"{orderdNumber}", judgeEntity, judgeEntity);
+            }
+            enterJudgeEmailQueryInput.Text = "";
+            judgeQueryResultCountLabel.Text = $"0";
+            selectedJudgesCountLabel.Text = $"{EditEventCache.JudgeEntities.ItemCount}";
+        }
+
         private int CalculateSelectedJudgeItemLayoutIndex()
         {;
-            return EditEventCache.Judges.ItemCount - Convert.ToInt32(selectedJudgesLayout.SelectedItem.OrderedNumber);
+            return EditEventCache.JudgeEntities.ItemCount - Convert.ToInt32(selectedJudgesLayout.SelectedItem.OrderedNumber);
         }
 
         private List<string> ReadManyUniqueJudgeEmails()
         {
             List<string> keywords = enterJudgeEmailQueryInput.Text.Split(new char[] { ',' }).ToList();
-            return ApplicationDatabase.ReadManyUniqueJudgeEmails(keywords, EditEventCache.Judges.Items.ToHashSet());
+            return ApplicationDatabase.ReadManyUniqueJudgeEmails(keywords, EditEventCache.JudgeEntities.Items.ToHashSet());
         }
     }
 }

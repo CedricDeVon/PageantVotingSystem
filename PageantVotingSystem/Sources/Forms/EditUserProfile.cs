@@ -1,10 +1,11 @@
 ﻿
 using System;
 using System.Drawing;
-using System.ComponentModel;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 using PageantVotingSystem.Sources.Caches;
+using PageantVotingSystem.Sources.Loggers;
 using PageantVotingSystem.Sources.Entities;
 using PageantVotingSystem.Sources.Databases;
 using PageantVotingSystem.Sources.FormStyles;
@@ -17,7 +18,7 @@ namespace PageantVotingSystem.Sources.Forms
 {
     public partial class EditUserProfile : Form
     {
-        public InformationLayout InformationLayout { get; private set; }
+        private readonly InformationLayout informationLayout;
      
         private readonly TopSideNavigationLayout topSideNavigationLayout;
 
@@ -26,11 +27,64 @@ namespace PageantVotingSystem.Sources.Forms
             InitializeComponent();
 
             ApplicationFormStyle.SetupFormStyles(this);
-            InformationLayout = new InformationLayout(informationLayoutControl);
+            informationLayout = new InformationLayout(informationLayoutControl);
             topSideNavigationLayout = new TopSideNavigationLayout(topSideNavigationLayoutControl);
-            topSideNavigationLayout.HideReloadButton();
             topSideNavigationLayout.HideEditUserProfileButton();
             topSideNavigationLayout.HideAboutButton();
+        }
+
+        private void Button_Click(object sender, EventArgs e)
+        {
+            if (sender == goBackButton)
+            {
+                DisplayPreviousForm();
+            }
+            else if (sender == signOutButton)
+            {
+                LogOutAndDisplayStartingMenuForm();
+            }
+            else if (sender == userProfileImageInput)
+            {
+                userImageProfileFileDialog.ShowDialog(this);
+            }
+        }
+
+        private void Form_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Escape)
+            {
+                DisplayPreviousForm();
+                e.Handled = true;
+            }
+        }
+
+        private void OpenFileDialog_FileOk(object sender, CancelEventArgs e)
+        {
+            if (sender == userImageProfileFileDialog)
+            {
+                SetupPictureBox(userImageProfileFileDialog.FileName);
+            }
+        }
+
+        private void DisplayPreviousForm()
+        {
+            informationLayout.StartLoadingMessageDisplay();
+
+            ApplicationFormNavigator.DisplayPreviousForm();
+            UpdateOldUser();
+
+            informationLayout.StopLoadingMessageDisplay();
+        }
+
+        private void LogOutAndDisplayStartingMenuForm()
+        {
+            informationLayout.StartLoadingMessageDisplay();
+
+            ApplicationLogger.LogInformationMessage($"'EditUserProfile' user '{UserProfileCache.Data.Email}' loged out");
+            UserProfileCache.Clear();
+            ApplicationFormNavigator.LogOut();
+
+            informationLayout.StopLoadingMessageDisplay();
         }
 
         public void Render()
@@ -47,7 +101,7 @@ namespace PageantVotingSystem.Sources.Forms
                 UserProfileCache.Data.Description);
         }
 
-        private void UpdateCache()
+        private void UpdateOldUser()
         {
             UserEntity entity = new UserEntity(
                 userEmailLabel.Text,
@@ -80,35 +134,6 @@ namespace PageantVotingSystem.Sources.Forms
                 userProfileImageInput.Size.Height);
             userProfileImageInput.Image = ApplicationResourceLoader.SafeLoadResource(
                 StringParser.StandardizeFilePath(fileName));
-        }
-
-        private void Button_Click(object sender, EventArgs e)
-        {
-            InformationLayout.StartLoadingMessageDisplay();
-
-            if (sender == saveButton)
-            {
-                UpdateCache();
-                ApplicationFormNavigator.DisplayPrevious();
-            }
-            else if (sender == signOutButton)
-            {
-                ApplicationFormNavigator.LogOut();
-            }
-            else if (sender == userProfileImageInput)
-            {
-                userImageProfileFileDialog.ShowDialog(this);
-            }
-
-            InformationLayout.StopLoadingMessageDisplay();
-        }
-
-        private void OpenFileDialog_FileOk(object sender, CancelEventArgs e)
-        {
-            if (sender == userImageProfileFileDialog)
-            {
-                SetupPictureBox(userImageProfileFileDialog.FileName);
-            }
         }
     }
 }

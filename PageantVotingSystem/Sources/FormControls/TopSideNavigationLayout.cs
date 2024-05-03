@@ -31,6 +31,7 @@ namespace PageantVotingSystem.Sources.FormControls
             InitializeComponent();
             this.parentControl = parentControl;
             this.parentControl.Controls.Add(control);
+            reloadButton.Hide();
         }
 
         public void HideEditUserProfileButton()

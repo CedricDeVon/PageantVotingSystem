@@ -23,7 +23,6 @@ namespace PageantVotingSystem.Sources.Forms
             topSideNavigationLayout = new TopSideNavigationLayout(panel11);
             topSideNavigationLayout.HideEditUserProfileButton();
             topSideNavigationLayout.HideAboutButton();
-            topSideNavigationLayout.HideReloadButton();
 
             ApplicationFormNavigator.ListenToFormKeyDownEvent(this);
         }
@@ -32,7 +31,7 @@ namespace PageantVotingSystem.Sources.Forms
         {
             if (sender == button8)
             {
-                ApplicationFormNavigator.DisplayPrevious();
+                ApplicationFormNavigator.DisplayPreviousForm();
             }
         }
     }

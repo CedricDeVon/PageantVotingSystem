@@ -35,17 +35,6 @@
             this.panel29 = new System.Windows.Forms.Panel();
             this.panel24 = new System.Windows.Forms.Panel();
             this.segmentsDataLayoutControl = new System.Windows.Forms.Panel();
-            this.panel48 = new System.Windows.Forms.Panel();
-            this.panel50 = new System.Windows.Forms.Panel();
-            this.panel51 = new System.Windows.Forms.Panel();
-            this.panel88 = new System.Windows.Forms.Panel();
-            this.segmentMaximumContestantLimitInput = new System.Windows.Forms.NumericUpDown();
-            this.panel89 = new System.Windows.Forms.Panel();
-            this.panel90 = new System.Windows.Forms.Panel();
-            this.panel91 = new System.Windows.Forms.Panel();
-            this.panel92 = new System.Windows.Forms.Panel();
-            this.panel68 = new System.Windows.Forms.Panel();
-            this.label17 = new System.Windows.Forms.Label();
             this.panel33 = new System.Windows.Forms.Panel();
             this.panel34 = new System.Windows.Forms.Panel();
             this.panel35 = new System.Windows.Forms.Panel();
@@ -83,7 +72,7 @@
             this.panel23 = new System.Windows.Forms.Panel();
             this.panel44 = new System.Windows.Forms.Panel();
             this.resetButton = new System.Windows.Forms.Button();
-            this.saveButton = new System.Windows.Forms.Button();
+            this.goBackButton = new System.Windows.Forms.Button();
             this.panel26 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.panel19 = new System.Windows.Forms.Panel();
@@ -109,11 +98,6 @@
             this.panel20.SuspendLayout();
             this.panel29.SuspendLayout();
             this.segmentsDataLayoutControl.SuspendLayout();
-            this.panel50.SuspendLayout();
-            this.panel51.SuspendLayout();
-            this.panel88.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.segmentMaximumContestantLimitInput)).BeginInit();
-            this.panel68.SuspendLayout();
             this.panel34.SuspendLayout();
             this.panel35.SuspendLayout();
             this.panel52.SuspendLayout();
@@ -194,9 +178,6 @@
             // 
             // segmentsDataLayoutControl
             // 
-            this.segmentsDataLayoutControl.Controls.Add(this.panel48);
-            this.segmentsDataLayoutControl.Controls.Add(this.panel50);
-            this.segmentsDataLayoutControl.Controls.Add(this.panel68);
             this.segmentsDataLayoutControl.Controls.Add(this.panel33);
             this.segmentsDataLayoutControl.Controls.Add(this.panel34);
             this.segmentsDataLayoutControl.Controls.Add(this.panel52);
@@ -210,116 +191,6 @@
             this.segmentsDataLayoutControl.Size = new System.Drawing.Size(500, 512);
             this.segmentsDataLayoutControl.TabIndex = 110;
             this.segmentsDataLayoutControl.Visible = false;
-            // 
-            // panel48
-            // 
-            this.panel48.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel48.Location = new System.Drawing.Point(0, 250);
-            this.panel48.Name = "panel48";
-            this.panel48.Size = new System.Drawing.Size(440, 20);
-            this.panel48.TabIndex = 220;
-            // 
-            // panel50
-            // 
-            this.panel50.Controls.Add(this.panel51);
-            this.panel50.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel50.Location = new System.Drawing.Point(0, 210);
-            this.panel50.Name = "panel50";
-            this.panel50.Size = new System.Drawing.Size(440, 40);
-            this.panel50.TabIndex = 219;
-            // 
-            // panel51
-            // 
-            this.panel51.Controls.Add(this.panel88);
-            this.panel51.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel51.Location = new System.Drawing.Point(0, 0);
-            this.panel51.Name = "panel51";
-            this.panel51.Size = new System.Drawing.Size(440, 40);
-            this.panel51.TabIndex = 113;
-            // 
-            // panel88
-            // 
-            this.panel88.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(219)))), ((int)(((byte)(175)))));
-            this.panel88.Controls.Add(this.segmentMaximumContestantLimitInput);
-            this.panel88.Controls.Add(this.panel89);
-            this.panel88.Controls.Add(this.panel90);
-            this.panel88.Controls.Add(this.panel91);
-            this.panel88.Controls.Add(this.panel92);
-            this.panel88.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel88.Location = new System.Drawing.Point(0, 0);
-            this.panel88.MaximumSize = new System.Drawing.Size(100, 40);
-            this.panel88.Name = "panel88";
-            this.panel88.Size = new System.Drawing.Size(100, 40);
-            this.panel88.TabIndex = 214;
-            // 
-            // segmentMaximumContestantLimitInput
-            // 
-            this.segmentMaximumContestantLimitInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(219)))), ((int)(((byte)(175)))));
-            this.segmentMaximumContestantLimitInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.segmentMaximumContestantLimitInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.segmentMaximumContestantLimitInput.Location = new System.Drawing.Point(20, 10);
-            this.segmentMaximumContestantLimitInput.Name = "segmentMaximumContestantLimitInput";
-            this.segmentMaximumContestantLimitInput.Size = new System.Drawing.Size(60, 21);
-            this.segmentMaximumContestantLimitInput.TabIndex = 220;
-            this.segmentMaximumContestantLimitInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.segmentMaximumContestantLimitInput.ThousandsSeparator = true;
-            // 
-            // panel89
-            // 
-            this.panel89.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel89.Location = new System.Drawing.Point(20, 30);
-            this.panel89.MaximumSize = new System.Drawing.Size(0, 10);
-            this.panel89.Name = "panel89";
-            this.panel89.Size = new System.Drawing.Size(60, 10);
-            this.panel89.TabIndex = 4;
-            // 
-            // panel90
-            // 
-            this.panel90.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel90.Location = new System.Drawing.Point(20, 0);
-            this.panel90.MaximumSize = new System.Drawing.Size(0, 10);
-            this.panel90.Name = "panel90";
-            this.panel90.Size = new System.Drawing.Size(60, 10);
-            this.panel90.TabIndex = 3;
-            // 
-            // panel91
-            // 
-            this.panel91.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel91.Location = new System.Drawing.Point(80, 0);
-            this.panel91.Name = "panel91";
-            this.panel91.Size = new System.Drawing.Size(20, 40);
-            this.panel91.TabIndex = 2;
-            // 
-            // panel92
-            // 
-            this.panel92.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel92.Location = new System.Drawing.Point(0, 0);
-            this.panel92.Name = "panel92";
-            this.panel92.Size = new System.Drawing.Size(20, 40);
-            this.panel92.TabIndex = 1;
-            // 
-            // panel68
-            // 
-            this.panel68.Controls.Add(this.label17);
-            this.panel68.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel68.Location = new System.Drawing.Point(0, 180);
-            this.panel68.Name = "panel68";
-            this.panel68.Size = new System.Drawing.Size(440, 30);
-            this.panel68.TabIndex = 218;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label17.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.label17.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.label17.Location = new System.Drawing.Point(0, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(180, 19);
-            this.label17.TabIndex = 23;
-            this.label17.Text = "Maximum Contestant Limit";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel33
             // 
@@ -690,7 +561,7 @@
             // panel44
             // 
             this.panel44.Controls.Add(this.resetButton);
-            this.panel44.Controls.Add(this.saveButton);
+            this.panel44.Controls.Add(this.goBackButton);
             this.panel44.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel44.Location = new System.Drawing.Point(20, 60);
             this.panel44.MaximumSize = new System.Drawing.Size(0, 40);
@@ -719,25 +590,25 @@
             this.resetButton.UseVisualStyleBackColor = false;
             this.resetButton.Click += new System.EventHandler(this.Button_Click);
             // 
-            // saveButton
+            // goBackButton
             // 
-            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.saveButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.saveButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.saveButton.FlatAppearance.BorderSize = 0;
-            this.saveButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.saveButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
-            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.Location = new System.Drawing.Point(0, 0);
-            this.saveButton.MaximumSize = new System.Drawing.Size(200, 40);
-            this.saveButton.MinimumSize = new System.Drawing.Size(200, 40);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(200, 40);
-            this.saveButton.TabIndex = 36;
-            this.saveButton.Text = "Save";
-            this.saveButton.UseVisualStyleBackColor = false;
-            this.saveButton.Click += new System.EventHandler(this.Button_Click);
+            this.goBackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.goBackButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.goBackButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.goBackButton.FlatAppearance.BorderSize = 0;
+            this.goBackButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.goBackButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
+            this.goBackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.goBackButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.goBackButton.Location = new System.Drawing.Point(0, 0);
+            this.goBackButton.MaximumSize = new System.Drawing.Size(200, 40);
+            this.goBackButton.MinimumSize = new System.Drawing.Size(200, 40);
+            this.goBackButton.Name = "goBackButton";
+            this.goBackButton.Size = new System.Drawing.Size(200, 40);
+            this.goBackButton.TabIndex = 36;
+            this.goBackButton.Text = "Go Back";
+            this.goBackButton.UseVisualStyleBackColor = false;
+            this.goBackButton.Click += new System.EventHandler(this.Button_Click);
             // 
             // panel26
             // 
@@ -969,12 +840,6 @@
             this.panel20.ResumeLayout(false);
             this.panel29.ResumeLayout(false);
             this.segmentsDataLayoutControl.ResumeLayout(false);
-            this.panel50.ResumeLayout(false);
-            this.panel51.ResumeLayout(false);
-            this.panel88.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.segmentMaximumContestantLimitInput)).EndInit();
-            this.panel68.ResumeLayout(false);
-            this.panel68.PerformLayout();
             this.panel34.ResumeLayout(false);
             this.panel35.ResumeLayout(false);
             this.panel35.PerformLayout();
@@ -1027,7 +892,7 @@
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.Panel panel44;
         private System.Windows.Forms.Button resetButton;
-        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button goBackButton;
         private System.Windows.Forms.Panel panel26;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel20;
@@ -1056,16 +921,6 @@
         private System.Windows.Forms.Panel panel64;
         private System.Windows.Forms.Panel panel65;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Panel panel48;
-        private System.Windows.Forms.Panel panel50;
-        private System.Windows.Forms.Panel panel51;
-        private System.Windows.Forms.Panel panel88;
-        private System.Windows.Forms.Panel panel89;
-        private System.Windows.Forms.Panel panel90;
-        private System.Windows.Forms.Panel panel91;
-        private System.Windows.Forms.Panel panel92;
-        private System.Windows.Forms.Panel panel68;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Panel panel33;
         private System.Windows.Forms.Panel panel34;
         private System.Windows.Forms.Panel panel35;
@@ -1077,7 +932,6 @@
         private System.Windows.Forms.Panel panel52;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label segmentCountLabel;
-        private System.Windows.Forms.NumericUpDown segmentMaximumContestantLimitInput;
         private System.Windows.Forms.Panel panel24;
     }
 }

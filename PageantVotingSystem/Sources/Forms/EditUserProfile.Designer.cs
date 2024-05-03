@@ -99,7 +99,7 @@
             this.panel21 = new System.Windows.Forms.Panel();
             this.userProfileImageInput = new System.Windows.Forms.PictureBox();
             this.panel44 = new System.Windows.Forms.Panel();
-            this.saveButton = new System.Windows.Forms.Button();
+            this.goBackButton = new System.Windows.Forms.Button();
             this.panel66 = new System.Windows.Forms.Panel();
             this.panel51 = new System.Windows.Forms.Panel();
             this.signOutButton = new System.Windows.Forms.Button();
@@ -906,7 +906,7 @@
             // 
             // panel44
             // 
-            this.panel44.Controls.Add(this.saveButton);
+            this.panel44.Controls.Add(this.goBackButton);
             this.panel44.Controls.Add(this.panel66);
             this.panel44.Controls.Add(this.panel51);
             this.panel44.Controls.Add(this.signOutButton);
@@ -918,25 +918,25 @@
             this.panel44.Size = new System.Drawing.Size(1224, 40);
             this.panel44.TabIndex = 63;
             // 
-            // saveButton
+            // goBackButton
             // 
-            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.saveButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.saveButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.saveButton.FlatAppearance.BorderSize = 0;
-            this.saveButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.saveButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
-            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.Location = new System.Drawing.Point(20, 0);
-            this.saveButton.MaximumSize = new System.Drawing.Size(200, 40);
-            this.saveButton.MinimumSize = new System.Drawing.Size(200, 40);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(200, 40);
-            this.saveButton.TabIndex = 62;
-            this.saveButton.Text = "Save";
-            this.saveButton.UseVisualStyleBackColor = false;
-            this.saveButton.Click += new System.EventHandler(this.Button_Click);
+            this.goBackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.goBackButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.goBackButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.goBackButton.FlatAppearance.BorderSize = 0;
+            this.goBackButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.goBackButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
+            this.goBackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.goBackButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.goBackButton.Location = new System.Drawing.Point(20, 0);
+            this.goBackButton.MaximumSize = new System.Drawing.Size(200, 40);
+            this.goBackButton.MinimumSize = new System.Drawing.Size(200, 40);
+            this.goBackButton.Name = "goBackButton";
+            this.goBackButton.Size = new System.Drawing.Size(200, 40);
+            this.goBackButton.TabIndex = 62;
+            this.goBackButton.Text = "Go Back";
+            this.goBackButton.UseVisualStyleBackColor = false;
+            this.goBackButton.Click += new System.EventHandler(this.Button_Click);
             // 
             // panel66
             // 
@@ -1333,6 +1333,7 @@
             this.Name = "EditUserProfile";
             this.Text = "Pageant Voting System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             this.panel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel46.ResumeLayout(false);
@@ -1496,6 +1497,6 @@
         private System.Windows.Forms.OpenFileDialog userImageProfileFileDialog;
         private System.Windows.Forms.PictureBox userProfileImageInput;
         private System.Windows.Forms.Panel panel66;
-        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button goBackButton;
     }
 }

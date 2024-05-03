@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 
 using PageantVotingSystem.Sources.Setups;
+using PageantVotingSystem.Sources.Loggers;
 
 namespace PageantVotingSystem.Sources.Caches
 {
@@ -20,11 +21,13 @@ namespace PageantVotingSystem.Sources.Caches
         public static void Setup(HashSet<object> values)
         {
             SetupRecorder.ThrowIfAlreadySetup("GenderCache");
-            
-            Data.SetPrivateData("Genders", values);
+            ApplicationLogger.LogInformationMessage("'GenderCache' setup began");
+
+            Data.SetDataToPrivate("Genders", values);
             types = values;
 
             SetupRecorder.Add("GenderCache");
+            ApplicationLogger.LogInformationMessage("'GenderCache' setup complete");
         }
 
         public static bool IsNotFound(object type)

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 
 using PageantVotingSystem.Sources.Setups;
+using PageantVotingSystem.Sources.Loggers;
 
 namespace PageantVotingSystem.Sources.Caches
 {
@@ -20,11 +21,13 @@ namespace PageantVotingSystem.Sources.Caches
         public static void Setup(HashSet<object> values)
         {
             SetupRecorder.ThrowIfAlreadySetup("ScoringSystemCache");
+            ApplicationLogger.LogInformationMessage("'ScoringSystemCache' setup began");
 
-            Data.SetPrivateData("ScoringSystems", values);
+            Data.SetDataToPrivate("ScoringSystems", values);
             types = values;
 
             SetupRecorder.Add("ScoringSystemCache");
+            ApplicationLogger.LogInformationMessage("'ScoringSystemCache' setup complete");
         }
         
         public static bool IsNotFound(object type)

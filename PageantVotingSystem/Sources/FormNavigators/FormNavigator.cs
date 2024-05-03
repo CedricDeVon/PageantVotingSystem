@@ -7,11 +7,11 @@ namespace PageantVotingSystem.Sources.FormNavigators
 {
     public class FormNavigator
     {
-        private readonly static Dictionary<string, Form> forms = new Dictionary<string, Form>();
+        protected readonly static Dictionary<string, Form> forms = new Dictionary<string, Form>();
 
-        private readonly static Stack<Form> history = new Stack<Form>();
+        protected readonly static Stack<Form> history = new Stack<Form>();
 
-        public static void BeginDisplay(string foregroundFormName)
+        public static void BeginDisplayingForm(string foregroundFormName)
         {
             ThrowIfFormDoesNotExist(foregroundFormName);
 
@@ -29,7 +29,7 @@ namespace PageantVotingSystem.Sources.FormNavigators
             Application.Exit();
         }
 
-        public static void DisplayNext(string formName)
+        public static void DisplayNextForm(string formName)
         {
             ThrowIfFormDoesNotExist(formName);
 
@@ -39,7 +39,7 @@ namespace PageantVotingSystem.Sources.FormNavigators
             history.Push(form);
         }
 
-        public static void DisplayNext(Form form)
+        public static void DisplayNextForm(Form form)
         {
             ThrowIfFormIsNull(form);
 
@@ -48,9 +48,9 @@ namespace PageantVotingSystem.Sources.FormNavigators
             history.Push(form);
         }
 
-        public static void DisplayPrevious()
+        public static void DisplayPreviousForm()
         {
-            if (forms.Count == 1)
+            if (history.Count == 1)
             {
                 return;
             }
@@ -69,14 +69,14 @@ namespace PageantVotingSystem.Sources.FormNavigators
             forms.Add(form.Name, form);
         }
 
-        public static bool IsFound(string formName)
+        public static bool IsFormFound(string formName)
         {
             return forms.ContainsKey(formName);
         }
 
-        public static bool IsNotFound(string formName)
+        public static bool IsFormNotFound(string formName)
         {
-            return !IsFound(formName);
+            return !IsFormFound(formName);
         }
 
         public static Form GetForm(string formName)
@@ -90,7 +90,7 @@ namespace PageantVotingSystem.Sources.FormNavigators
         {
             if (forms == null || forms.Count == 0)
             {
-                throw new System.Exception("'FormNavigator' - Form list cannot be null or empty");
+                throw new Exception("'FormNavigator' - Form list cannot be null or empty");
             }
         }
 

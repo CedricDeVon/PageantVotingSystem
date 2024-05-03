@@ -23,17 +23,15 @@ namespace PageantVotingSystem.Sources.Forms
             SetAttributes(message);
         }
 
-        public void ConnectToGoBackButtonClickEvent(EventHandler eventHandler)
+        public void Show(string message)
         {
-            okButton.Click += eventHandler;
+            Message = message;
+            Show();
         }
 
-        private void Button_Click(object sender, EventArgs e)
+        public void ConnectToGoBackButtonClickEvent(EventHandler eventHandler)
         {
-            if (sender == okButton)
-            {
-                Hide();
-            }
+            goBackButton.Click += eventHandler;
         }
 
         private void SetAttributes(string message = "")
@@ -42,6 +40,14 @@ namespace PageantVotingSystem.Sources.Forms
 
             Message = message;
             Hide();
+        }
+
+        private void Button_Click(object sender, EventArgs e)
+        {
+            if (sender == goBackButton)
+            {
+                Hide();
+            }
         }
     }
 }

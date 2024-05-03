@@ -1,8 +1,8 @@
 ﻿
 using System;
 
-using PageantVotingSystem.Sources.Configurations;
 using PageantVotingSystem.Sources.Miscellaneous;
+using PageantVotingSystem.Sources.Configurations;
 
 namespace PageantVotingSystem.Sources.Entities
 {
@@ -19,6 +19,17 @@ namespace PageantVotingSystem.Sources.Entities
         public string PhoneNumber { get; set; }
 
         public string BirthDate { get; set; }
+
+        public string DateTimeBirthDate
+        {
+            get
+            {
+                DateTime dateTime = DateTime.Parse(BirthDate);
+                return $"{dateTime.Year}-{dateTime.Month}-{dateTime.Day}";
+            }
+
+            private set { }
+        }
 
         public float HeightInCentimeters { get; set; }
 
@@ -49,16 +60,29 @@ namespace PageantVotingSystem.Sources.Entities
         public ContestantEntity()
         {
             SetAllAttributesToDefault();
-            BirthDate = DateParser.ShortenDate(DateTime.Now);
         }
 
-        public ContestantEntity(int id, string full_name, int orderNumber)
+        public ContestantEntity(int id)
         {
             SetAllAttributesToDefault();
             Id = id;
-            FullName = full_name;
+        }
+
+        public ContestantEntity(int id, string fullName, int orderNumber)
+        {
+            SetAllAttributesToDefault();
+            Id = id;
+            FullName = fullName;
             OrderNumber = orderNumber;
-            BirthDate = DateParser.ShortenDate(DateTime.Now);
+        }
+
+        public ContestantEntity(int id, int orderNumber, string fullName, string contestantStatusType)
+        {
+            SetAllAttributesToDefault();
+            Id = id;
+            OrderNumber = orderNumber;
+            FullName = fullName;
+            ContestantStatusType = contestantStatusType;
         }
 
         public override void ClearAllAttributes()
@@ -73,14 +97,13 @@ namespace PageantVotingSystem.Sources.Entities
 
         private void SetAllAttributes(
             string imageResourcePath,
-            string birthDate = "",
             int id = 0,
             string fullName = "",
             int orderNumber = 0,
             string email = "",
             string phoneNumber = "",
-            int heightInCentimeters = 0,
-            int weightInKilograms = 0,
+            int heightInCentimeters = 1,
+            int weightInKilograms = 1,
             string motto = "",
             string homeAddress = "",
             string talentsAndSkills = "",
@@ -89,15 +112,15 @@ namespace PageantVotingSystem.Sources.Entities
             string workExperiences = "",
             string education = "",
             string contestantStatusType = "",
-            string maritalStatusType = "",
-            string genderType = "")
+            string maritalStatusType = "Rather Not Say",
+            string genderType = "Rather Not Say")
         {
             Id = id;
             FullName = fullName;
             OrderNumber = orderNumber;
             Email = email;
             PhoneNumber = phoneNumber;
-            BirthDate = birthDate;
+            BirthDate = Convert.ToString(DateTime.Now);
             HeightInCentimeters = heightInCentimeters;
             WeightInKilograms = weightInKilograms;
             Motto = motto;

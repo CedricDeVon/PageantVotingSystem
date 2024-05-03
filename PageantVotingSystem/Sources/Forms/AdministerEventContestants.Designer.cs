@@ -33,7 +33,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.optionsControl = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.toggleButton = new System.Windows.Forms.Button();
+            this.selectButton = new System.Windows.Forms.Button();
             this.panel16 = new System.Windows.Forms.Panel();
             this.profileButton = new System.Windows.Forms.Button();
             this.panel18 = new System.Windows.Forms.Panel();
@@ -41,16 +41,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel41 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.selectedJudgeLayoutControl = new System.Windows.Forms.Panel();
+            this.contestantsLayoutControl = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel45 = new System.Windows.Forms.Panel();
+            this.contestantCountLabel = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.panel23 = new System.Windows.Forms.Panel();
             this.panel44 = new System.Windows.Forms.Panel();
-            this.resetButton = new System.Windows.Forms.Button();
-            this.saveButton = new System.Windows.Forms.Button();
+            this.goBackButton = new System.Windows.Forms.Button();
             this.panel21 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -77,7 +78,7 @@
             this.panel16.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel15.SuspendLayout();
-            this.selectedJudgeLayoutControl.SuspendLayout();
+            this.contestantsLayoutControl.SuspendLayout();
             this.panel45.SuspendLayout();
             this.panel23.SuspendLayout();
             this.panel44.SuspendLayout();
@@ -134,32 +135,32 @@
             // 
             // panel11
             // 
-            this.panel11.Controls.Add(this.toggleButton);
+            this.panel11.Controls.Add(this.selectButton);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(0, 75);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(200, 45);
             this.panel11.TabIndex = 115;
             // 
-            // toggleButton
+            // selectButton
             // 
-            this.toggleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.toggleButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.toggleButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.toggleButton.FlatAppearance.BorderSize = 0;
-            this.toggleButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.toggleButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
-            this.toggleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.toggleButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toggleButton.Location = new System.Drawing.Point(0, 0);
-            this.toggleButton.MaximumSize = new System.Drawing.Size(200, 40);
-            this.toggleButton.MinimumSize = new System.Drawing.Size(200, 40);
-            this.toggleButton.Name = "toggleButton";
-            this.toggleButton.Size = new System.Drawing.Size(200, 40);
-            this.toggleButton.TabIndex = 37;
-            this.toggleButton.Text = "Toggle";
-            this.toggleButton.UseVisualStyleBackColor = false;
-            this.toggleButton.Click += new System.EventHandler(this.Button_Click);
+            this.selectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.selectButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.selectButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.selectButton.FlatAppearance.BorderSize = 0;
+            this.selectButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.selectButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
+            this.selectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.selectButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectButton.Location = new System.Drawing.Point(0, 0);
+            this.selectButton.MaximumSize = new System.Drawing.Size(200, 40);
+            this.selectButton.MinimumSize = new System.Drawing.Size(200, 40);
+            this.selectButton.Name = "selectButton";
+            this.selectButton.Size = new System.Drawing.Size(200, 40);
+            this.selectButton.TabIndex = 37;
+            this.selectButton.Text = "Select";
+            this.selectButton.UseVisualStyleBackColor = false;
+            this.selectButton.Click += new System.EventHandler(this.Button_Click);
             // 
             // panel16
             // 
@@ -231,7 +232,7 @@
             // 
             // panel15
             // 
-            this.panel15.Controls.Add(this.selectedJudgeLayoutControl);
+            this.panel15.Controls.Add(this.contestantsLayoutControl);
             this.panel15.Controls.Add(this.panel45);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel15.Location = new System.Drawing.Point(20, 223);
@@ -239,15 +240,15 @@
             this.panel15.Size = new System.Drawing.Size(600, 512);
             this.panel15.TabIndex = 118;
             // 
-            // selectedJudgeLayoutControl
+            // contestantsLayoutControl
             // 
-            this.selectedJudgeLayoutControl.AutoScroll = true;
-            this.selectedJudgeLayoutControl.Controls.Add(this.panel14);
-            this.selectedJudgeLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.selectedJudgeLayoutControl.Location = new System.Drawing.Point(0, 30);
-            this.selectedJudgeLayoutControl.Name = "selectedJudgeLayoutControl";
-            this.selectedJudgeLayoutControl.Size = new System.Drawing.Size(600, 482);
-            this.selectedJudgeLayoutControl.TabIndex = 107;
+            this.contestantsLayoutControl.AutoScroll = true;
+            this.contestantsLayoutControl.Controls.Add(this.panel14);
+            this.contestantsLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contestantsLayoutControl.Location = new System.Drawing.Point(0, 30);
+            this.contestantsLayoutControl.Name = "contestantsLayoutControl";
+            this.contestantsLayoutControl.Size = new System.Drawing.Size(600, 482);
+            this.contestantsLayoutControl.TabIndex = 107;
             // 
             // panel14
             // 
@@ -259,6 +260,8 @@
             // 
             // panel45
             // 
+            this.panel45.Controls.Add(this.contestantCountLabel);
+            this.panel45.Controls.Add(this.label8);
             this.panel45.Controls.Add(this.label11);
             this.panel45.Controls.Add(this.panel19);
             this.panel45.Controls.Add(this.label10);
@@ -268,16 +271,43 @@
             this.panel45.Size = new System.Drawing.Size(600, 30);
             this.panel45.TabIndex = 97;
             // 
+            // contestantCountLabel
+            // 
+            this.contestantCountLabel.AutoSize = true;
+            this.contestantCountLabel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.contestantCountLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.contestantCountLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.contestantCountLabel.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.contestantCountLabel.Location = new System.Drawing.Point(527, 0);
+            this.contestantCountLabel.Name = "contestantCountLabel";
+            this.contestantCountLabel.Size = new System.Drawing.Size(17, 19);
+            this.contestantCountLabel.TabIndex = 123;
+            this.contestantCountLabel.Text = "0";
+            this.contestantCountLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.label8.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.label8.Location = new System.Drawing.Point(544, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(56, 19);
+            this.label8.TabIndex = 122;
+            this.label8.Text = "In Total";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
             // label11
             // 
-            this.label11.AutoSize = true;
             this.label11.Dock = System.Windows.Forms.DockStyle.Left;
             this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
             this.label11.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.label11.Location = new System.Drawing.Point(85, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(46, 19);
+            this.label11.Size = new System.Drawing.Size(390, 30);
             this.label11.TabIndex = 121;
             this.label11.Text = "Name";
             // 
@@ -312,8 +342,7 @@
             // 
             // panel44
             // 
-            this.panel44.Controls.Add(this.resetButton);
-            this.panel44.Controls.Add(this.saveButton);
+            this.panel44.Controls.Add(this.goBackButton);
             this.panel44.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel44.Location = new System.Drawing.Point(0, 60);
             this.panel44.MaximumSize = new System.Drawing.Size(0, 40);
@@ -322,45 +351,25 @@
             this.panel44.Size = new System.Drawing.Size(1204, 40);
             this.panel44.TabIndex = 111;
             // 
-            // resetButton
+            // goBackButton
             // 
-            this.resetButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.resetButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.resetButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.resetButton.FlatAppearance.BorderSize = 0;
-            this.resetButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.resetButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
-            this.resetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.resetButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetButton.Location = new System.Drawing.Point(1004, 0);
-            this.resetButton.MaximumSize = new System.Drawing.Size(200, 40);
-            this.resetButton.MinimumSize = new System.Drawing.Size(200, 40);
-            this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(200, 40);
-            this.resetButton.TabIndex = 84;
-            this.resetButton.Text = "Reset";
-            this.resetButton.UseVisualStyleBackColor = false;
-            this.resetButton.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // saveButton
-            // 
-            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.saveButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.saveButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.saveButton.FlatAppearance.BorderSize = 0;
-            this.saveButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.saveButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
-            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.Location = new System.Drawing.Point(0, 0);
-            this.saveButton.MaximumSize = new System.Drawing.Size(200, 40);
-            this.saveButton.MinimumSize = new System.Drawing.Size(200, 40);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(200, 40);
-            this.saveButton.TabIndex = 36;
-            this.saveButton.Text = "Save";
-            this.saveButton.UseVisualStyleBackColor = false;
-            this.saveButton.Click += new System.EventHandler(this.Button_Click);
+            this.goBackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.goBackButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.goBackButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.goBackButton.FlatAppearance.BorderSize = 0;
+            this.goBackButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.goBackButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
+            this.goBackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.goBackButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.goBackButton.Location = new System.Drawing.Point(0, 0);
+            this.goBackButton.MaximumSize = new System.Drawing.Size(200, 40);
+            this.goBackButton.MinimumSize = new System.Drawing.Size(200, 40);
+            this.goBackButton.Name = "goBackButton";
+            this.goBackButton.Size = new System.Drawing.Size(200, 40);
+            this.goBackButton.TabIndex = 36;
+            this.goBackButton.Text = "Go Back";
+            this.goBackButton.UseVisualStyleBackColor = false;
+            this.goBackButton.Click += new System.EventHandler(this.Button_Click);
             // 
             // panel21
             // 
@@ -576,6 +585,7 @@
             this.Name = "AdministerEventContestants";
             this.Text = "Pageant Voting System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             this.panel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.optionsControl.ResumeLayout(false);
@@ -584,7 +594,7 @@
             this.panel17.ResumeLayout(false);
             this.panel17.PerformLayout();
             this.panel15.ResumeLayout(false);
-            this.selectedJudgeLayoutControl.ResumeLayout(false);
+            this.contestantsLayoutControl.ResumeLayout(false);
             this.panel45.ResumeLayout(false);
             this.panel45.PerformLayout();
             this.panel23.ResumeLayout(false);
@@ -623,10 +633,7 @@
         private System.Windows.Forms.Panel panel27;
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.Panel panel44;
-        private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Panel optionsControl;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Button toggleButton;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Button profileButton;
         private System.Windows.Forms.Panel panel18;
@@ -634,12 +641,16 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel41;
         private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.Panel selectedJudgeLayoutControl;
+        private System.Windows.Forms.Panel contestantsLayoutControl;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel45;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button resetButton;
+        private System.Windows.Forms.Button goBackButton;
+        private System.Windows.Forms.Label contestantCountLabel;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Button selectButton;
     }
 }

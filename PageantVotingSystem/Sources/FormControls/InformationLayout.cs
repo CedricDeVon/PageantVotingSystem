@@ -3,6 +3,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using PageantVotingSystem.Sources.FormStyles;
 
 namespace PageantVotingSystem.Sources.FormControls
 {
@@ -25,7 +26,7 @@ namespace PageantVotingSystem.Sources.FormControls
         public void DisplayNormalMessage(string message = "")
         {
             loadingTimer.Stop();
-            label.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            label.BackColor = ApplicationFormStyle.NormalColor;
             label.Text = message;
             label.Show();
         }
@@ -33,7 +34,7 @@ namespace PageantVotingSystem.Sources.FormControls
         public void DisplayHighlightedMessage(string message = "")
         {
             loadingTimer.Stop();
-            label.BackColor = Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
+            label.BackColor = ApplicationFormStyle.HighlightColor;
             label.Text = message;
             label.Show();
         }
@@ -41,7 +42,7 @@ namespace PageantVotingSystem.Sources.FormControls
         public void DisplayErrorMessage(string message = "")
         {
             loadingTimer.Stop();
-            label.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            label.BackColor = ApplicationFormStyle.ErrorColor;
             label.Text = message;
             label.Show();
         }
@@ -49,7 +50,7 @@ namespace PageantVotingSystem.Sources.FormControls
         public void DisplaySuccessfulMessage(string message = "")
         {
             loadingTimer.Stop();
-            label.BackColor = Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(14)))));
+            label.BackColor = ApplicationFormStyle.SuccessColor;
             label.Text = message;
             label.Show();
         }

@@ -5,28 +5,28 @@ using Serilog;
 
 namespace PageantVotingSystem.Sources.Loggers
 {
-    public class FileLogger
+    public class FileLogger : Logger
     {
-        private static Serilog.Core.Logger logger;
+        private Serilog.Core.Logger logger;
 
-        public static string LogOutputPath { get; private set; }
+        public string LogOutputPath { get; private set; }
 
-        public static void Setup(string logOutputPath)
+        public FileLogger(string logOutputPath) : base()
         {
             try
             {
                 logger = new LoggerConfiguration().WriteTo.File(logOutputPath).CreateLogger();
+                LogOutputPath = logOutputPath;
             }
             catch
             {
                 throw new Exception($"'Logger' - File '{logOutputPath}' does not exist");
             }
-            LogOutputPath = logOutputPath;
         }
 
-        public static void LogInformationMessage(string input, bool allowedToLog = true)
+        public override void LogInformationMessage(string input)
         {
-            if (!allowedToLog)
+            if (!IsAllowedToLog)
             {
                 return;
             }
@@ -34,9 +34,9 @@ namespace PageantVotingSystem.Sources.Loggers
             logger.Information($"{input}");
         }
 
-        public static void LogErrorMessage(string input, bool allowedToLog = true)
+        public override void LogErrorMessage(string input)
         {
-            if (!allowedToLog)
+            if (!IsAllowedToLog)
             {
                 return;
             }

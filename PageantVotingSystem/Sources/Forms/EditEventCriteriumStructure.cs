@@ -30,7 +30,6 @@ namespace PageantVotingSystem.Sources.Forms
             ApplicationFormStyle.SetupFormStyles(this);
             informationLayout = new InformationLayout(informationLayoutControl);
             topSideNavigationLayout = new TopSideNavigationLayout(topSideNavigationLayoutControl);
-            topSideNavigationLayout.HideReloadButton();
             criteriaLayout = new OrderedValueItemLayout(criteriaLayoutControl);
             criteriaLayout.ItemSingleClick += new EventHandler(CriteriaLayoutItem_SingleClick);
         }
@@ -43,11 +42,11 @@ namespace PageantVotingSystem.Sources.Forms
             roundNameLabel.Text = roundEntity.Name;
             criteriumNameInput.Text = "";
             criteriumDescriptionInput.Text = "";
-            criteriumMaximumValueInput.Value = 0;
+            criteriumMaximumValueInput.Value = 100;
             criteriumMinimumValueInput.Value = 0;
-            criteriumPercentageWeightInput.Value = 0;
+            criteriumPercentageWeightInput.Value = 100;
             criteriumCountLabel.Text = $"{roundEntity.Criteria.ItemCount}";
-            criteriaLayout.RenderOrdered(roundEntity.CriteriumNamesInReverseOrder);
+            criteriaLayout.Render(roundEntity.CriteriumNamesInReverseOrder);
             criteriaLayout.Unfocus();
             criteriumDataLayoutControl.Hide();
         }
@@ -56,23 +55,16 @@ namespace PageantVotingSystem.Sources.Forms
         {
             informationLayout.StartLoadingMessageDisplay();
 
-            if (sender == criteriumSaveButton)
+            if (sender == goBackButton)
             {
-                Result securityResult = ApplicationSecurity.AuthenticateNewEventCriteriumLayout(currentRoundEntity);
-                if (!securityResult.IsSuccessful)
-                {
-                    informationLayout.DisplayErrorMessage(securityResult.Message);
-                    return;
-                }
-
-                ApplicationFormNavigator.DisplayPrevious();
+                ApplicationFormNavigator.DisplayPreviousForm();
                 criteriaLayout.Unfocus();
                 criteriumDataLayoutControl.Hide();
                 criteriumNameInput.Text = "";
                 criteriumDescriptionInput.Text = "";
-                criteriumMaximumValueInput.Value = 0;
+                criteriumMaximumValueInput.Value = 100;
                 criteriumMinimumValueInput.Value = 0;
-                criteriumPercentageWeightInput.Value = 0;
+                criteriumPercentageWeightInput.Value = 100;
             }
             else if (sender == createCriteriumButton)
             {
@@ -80,7 +72,7 @@ namespace PageantVotingSystem.Sources.Forms
                 CriteriumEntity criteriumEntity = new CriteriumEntity();
                 criteriumEntity.Name = criteriumName;
                 currentRoundEntity.Criteria.AddNewItem(criteriumEntity);
-                criteriaLayout.RenderOrdered(criteriumName);
+                criteriaLayout.Render(criteriumName);
                 criteriumCountLabel.Text = $"{currentRoundEntity.Criteria.ItemCount}";
             }
             else if (sender == criteriumResetButton)
@@ -90,9 +82,9 @@ namespace PageantVotingSystem.Sources.Forms
                 criteriumDataLayoutControl.Hide();
                 criteriumNameInput.Text = "";
                 criteriumDescriptionInput.Text = "";
-                criteriumMaximumValueInput.Value = 0;
+                criteriumMaximumValueInput.Value = 100;
                 criteriumMinimumValueInput.Value = 0;
-                criteriumPercentageWeightInput.Value = 0;
+                criteriumPercentageWeightInput.Value = 100;
             }
 
             informationLayout.StopLoadingMessageDisplay();
@@ -164,9 +156,9 @@ namespace PageantVotingSystem.Sources.Forms
                     criteriumCountLabel.Text = "0";
                     criteriumNameInput.Text = "";
                     criteriumDescriptionInput.Text = "";
-                    criteriumMaximumValueInput.Value = 0;
+                    criteriumMaximumValueInput.Value = 100;
                     criteriumMinimumValueInput.Value = 0;
-                    criteriumPercentageWeightInput.Value = 0;
+                    criteriumPercentageWeightInput.Value = 100;
                     criteriaLayoutControl.Hide();
                 }
                 else
@@ -179,6 +171,12 @@ namespace PageantVotingSystem.Sources.Forms
                     criteriumPercentageWeightInput.Value = Convert.ToDecimal(newCriteriumEntity.PercentageWeight);
                 }
 
+                e.Handled = true;
+            }
+
+            if (e.KeyData == Keys.Escape)
+            {
+                ApplicationFormNavigator.DisplayPreviousForm();
                 e.Handled = true;
             }
         }

@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 
 using PageantVotingSystem.Sources.Setups;
+using PageantVotingSystem.Sources.Loggers;
 
 namespace PageantVotingSystem.Sources.FormStyles
 {
@@ -22,7 +23,8 @@ namespace PageantVotingSystem.Sources.FormStyles
         public static void Setup()
         {
             SetupRecorder.ThrowIfAlreadySetup("ApplicationFormStyle");
-
+            ApplicationLogger.LogInformationMessage("'ApplicationFormStyle' setup began");
+            
             NormalColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
             HighlightColor = Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
             DisabledColor = Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(79)))), ((int)(((byte)(9)))));
@@ -30,6 +32,7 @@ namespace PageantVotingSystem.Sources.FormStyles
             SuccessColor = Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(14)))));
 
             SetupRecorder.Add("ApplicationFormStyle");
+            ApplicationLogger.LogInformationMessage("'ApplicationFormStyle' setup complete");
         }
 
         public static void SetupFormStyles(Form form)

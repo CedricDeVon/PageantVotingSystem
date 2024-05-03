@@ -16,7 +16,6 @@ namespace PageantVotingSystem.Sources.Configurations
             private set
             {
                 ThrowIfInvalidTypeName(value);
-
                 currentTypeName = value;
             }
         }
@@ -25,10 +24,7 @@ namespace PageantVotingSystem.Sources.Configurations
         {
             get { return defaultUserProfileImagePath; }
 
-            private set
-            {
-                defaultUserProfileImagePath = value; //
-            }
+            private set { defaultUserProfileImagePath = value; }
         }
 
         private static string currentTypeName;
@@ -40,15 +36,15 @@ namespace PageantVotingSystem.Sources.Configurations
         public static void Setup()
         {
             SetupRecorder.ThrowIfAlreadySetup("ApplicationConfiguration");
-
+            
             SetupTypeNames();
-            CurrentTypeName = GetAppConfigValue("CurrentTypeName");
-            DefaultUserProfileImagePath = GetAppConfigValue("DefaultUserProfileImagePath");
+            CurrentTypeName = GetApplicationConfigurationValue("CurrentTypeName");
+            DefaultUserProfileImagePath = GetApplicationConfigurationValue("DefaultUserProfileImagePath");
 
             SetupRecorder.Add("ApplicationConfiguration");
         }
 
-        public static string GetTypedAppConfigValue(string key)
+        public static string GetTypedApplicationConfigurationValue(string key)
         {
             key = $"{CurrentTypeName}.{key}";
             string value = ConfigurationManager.AppSettings[key];
@@ -63,7 +59,7 @@ namespace PageantVotingSystem.Sources.Configurations
         {
             try
             {
-                foreach (string validTypeName in GetAppConfigValue("ValidTypeNames").Split(new char[] { ',' }))
+                foreach (string validTypeName in GetApplicationConfigurationValue("ValidTypeNames").Split(new char[] { ',' }))
                 {
                     validTypeNames.Add(validTypeName);
                 }

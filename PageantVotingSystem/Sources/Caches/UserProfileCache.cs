@@ -1,6 +1,7 @@
 ﻿
 using PageantVotingSystem.Sources.Setups;
 using PageantVotingSystem.Sources.Results;
+using PageantVotingSystem.Sources.Loggers;
 using PageantVotingSystem.Sources.Entities;
 
 namespace PageantVotingSystem.Sources.Caches
@@ -9,13 +10,15 @@ namespace PageantVotingSystem.Sources.Caches
     {
         public new static UserEntity Data { get; private set; }
 
-        public static void Setup(UserEntity entity)
+        public static void Setup()
         {
             SetupRecorder.ThrowIfAlreadySetup("UserInformationCache");
+            ApplicationLogger.LogInformationMessage("'UserInformationCache' setup began");
 
-            Data = entity;
+            Data = new UserEntity();
 
             SetupRecorder.Add("UserInformationCache");
+            ApplicationLogger.LogInformationMessage("'UserInformationCache' setup complete");
         }
 
         public static void Update(UserEntity entity)

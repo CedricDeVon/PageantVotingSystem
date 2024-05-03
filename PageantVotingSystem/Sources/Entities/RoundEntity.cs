@@ -9,6 +9,8 @@ namespace PageantVotingSystem.Sources.Entities
     {
         public int SegmentId { get; set; }
 
+        public string EventLayoutStatusType { get; set; }
+
         public GenericOrderedList<CriteriumEntity> Criteria { get; private set; }
 
         public List<string> CriteriumNamesInNormalOrder
@@ -73,18 +75,27 @@ namespace PageantVotingSystem.Sources.Entities
             Name = name;
         }
 
-        public override void ClearAllAttributes()
+        public RoundEntity(int id, string name, string eventLayoutStatusType)
         {
-            base.ClearAllAttributes();
-
             SetAllAttributes();
-            Criteria.ClearAllItems();
+            Criteria = new GenericOrderedList<CriteriumEntity>();
+            Id = id;
+            Name = name;
+            EventLayoutStatusType = eventLayoutStatusType;
         }
 
         private void SetAllAttributes(
             int segmentId = 0)
         {
             SegmentId = segmentId;
+        }
+
+        public override void ClearAllAttributes()
+        {
+            base.ClearAllAttributes();
+
+            SetAllAttributes();
+            Criteria.ClearAllItems();
         }
     }
 }

@@ -206,30 +206,62 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Demos\A\Forms\Structure.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Demos\A\Forms\Structure.Designer.cs">
-      <DependentUpon>Structure.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Caches\EditEventContestantCache.cs" />
+    <Compile Include="Sources\Caches\AdministerEventCache.cs" />
+    <Compile Include="Sources\Caches\Cache.cs" />
+    <Compile Include="Sources\Caches\ContestantStatusCache.cs" />
     <Compile Include="Sources\Caches\EditEventCache.cs" />
-    <Compile Include="Sources\Caches\EditEventJudgesCache.cs" />
+    <Compile Include="Sources\Caches\EventLayoutStatusCache.cs" />
+    <Compile Include="Sources\Caches\GenderCache.cs" />
+    <Compile Include="Sources\Caches\JudgeStatusCache.cs" />
+    <Compile Include="Sources\Caches\MaritalStatusCache.cs" />
+    <Compile Include="Sources\Caches\ResourceCache.cs" />
+    <Compile Include="Sources\Caches\RoundContestantStatusCache.cs" />
+    <Compile Include="Sources\Caches\RoundStatusCache.cs" />
+    <Compile Include="Sources\Caches\ScoringSystemCache.cs" />
+    <Compile Include="Sources\Caches\TypeConstraintCache.cs" />
+    <Compile Include="Sources\Caches\UserProfileCache.cs" />
+    <Compile Include="Sources\Caches\UserRoleCache.cs" />
+    <Compile Include="Sources\Configurations\ApplicationConfiguration.cs" />
+    <Compile Include="Sources\Configurations\Configuration.cs" />
+    <Compile Include="Sources\Database\ApplicationDatabase.cs" />
+    <Compile Include="Sources\Database\Database.cs" />
+    <Compile Include="Sources\Database\DatabaseSettings.cs" />
     <Compile Include="Sources\Entities\ContestantEntity.cs" />
+    <Compile Include="Sources\Entities\ContestantResultEntity.cs" />
     <Compile Include="Sources\Entities\CriteriumEntity.cs" />
     <Compile Include="Sources\Entities\Entity.cs" />
     <Compile Include="Sources\Entities\EventEntity.cs" />
-    <Compile Include="Sources\Entities\EventLayoutItemEntity.cs" />
     <Compile Include="Sources\Entities\EventLayoutEntity.cs" />
-    <Compile Include="Sources\Entities\ContestantResultEntity.cs" />
+    <Compile Include="Sources\Entities\EventLayoutItemEntity.cs" />
     <Compile Include="Sources\Entities\EventLayoutSequenceEntity.cs" />
     <Compile Include="Sources\Entities\JudgeCriteriumEntity.cs" />
+    <Compile Include="Sources\Entities\JudgeUserEntity.cs" />
     <Compile Include="Sources\Entities\ResultEntity.cs" />
     <Compile Include="Sources\Entities\RoundEntity.cs" />
     <Compile Include="Sources\Entities\SegmentEntity.cs" />
     <Compile Include="Sources\Entities\UserEntity.cs" />
     <Compile Include="Sources\FeatureCollections\AllButtonItemFeatureCollection.cs" />
+    <Compile Include="Sources\FeatureCollections\ItemFeatureCollection.cs" />
     <Compile Include="Sources\FeatureCollections\RegularItemFeatureCollection.cs" />
+    <Compile Include="Sources\FormControls\EntityStatusItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sources\FormControls\EntityStatusItem.Designer.cs">
+      <DependentUpon>EntityStatusItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\FormControls\EntityStatusItemLayout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sources\FormControls\EntityStatusItemLayout.Designer.cs">
+      <DependentUpon>EntityStatusItemLayout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sources\FormControls\EventResultItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -254,6 +286,12 @@
     <Compile Include="Sources\FormControls\EventStructureItemLayout.Designer.cs">
       <DependentUpon>EventStructureItemLayout.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sources\FormControls\InformationLayout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sources\FormControls\InformationLayout.Designer.cs">
+      <DependentUpon>InformationLayout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sources\FormControls\JudgeCriteriumResultItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -266,17 +304,11 @@
     <Compile Include="Sources\FormControls\JudgeCriteriumResultItemLayout.Designer.cs">
       <DependentUpon>JudgeCriteriumResultItemLayout.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sources\FormControls\JudgeVoteStatusItem.cs">
+    <Compile Include="Sources\FormControls\OrderedValueItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Sources\FormControls\JudgeVoteStatusItem.Designer.cs">
-      <DependentUpon>JudgeVoteStatusItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\FormControls\JudgeVoteStatusItemLayout.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Sources\FormControls\JudgeVoteStatusItemLayout.Designer.cs">
-      <DependentUpon>JudgeVoteStatusItemLayout.cs</DependentUpon>
+    <Compile Include="Sources\FormControls\OrderedValueItem.Designer.cs">
+      <DependentUpon>OrderedValueItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Sources\FormControls\OrderedValueItemLayout.cs">
       <SubType>UserControl</SubType>
@@ -284,147 +316,12 @@
     <Compile Include="Sources\FormControls\OrderedValueItemLayout.Designer.cs">
       <DependentUpon>OrderedValueItemLayout.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sources\FormControls\OrderedValueItem.cs">
+    <Compile Include="Sources\FormControls\RadioButtonLayout.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Sources\FormControls\OrderedValueItem.Designer.cs">
-      <DependentUpon>OrderedValueItem.cs</DependentUpon>
+    <Compile Include="Sources\FormControls\RadioButtonLayout.Designer.cs">
+      <DependentUpon>RadioButtonLayout.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sources\Forms\AdministerEventContestants.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\Forms\AdministerEventContestants.Designer.cs">
-      <DependentUpon>AdministerEventContestants.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Forms\AdministerEventJudges.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\Forms\AdministerEventJudges.Designer.cs">
-      <DependentUpon>AdministerEventJudges.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Forms\AdministerEventLayout.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\Forms\AdministerEventLayout.Designer.cs">
-      <DependentUpon>AdministerEventLayout.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Forms\JudgeDashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\Forms\JudgeDashboard.Designer.cs">
-      <DependentUpon>JudgeDashboard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Forms\MessageDialogBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\Forms\MessageDialogBox.Designer.cs">
-      <DependentUpon>MessageDialogBox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Forms\JudgeContestantDashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\Forms\JudgeContestantDashboard.Designer.cs">
-      <DependentUpon>JudgeContestantDashboard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Forms\AdministerVotingSession.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\Forms\AdministerVotingSession.Designer.cs">
-      <DependentUpon>AdministerVotingSession.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Forms\EventCriteriumProfile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\Forms\EventCriteriumProfile.Designer.cs">
-      <DependentUpon>EventCriteriumProfile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Forms\EventContestants.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\Forms\EventContestants.Designer.cs">
-      <DependentUpon>EventContestants.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Forms\EventCriteriumResult.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\Forms\EventCriteriumResult.Designer.cs">
-      <DependentUpon>EventCriteriumResult.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Forms\AdministerEvent.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\Forms\AdministerEvent.Designer.cs">
-      <DependentUpon>AdministerEvent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Forms\EventRoundResult.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\Forms\EventRoundResult.Designer.cs">
-      <DependentUpon>EventRoundResult.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Forms\EventSegmentResult.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\Forms\EventSegmentResult.Designer.cs">
-      <DependentUpon>EventSegmentResult.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Forms\EventLayout.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\Forms\EventLayout.Designer.cs">
-      <DependentUpon>EventLayout.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Forms\EventJudges.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\Forms\EventJudges.Designer.cs">
-      <DependentUpon>EventJudges.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Forms\EventRoundProfile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\Forms\EventRoundProfile.Designer.cs">
-      <DependentUpon>EventRoundProfile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Forms\EventSegmentProfile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\Forms\EventSegmentProfile.Designer.cs">
-      <DependentUpon>EventSegmentProfile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Forms\EventProfile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\Forms\EventProfile.Designer.cs">
-      <DependentUpon>EventProfile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Forms\UserProfile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\Forms\UserProfile.Designer.cs">
-      <DependentUpon>UserProfile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Forms\EventContestantProfile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\Forms\EventContestantProfile.Designer.cs">
-      <DependentUpon>EventContestantProfile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Forms\ConfirmationDialogBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\Forms\ConfirmationDialogBox.Designer.cs">
-      <DependentUpon>ConfirmationDialogBox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Forms\EventResults.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\Forms\EventResults.Designer.cs">
-      <DependentUpon>EventResults.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Generics\GenericDoublyLinkedList.cs" />
-    <Compile Include="Sources\Generics\GenericDoublyLinkedListItem.cs" />
-    <Compile Include="Sources\FeatureCollections\ItemFeatureCollection.cs" />
     <Compile Include="Sources\FormControls\SingleValuedItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -443,29 +340,74 @@
     <Compile Include="Sources\FormControls\TopSideNavigationLayout.Designer.cs">
       <DependentUpon>TopSideNavigationLayout.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sources\Forms\EditEventCriteriumStructure.cs">
+    <Compile Include="Sources\FormNavigators\ApplicationFormNavigator.cs" />
+    <Compile Include="Sources\FormNavigators\FormNavigator.cs" />
+    <Compile Include="Sources\FormStyles\ApplicationFormStyle.cs" />
+    <Compile Include="Sources\Forms\About.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sources\Forms\EditEventCriteriumStructure.Designer.cs">
-      <DependentUpon>EditEventCriteriumStructure.cs</DependentUpon>
+    <Compile Include="Sources\Forms\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sources\Forms\EditEventRoundStructure.cs">
+    <Compile Include="Sources\Forms\AdministerEvent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sources\Forms\EditEventRoundStructure.Designer.cs">
-      <DependentUpon>EditEventRoundStructure.cs</DependentUpon>
+    <Compile Include="Sources\Forms\AdministerEvent.Designer.cs">
+      <DependentUpon>AdministerEvent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sources\Forms\EditEventSegmentStructure.cs">
+    <Compile Include="Sources\Forms\AdministerEventContestantReview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sources\Forms\EditEventSegmentStructure.Designer.cs">
-      <DependentUpon>EditEventSegmentStructure.cs</DependentUpon>
+    <Compile Include="Sources\Forms\AdministerEventContestantReview.Designer.cs">
+      <DependentUpon>AdministerEventContestantReview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Forms\AdministerEventContestants.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\AdministerEventContestants.Designer.cs">
+      <DependentUpon>AdministerEventContestants.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Forms\AdministerEventQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\AdministerEventQuery.Designer.cs">
+      <DependentUpon>AdministerEventQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Forms\AdministerVotingSession.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\AdministerVotingSession.Designer.cs">
+      <DependentUpon>AdministerVotingSession.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Forms\Background.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\Background.Designer.cs">
+      <DependentUpon>Background.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Forms\ConfirmationDialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\ConfirmationDialogBox.Designer.cs">
+      <DependentUpon>ConfirmationDialogBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Forms\EditEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\EditEvent.Designer.cs">
+      <DependentUpon>EditEvent.cs</DependentUpon>
     </Compile>
     <Compile Include="Sources\Forms\EditEventContestants.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Sources\Forms\EditEventContestants.Designer.cs">
       <DependentUpon>EditEventContestants.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Forms\EditEventCriteriumStructure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\EditEventCriteriumStructure.Designer.cs">
+      <DependentUpon>EditEventCriteriumStructure.cs</DependentUpon>
     </Compile>
     <Compile Include="Sources\Forms\EditEventJudges.cs">
       <SubType>Form</SubType>
@@ -479,61 +421,113 @@
     <Compile Include="Sources\Forms\EditEventProfile.Designer.cs">
       <DependentUpon>EditEventProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sources\Forms\EditEventRoundStructure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\EditEventRoundStructure.Designer.cs">
+      <DependentUpon>EditEventRoundStructure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Forms\EditEventSegmentStructure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\EditEventSegmentStructure.Designer.cs">
+      <DependentUpon>EditEventSegmentStructure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Forms\EditUserProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\EditUserProfile.Designer.cs">
+      <DependentUpon>EditUserProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Forms\EventContestantProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\EventContestantProfile.Designer.cs">
+      <DependentUpon>EventContestantProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Forms\EventContestants.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\EventContestants.Designer.cs">
+      <DependentUpon>EventContestants.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Forms\EventCriteriumProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\EventCriteriumProfile.Designer.cs">
+      <DependentUpon>EventCriteriumProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Forms\EventCriteriumResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\EventCriteriumResult.Designer.cs">
+      <DependentUpon>EventCriteriumResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Forms\EventJudges.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\EventJudges.Designer.cs">
+      <DependentUpon>EventJudges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Forms\EventLayout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\EventLayout.Designer.cs">
+      <DependentUpon>EventLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Forms\EventProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\EventProfile.Designer.cs">
+      <DependentUpon>EventProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Forms\EventResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\EventResults.Designer.cs">
+      <DependentUpon>EventResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Forms\EventRoundProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\EventRoundProfile.Designer.cs">
+      <DependentUpon>EventRoundProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Forms\EventRoundResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\EventRoundResult.Designer.cs">
+      <DependentUpon>EventRoundResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Forms\EventSegmentProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\EventSegmentProfile.Designer.cs">
+      <DependentUpon>EventSegmentProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Forms\EventSegmentResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\EventSegmentResult.Designer.cs">
+      <DependentUpon>EventSegmentResult.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sources\Forms\InformationNotFound.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Sources\Forms\InformationNotFound.Designer.cs">
       <DependentUpon>InformationNotFound.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sources\Forms\EditEvent.cs">
+    <Compile Include="Sources\Forms\JudgeContestantDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sources\Forms\EditEvent.Designer.cs">
-      <DependentUpon>EditEvent.cs</DependentUpon>
+    <Compile Include="Sources\Forms\JudgeContestantDashboard.Designer.cs">
+      <DependentUpon>JudgeContestantDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sources\Caches\UserProfileCache.cs" />
-    <Compile Include="Sources\FormControls\InformationLayout.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Sources\FormControls\InformationLayout.Designer.cs">
-      <DependentUpon>InformationLayout.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\FormControls\RadioButtonLayout.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Sources\FormControls\RadioButtonLayout.Designer.cs">
-      <DependentUpon>RadioButtonLayout.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\FormStyles\ApplicationFormStyle.cs" />
-    <Compile Include="Sources\Caches\Cache.cs" />
-    <Compile Include="Sources\Caches\ContestantStatusCache.cs" />
-    <Compile Include="Sources\Caches\GenderCache.cs" />
-    <Compile Include="Sources\Caches\JudgeStatusCache.cs" />
-    <Compile Include="Sources\Caches\MaritalStatusCache.cs" />
-    <Compile Include="Sources\Caches\ResourceCache.cs" />
-    <Compile Include="Sources\Caches\ResultRemarkCache.cs" />
-    <Compile Include="Sources\Caches\RoundStatusCache.cs" />
-    <Compile Include="Sources\Caches\ScoringSystemCache.cs" />
-    <Compile Include="Sources\Caches\TypeConstraintCache.cs" />
-    <Compile Include="Sources\Caches\UserRoleCache.cs" />
-    <Compile Include="Sources\Configurations\ApplicationConfiguration.cs" />
-    <Compile Include="Sources\Configurations\Configuration.cs" />
-    <Compile Include="Sources\Database\ApplicationDatabase.cs" />
-    <Compile Include="Sources\Database\Database.cs" />
-    <Compile Include="Sources\Database\DatabaseSettings.cs" />
-    <Compile Include="Sources\FormNavigators\ApplicationFormNavigator.cs" />
-    <Compile Include="Sources\FormNavigators\FormNavigator.cs" />
-    <Compile Include="Sources\Forms\About.cs">
+    <Compile Include="Sources\Forms\JudgeDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sources\Forms\About.Designer.cs">
-      <DependentUpon>About.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Forms\Background.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\Forms\Background.Designer.cs">
-      <DependentUpon>Background.cs</DependentUpon>
+    <Compile Include="Sources\Forms\JudgeDashboard.Designer.cs">
+      <DependentUpon>JudgeDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Sources\Forms\LogIn.cs">
       <SubType>Form</SubType>
@@ -547,49 +541,17 @@
     <Compile Include="Sources\Forms\ManagerDashboard.Designer.cs">
       <DependentUpon>ManagerDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sources\Forms\MessageDialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\MessageDialogBox.Designer.cs">
+      <DependentUpon>MessageDialogBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sources\Forms\SignUp.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Sources\Forms\SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Forms\EditUserProfile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\Forms\EditUserProfile.Designer.cs">
-      <DependentUpon>EditUserProfile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\Generics\GenericOrderedList.cs" />
-    <Compile Include="Sources\Generics\GenericUniqueOrderedList.cs" />
-    <Compile Include="Sources\Loggers\ApplicationConsoleLogger.cs" />
-    <Compile Include="Sources\Loggers\ApplicationFileLogger.cs" />
-    <Compile Include="Sources\Loggers\ConsoleLogger.cs" />
-    <Compile Include="Sources\Loggers\FileLogger.cs" />
-    <Compile Include="Sources\Miscellaneous\DateParser.cs" />
-    <Compile Include="Sources\Miscellaneous\StringParser.cs" />
-    <Compile Include="Sources\ResourceLoaders\ApplicationResourceLoader.cs" />
-    <Compile Include="Sources\ResourceLoaders\ResourceData.cs" />
-    <Compile Include="Sources\ResourceLoaders\ResourceLoader.cs" />
-    <Compile Include="Sources\Security\ApplicationCryptographer.cs" />
-    <Compile Include="Sources\Security\ApplicationValidator.cs" />
-    <Compile Include="Sources\Security\ApplicationSecurity.cs" />
-    <Compile Include="Sources\Security\Cryptographer.cs" />
-    <Compile Include="Sources\Setups\ApplicationSetup.cs" />
-    <Compile Include="Sources\Systems\ApplicationSystem.cs" />
-    <Compile Include="Sources\Systems\System.cs" />
-    <Compile Include="Sources\Generics\Generic.cs" />
-    <Compile Include="Sources\Generics\GenericDataCollection.cs" />
-    <Compile Include="Sources\Results\ResultFailed.cs" />
-    <Compile Include="Sources\Results\ResultSuccess.cs" />
-    <Compile Include="Sources\Generics\GenericData.cs" />
-    <Compile Include="Sources\Results\Result.cs" />
-    <Compile Include="Sources\Setups\SetupRecorder.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Sources\Forms\StartingMenu.cs">
       <SubType>Form</SubType>
@@ -597,8 +559,47 @@
     <Compile Include="Sources\Forms\StartingMenu.Designer.cs">
       <DependentUpon>StartingMenu.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Demos\A\Forms\Structure.resx">
-      <DependentUpon>Structure.cs</DependentUpon>
+    <Compile Include="Sources\Forms\UserProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\UserProfile.Designer.cs">
+      <DependentUpon>UserProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Generics\Generic.cs" />
+    <Compile Include="Sources\Generics\GenericData.cs" />
+    <Compile Include="Sources\Generics\GenericDataCollection.cs" />
+    <Compile Include="Sources\Generics\GenericDoublyLinkedList.cs" />
+    <Compile Include="Sources\Generics\GenericDoublyLinkedListItem.cs" />
+    <Compile Include="Sources\Generics\GenericOrderedList.cs" />
+    <Compile Include="Sources\Generics\GenericUniqueOrderedList.cs" />
+    <Compile Include="Sources\Loggers\ApplicationLogger.cs" />
+    <Compile Include="Sources\Loggers\ConsoleLogger.cs" />
+    <Compile Include="Sources\Loggers\FileLogger.cs" />
+    <Compile Include="Sources\Loggers\Logger.cs" />
+    <Compile Include="Sources\Loggers\CompositeLogger.cs" />
+    <Compile Include="Sources\Miscellaneous\DateParser.cs" />
+    <Compile Include="Sources\Miscellaneous\StringParser.cs" />
+    <Compile Include="Sources\ResourceLoaders\ApplicationResourceLoader.cs" />
+    <Compile Include="Sources\ResourceLoaders\ResourceData.cs" />
+    <Compile Include="Sources\ResourceLoaders\ResourceLoader.cs" />
+    <Compile Include="Sources\Results\Result.cs" />
+    <Compile Include="Sources\Results\ResultFailed.cs" />
+    <Compile Include="Sources\Results\ResultSuccess.cs" />
+    <Compile Include="Sources\Security\ApplicationCryptographer.cs" />
+    <Compile Include="Sources\Security\ApplicationSecurity.cs" />
+    <Compile Include="Sources\Security\ApplicationValidator.cs" />
+    <Compile Include="Sources\Security\Cryptographer.cs" />
+    <Compile Include="Sources\Setups\ApplicationSetup.cs" />
+    <Compile Include="Sources\Setups\SetupRecorder.cs" />
+    <Compile Include="Sources\Systems\ApplicationSystem.cs" />
+    <Compile Include="Sources\Systems\System.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\FormControls\EntityStatusItem.resx">
+      <DependentUpon>EntityStatusItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\FormControls\EventResultItem.resx">
       <DependentUpon>EventResultItem.cs</DependentUpon>
@@ -609,20 +610,23 @@
     <EmbeddedResource Include="Sources\FormControls\EventStructureItem.resx">
       <DependentUpon>EventStructureItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sources\FormControls\InformationLayout.resx">
+      <DependentUpon>InformationLayout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sources\FormControls\JudgeCriteriumResultItem.resx">
       <DependentUpon>JudgeCriteriumResultItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\FormControls\JudgeCriteriumResultItemLayout.resx">
       <DependentUpon>JudgeCriteriumResultItemLayout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sources\FormControls\JudgeVoteStatusItem.resx">
-      <DependentUpon>JudgeVoteStatusItem.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Sources\FormControls\OrderedValueItem.resx">
       <DependentUpon>OrderedValueItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\FormControls\OrderedValueItemLayout.resx">
       <DependentUpon>OrderedValueItemLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\FormControls\RadioButtonLayout.resx">
+      <DependentUpon>RadioButtonLayout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\FormControls\SingleValuedItem.resx">
       <DependentUpon>SingleValuedItem.cs</DependentUpon>
@@ -633,80 +637,38 @@
     <EmbeddedResource Include="Sources\FormControls\TopSideNavigationLayout.resx">
       <DependentUpon>TopSideNavigationLayout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\AdministerEventContestants.resx">
-      <DependentUpon>AdministerEventContestants.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\AdministerEventJudges.resx">
-      <DependentUpon>AdministerEventJudges.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\AdministerEventLayout.resx">
-      <DependentUpon>AdministerEventLayout.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\JudgeDashboard.resx">
-      <DependentUpon>JudgeDashboard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\MessageDialogBox.resx">
-      <DependentUpon>MessageDialogBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\JudgeContestantDashboard.resx">
-      <DependentUpon>JudgeContestantDashboard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\AdministerVotingSession.resx">
-      <DependentUpon>AdministerVotingSession.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\EventCriteriumProfile.resx">
-      <DependentUpon>EventCriteriumProfile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\EventContestants.resx">
-      <DependentUpon>EventContestants.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\EventCriteriumResult.resx">
-      <DependentUpon>EventCriteriumResult.cs</DependentUpon>
+    <EmbeddedResource Include="Sources\Forms\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\Forms\AdministerEvent.resx">
       <DependentUpon>AdministerEvent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\EventRoundResult.resx">
-      <DependentUpon>EventRoundResult.cs</DependentUpon>
+    <EmbeddedResource Include="Sources\Forms\AdministerEventContestantReview.resx">
+      <DependentUpon>AdministerEventContestantReview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\EventSegmentResult.resx">
-      <DependentUpon>EventSegmentResult.cs</DependentUpon>
+    <EmbeddedResource Include="Sources\Forms\AdministerEventContestants.resx">
+      <DependentUpon>AdministerEventContestants.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\EventLayout.resx">
-      <DependentUpon>EventLayout.cs</DependentUpon>
+    <EmbeddedResource Include="Sources\Forms\AdministerEventQuery.resx">
+      <DependentUpon>AdministerEventQuery.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\EventJudges.resx">
-      <DependentUpon>EventJudges.cs</DependentUpon>
+    <EmbeddedResource Include="Sources\Forms\AdministerVotingSession.resx">
+      <DependentUpon>AdministerVotingSession.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\EventRoundProfile.resx">
-      <DependentUpon>EventRoundProfile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\EventSegmentProfile.resx">
-      <DependentUpon>EventSegmentProfile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\EventProfile.resx">
-      <DependentUpon>EventProfile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\UserProfile.resx">
-      <DependentUpon>UserProfile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\EventContestantProfile.resx">
-      <DependentUpon>EventContestantProfile.cs</DependentUpon>
+    <EmbeddedResource Include="Sources\Forms\Background.resx">
+      <DependentUpon>Background.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\Forms\ConfirmationDialogBox.resx">
       <DependentUpon>ConfirmationDialogBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\EditEventCriteriumStructure.resx">
-      <DependentUpon>EditEventCriteriumStructure.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\EditEventRoundStructure.resx">
-      <DependentUpon>EditEventRoundStructure.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\EditEventSegmentStructure.resx">
-      <DependentUpon>EditEventSegmentStructure.cs</DependentUpon>
+    <EmbeddedResource Include="Sources\Forms\EditEvent.resx">
+      <DependentUpon>EditEvent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\Forms\EditEventContestants.resx">
       <DependentUpon>EditEventContestants.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\Forms\EditEventCriteriumStructure.resx">
+      <DependentUpon>EditEventCriteriumStructure.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\Forms\EditEventJudges.resx">
       <DependentUpon>EditEventJudges.cs</DependentUpon>
@@ -714,37 +676,68 @@
     <EmbeddedResource Include="Sources\Forms\EditEventProfile.resx">
       <DependentUpon>EditEventProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\InformationNotFound.resx">
-      <DependentUpon>InformationNotFound.cs</DependentUpon>
+    <EmbeddedResource Include="Sources\Forms\EditEventRoundStructure.resx">
+      <DependentUpon>EditEventRoundStructure.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\EditEvent.resx">
-      <DependentUpon>EditEvent.cs</DependentUpon>
+    <EmbeddedResource Include="Sources\Forms\EditEventSegmentStructure.resx">
+      <DependentUpon>EditEventSegmentStructure.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="Sources\Forms\EditUserProfile.resx">
+      <DependentUpon>EditUserProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sources\FormControls\InformationLayout.resx">
-      <DependentUpon>InformationLayout.cs</DependentUpon>
+    <EmbeddedResource Include="Sources\Forms\EventContestantProfile.resx">
+      <DependentUpon>EventContestantProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sources\FormControls\RadioButtonLayout.resx">
-      <DependentUpon>RadioButtonLayout.cs</DependentUpon>
+    <EmbeddedResource Include="Sources\Forms\EventContestants.resx">
+      <DependentUpon>EventContestants.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\About.resx">
-      <DependentUpon>About.cs</DependentUpon>
+    <EmbeddedResource Include="Sources\Forms\EventCriteriumProfile.resx">
+      <DependentUpon>EventCriteriumProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\Background.resx">
-      <DependentUpon>Background.cs</DependentUpon>
+    <EmbeddedResource Include="Sources\Forms\EventCriteriumResult.resx">
+      <DependentUpon>EventCriteriumResult.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\LogIn.resx">
-      <DependentUpon>LogIn.cs</DependentUpon>
+    <EmbeddedResource Include="Sources\Forms\EventJudges.resx">
+      <DependentUpon>EventJudges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\Forms\EventLayout.resx">
+      <DependentUpon>EventLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\Forms\EventProfile.resx">
+      <DependentUpon>EventProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\Forms\EventResults.resx">
       <DependentUpon>EventResults.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sources\Forms\EventRoundProfile.resx">
+      <DependentUpon>EventRoundProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\Forms\EventRoundResult.resx">
+      <DependentUpon>EventRoundResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\Forms\EventSegmentProfile.resx">
+      <DependentUpon>EventSegmentProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\Forms\EventSegmentResult.resx">
+      <DependentUpon>EventSegmentResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\Forms\InformationNotFound.resx">
+      <DependentUpon>InformationNotFound.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\Forms\JudgeContestantDashboard.resx">
+      <DependentUpon>JudgeContestantDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\Forms\JudgeDashboard.resx">
+      <DependentUpon>JudgeDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\Forms\LogIn.resx">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sources\Forms\ManagerDashboard.resx">
       <DependentUpon>ManagerDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\Forms\MessageDialogBox.resx">
+      <DependentUpon>MessageDialogBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\Forms\SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
@@ -752,8 +745,8 @@
     <EmbeddedResource Include="Sources\Forms\StartingMenu.resx">
       <DependentUpon>StartingMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\EditUserProfile.resx">
-      <DependentUpon>EditUserProfile.cs</DependentUpon>
+    <EmbeddedResource Include="Sources\Forms\UserProfile.resx">
+      <DependentUpon>UserProfile.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -770,15 +763,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Demos\A\Caches\" />
-    <Folder Include="Demos\A\Configurations\" />
-    <Folder Include="Demos\A\Databases\" />
-    <Folder Include="Demos\A\EventLayouts\" />
-    <Folder Include="Demos\A\FormNavigators\" />
-    <Folder Include="Demos\A\FormStyles\" />
-    <Folder Include="Demos\A\Loggers\" />
-    <Folder Include="Demos\A\Security\" />
-    <Folder Include="Demos\A\Utilities\" />
     <Folder Include="Documentation\" />
   </ItemGroup>
   <ItemGroup>

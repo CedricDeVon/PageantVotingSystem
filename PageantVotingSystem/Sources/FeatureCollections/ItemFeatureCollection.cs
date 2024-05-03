@@ -43,7 +43,10 @@ namespace PageantVotingSystem.Sources.FeatureCollections
 
         protected Timer doubleClickDelayTimer;
 
-        public ItemFeatureCollection(object formControl, Panel parentControl, Panel itemControl)
+        public ItemFeatureCollection(
+            object formControl,
+            Panel parentControl,
+            Panel itemControl)
         {
             ThrowIfFormControlIsNull(formControl);
             ThrowIfParentControlIsNull(parentControl);

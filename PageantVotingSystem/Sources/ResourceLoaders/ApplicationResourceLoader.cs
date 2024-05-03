@@ -1,8 +1,9 @@
 ﻿
-using System.Collections.Generic;
 using System.Drawing;
-using Google.Protobuf.WellKnownTypes;
+using System.Collections.Generic;
+
 using PageantVotingSystem.Sources.Setups;
+using PageantVotingSystem.Sources.Loggers;
 
 namespace PageantVotingSystem.Sources.ResourceLoaders
 {
@@ -11,13 +12,15 @@ namespace PageantVotingSystem.Sources.ResourceLoaders
         public static void Setup(HashSet<object> values)
         {
             SetupRecorder.ThrowIfAlreadySetup("ApplicationResourceLoader");
-
+            ApplicationLogger.LogInformationMessage("'ApplicationResourceLoader' setup began");
+            
             foreach (object value in values)
             {
                 AddResource((string)value);
             }
 
             SetupRecorder.Add("ApplicationResourceLoader");
+            ApplicationLogger.LogInformationMessage("'ApplicationResourceLoader' setup complete");
         }
 
         public static Bitmap SafeLoadResource(string filePath)

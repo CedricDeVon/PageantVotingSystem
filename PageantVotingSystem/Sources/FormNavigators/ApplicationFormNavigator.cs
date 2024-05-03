@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using PageantVotingSystem.Sources.Forms;
 using PageantVotingSystem.Sources.Caches;
 using PageantVotingSystem.Sources.Setups;
+using PageantVotingSystem.Sources.Loggers;
 using PageantVotingSystem.Sources.Entities;
 
 namespace PageantVotingSystem.Sources.FormNavigators
@@ -26,7 +27,8 @@ namespace PageantVotingSystem.Sources.FormNavigators
             Form selectedInformationNotFoundForm = null)
         {
             SetupRecorder.ThrowIfAlreadySetup("ApplicationFormNavigator");
-
+            ApplicationLogger.LogInformationMessage("'ApplicationFormNavigator' setup began");
+            
             if (selectedBackgroundForm != null &&
                 selectedInformationNotFoundForm != null &&
                 selectedBackgroundForm == selectedInformationNotFoundForm)
@@ -42,6 +44,7 @@ namespace PageantVotingSystem.Sources.FormNavigators
                 }
 
                 AddForm(form);
+                ApplicationLogger.LogInformationMessage($"'{form.Name}' setup for navigation");
             }
 
             backgroundForm = selectedBackgroundForm;
@@ -57,29 +60,44 @@ namespace PageantVotingSystem.Sources.FormNavigators
             }
 
             SetupRecorder.Add("ApplicationFormNavigator");
+            ApplicationLogger.LogInformationMessage("'ApplicationFormNavigator' setup complete");
         }
 
-        public static new void BeginDisplay(string foregroundFormName)
+        public static new void BeginDisplayingForm(string foregroundFormName)
         {
             if (backgroundForm != null)
             {
                 backgroundForm.Show();
             }
 
-            FormNavigator.BeginDisplay(foregroundFormName);
+            ApplicationLogger.LogInformationMessage($"'ApplicationFormNavigator' began displaying at '{foregroundFormName}'");
+            FormNavigator.BeginDisplayingForm(foregroundFormName);
         }
 
-        public static new void DisplayNext(string formName)
+        public static new void DisplayNextForm(string formName)
         {
             if (informationNotFoundForm != null &&
-                FormNavigator.IsNotFound(formName))
+                FormNavigator.IsFormNotFound(formName))
             {
-                FormNavigator.DisplayNext(informationNotFoundForm);
+                FormNavigator.DisplayNextForm(informationNotFoundForm);
             }
             else
             {
-                FormNavigator.DisplayNext(formName);
+                FormNavigator.DisplayNextForm(formName);
             }
+            ApplicationLogger.LogInformationMessage($"'ApplicationFormNavigator' displaying next form '{formName}'");
+        }
+
+        public static new void DisplayPreviousForm()
+        {
+            FormNavigator.DisplayPreviousForm();
+            ApplicationLogger.LogInformationMessage($"'ApplicationFormNavigator' displaying previous form '{history.Peek().Name}'");
+        }
+
+        public static new void StopDisplay()
+        {
+            ApplicationLogger.LogInformationMessage($"'ApplicationFormNavigator' stoped displaying from '{history.Peek().Name}'");
+            FormNavigator.StopDisplay();
         }
 
         public static void ListenToFormKeyDownEvent(Form form)
@@ -91,192 +109,55 @@ namespace PageantVotingSystem.Sources.FormNavigators
 
         public static void DisplayAboutForm()
         {
-            DisplayNext("About");
+            DisplayNextForm("About");
         }
 
         public static void DisplayBackgroundForm()
         {
-            DisplayNext("Background");
+            DisplayNextForm("Background");
         }
 
         public static void DisplayInformationNotFoundForm()
         {
-            DisplayNext("InformationNotFound");
+            DisplayNextForm("InformationNotFound");
         }
 
         public static void DisplayStartingMenuForm()
         {
-            DisplayNext("StartingMenu");
+            DisplayNextForm("StartingMenu");
         }
 
         public static void DisplayLogInForm()
         {
-            DisplayNext("LogIn");
+            DisplayNextForm("LogIn");
         }
 
         public static void DisplaySignUpForm()
         {
-            DisplayNext("SignUp");
+            DisplayNextForm("SignUp");
+        }
+
+        public static void LogOut()
+        {
+            DisplayStartingMenuForm();
         }
 
         public static void DisplayManagerDashboardForm()
         {
-            DisplayNext("ManagerDashboard");
-        }
-
-        public static void DisplayEditEventForm()
-        {
-            DisplayNext("EditEvent");
-        }
-
-        public static void DisplayEditEventProfileForm()
-        {
-            ((EditEventProfile)GetForm("EditEventProfile")).Render();
-            DisplayNext("EditEventProfile");
-        }
-
-        public static void DisplayEditEventJudgesForm()
-        {
-            DisplayNext("EditEventJudges");
-        }
-
-        public static void DisplayEditEventContestantsForm()
-        {
-            DisplayNext("EditEventContestants");
-        }
-
-        public static void DisplayEditEventSegmentStructureForm()
-        {
-            DisplayNext("EditEventSegmentStructure");
-        }
-
-        public static void DisplayEditEventRoundStructureForm()
-        {
-            DisplayNext("EditEventRoundStructure");
-        }
-
-        public static void DisplayEditEventCriteriumStructureForm()
-        {
-            DisplayNext("EditEventCriteriumStructure");
-        }
-
-        public static void DisplayEditUserProfileForm()
-        {
-            ((EditUserProfile)GetForm("EditUserProfile")).Render();
-            DisplayNext("EditUserProfile");
-        }
-
-        public static void DisplayEventResultsForm()
-        {
-            DisplayNext("EventResults");
-        }
-        
-        public static void DisplayEventJudgesForm(EventEntity entity)
-        {
-            ((EventJudges)GetForm("EventJudges")).Render(entity);
-            DisplayNext("EventJudges");
-        }
-        
-        public static void DisplayEventContestantsForm(EventEntity entity)
-        {
-            ((EventContestants)GetForm("EventContestants")).Render(entity);
-            DisplayNext("EventContestants");
-        }
-        
-        public static void DisplayEventLayoutForm(EventEntity entity)
-        {
-            ((EventLayout)GetForm("EventLayout")).Render(entity);
-            DisplayNext("EventLayout");
-        }
-
-        public static void DisplayEventProfileForm(EventEntity entity)
-        {
-            ((EventProfile)GetForm("EventProfile")).Render(entity);
-            DisplayNext("EventProfile");
-        }
-
-        public static void DisplayEventSegmentProfileForm(SegmentEntity entity)
-        {
-            ((EventSegmentProfile)GetForm("EventSegmentProfile")).Render(entity);
-            DisplayNext("EventSegmentProfile");
-        }
-
-        public static void DisplayEventRoundProfileForm(RoundEntity entity)
-        {
-            ((EventRoundProfile)GetForm("EventRoundProfile")).Render(entity);
-            DisplayNext("EventRoundProfile");
-        }
-
-        public static void DisplayEventCriteriumProfileForm(CriteriumEntity entity)
-        {
-            ((EventCriteriumProfile)GetForm("EventCriteriumProfile")).Render(entity);
-            DisplayNext("EventCriteriumProfile");
-        }
-
-        public static void DisplayUserProfileForm(UserEntity userEntity)
-        {
-            ((UserProfile)GetForm("UserProfile")).Render(userEntity);
-            DisplayNext("UserProfile");
-        }
-
-        public static void DisplayEventContestantProfileForm(ContestantEntity userEntity)
-        {
-            ((EventContestantProfile)GetForm("EventContestantProfile")).Render(userEntity);
-            DisplayNext("EventContestantProfile");
-        }
-        
-        public static void DisplayEventCriteriumResultForm(int id)
-        {
-            ((EventCriteriumResult)GetForm("EventCriteriumResult")).Render(id);
-            DisplayNext("EventCriteriumResult");
-        }
-
-        public static void DisplayEventRoundResultForm(int id)
-        {
-            ((EventRoundResult)GetForm("EventRoundResult")).Render(id);
-            DisplayNext("EventRoundResult");
-        }
-        
-        public static void DisplayEventSegmentResultForm(int id)
-        {
-            ((EventSegmentResult)GetForm("EventSegmentResult")).Render(id);
-            DisplayNext("EventSegmentResult");
-        }
-
-        public static void DisplayAdministerEventForm()
-        {
-            DisplayNext("AdministerEvent");
-        }
-
-        public static void DisplayAdministerEventContestantsForm()
-        {
-            DisplayNext("AdministerEventContestants");
-        }
-
-        public static void DisplayAdministerEventJudgesForm()
-        {
-            DisplayNext("AdministerEventJudges");
-        }
-
-        public static void DisplayAdministerEventLayoutForm()
-        {
-            DisplayNext("AdministerEventLayout");
-        }
-
-        public static void DisplayAdministerVotingSessionForm()
-        {
-            DisplayNext("AdministerVotingSession");
+            DisplayNextForm("ManagerDashboard");
         }
 
         public static void DisplayJudgeDashboardForm()
         {
-            DisplayNext("JudgeDashboard");
+            DisplayNextForm("JudgeDashboard");
         }
 
-        public static void DisplayJudgeContestantDashboardForm(EventEntity eventEntity, ContestantEntity contestantEntity)
+        public static void DisplayJudgeContestantDashboardForm(
+            EventLayoutSequenceEntity eventLayoutSequenceEntity,
+            ContestantEntity contestantEntity)
         {
-            ((JudgeContestantDashboard)GetForm("JudgeContestantDashboard")).Render(eventEntity, contestantEntity);
-            DisplayNext("JudgeContestantDashboard");
+            ((JudgeContestantDashboard)GetForm("JudgeContestantDashboard")).Render(eventLayoutSequenceEntity, contestantEntity);
+            DisplayNextForm("JudgeContestantDashboard");
         }
 
         public static void DisplayManagerOrJudgeDashboardForm(string userRoleType)
@@ -293,6 +174,157 @@ namespace PageantVotingSystem.Sources.FormNavigators
             }
         }
 
+        public static void DisplayEditUserProfileForm()
+        {
+            ((EditUserProfile)GetForm("EditUserProfile")).Render();
+            DisplayNextForm("EditUserProfile");
+        }
+
+        public static void DisplayEventResultsForm()
+        {
+            DisplayNextForm("EventResults");
+        }
+
+        public static void DisplayEventJudgesForm(EventEntity eventEntity)
+        {
+            ((EventJudges)GetForm("EventJudges")).Render(eventEntity);
+            DisplayNextForm("EventJudges");
+        }
+
+        public static void DisplayEventContestantsForm(EventEntity eventEntity)
+        {
+            ((EventContestants)GetForm("EventContestants")).Render(eventEntity);
+            DisplayNextForm("EventContestants");
+        }
+
+        public static void DisplayEventLayoutForm(EventEntity eventEntity)
+        {
+            ((EventLayout)GetForm("EventLayout")).Render(eventEntity);
+            DisplayNextForm("EventLayout");
+        }
+
+        public static void DisplayEventProfileForm(int eventEntityId)
+        {
+            ((EventProfile)GetForm("EventProfile")).Render(eventEntityId);
+            DisplayNextForm("EventProfile");
+        }
+
+        public static void DisplayEventSegmentProfileForm(int segmentEntityId)
+        {
+            ((EventSegmentProfile)GetForm("EventSegmentProfile")).Render(segmentEntityId);
+            DisplayNextForm("EventSegmentProfile");
+        }
+
+        public static void DisplayEventRoundProfileForm(int roundEntityId)
+        {
+            ((EventRoundProfile)GetForm("EventRoundProfile")).Render(roundEntityId);
+            DisplayNextForm("EventRoundProfile");
+        }
+
+        public static void DisplayEventCriteriumProfileForm(int criteriumEntityId)
+        {
+            ((EventCriteriumProfile)GetForm("EventCriteriumProfile")).Render(criteriumEntityId);
+            DisplayNextForm("EventCriteriumProfile");
+        }
+
+        public static void DisplayUserProfileForm(string userEntityEmail)
+        {
+            ((UserProfile)GetForm("UserProfile")).Render(userEntityEmail);
+            DisplayNextForm("UserProfile");
+        }
+
+        public static void DisplayEventContestantProfileForm(int contestantEntityId)
+        {
+            ((EventContestantProfile)GetForm("EventContestantProfile")).Render(contestantEntityId);
+            DisplayNextForm("EventContestantProfile");
+        }
+
+        public static void DisplayEventCriteriumResultForm(int criteriumEntityId)
+        {
+            ((EventCriteriumResult)GetForm("EventCriteriumResult")).Render(criteriumEntityId);
+            DisplayNextForm("EventCriteriumResult");
+        }
+
+        public static void DisplayEventRoundResultForm(int roundEntityId)
+        {
+            ((EventRoundResult)GetForm("EventRoundResult")).Render(roundEntityId);
+            DisplayNextForm("EventRoundResult");
+        }
+
+        public static void DisplayEventSegmentResultForm(int segmentEntityId)
+        {
+            ((EventSegmentResult)GetForm("EventSegmentResult")).Render(segmentEntityId);
+            DisplayNextForm("EventSegmentResult");
+        }
+
+        public static void DisplayAdministerEventForm()
+        {
+            ((AdministerEvent)GetForm("AdministerEvent")).Render();
+            DisplayNextForm("AdministerEvent");
+        }
+
+        public static void DisplayAdministerEventQueryForm()
+        {
+            DisplayNextForm("AdministerEventQuery");
+        }
+
+        public static void DisplayAdministerEventContestantsForm()
+        {
+            ((AdministerEventContestants)GetForm("AdministerEventContestants")).Render();
+            DisplayNextForm("AdministerEventContestants");
+        }
+
+        public static void DisplayAdministerEventContestantReviewForm()
+        {
+            ((AdministerEventContestantReview)GetForm("AdministerEventContestantReview")).Render();
+            DisplayNextForm("AdministerEventContestantReview");
+        }
+
+        public static void DisplayAdministerVotingSessionForm()
+        {
+            ((AdministerVotingSession)GetForm("AdministerVotingSession")).Render();
+            DisplayNextForm("AdministerVotingSession");
+        }
+
+        public static void DisplayEditEventForm()
+        {
+            DisplayNextForm("EditEvent");
+        }
+
+        public static void DisplayEditEventProfileForm()
+        {
+            ((EditEventProfile)GetForm("EditEventProfile")).Render();
+            DisplayNextForm("EditEventProfile");
+        }
+
+        public static void DisplayEditEventJudgesForm()
+        {
+            ((EditEventJudges)GetForm("EditEventJudges")).Render();
+            DisplayNextForm("EditEventJudges");
+        }
+
+        public static void DisplayEditEventContestantsForm()
+        {
+            ((EditEventContestants)GetForm("EditEventContestants")).Render();
+            DisplayNextForm("EditEventContestants");
+        }
+
+        public static void DisplayEditEventSegmentStructureForm()
+        {
+            ((EditEventSegmentStructure)GetForm("EditEventSegmentStructure")).Render();
+            DisplayNextForm("EditEventSegmentStructure");
+        }
+
+        public static void DisplayEditEventRoundStructureForm()
+        {
+            DisplayNextForm("EditEventRoundStructure");
+        }
+
+        public static void DisplayEditEventCriteriumStructureForm()
+        {
+            DisplayNextForm("EditEventCriteriumStructure");
+        }
+
         public static void DisplayEditEventRoundStructureForm(SegmentEntity segmentEntity)
         {
             ((EditEventRoundStructure)GetForm("EditEventRoundStructure")).Render(segmentEntity);
@@ -305,17 +337,12 @@ namespace PageantVotingSystem.Sources.FormNavigators
             DisplayEditEventCriteriumStructureForm();
         }
 
-        public static void LogOut()
-        {
-            DisplayStartingMenuForm();
-        }
-
         private static void Form_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
                 BeforeKeyPress?.Invoke(sender, e);
-                ApplicationFormNavigator.DisplayPrevious();
+                ApplicationFormNavigator.DisplayPreviousForm();
                 AfterKeyPress?.Invoke(sender, e);
 
                 e.Handled = true;

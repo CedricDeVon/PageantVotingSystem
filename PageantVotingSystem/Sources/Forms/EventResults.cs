@@ -8,12 +8,13 @@ using PageantVotingSystem.Sources.FormNavigators;
 using PageantVotingSystem.Sources.FormStyles;
 using PageantVotingSystem.Sources.Databases;
 using PageantVotingSystem.Sources.Entities;
+using PageantVotingSystem.Sources.Caches;
 
 namespace PageantVotingSystem.Sources.Forms
 {
     public partial class EventResults : Form
     {
-        public InformationLayout InformationLayout { get; private set; }
+        private readonly InformationLayout informationLayout;
         
         private readonly TopSideNavigationLayout topSideNavigationLayout;
 
@@ -26,9 +27,8 @@ namespace PageantVotingSystem.Sources.Forms
             InitializeComponent();
 
             ApplicationFormStyle.SetupFormStyles(this);
-            InformationLayout = new InformationLayout(informationLayoutControl);
+            informationLayout = new InformationLayout(informationLayoutControl);
             topSideNavigationLayout = new TopSideNavigationLayout(topSideNavigationLayoutControl);
-            topSideNavigationLayout.HideReloadButton();
             dataOptionsLayout = new SingleValuedItemLayout(dataOptionsLayoutControl, DataOptionsLayoutItem_Click);
             resultLayout = new SingleValuedItemLayout(resultLayoutControl, ResultLayoutItem_Click);
             dataOptionsLayout.Render(new List<string>() { "Layout", "Judges", "Contestants" });
@@ -36,20 +36,36 @@ namespace PageantVotingSystem.Sources.Forms
 
         private void Button_Click(object sender, EventArgs e)
         {
+            informationLayout.StartLoadingMessageDisplay();
+
             if (sender == goBackButton)
             {
-                ApplicationFormNavigator.DisplayPrevious();
-                ResetAllInputs();
+                DisplayPreviousForm();
             }
             else if (sender == searchButton)
             {
-                resultLayout.Clear();
                 QueryResults();
             }
             else if (sender == resetButton)
             {
-                ResetAllInputs();
+                Clear();
             }
+
+            informationLayout.StopLoadingMessageDisplay();
+        }
+
+        private void Form_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Escape)
+            {
+                DisplayPreviousForm();
+            }
+        }
+
+        private void DisplayPreviousForm()
+        {
+            ApplicationFormNavigator.DisplayPreviousForm();
+            Clear();
         }
 
         private void DataOptionsLayoutItem_Click(object sender, EventArgs e)
@@ -88,14 +104,15 @@ namespace PageantVotingSystem.Sources.Forms
             {
                 ApplicationFormNavigator.DisplayEventContestantsForm(eventEntity);
             }
-            ResetAllInputs();
+            Clear();
         }
 
         private void QueryResults()
         {
-            List<EventEntity> eventEntities = ApplicationDatabase.ReadManyEventsBasedOnManagerEmail(
+            resultLayout.Clear();
+            List<EventEntity> eventEntities = ApplicationDatabase.ReadManyEventEntitiesBasedOnManagerEmail(
                 eventNameInput.Text,
-                eventManagerEmailInput.Text);
+                UserProfileCache.Data.Email);
             resultCountLabel.Text = $"{eventEntities.Count}";
             foreach (EventEntity eventEntity in eventEntities)
             {
@@ -103,10 +120,9 @@ namespace PageantVotingSystem.Sources.Forms
             }
         }
 
-        private void ResetAllInputs()
+        private void Clear()
         {
             eventNameInput.Text = "";
-            eventManagerEmailInput.Text = "";
             dataOptionsLayout.Unfocus();
             resultCountLabel.Text = "0";
             resultLayout.Clear();

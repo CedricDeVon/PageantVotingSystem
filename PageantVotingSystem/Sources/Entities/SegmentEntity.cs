@@ -75,12 +75,13 @@ namespace PageantVotingSystem.Sources.Entities
             Name = name;
         }
 
-        public override void ClearAllAttributes()
+        public SegmentEntity(int id, string name, int maximumContestantCount)
         {
-            base.ClearAllAttributes();
-
             SetAllAttributes();
-            Rounds.ClearAllItems();
+            Rounds = new GenericOrderedList<RoundEntity>();
+            Id = id;
+            Name = name;
+            MaximumContestantCount = maximumContestantCount;
         }
 
         private void SetAllAttributes(
@@ -89,6 +90,14 @@ namespace PageantVotingSystem.Sources.Entities
         {
             MaximumContestantCount = maximumContestantCount;
             EventId = eventId;
+        }
+
+        public override void ClearAllAttributes()
+        {
+            base.ClearAllAttributes();
+
+            SetAllAttributes();
+            Rounds.ClearAllItems();
         }
     }
 }

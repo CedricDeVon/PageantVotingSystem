@@ -56,7 +56,7 @@
             this.panel23 = new System.Windows.Forms.Panel();
             this.panel44 = new System.Windows.Forms.Panel();
             this.resetButton = new System.Windows.Forms.Button();
-            this.saveButton = new System.Windows.Forms.Button();
+            this.goBackButton = new System.Windows.Forms.Button();
             this.panel26 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.panel19 = new System.Windows.Forms.Panel();
@@ -382,7 +382,7 @@
             // panel44
             // 
             this.panel44.Controls.Add(this.resetButton);
-            this.panel44.Controls.Add(this.saveButton);
+            this.panel44.Controls.Add(this.goBackButton);
             this.panel44.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel44.Location = new System.Drawing.Point(20, 60);
             this.panel44.MaximumSize = new System.Drawing.Size(0, 40);
@@ -411,25 +411,25 @@
             this.resetButton.UseVisualStyleBackColor = false;
             this.resetButton.Click += new System.EventHandler(this.Button_Click);
             // 
-            // saveButton
+            // goBackButton
             // 
-            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.saveButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.saveButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.saveButton.FlatAppearance.BorderSize = 0;
-            this.saveButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.saveButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
-            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.Location = new System.Drawing.Point(0, 0);
-            this.saveButton.MaximumSize = new System.Drawing.Size(200, 40);
-            this.saveButton.MinimumSize = new System.Drawing.Size(200, 40);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(200, 40);
-            this.saveButton.TabIndex = 36;
-            this.saveButton.Text = "Save";
-            this.saveButton.UseVisualStyleBackColor = false;
-            this.saveButton.Click += new System.EventHandler(this.Button_Click);
+            this.goBackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.goBackButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.goBackButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.goBackButton.FlatAppearance.BorderSize = 0;
+            this.goBackButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.goBackButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
+            this.goBackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.goBackButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.goBackButton.Location = new System.Drawing.Point(0, 0);
+            this.goBackButton.MaximumSize = new System.Drawing.Size(200, 40);
+            this.goBackButton.MinimumSize = new System.Drawing.Size(200, 40);
+            this.goBackButton.Name = "goBackButton";
+            this.goBackButton.Size = new System.Drawing.Size(200, 40);
+            this.goBackButton.TabIndex = 36;
+            this.goBackButton.Text = "Go Back";
+            this.goBackButton.UseVisualStyleBackColor = false;
+            this.goBackButton.Click += new System.EventHandler(this.Button_Click);
             // 
             // panel26
             // 
@@ -703,7 +703,7 @@
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.Panel panel44;
-        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button goBackButton;
         private System.Windows.Forms.Panel panel26;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel20;

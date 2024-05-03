@@ -28,7 +28,6 @@ namespace PageantVotingSystem.Sources.Forms
             informationLayout = new InformationLayout(informationLayoutControl);
             topSideNavigationLayout = new TopSideNavigationLayout(
                 topSideNavigationLayoutControl);
-            topSideNavigationLayout.HideReloadButton();
             scoringSystemOptions = new RadioButtonLayout(
                 scoringSystemControl,
                 ScoringSystemCache.Types);
@@ -38,17 +37,10 @@ namespace PageantVotingSystem.Sources.Forms
         {
             informationLayout.StartLoadingMessageDisplay();
 
-            if (sender == saveButton)
+            if (sender == goBackButton)
             {
                 UpdateCache();
-                Result securityResult = ApplicationSecurity.AuthenticateNewEventProfile(EditEventCache.Event);
-                if (!securityResult.IsSuccessful)
-                {
-                    informationLayout.DisplayErrorMessage(securityResult.Message);
-                    return;
-                }
-
-                ApplicationFormNavigator.DisplayPrevious();
+                ApplicationFormNavigator.DisplayPreviousForm();
             }
             else if (sender == resetButton)
             {
@@ -59,6 +51,16 @@ namespace PageantVotingSystem.Sources.Forms
             informationLayout.StopLoadingMessageDisplay();
         }
 
+        private void Form_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Escape)
+            {
+                UpdateCache();
+                ApplicationFormNavigator.DisplayPreviousForm();
+                e.Handled = true;
+            }
+        }
+
         public void Render()
         {
             UpdateInputs();
@@ -67,11 +69,11 @@ namespace PageantVotingSystem.Sources.Forms
         private void UpdateInputs()
         {
             SetInputs(
-                EditEventCache.Event.DateTimeStart,
-                EditEventCache.Event.Name,
-                EditEventCache.Event.HostAddress,
-                EditEventCache.Event.Description,
-                EditEventCache.Event.ScoringSystemType);
+                EditEventCache.EventEntity.DateTimeStart,
+                EditEventCache.EventEntity.Name,
+                EditEventCache.EventEntity.HostAddress,
+                EditEventCache.EventEntity.Description,
+                EditEventCache.EventEntity.ScoringSystemType);
         }
 
         private void ClearInputs()
@@ -102,11 +104,11 @@ namespace PageantVotingSystem.Sources.Forms
             string description = "",
             string scoringSystemType = "")
         {
-            EditEventCache.Event.Name = name;
-            EditEventCache.Event.HostAddress = hostAddress;
-            EditEventCache.Event.DateTimeStart = scheduledDataValue;
-            EditEventCache.Event.Description = description;
-            EditEventCache.Event.ScoringSystemType = scoringSystemType;
+            EditEventCache.EventEntity.Name = name;
+            EditEventCache.EventEntity.HostAddress = hostAddress;
+            EditEventCache.EventEntity.DateTimeStart = scheduledDataValue;
+            EditEventCache.EventEntity.Description = description;
+            EditEventCache.EventEntity.ScoringSystemType = scoringSystemType;
         }
 
         private void SetInputs(
@@ -122,6 +124,5 @@ namespace PageantVotingSystem.Sources.Forms
             description.Text = descriptionValue;
             scoringSystemOptions.Value = scoringSystemType;
         }
-
     }
 }

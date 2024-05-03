@@ -33,6 +33,14 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel46 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.panel58 = new System.Windows.Forms.Panel();
+            this.panel59 = new System.Windows.Forms.Panel();
+            this.panel60 = new System.Windows.Forms.Panel();
+            this.descriptionLabel = new System.Windows.Forms.Label();
+            this.panel61 = new System.Windows.Forms.Panel();
+            this.panel63 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel64 = new System.Windows.Forms.Panel();
             this.panel52 = new System.Windows.Forms.Panel();
             this.panel53 = new System.Windows.Forms.Panel();
             this.panel54 = new System.Windows.Forms.Panel();
@@ -65,7 +73,7 @@
             this.panel35 = new System.Windows.Forms.Panel();
             this.panel20 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
-            this.userProfileImageInput = new System.Windows.Forms.PictureBox();
+            this.userProfileImage = new System.Windows.Forms.PictureBox();
             this.panel18 = new System.Windows.Forms.Panel();
             this.panel36 = new System.Windows.Forms.Panel();
             this.panel37 = new System.Windows.Forms.Panel();
@@ -103,18 +111,14 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.panel58 = new System.Windows.Forms.Panel();
-            this.panel59 = new System.Windows.Forms.Panel();
-            this.panel60 = new System.Windows.Forms.Panel();
-            this.descriptionLabel = new System.Windows.Forms.Label();
-            this.panel61 = new System.Windows.Forms.Panel();
-            this.panel63 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel64 = new System.Windows.Forms.Panel();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel46.SuspendLayout();
             this.panel11.SuspendLayout();
+            this.panel58.SuspendLayout();
+            this.panel59.SuspendLayout();
+            this.panel60.SuspendLayout();
+            this.panel63.SuspendLayout();
             this.panel52.SuspendLayout();
             this.panel53.SuspendLayout();
             this.panel54.SuspendLayout();
@@ -130,7 +134,7 @@
             this.panel33.SuspendLayout();
             this.panel20.SuspendLayout();
             this.panel21.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userProfileImageInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userProfileImage)).BeginInit();
             this.panel36.SuspendLayout();
             this.panel37.SuspendLayout();
             this.panel23.SuspendLayout();
@@ -144,10 +148,6 @@
             this.panel16.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel58.SuspendLayout();
-            this.panel59.SuspendLayout();
-            this.panel60.SuspendLayout();
-            this.panel63.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel5
@@ -204,6 +204,91 @@
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(964, 579);
             this.panel11.TabIndex = 236;
+            // 
+            // panel58
+            // 
+            this.panel58.Controls.Add(this.panel59);
+            this.panel58.Controls.Add(this.panel64);
+            this.panel58.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel58.Location = new System.Drawing.Point(20, 135);
+            this.panel58.Name = "panel58";
+            this.panel58.Size = new System.Drawing.Size(884, 40);
+            this.panel58.TabIndex = 261;
+            // 
+            // panel59
+            // 
+            this.panel59.Controls.Add(this.panel60);
+            this.panel59.Controls.Add(this.panel61);
+            this.panel59.Controls.Add(this.panel63);
+            this.panel59.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel59.Location = new System.Drawing.Point(0, 0);
+            this.panel59.Name = "panel59";
+            this.panel59.Size = new System.Drawing.Size(884, 35);
+            this.panel59.TabIndex = 237;
+            // 
+            // panel60
+            // 
+            this.panel60.Controls.Add(this.descriptionLabel);
+            this.panel60.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel60.Location = new System.Drawing.Point(255, 0);
+            this.panel60.Name = "panel60";
+            this.panel60.Size = new System.Drawing.Size(629, 35);
+            this.panel60.TabIndex = 234;
+            // 
+            // descriptionLabel
+            // 
+            this.descriptionLabel.AutoEllipsis = true;
+            this.descriptionLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.descriptionLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.descriptionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.descriptionLabel.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.descriptionLabel.Location = new System.Drawing.Point(0, 0);
+            this.descriptionLabel.Name = "descriptionLabel";
+            this.descriptionLabel.Size = new System.Drawing.Size(629, 35);
+            this.descriptionLabel.TabIndex = 238;
+            this.descriptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel61
+            // 
+            this.panel61.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel61.Location = new System.Drawing.Point(250, 0);
+            this.panel61.Name = "panel61";
+            this.panel61.Size = new System.Drawing.Size(5, 35);
+            this.panel61.TabIndex = 233;
+            // 
+            // panel63
+            // 
+            this.panel63.Controls.Add(this.label3);
+            this.panel63.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel63.Location = new System.Drawing.Point(0, 0);
+            this.panel63.Name = "panel63";
+            this.panel63.Size = new System.Drawing.Size(250, 35);
+            this.panel63.TabIndex = 232;
+            // 
+            // label3
+            // 
+            this.label3.AutoEllipsis = true;
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(2)))), ((int)(((byte)(22)))));
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(16, 8, 16, 8);
+            this.label3.Size = new System.Drawing.Size(108, 33);
+            this.label3.TabIndex = 240;
+            this.label3.Text = "Description";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel64
+            // 
+            this.panel64.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel64.Location = new System.Drawing.Point(0, 35);
+            this.panel64.Name = "panel64";
+            this.panel64.Size = new System.Drawing.Size(884, 5);
+            this.panel64.TabIndex = 236;
             // 
             // panel52
             // 
@@ -526,24 +611,24 @@
             // 
             // panel21
             // 
-            this.panel21.Controls.Add(this.userProfileImageInput);
+            this.panel21.Controls.Add(this.userProfileImage);
             this.panel21.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel21.Location = new System.Drawing.Point(0, 0);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(200, 200);
             this.panel21.TabIndex = 206;
             // 
-            // userProfileImageInput
+            // userProfileImage
             // 
-            this.userProfileImageInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userProfileImageInput.Image = ((System.Drawing.Image)(resources.GetObject("userProfileImageInput.Image")));
-            this.userProfileImageInput.InitialImage = ((System.Drawing.Image)(resources.GetObject("userProfileImageInput.InitialImage")));
-            this.userProfileImageInput.Location = new System.Drawing.Point(0, 0);
-            this.userProfileImageInput.Name = "userProfileImageInput";
-            this.userProfileImageInput.Size = new System.Drawing.Size(200, 200);
-            this.userProfileImageInput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.userProfileImageInput.TabIndex = 54;
-            this.userProfileImageInput.TabStop = false;
+            this.userProfileImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userProfileImage.Image = ((System.Drawing.Image)(resources.GetObject("userProfileImage.Image")));
+            this.userProfileImage.InitialImage = ((System.Drawing.Image)(resources.GetObject("userProfileImage.InitialImage")));
+            this.userProfileImage.Location = new System.Drawing.Point(0, 0);
+            this.userProfileImage.Name = "userProfileImage";
+            this.userProfileImage.Size = new System.Drawing.Size(200, 200);
+            this.userProfileImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.userProfileImage.TabIndex = 54;
+            this.userProfileImage.TabStop = false;
             // 
             // panel18
             // 
@@ -940,91 +1025,6 @@
             this.panel9.Size = new System.Drawing.Size(1424, 50);
             this.panel9.TabIndex = 19;
             // 
-            // panel58
-            // 
-            this.panel58.Controls.Add(this.panel59);
-            this.panel58.Controls.Add(this.panel64);
-            this.panel58.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel58.Location = new System.Drawing.Point(20, 135);
-            this.panel58.Name = "panel58";
-            this.panel58.Size = new System.Drawing.Size(884, 40);
-            this.panel58.TabIndex = 261;
-            // 
-            // panel59
-            // 
-            this.panel59.Controls.Add(this.panel60);
-            this.panel59.Controls.Add(this.panel61);
-            this.panel59.Controls.Add(this.panel63);
-            this.panel59.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel59.Location = new System.Drawing.Point(0, 0);
-            this.panel59.Name = "panel59";
-            this.panel59.Size = new System.Drawing.Size(884, 35);
-            this.panel59.TabIndex = 237;
-            // 
-            // panel60
-            // 
-            this.panel60.Controls.Add(this.descriptionLabel);
-            this.panel60.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel60.Location = new System.Drawing.Point(255, 0);
-            this.panel60.Name = "panel60";
-            this.panel60.Size = new System.Drawing.Size(629, 35);
-            this.panel60.TabIndex = 234;
-            // 
-            // descriptionLabel
-            // 
-            this.descriptionLabel.AutoEllipsis = true;
-            this.descriptionLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.descriptionLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.descriptionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.descriptionLabel.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.descriptionLabel.Location = new System.Drawing.Point(0, 0);
-            this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(629, 35);
-            this.descriptionLabel.TabIndex = 238;
-            this.descriptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel61
-            // 
-            this.panel61.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel61.Location = new System.Drawing.Point(250, 0);
-            this.panel61.Name = "panel61";
-            this.panel61.Size = new System.Drawing.Size(5, 35);
-            this.panel61.TabIndex = 233;
-            // 
-            // panel63
-            // 
-            this.panel63.Controls.Add(this.label3);
-            this.panel63.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel63.Location = new System.Drawing.Point(0, 0);
-            this.panel63.Name = "panel63";
-            this.panel63.Size = new System.Drawing.Size(250, 35);
-            this.panel63.TabIndex = 232;
-            // 
-            // label3
-            // 
-            this.label3.AutoEllipsis = true;
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(2)))), ((int)(((byte)(22)))));
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(16, 8, 16, 8);
-            this.label3.Size = new System.Drawing.Size(108, 33);
-            this.label3.TabIndex = 240;
-            this.label3.Text = "Description";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel64
-            // 
-            this.panel64.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel64.Location = new System.Drawing.Point(0, 35);
-            this.panel64.Name = "panel64";
-            this.panel64.Size = new System.Drawing.Size(884, 5);
-            this.panel64.TabIndex = 236;
-            // 
             // UserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -1044,6 +1044,11 @@
             this.panel4.ResumeLayout(false);
             this.panel46.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
+            this.panel58.ResumeLayout(false);
+            this.panel59.ResumeLayout(false);
+            this.panel60.ResumeLayout(false);
+            this.panel63.ResumeLayout(false);
+            this.panel63.PerformLayout();
             this.panel52.ResumeLayout(false);
             this.panel53.ResumeLayout(false);
             this.panel54.ResumeLayout(false);
@@ -1062,7 +1067,7 @@
             this.panel33.ResumeLayout(false);
             this.panel20.ResumeLayout(false);
             this.panel21.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.userProfileImageInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userProfileImage)).EndInit();
             this.panel36.ResumeLayout(false);
             this.panel37.ResumeLayout(false);
             this.panel23.ResumeLayout(false);
@@ -1078,11 +1083,6 @@
             this.panel16.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            this.panel58.ResumeLayout(false);
-            this.panel59.ResumeLayout(false);
-            this.panel60.ResumeLayout(false);
-            this.panel63.ResumeLayout(false);
-            this.panel63.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1131,7 +1131,7 @@
         private System.Windows.Forms.Panel panel35;
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Panel panel21;
-        private System.Windows.Forms.PictureBox userProfileImageInput;
+        private System.Windows.Forms.PictureBox userProfileImage;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel43;

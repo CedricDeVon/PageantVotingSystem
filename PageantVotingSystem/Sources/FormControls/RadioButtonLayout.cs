@@ -49,31 +49,6 @@ namespace PageantVotingSystem.Sources.FormControls
                 InputChanged += new EventHandler(controlInputChanged);
             }
         }
- 
-        public void Enable()
-        {
-            foreach (RadioButton radioButton in radioButtons)
-            {
-                radioButton.Enabled = true;
-            }
-        }
-
-        public void Disable()
-        {
-            foreach (RadioButton radioButton in radioButtons)
-            {
-                radioButton.Enabled = false;
-            }
-        }
-
-        public void Clear()
-        {
-            valueItem = "";
-            foreach (RadioButton radioButton in radioButtons)
-            {
-                radioButton.Checked = false;
-            }
-        }
 
         private RadioButton CreateRadioButton(string name)
         {
@@ -106,6 +81,31 @@ namespace PageantVotingSystem.Sources.FormControls
             panel.Size = new System.Drawing.Size(10, 21);
             panel.TabIndex = 23;
             return panel;
+        }
+
+        public void Enable()
+        {
+            foreach (RadioButton radioButton in radioButtons)
+            {
+                radioButton.Enabled = true;
+            }
+        }
+
+        public void Disable()
+        {
+            foreach (RadioButton radioButton in radioButtons)
+            {
+                radioButton.Enabled = false;
+            }
+        }
+
+        public void Clear()
+        {
+            valueItem = "";
+            foreach (RadioButton radioButton in radioButtons)
+            {
+                radioButton.Checked = false;
+            }
         }
 
         private void RadioButton_Click(object sender, EventArgs e)

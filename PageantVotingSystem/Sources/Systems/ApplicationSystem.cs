@@ -1,9 +1,9 @@
 ﻿
 using PageantVotingSystem.Sources.Setups;
+using PageantVotingSystem.Sources.Loggers;
 
 namespace PageantVotingSystem.Sources.Systems
 {
-    // blazing scrubs
     public class ApplicationSystem : System
     {
         public static string StringBuffer
@@ -13,7 +13,6 @@ namespace PageantVotingSystem.Sources.Systems
             private set
             {
                 ThrowIfEnvironmentVariableDoesNotExist(value);
-
                 stringBuffer = value;
             }
         }
@@ -23,10 +22,12 @@ namespace PageantVotingSystem.Sources.Systems
         public static void Setup(string stringBuffer)
         {
             SetupRecorder.ThrowIfAlreadySetup("ApplicationSystem");
-
+            ApplicationLogger.LogInformationMessage("'ApplicationSystem' setup began");
+            
             StringBuffer = stringBuffer;
 
             SetupRecorder.Add("ApplicationSystem");
+            ApplicationLogger.LogInformationMessage("'ApplicationSystem' setup complete");
         }
     }
 }

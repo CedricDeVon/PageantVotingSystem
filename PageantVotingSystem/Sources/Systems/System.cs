@@ -8,8 +8,9 @@ namespace PageantVotingSystem.Sources.Systems
         public static string GetEnvironmentValue(string key)
         {
             string environmentValue = Environment.GetEnvironmentVariable(key, EnvironmentVariableTarget.User);
-            ThrowIfEnvironmentVariableDoesNotExist(environmentValue);
 
+            ThrowIfEnvironmentVariableDoesNotExist(environmentValue);
+            
             return environmentValue;
         }
 

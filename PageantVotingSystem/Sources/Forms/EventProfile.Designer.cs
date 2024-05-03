@@ -42,28 +42,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel82 = new System.Windows.Forms.Panel();
             this.panel65 = new System.Windows.Forms.Panel();
-            this.panel66 = new System.Windows.Forms.Panel();
-            this.panel68 = new System.Windows.Forms.Panel();
-            this.dateEndLabel = new System.Windows.Forms.Label();
-            this.panel69 = new System.Windows.Forms.Panel();
-            this.panel70 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.panel58 = new System.Windows.Forms.Panel();
-            this.panel59 = new System.Windows.Forms.Panel();
-            this.panel60 = new System.Windows.Forms.Panel();
-            this.dateStartLabel = new System.Windows.Forms.Label();
-            this.panel61 = new System.Windows.Forms.Panel();
-            this.panel63 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.panel64 = new System.Windows.Forms.Panel();
-            this.panel39 = new System.Windows.Forms.Panel();
-            this.panel41 = new System.Windows.Forms.Panel();
-            this.panel48 = new System.Windows.Forms.Panel();
-            this.hostAddressLabel = new System.Windows.Forms.Label();
-            this.panel49 = new System.Windows.Forms.Panel();
-            this.panel50 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel51 = new System.Windows.Forms.Panel();
             this.panel52 = new System.Windows.Forms.Panel();
             this.panel53 = new System.Windows.Forms.Panel();
             this.panel54 = new System.Windows.Forms.Panel();
@@ -90,9 +68,6 @@
             this.panel62 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.panel20 = new System.Windows.Forms.Panel();
-            this.label17 = new System.Windows.Forms.Label();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.label16 = new System.Windows.Forms.Label();
             this.panel67 = new System.Windows.Forms.Panel();
             this.panel18 = new System.Windows.Forms.Panel();
             this.panel33 = new System.Windows.Forms.Panel();
@@ -133,6 +108,14 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.panel39 = new System.Windows.Forms.Panel();
+            this.panel41 = new System.Windows.Forms.Panel();
+            this.panel48 = new System.Windows.Forms.Panel();
+            this.hostAddressLabel = new System.Windows.Forms.Label();
+            this.panel49 = new System.Windows.Forms.Panel();
+            this.panel50 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel51 = new System.Windows.Forms.Panel();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel46.SuspendLayout();
@@ -142,17 +125,6 @@
             this.panel79.SuspendLayout();
             this.panel81.SuspendLayout();
             this.panel65.SuspendLayout();
-            this.panel66.SuspendLayout();
-            this.panel68.SuspendLayout();
-            this.panel70.SuspendLayout();
-            this.panel58.SuspendLayout();
-            this.panel59.SuspendLayout();
-            this.panel60.SuspendLayout();
-            this.panel63.SuspendLayout();
-            this.panel39.SuspendLayout();
-            this.panel41.SuspendLayout();
-            this.panel48.SuspendLayout();
-            this.panel50.SuspendLayout();
             this.panel52.SuspendLayout();
             this.panel53.SuspendLayout();
             this.panel54.SuspendLayout();
@@ -165,7 +137,6 @@
             this.panel73.SuspendLayout();
             this.panel74.SuspendLayout();
             this.panel76.SuspendLayout();
-            this.panel20.SuspendLayout();
             this.panel33.SuspendLayout();
             this.panel36.SuspendLayout();
             this.panel37.SuspendLayout();
@@ -180,6 +151,10 @@
             this.panel16.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.panel39.SuspendLayout();
+            this.panel41.SuspendLayout();
+            this.panel48.SuspendLayout();
+            this.panel50.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel5
@@ -227,8 +202,6 @@
             this.panel11.AutoScroll = true;
             this.panel11.Controls.Add(this.panel35);
             this.panel11.Controls.Add(this.panel65);
-            this.panel11.Controls.Add(this.panel58);
-            this.panel11.Controls.Add(this.panel39);
             this.panel11.Controls.Add(this.panel52);
             this.panel11.Controls.Add(this.panel43);
             this.panel11.Controls.Add(this.panel72);
@@ -244,7 +217,7 @@
             this.panel35.Controls.Add(this.panel78);
             this.panel35.Controls.Add(this.panel82);
             this.panel35.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel35.Location = new System.Drawing.Point(0, 270);
+            this.panel35.Location = new System.Drawing.Point(0, 190);
             this.panel35.Name = "panel35";
             this.panel35.Size = new System.Drawing.Size(1144, 40);
             this.panel35.TabIndex = 261;
@@ -326,248 +299,12 @@
             // 
             // panel65
             // 
-            this.panel65.Controls.Add(this.panel66);
+            this.panel65.Controls.Add(this.panel39);
             this.panel65.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel65.Location = new System.Drawing.Point(0, 215);
+            this.panel65.Location = new System.Drawing.Point(0, 135);
             this.panel65.Name = "panel65";
             this.panel65.Size = new System.Drawing.Size(1144, 55);
             this.panel65.TabIndex = 248;
-            // 
-            // panel66
-            // 
-            this.panel66.Controls.Add(this.panel68);
-            this.panel66.Controls.Add(this.panel69);
-            this.panel66.Controls.Add(this.panel70);
-            this.panel66.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel66.Location = new System.Drawing.Point(0, 0);
-            this.panel66.MaximumSize = new System.Drawing.Size(0, 35);
-            this.panel66.MinimumSize = new System.Drawing.Size(0, 35);
-            this.panel66.Name = "panel66";
-            this.panel66.Size = new System.Drawing.Size(1144, 35);
-            this.panel66.TabIndex = 237;
-            // 
-            // panel68
-            // 
-            this.panel68.Controls.Add(this.dateEndLabel);
-            this.panel68.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel68.Location = new System.Drawing.Point(255, 0);
-            this.panel68.Name = "panel68";
-            this.panel68.Size = new System.Drawing.Size(889, 35);
-            this.panel68.TabIndex = 234;
-            // 
-            // dateEndLabel
-            // 
-            this.dateEndLabel.AutoEllipsis = true;
-            this.dateEndLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateEndLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.dateEndLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.dateEndLabel.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.dateEndLabel.Location = new System.Drawing.Point(0, 0);
-            this.dateEndLabel.Name = "dateEndLabel";
-            this.dateEndLabel.Size = new System.Drawing.Size(889, 35);
-            this.dateEndLabel.TabIndex = 238;
-            this.dateEndLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel69
-            // 
-            this.panel69.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel69.Location = new System.Drawing.Point(250, 0);
-            this.panel69.Name = "panel69";
-            this.panel69.Size = new System.Drawing.Size(5, 35);
-            this.panel69.TabIndex = 233;
-            // 
-            // panel70
-            // 
-            this.panel70.Controls.Add(this.label13);
-            this.panel70.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel70.Location = new System.Drawing.Point(0, 0);
-            this.panel70.Name = "panel70";
-            this.panel70.Size = new System.Drawing.Size(250, 35);
-            this.panel70.TabIndex = 232;
-            // 
-            // label13
-            // 
-            this.label13.AutoEllipsis = true;
-            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.label13.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(2)))), ((int)(((byte)(22)))));
-            this.label13.Location = new System.Drawing.Point(0, 0);
-            this.label13.Name = "label13";
-            this.label13.Padding = new System.Windows.Forms.Padding(16, 8, 16, 8);
-            this.label13.Size = new System.Drawing.Size(95, 35);
-            this.label13.TabIndex = 240;
-            this.label13.Text = "Date End";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel58
-            // 
-            this.panel58.Controls.Add(this.panel59);
-            this.panel58.Controls.Add(this.panel64);
-            this.panel58.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel58.Location = new System.Drawing.Point(0, 175);
-            this.panel58.Name = "panel58";
-            this.panel58.Size = new System.Drawing.Size(1144, 40);
-            this.panel58.TabIndex = 247;
-            // 
-            // panel59
-            // 
-            this.panel59.Controls.Add(this.panel60);
-            this.panel59.Controls.Add(this.panel61);
-            this.panel59.Controls.Add(this.panel63);
-            this.panel59.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel59.Location = new System.Drawing.Point(0, 0);
-            this.panel59.Name = "panel59";
-            this.panel59.Size = new System.Drawing.Size(1144, 35);
-            this.panel59.TabIndex = 237;
-            // 
-            // panel60
-            // 
-            this.panel60.Controls.Add(this.dateStartLabel);
-            this.panel60.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel60.Location = new System.Drawing.Point(255, 0);
-            this.panel60.Name = "panel60";
-            this.panel60.Size = new System.Drawing.Size(889, 35);
-            this.panel60.TabIndex = 234;
-            // 
-            // dateStartLabel
-            // 
-            this.dateStartLabel.AutoEllipsis = true;
-            this.dateStartLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateStartLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.dateStartLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.dateStartLabel.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.dateStartLabel.Location = new System.Drawing.Point(0, 0);
-            this.dateStartLabel.Name = "dateStartLabel";
-            this.dateStartLabel.Size = new System.Drawing.Size(889, 35);
-            this.dateStartLabel.TabIndex = 238;
-            this.dateStartLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel61
-            // 
-            this.panel61.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel61.Location = new System.Drawing.Point(250, 0);
-            this.panel61.Name = "panel61";
-            this.panel61.Size = new System.Drawing.Size(5, 35);
-            this.panel61.TabIndex = 233;
-            // 
-            // panel63
-            // 
-            this.panel63.Controls.Add(this.label10);
-            this.panel63.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel63.Location = new System.Drawing.Point(0, 0);
-            this.panel63.Name = "panel63";
-            this.panel63.Size = new System.Drawing.Size(250, 35);
-            this.panel63.TabIndex = 232;
-            // 
-            // label10
-            // 
-            this.label10.AutoEllipsis = true;
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.label10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(2)))), ((int)(((byte)(22)))));
-            this.label10.Location = new System.Drawing.Point(0, 0);
-            this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(16, 8, 16, 8);
-            this.label10.Size = new System.Drawing.Size(101, 35);
-            this.label10.TabIndex = 240;
-            this.label10.Text = "Date Start";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel64
-            // 
-            this.panel64.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel64.Location = new System.Drawing.Point(0, 35);
-            this.panel64.Name = "panel64";
-            this.panel64.Size = new System.Drawing.Size(1144, 5);
-            this.panel64.TabIndex = 236;
-            // 
-            // panel39
-            // 
-            this.panel39.Controls.Add(this.panel41);
-            this.panel39.Controls.Add(this.panel51);
-            this.panel39.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel39.Location = new System.Drawing.Point(0, 135);
-            this.panel39.Name = "panel39";
-            this.panel39.Size = new System.Drawing.Size(1144, 40);
-            this.panel39.TabIndex = 246;
-            // 
-            // panel41
-            // 
-            this.panel41.Controls.Add(this.panel48);
-            this.panel41.Controls.Add(this.panel49);
-            this.panel41.Controls.Add(this.panel50);
-            this.panel41.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel41.Location = new System.Drawing.Point(0, 0);
-            this.panel41.Name = "panel41";
-            this.panel41.Size = new System.Drawing.Size(1144, 35);
-            this.panel41.TabIndex = 237;
-            // 
-            // panel48
-            // 
-            this.panel48.Controls.Add(this.hostAddressLabel);
-            this.panel48.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel48.Location = new System.Drawing.Point(255, 0);
-            this.panel48.Name = "panel48";
-            this.panel48.Size = new System.Drawing.Size(889, 35);
-            this.panel48.TabIndex = 234;
-            // 
-            // hostAddressLabel
-            // 
-            this.hostAddressLabel.AutoEllipsis = true;
-            this.hostAddressLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.hostAddressLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.hostAddressLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.hostAddressLabel.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.hostAddressLabel.Location = new System.Drawing.Point(0, 0);
-            this.hostAddressLabel.Name = "hostAddressLabel";
-            this.hostAddressLabel.Size = new System.Drawing.Size(889, 35);
-            this.hostAddressLabel.TabIndex = 238;
-            this.hostAddressLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel49
-            // 
-            this.panel49.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel49.Location = new System.Drawing.Point(250, 0);
-            this.panel49.Name = "panel49";
-            this.panel49.Size = new System.Drawing.Size(5, 35);
-            this.panel49.TabIndex = 233;
-            // 
-            // panel50
-            // 
-            this.panel50.Controls.Add(this.label6);
-            this.panel50.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel50.Location = new System.Drawing.Point(0, 0);
-            this.panel50.Name = "panel50";
-            this.panel50.Size = new System.Drawing.Size(250, 35);
-            this.panel50.TabIndex = 232;
-            // 
-            // label6
-            // 
-            this.label6.AutoEllipsis = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.label6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(2)))), ((int)(((byte)(22)))));
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(16, 8, 16, 8);
-            this.label6.Size = new System.Drawing.Size(122, 35);
-            this.label6.TabIndex = 240;
-            this.label6.Text = "Host Address";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel51
-            // 
-            this.panel51.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel51.Location = new System.Drawing.Point(0, 35);
-            this.panel51.Name = "panel51";
-            this.panel51.Size = new System.Drawing.Size(1144, 5);
-            this.panel51.TabIndex = 236;
             // 
             // panel52
             // 
@@ -832,9 +569,6 @@
             // 
             // panel20
             // 
-            this.panel20.Controls.Add(this.label17);
-            this.panel20.Controls.Add(this.panel19);
-            this.panel20.Controls.Add(this.label16);
             this.panel20.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel20.Location = new System.Drawing.Point(20, 110);
             this.panel20.MaximumSize = new System.Drawing.Size(0, 33);
@@ -842,48 +576,6 @@
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(1204, 33);
             this.panel20.TabIndex = 238;
-            // 
-            // label17
-            // 
-            this.label17.AutoEllipsis = true;
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.label17.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(2)))), ((int)(((byte)(22)))));
-            this.label17.Location = new System.Drawing.Point(150, 0);
-            this.label17.Name = "label17";
-            this.label17.Padding = new System.Windows.Forms.Padding(16, 8, 16, 8);
-            this.label17.Size = new System.Drawing.Size(107, 29);
-            this.label17.TabIndex = 54;
-            this.label17.Text = "Event Results";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel19
-            // 
-            this.panel19.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel19.Location = new System.Drawing.Point(145, 0);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(5, 33);
-            this.panel19.TabIndex = 53;
-            // 
-            // label16
-            // 
-            this.label16.AutoEllipsis = true;
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.label16.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(2)))), ((int)(((byte)(22)))));
-            this.label16.Location = new System.Drawing.Point(0, 0);
-            this.label16.Name = "label16";
-            this.label16.Padding = new System.Windows.Forms.Padding(16, 8, 16, 8);
-            this.label16.Size = new System.Drawing.Size(145, 29);
-            this.label16.TabIndex = 50;
-            this.label16.Text = "Manager Dashboard";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel67
             // 
@@ -1176,7 +868,7 @@
             this.textBox1.MaxLength = 128;
             this.textBox1.MinimumSize = new System.Drawing.Size(0, 20);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(0, 18);
+            this.textBox1.Size = new System.Drawing.Size(0, 20);
             this.textBox1.TabIndex = 20;
             // 
             // panel15
@@ -1311,6 +1003,90 @@
             this.panel9.Size = new System.Drawing.Size(1424, 50);
             this.panel9.TabIndex = 19;
             // 
+            // panel39
+            // 
+            this.panel39.Controls.Add(this.panel41);
+            this.panel39.Controls.Add(this.panel51);
+            this.panel39.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel39.Location = new System.Drawing.Point(0, 0);
+            this.panel39.Name = "panel39";
+            this.panel39.Size = new System.Drawing.Size(1144, 40);
+            this.panel39.TabIndex = 247;
+            // 
+            // panel41
+            // 
+            this.panel41.Controls.Add(this.panel48);
+            this.panel41.Controls.Add(this.panel49);
+            this.panel41.Controls.Add(this.panel50);
+            this.panel41.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel41.Location = new System.Drawing.Point(0, 0);
+            this.panel41.Name = "panel41";
+            this.panel41.Size = new System.Drawing.Size(1144, 35);
+            this.panel41.TabIndex = 237;
+            // 
+            // panel48
+            // 
+            this.panel48.Controls.Add(this.hostAddressLabel);
+            this.panel48.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel48.Location = new System.Drawing.Point(255, 0);
+            this.panel48.Name = "panel48";
+            this.panel48.Size = new System.Drawing.Size(889, 35);
+            this.panel48.TabIndex = 234;
+            // 
+            // hostAddressLabel
+            // 
+            this.hostAddressLabel.AutoEllipsis = true;
+            this.hostAddressLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hostAddressLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.hostAddressLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.hostAddressLabel.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.hostAddressLabel.Location = new System.Drawing.Point(0, 0);
+            this.hostAddressLabel.Name = "hostAddressLabel";
+            this.hostAddressLabel.Size = new System.Drawing.Size(889, 35);
+            this.hostAddressLabel.TabIndex = 238;
+            this.hostAddressLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel49
+            // 
+            this.panel49.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel49.Location = new System.Drawing.Point(250, 0);
+            this.panel49.Name = "panel49";
+            this.panel49.Size = new System.Drawing.Size(5, 35);
+            this.panel49.TabIndex = 233;
+            // 
+            // panel50
+            // 
+            this.panel50.Controls.Add(this.label6);
+            this.panel50.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel50.Location = new System.Drawing.Point(0, 0);
+            this.panel50.Name = "panel50";
+            this.panel50.Size = new System.Drawing.Size(250, 35);
+            this.panel50.TabIndex = 232;
+            // 
+            // label6
+            // 
+            this.label6.AutoEllipsis = true;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.label6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(2)))), ((int)(((byte)(22)))));
+            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Name = "label6";
+            this.label6.Padding = new System.Windows.Forms.Padding(16, 8, 16, 8);
+            this.label6.Size = new System.Drawing.Size(122, 35);
+            this.label6.TabIndex = 240;
+            this.label6.Text = "Host Address";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel51
+            // 
+            this.panel51.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel51.Location = new System.Drawing.Point(0, 35);
+            this.panel51.Name = "panel51";
+            this.panel51.Size = new System.Drawing.Size(1144, 5);
+            this.panel51.TabIndex = 236;
+            // 
             // EventProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -1336,17 +1112,6 @@
             this.panel81.ResumeLayout(false);
             this.panel81.PerformLayout();
             this.panel65.ResumeLayout(false);
-            this.panel66.ResumeLayout(false);
-            this.panel68.ResumeLayout(false);
-            this.panel70.ResumeLayout(false);
-            this.panel58.ResumeLayout(false);
-            this.panel59.ResumeLayout(false);
-            this.panel60.ResumeLayout(false);
-            this.panel63.ResumeLayout(false);
-            this.panel39.ResumeLayout(false);
-            this.panel41.ResumeLayout(false);
-            this.panel48.ResumeLayout(false);
-            this.panel50.ResumeLayout(false);
             this.panel52.ResumeLayout(false);
             this.panel53.ResumeLayout(false);
             this.panel54.ResumeLayout(false);
@@ -1359,8 +1124,6 @@
             this.panel73.ResumeLayout(false);
             this.panel74.ResumeLayout(false);
             this.panel76.ResumeLayout(false);
-            this.panel20.ResumeLayout(false);
-            this.panel20.PerformLayout();
             this.panel33.ResumeLayout(false);
             this.panel36.ResumeLayout(false);
             this.panel37.ResumeLayout(false);
@@ -1377,6 +1140,10 @@
             this.panel16.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
+            this.panel39.ResumeLayout(false);
+            this.panel41.ResumeLayout(false);
+            this.panel48.ResumeLayout(false);
+            this.panel50.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1427,31 +1194,8 @@
         private System.Windows.Forms.Panel panel67;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Panel panel20;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel65;
-        private System.Windows.Forms.Panel panel66;
-        private System.Windows.Forms.Panel panel68;
-        private System.Windows.Forms.Label dateEndLabel;
-        private System.Windows.Forms.Panel panel69;
-        private System.Windows.Forms.Panel panel70;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Panel panel58;
-        private System.Windows.Forms.Panel panel59;
-        private System.Windows.Forms.Panel panel60;
-        private System.Windows.Forms.Label dateStartLabel;
-        private System.Windows.Forms.Panel panel61;
-        private System.Windows.Forms.Panel panel63;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Panel panel64;
-        private System.Windows.Forms.Panel panel39;
-        private System.Windows.Forms.Panel panel41;
-        private System.Windows.Forms.Panel panel48;
-        private System.Windows.Forms.Label hostAddressLabel;
-        private System.Windows.Forms.Panel panel49;
-        private System.Windows.Forms.Panel panel50;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel51;
         private System.Windows.Forms.Panel panel52;
         private System.Windows.Forms.Panel panel53;
         private System.Windows.Forms.Panel panel54;
@@ -1476,8 +1220,6 @@
         private System.Windows.Forms.Panel panel76;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel62;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Panel panel35;
         private System.Windows.Forms.Panel panel78;
         private System.Windows.Forms.Panel panel79;
@@ -1486,5 +1228,13 @@
         private System.Windows.Forms.Panel panel81;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel82;
+        private System.Windows.Forms.Panel panel39;
+        private System.Windows.Forms.Panel panel41;
+        private System.Windows.Forms.Panel panel48;
+        private System.Windows.Forms.Label hostAddressLabel;
+        private System.Windows.Forms.Panel panel49;
+        private System.Windows.Forms.Panel panel50;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel51;
     }
 }

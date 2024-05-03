@@ -3,8 +3,8 @@ using System;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
-using PageantVotingSystem.Sources.FeatureCollections;
 using PageantVotingSystem.Sources.Entities;
+using PageantVotingSystem.Sources.FeatureCollections;
 
 namespace PageantVotingSystem.Sources.FormControls
 {
@@ -78,7 +78,11 @@ namespace PageantVotingSystem.Sources.FormControls
                 netPercentageScoreLabel,
                 netValueScoreLabel
             };
-            Features = new AllButtonItemFeatureCollection(this, parentControl, control, buttons);
+            Features = new AllButtonItemFeatureCollection(
+                this,
+                parentControl,
+                control,
+                buttons);
             Features.ConnectButtonsToAllEvents(buttons);
         }
 

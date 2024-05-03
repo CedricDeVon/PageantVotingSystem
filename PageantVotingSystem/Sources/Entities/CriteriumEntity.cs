@@ -15,7 +15,13 @@ namespace PageantVotingSystem.Sources.Entities
         {
             SetAllAttributes();
         }
-        
+
+        public CriteriumEntity(int id)
+        {
+            SetAllAttributes();
+            Id = id;
+        }
+
         public CriteriumEntity(string name)
         {
             SetAllAttributes();
@@ -37,9 +43,9 @@ namespace PageantVotingSystem.Sources.Entities
         }
 
         private void SetAllAttributes(
-            float maximumValue = 0,
+            float maximumValue = 100,
             float minimumValue = 0,
-            float percentageValue = 0,
+            float percentageValue = 100,
             int roundId = 0)
         {
             MaximumValue = maximumValue;

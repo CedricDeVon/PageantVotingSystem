@@ -28,12 +28,13 @@ namespace PageantVotingSystem.Sources.Forms
 
             ApplicationFormStyle.SetupFormStyles(this);
             informationLayout = new InformationLayout(informationLayoutControl);
-            topSideNavigationLayout = new TopSideNavigationLayout(topSideNavigationLayoutControl);
-            topSideNavigationLayout.HideReloadButton();
+            topSideNavigationLayout =
+                new TopSideNavigationLayout(topSideNavigationLayoutControl);
             eventQueryLayout = new SingleValuedItemLayout(eventQueryLayoutControl);
             eventQueryLayout.ItemSingleClick += new EventHandler(EventQueryItem_SingleClick);
             selectedContestantLayout = new OrderedValueItemLayout(contestantsLayoutControl);
-            selectedContestantLayout.ItemSingleClick += new EventHandler(SelectedContestantItem_SingleClick);
+            selectedContestantLayout.ItemSingleClick +=
+                new EventHandler(SelectedContestantItem_SingleClick);
         }
 
         private void Button_Click(object sender, EventArgs e)
@@ -42,41 +43,15 @@ namespace PageantVotingSystem.Sources.Forms
 
             if (sender == searchButton)
             {
-                List<EventEntity> eventEntities = ApplicationDatabase.ReadManyOngoingEventsBasedOnJudgeEmail(
-                    eventQueryInput.Text, UserProfileCache.Data.Email);
-                eventQueryResultCountLabel.Text = $"{eventEntities.Count}";
-                eventQueryInput.Text = "";
-                eventQueryLayout.Clear();
-                contestantCountLabel.Text = "0";
-                selectedContestantLayout.Clear();
-                optionsControl.Hide();
-                foreach (EventEntity eventEntity in eventEntities)
-                {
-                    eventQueryLayout.Render(eventEntity.Name, eventEntity);
-                }
+                SearchForEventEntities();
             }
             else if (sender == judgeButton)
             {
-                EventEntity eventEntity = (EventEntity) eventQueryLayout.SelectedItem.Data;
-                ContestantEntity contestantEntity = (ContestantEntity) selectedContestantLayout.SelectedItem.Data;
-                ApplicationFormNavigator.DisplayJudgeContestantDashboardForm(
-                    eventEntity, contestantEntity);
-
-                eventQueryInput.Text = "";
-                eventQueryResultCountLabel.Text = "0";
-                contestantCountLabel.Text = "0";
-                eventQueryLayout.Clear();
-                selectedContestantLayout.Clear();
-                optionsControl.Hide();
+                DisplayJudgeContestantDashboardForm();
             }
             else if (sender == resetButton)
             {
-                eventQueryInput.Text = "";
-                eventQueryResultCountLabel.Text = "0";
-                eventQueryLayout.Clear();
-                contestantCountLabel.Text = "0";
-                selectedContestantLayout.Clear();
-                optionsControl.Hide();
+                Clear();
             }
 
             informationLayout.StopLoadingMessageDisplay();
@@ -84,16 +59,25 @@ namespace PageantVotingSystem.Sources.Forms
 
         private void EventQueryItem_SingleClick(object sender, EventArgs e)
         {
-            if (eventQueryLayout.SelectedItem == null)
+            if (eventQueryLayout.SelectedItem == null ||
+                eventQueryLayout.SelectedItem != sender)
             {
                 SingleValuedItem singleValuedItem = (SingleValuedItem)sender;
-                List<ContestantEntity> contestantEntities = ApplicationDatabase.ReadManyUnjudgedContestants(((EventEntity)singleValuedItem.Data).Id);
+                EventLayoutSequenceEntity eventLayoutSequenceEntity =
+                    (EventLayoutSequenceEntity)singleValuedItem.Data;
+                List<ContestantEntity> contestantEntities =
+                    ApplicationDatabase.ReadManyUnjudgedContestantEntities(
+                        eventLayoutSequenceEntity.Round.Id,
+                        UserProfileCache.Data.Email);
                 contestantCountLabel.Text = $"{contestantEntities.Count}";
                 selectedContestantLayout.Clear();
                 optionsControl.Hide();
                 foreach (ContestantEntity contestantEntity in contestantEntities)
                 {
-                    selectedContestantLayout.RenderOrdered($"{contestantEntity.OrderNumber}", contestantEntity.FullName, contestantEntity);
+                    selectedContestantLayout.Render(
+                        $"{contestantEntity.OrderNumber}",
+                        contestantEntity.FullName,
+                        contestantEntity);
                 }
             }
             else
@@ -106,7 +90,8 @@ namespace PageantVotingSystem.Sources.Forms
 
         private void SelectedContestantItem_SingleClick(object sender, EventArgs e)
         {
-            if (selectedContestantLayout.SelectedItem == null)
+            if (selectedContestantLayout.SelectedItem == null ||
+                selectedContestantLayout.SelectedItem != sender)
             {
                 optionsControl.Show();
             }
@@ -114,6 +99,46 @@ namespace PageantVotingSystem.Sources.Forms
             {
                 optionsControl.Hide();
             }
+        }
+
+        private void SearchForEventEntities()
+        {
+            List<EventLayoutSequenceEntity> eventLayoutSequenceEntities =
+            ApplicationDatabase.ReadManyPendingEventLayoutSequenceEntitiesBasedOnJudgeUserEmail(
+                eventQueryInput.Text, UserProfileCache.Data.Email);
+            Clear();
+            eventQueryResultCountLabel.Text = $"{eventLayoutSequenceEntities.Count}";
+            foreach (EventLayoutSequenceEntity eventLayoutSequenceEntity in eventLayoutSequenceEntities)
+            {
+                eventQueryLayout.Render(
+                    eventLayoutSequenceEntity.Event.Name, eventLayoutSequenceEntity);
+            }
+        }
+
+        private void DisplayJudgeContestantDashboardForm()
+        {
+            ContestantEntity contestantEntity =
+                    (ContestantEntity)selectedContestantLayout.SelectedItem.Data;
+            EventLayoutSequenceEntity eventSequenceLayoutEntity =
+                (EventLayoutSequenceEntity)eventQueryLayout.SelectedItem.Data;
+            eventSequenceLayoutEntity.Segment =
+                ApplicationDatabase.ReadOneSegmentEntity(
+                    eventSequenceLayoutEntity.Segment.Id);
+            eventSequenceLayoutEntity.Round =
+                ApplicationDatabase.ReadOneRoundEntity(eventSequenceLayoutEntity.Round.Id);
+            ApplicationFormNavigator.DisplayJudgeContestantDashboardForm(
+                eventSequenceLayoutEntity, contestantEntity);
+            Clear();
+        }
+
+        private void Clear()
+        {
+            eventQueryInput.Text = "";
+            eventQueryResultCountLabel.Text = "0";
+            contestantCountLabel.Text = "0";
+            eventQueryLayout.Clear();
+            selectedContestantLayout.Clear();
+            optionsControl.Hide();
         }
     }
 }

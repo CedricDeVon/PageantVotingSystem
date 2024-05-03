@@ -82,38 +82,6 @@ namespace PageantVotingSystem.Sources.Entities
             Name = name;
         }
 
-        public void Display()
-        {
-            Console.WriteLine(Name);
-            foreach (SegmentEntity entity in Segments.Items)
-            {
-                Display(entity);
-            }
-        }
-
-        private void Display(SegmentEntity entity)
-        {
-            Console.WriteLine($"\t{entity.Name}");
-            foreach (RoundEntity e in entity.Rounds.Items)
-            {
-                Display(e);
-            }
-        }
-
-        private void Display(RoundEntity entity)
-        {
-            Console.WriteLine($"\t\t{entity.Name}");
-            foreach (CriteriumEntity e in entity.Criteria.Items)
-            {
-                Display(e);
-            }
-        }
-
-        private void Display(CriteriumEntity entity)
-        {
-            Console.WriteLine($"\t\t\t{entity.Name}");
-        }
-
         public override void ClearAllAttributes()
         {
             base.ClearAllAttributes();

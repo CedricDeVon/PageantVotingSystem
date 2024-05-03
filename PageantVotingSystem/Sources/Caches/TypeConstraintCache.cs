@@ -4,6 +4,7 @@ using System.Linq;
 using System.Collections.Generic;
 
 using PageantVotingSystem.Sources.Setups;
+using PageantVotingSystem.Sources.Loggers;
 
 namespace PageantVotingSystem.Sources.Caches
 {
@@ -160,41 +161,46 @@ namespace PageantVotingSystem.Sources.Caches
 
         private static Dictionary<object, object> data;
         
-        public static void Setup(Dictionary<object, object> values)
+        public static void Setup()
         {
             SetupRecorder.ThrowIfAlreadySetup("TypeConstraintCache");
+            ApplicationLogger.LogInformationMessage("'EditEventContestantCache' setup began");
 
-            data = values;
-            Data.SetPrivateData("TypeConstraintCache", values);
+            data = new Dictionary<object, object>();
+            Data.SetDataToPrivate("TypeConstraintCache", data);
 
-            data["minimum_percentage_weight"] = Convert.ToInt32(data["minimum_percentage_weight"]);
-            data["maximum_percentage_weight"] = Convert.ToInt32(data["maximum_percentage_weight"]);
+            data["minimum_percentage_weight"] = 0;
+            data["maximum_percentage_weight"] = 100;
 
-            data["minimum_judge_remark_value"] = Convert.ToInt32(data["minimum_judge_remark_value"]);
-            data["maximum_judge_remark_value"] = Convert.ToInt32(data["maximum_judge_remark_value"]);
+            data["minimum_judge_remark_value"] = 0;
+            data["maximum_judge_remark_value"] = 1000;
 
-            data["minimum_order_number"] = Convert.ToInt32(data["minimum_order_number"]);
-            data["maximum_order_number"] = Convert.ToInt32(data["maximum_order_number"]);
+            data["minimum_order_number"] = 1;
+            data["maximum_order_number"] = 1000;
 
-            data["minimum_height_in_centimeters"] = Convert.ToInt32(data["minimum_height_in_centimeters"]);
-            data["maximum_height_in_centimeters"] = Convert.ToInt32(data["maximum_height_in_centimeters"]);
+            data["minimum_height_in_centimeters"] = 1;
+            data["maximum_height_in_centimeters"] = 1000;
 
-            data["minimum_weight_in_kilograms"] = Convert.ToInt32(data["minimum_weight_in_kilograms"]);
-            data["maximum_weight_in_kilograms"] = Convert.ToInt32(data["maximum_weight_in_kilograms"]);
-
-            data["minimum_email_character_length"] = Convert.ToInt32(data["minimum_email_character_length"]);
-            data["maximum_email_character_length"] = Convert.ToInt32(data["maximum_email_character_length"]);
-            data["valid_email_characters"] = ((string)data["valid_email_characters"]).ToHashSet();
-
-            data["minimum_person_name_character_length"] = Convert.ToInt32(data["minimum_person_name_character_length"]);
-            data["maximum_person_name_character_length"] = Convert.ToInt32(data["maximum_person_name_character_length"]);
-            data["valid_person_name_characters"] = ((string)data["valid_person_name_characters"]).ToHashSet();
+            data["minimum_weight_in_kilograms"] = 1;
+            data["maximum_weight_in_kilograms"] = 1000;
             
-            data["minimum_password_character_length"] = Convert.ToInt32(data["minimum_password_character_length"]);
-            data["maximum_password_character_length"] = Convert.ToInt32(data["maximum_password_character_length"]);
-            data["valid_password_characters"] = ((string)data["valid_password_characters"]).ToHashSet();
+            data["minimum_text_character_length"] = 0;
+            data["maximum_text_character_length"] = 1024;
+
+            data["minimum_email_character_length"] = 5;
+            data["maximum_email_character_length"] = 128;
+            data["valid_email_characters"] = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890_.@".ToHashSet();
+
+            data["minimum_person_name_character_length"] = 1;
+            data["maximum_person_name_character_length"] = 128;
+            data["valid_person_name_characters"] = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890.,_ ".ToHashSet();
+
+            data["minimum_password_character_length"] = 8;
+            data["maximum_password_character_length"] = 32;
+            data["valid_password_characters"] = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890`-=[]\\;,.<>?:{}|~!@#$%^&*()_+".ToHashSet();
 
             SetupRecorder.Add("TypeConstraintCache");
+            ApplicationLogger.LogInformationMessage("'EditEventContestantCache' setup complete");
         }
 
         public static bool IsValidPercentageWeight(int value)

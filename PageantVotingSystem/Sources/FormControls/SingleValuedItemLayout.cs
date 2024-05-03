@@ -9,13 +9,13 @@ namespace PageantVotingSystem.Sources.FormControls
 {
     public partial class SingleValuedItemLayout : UserControl
     {
-        public EventHandler ItemSingleClick { get; set; }
-
-        public EventHandler ItemDoubleClick { get; set; }
-        
         public SingleValuedItem SelectedItem { get; private set; }
         
         public GenericDoublyLinkedList Items { get; private set; }
+
+        public EventHandler ItemSingleClick { get; set; }
+
+        public EventHandler ItemDoubleClick { get; set; }
 
         private readonly Panel parentControl;
 
@@ -33,6 +33,38 @@ namespace PageantVotingSystem.Sources.FormControls
             Items = new GenericDoublyLinkedList();
         }
 
+        public void Render(string value, object data = null)
+        {
+            Items.AddToLast(GenerateItem(value, data).Features.GenericItemReference);
+        }
+
+        public void Render(List<string> values)
+        {
+            ThrowIfValuesIsNull(values);
+            Clear();
+
+            Hide();
+            for (int index = values.Count - 1; index > -1; index--)
+            {
+                Items.AddToLast(GenerateItem(values[index]).Features.GenericItemReference);
+            }
+            Show();
+        }
+        private SingleValuedItem GenerateItem(string value, object data = null)
+        {
+            SingleValuedItem newItem = new SingleValuedItem(parentControl, value, data);
+            if (ItemSingleClick != null)
+            {
+                newItem.Features.SingleClick += new EventHandler(ItemSingleClick);
+            }
+            if (ItemDoubleClick != null)
+            {
+                newItem.Features.DoubleClick += new EventHandler(ItemDoubleClick);
+            }
+            newItem.Features.SingleClick += new EventHandler(Item_SingleClick);
+            return newItem;
+        }
+
         public void Unfocus()
         {
             if (SelectedItem != null)
@@ -44,12 +76,14 @@ namespace PageantVotingSystem.Sources.FormControls
 
         public void MoveSelectedUpwards()
         {
-            if (SelectedItem == null || SelectedItem.Features.GenericItemReference.NextItem == null)
+            if (SelectedItem == null ||
+                SelectedItem.Features.GenericItemReference.NextItem == null)
             {
                 return;
             }
 
-            SingleValuedItem targetItem = GenericDoublyLinkedListItem.GetNextItemValue<SingleValuedItem>(SelectedItem.Features.GenericItemReference);
+            SingleValuedItem targetItem = GenericDoublyLinkedListItem.GetNextItemValue<SingleValuedItem>(
+                SelectedItem.Features.GenericItemReference);
             string targetItemValue = targetItem.Value;
             targetItem.Value = SelectedItem.Value;
             SelectedItem.Value = targetItemValue;
@@ -60,12 +94,14 @@ namespace PageantVotingSystem.Sources.FormControls
 
         public void MoveSelectedDownwards()
         {
-            if (SelectedItem == null || SelectedItem.Features.GenericItemReference.PreviousItem == null)
+            if (SelectedItem == null ||
+                SelectedItem.Features.GenericItemReference.PreviousItem == null)
             {
                 return;
             }
 
-            SingleValuedItem targetItem = GenericDoublyLinkedListItem.GetPreviousItemValue<SingleValuedItem>(SelectedItem.Features.GenericItemReference);
+            SingleValuedItem targetItem = GenericDoublyLinkedListItem.GetPreviousItemValue<SingleValuedItem>(
+                SelectedItem.Features.GenericItemReference);
             string targetItemValue = targetItem.Value;
             targetItem.Value = SelectedItem.Value;
             SelectedItem.Value = targetItemValue;
@@ -89,24 +125,6 @@ namespace PageantVotingSystem.Sources.FormControls
             SelectedItem?.Features.Toggle();
         }
 
-        public void Render(string value, object data = null)
-        {
-            Items.AddToLast(GenerateItem(value, data).Features.GenericItemReference);
-        }
-
-        public void Render(List<string> values)
-        {
-            ThrowIfValuesIsNull(values);
-            Clear();
-
-            Hide();
-            for (int index = values.Count - 1; index > -1; index--)
-            {
-                Items.AddToLast(GenerateItem(values[index]).Features.GenericItemReference);
-            }
-            Show();
-        }
-
         public void Clear()
         {
             Hide();
@@ -116,21 +134,6 @@ namespace PageantVotingSystem.Sources.FormControls
             }
             SelectedItem = null;
             Show();
-        }
-
-        private SingleValuedItem GenerateItem(string value, object data = null)
-        {
-            SingleValuedItem newItem = new SingleValuedItem(parentControl, value, data);
-            if (ItemSingleClick != null)
-            {
-                newItem.Features.SingleClick += new EventHandler(ItemSingleClick);
-            }
-            if (ItemDoubleClick != null)
-            {
-                newItem.Features.DoubleClick += new EventHandler(ItemDoubleClick);
-            }
-            newItem.Features.SingleClick += new EventHandler(Item_SingleClick);
-            return newItem;
         }
 
         private void DisposeItem(SingleValuedItem targetItem)

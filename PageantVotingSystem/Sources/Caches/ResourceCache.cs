@@ -3,25 +3,28 @@ using System.Linq;
 using System.Collections.Generic;
 
 using PageantVotingSystem.Sources.Setups;
+using PageantVotingSystem.Sources.Loggers;
 
 namespace PageantVotingSystem.Sources.Caches
 {
     public class ResourceCache : Cache
     {
-        public static HashSet<object> Names { get { return data.Keys.ToHashSet(); } }
+        public static HashSet<object> Names { get { return data.Keys.ToHashSet(); } private set { } }
 
-        public static List<object> Paths { get { return data.Values.ToList(); } }
+        public static List<object> Paths { get { return data.Values.ToList(); } private set { } }
 
         private static Dictionary<object, object> data;
 
         public static void Setup(Dictionary<object, object> values)
         {
             SetupRecorder.ThrowIfAlreadySetup("ResourceCache");
+            ApplicationLogger.LogInformationMessage("'ResourceCache' setup began");
 
-            Data.SetPrivateData("ResourceCache", values);
+            Data.SetDataToPrivate("ResourceCache", values);
             data = values;
 
             SetupRecorder.Add("ResourceCache");
+            ApplicationLogger.LogInformationMessage("'ResourceCache' setup complete");
         }
 
         public static string GetPath(object name)

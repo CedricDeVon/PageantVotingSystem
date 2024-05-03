@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 
 using PageantVotingSystem.Sources.Results;
+using PageantVotingSystem.Sources.Loggers;
 
 namespace PageantVotingSystem.Sources.Databases
 {
@@ -17,15 +18,20 @@ namespace PageantVotingSystem.Sources.Databases
         {
             try
             {
-                MySqlConnection mySqlConnection = new MySqlConnection(CurrentSettings.ConnectionString);
+                ApplicationLogger.LogInformationMessage($"'ApplicationDatabase' connecting to '{CurrentSettings.SimplifiedConnectionString}'");
+                MySqlConnection mySqlConnection =
+                    new MySqlConnection(CurrentSettings.CompleteConnectionString);
                 MySqlCommand mySqlCommand = GenerateMySqlCommand(mySqlConnection, mySqlStatement);
                 mySqlConnection.Open();
+                ApplicationLogger.LogInformationMessage($"'ApplicationDatabase' connected at '{CurrentSettings.SimplifiedConnectionString}'");
                 List<Dictionary<object, object>> data = ReadData(mySqlCommand.ExecuteReader());
                 mySqlConnection.Close();
+                ApplicationLogger.LogInformationMessage($"'ApplicationDatabase' closed from '{CurrentSettings.SimplifiedConnectionString}'");
                 return new ResultSuccess(data);
             }
             catch (Exception exception)
             {
+                ApplicationLogger.LogErrorMessage(exception.Message);
                 return new ResultFailed(exception);
             }
         }
@@ -38,24 +44,9 @@ namespace PageantVotingSystem.Sources.Databases
             }
             catch (Exception exception)
             {
+                ApplicationLogger.LogErrorMessage(exception.Message);
                 return new ResultFailed(exception);
             }
-        }
-
-        public static void Connect(
-            string hostName,
-            string portNumber,
-            string userName,
-            string stringBuffer,
-            string databaseName = "")
-        {
-            Connect(
-                new DatabaseSettings(
-                    hostName,
-                    portNumber,
-                    userName,
-                    stringBuffer,
-                    databaseName));
         }
 
         public static void Connect(DatabaseSettings newSettings)
@@ -72,13 +63,16 @@ namespace PageantVotingSystem.Sources.Databases
 
             try
             {
-                MySqlConnection mySqlConnection = new MySqlConnection(settings.ConnectionString);
+                ApplicationLogger.LogInformationMessage($"'ApplicationDatabase' testing connection at '{CurrentSettings.SimplifiedConnectionString}'");
+                MySqlConnection mySqlConnection = new MySqlConnection(settings.CompleteConnectionString);
                 MySqlCommand mySqlCommand = GenerateMySqlCommand(mySqlConnection);
                 mySqlConnection.Open();
                 mySqlConnection.Close();
+                ApplicationLogger.LogInformationMessage($"'ApplicationDatabase' connection tested from '{CurrentSettings.SimplifiedConnectionString}'");
             }
             catch (Exception exception)
             {
+                ApplicationLogger.LogErrorMessage(exception.Message);
                 throw new Exception(exception.Message);
             }
         }
@@ -98,6 +92,7 @@ namespace PageantVotingSystem.Sources.Databases
         private static List<Dictionary<object, object>> ReadData(MySqlDataReader reader)
         {
             ThrowIfMySqlReaderIsNull(reader);
+            ApplicationLogger.LogInformationMessage($"'ApplicationDatabase' reading data at '{CurrentSettings.SimplifiedConnectionString}'");
 
             List<Dictionary<object, object>> data = new List<Dictionary<object, object>>();
             while (reader.Read())
@@ -109,6 +104,8 @@ namespace PageantVotingSystem.Sources.Databases
                 }
                 data.Add(row);
             }
+
+            ApplicationLogger.LogInformationMessage($"'ApplicationDatabase' data read at '{CurrentSettings.SimplifiedConnectionString}'");
             return data;
         }
 

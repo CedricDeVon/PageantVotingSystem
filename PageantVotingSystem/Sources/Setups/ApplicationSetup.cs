@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
@@ -6,8 +7,6 @@ using PageantVotingSystem.Sources.Forms;
 using PageantVotingSystem.Sources.Caches;
 using PageantVotingSystem.Sources.Systems;
 using PageantVotingSystem.Sources.Loggers;
-using PageantVotingSystem.Sources.Entities;
-using PageantVotingSystem.Sources.Generics;
 using PageantVotingSystem.Sources.Databases;
 using PageantVotingSystem.Sources.FormStyles;
 using PageantVotingSystem.Sources.FormNavigators;
@@ -23,51 +22,44 @@ namespace PageantVotingSystem.Sources.Setups
             SetupRecorder.ThrowIfAlreadySetup("ApplicationSetup");
 
             ApplicationConfiguration.Setup();
-            ApplicationSystem.Setup
-            (
-                ApplicationConfiguration.GetAppConfigValue("StringBuffer")
-            );
-            ApplicationFileLogger.Setup
-            (
-                ApplicationConfiguration.GetAppConfigValue("LogOutputPath")
-            );
+            ApplicationLogger.Setup(
+                ApplicationConfiguration.GetApplicationConfigurationValue("LogOutputPath"),
+                Convert.ToBoolean(ApplicationConfiguration.GetTypedApplicationConfigurationValue("IsLoggingEnabled")));
+            ApplicationLogger.LogInformationMessage("'ApplicationSetup' setup began");
+            ApplicationLogger.LogInformationMessage("'ApplicationConfiguration' setup complete");
+            ApplicationLogger.LogInformationMessage("'ApplicationLogger' setup complete");
+
+            ApplicationSystem.Setup(ApplicationConfiguration.GetApplicationConfigurationValue("StringBuffer"));
+            ApplicationFormStyle.Setup();
+
             ApplicationDatabase.Setup
             (
                 new DatabaseSettings
                 (
-                    ApplicationConfiguration.GetTypedAppConfigValue("DatabaseHostName"),
-                    ApplicationConfiguration.GetTypedAppConfigValue("DatabasePortNumber"),
-                    ApplicationConfiguration.GetTypedAppConfigValue("DatabaseUserName"),
+                    ApplicationConfiguration.GetTypedApplicationConfigurationValue("DatabaseHostName"),
+                    ApplicationConfiguration.GetTypedApplicationConfigurationValue("DatabasePortNumber"),
+                    ApplicationConfiguration.GetTypedApplicationConfigurationValue("DatabaseUserName"),
                     ApplicationSystem.GetEnvironmentValue("StringBuffer"),
-                    $"{ApplicationConfiguration.GetTypedAppConfigValue("DatabaseName")}_{ApplicationConfiguration.CurrentTypeName}",
-                    ApplicationConfiguration.GetTypedAppConfigValue("DatabaseSetupFilePath")
+                    $"{ApplicationConfiguration.GetTypedApplicationConfigurationValue("DatabaseName")}_{ApplicationConfiguration.CurrentTypeName}",
+                    ApplicationConfiguration.GetTypedApplicationConfigurationValue("DatabaseSetupFilePath")
                 )
             );
-            ApplicationFormStyle.Setup();
 
+            GenderCache.Setup(ApplicationDatabase.ReadAllRawGenders());
+            UserRoleCache.Setup(ApplicationDatabase.ReadAllRawUserRoles());
+            RoundStatusCache.Setup(ApplicationDatabase.ReadAllRawRoundStatus());
+            JudgeStatusCache.Setup(ApplicationDatabase.ReadAllRawJudgeStatus());
+            MaritalStatusCache.Setup(ApplicationDatabase.ReadAllRawMaritalStatus());
+            ScoringSystemCache.Setup(ApplicationDatabase.ReadAllRawScoringSystems());
+            ApplicationResourceLoader.Setup(ApplicationDatabase.ReadAllRawResources());
+            ContestantStatusCache.Setup(ApplicationDatabase.ReadAllRawContestantStatus());
+            EventLayoutStatusCache.Setup(ApplicationDatabase.ReadAllRawEventLayoutStatus());
+            RoundContestantStatusCache.Setup(ApplicationDatabase.ReadAllRawRoundContestantStatus());
 
-
-            ContestantStatusCache.Setup(ApplicationDatabase.ReadContestantStatus());
-            GenderCache.Setup(ApplicationDatabase.ReadGenders());
-            JudgeStatusCache.Setup(ApplicationDatabase.ReadJudgeStatus());
-            MaritalStatusCache.Setup(ApplicationDatabase.ReadMaritalStatus());
-            ResultRemarkCache.Setup(ApplicationDatabase.ReadResultRemarks());
-            RoundStatusCache.Setup(ApplicationDatabase.ReadRoundStatus());
-            ScoringSystemCache.Setup(ApplicationDatabase.ReadScoringSystems());
-            UserRoleCache.Setup(ApplicationDatabase.ReadUserRoles());
-            ApplicationResourceLoader.Setup(ApplicationDatabase.ReadResources());
-            TypeConstraintCache.Setup(ApplicationDatabase.ReadTypeConstraints());
-            UserProfileCache.Setup(new UserEntity());
-            EditEventContestantCache.Setup(new List<ContestantEntity>());
-            EditEventJudgesCache.Setup(new List<string>());
-            EditEventCache.Setup
-            (
-                new EventEntity(),
-                new GenericOrderedList<string>(),
-                new GenericOrderedList<ContestantEntity>()
-            );
-
-
+            TypeConstraintCache.Setup();
+            UserProfileCache.Setup();
+            AdministerEventCache.Setup();
+            EditEventCache.Setup();
 
             Application.SetCompatibleTextRenderingDefault(false);
             Application.EnableVisualStyles();
@@ -79,16 +71,16 @@ namespace PageantVotingSystem.Sources.Setups
                     new About(),
                     new LogIn(),
                     new SignUp(),
-                    new ManagerDashboard(),
                     new UserProfile(),
                     new EditUserProfile(),
-                    new EditEvent(),
-                    new EditEventProfile(),
-                    new EditEventSegmentStructure(),
-                    new EditEventRoundStructure(),
-                    new EditEventCriteriumStructure(),
-                    new EditEventJudges(),
-                    new EditEventContestants(),
+                    new ManagerDashboard(),
+                    new JudgeContestantDashboard(),
+                    new JudgeDashboard(),
+                    new AdministerEventQuery(),
+                    new AdministerEvent(),
+                    new AdministerEventContestants(),
+                    new AdministerEventContestantReview(),
+                    new AdministerVotingSession(),
                     new EventResults(),
                     new EventJudges(),
                     new EventContestants(),
@@ -101,18 +93,20 @@ namespace PageantVotingSystem.Sources.Setups
                     new EventCriteriumResult(),
                     new EventRoundResult(),
                     new EventSegmentResult(),
-                    new AdministerEvent(),
-                    new AdministerEventContestants(),
-                    new AdministerEventJudges(),
-                    new AdministerEventLayout(),
-                    new AdministerVotingSession(),
-                    new JudgeDashboard(),
-                    new JudgeContestantDashboard()
+                    new EditEvent(),
+                    new EditEventProfile(),
+                    new EditEventSegmentStructure(),
+                    new EditEventRoundStructure(),
+                    new EditEventCriteriumStructure(),
+                    new EditEventJudges(),
+                    new EditEventContestants()
                 },
                 new Background(),
                 new InformationNotFound()
             );
+
             SetupRecorder.Add("ApplicationSetup");
+            ApplicationLogger.LogInformationMessage("'ApplicationSetup' setup complete");
         }
     }
 }

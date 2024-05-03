@@ -10,24 +10,39 @@ namespace PageantVotingSystem.Sources.Forms
 {
     public partial class About : Form
     {
-        public InformationLayout InformationLayout { get; private set; }
+        private readonly InformationLayout informationLayout;
 
         public About()
         {
             InitializeComponent();
 
             ApplicationFormStyle.SetupFormStyles(this);
-            InformationLayout = new InformationLayout(informationLayoutControl);
-
-            ApplicationFormNavigator.ListenToFormKeyDownEvent(this);
+            informationLayout = new InformationLayout(informationLayoutControl);
         }
 
         private void Button_Click(object sender, EventArgs e)
         {
             if (sender == goBackButton)
             {
-                ApplicationFormNavigator.DisplayPrevious();
+                DisplayPreviousForm();
             }
+        }
+
+        private void Form_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Escape)
+            {
+                DisplayPreviousForm();
+            }
+        }
+
+        private void DisplayPreviousForm()
+        {
+            informationLayout.StartLoadingMessageDisplay();
+
+            ApplicationFormNavigator.DisplayPreviousForm();
+
+            informationLayout.StopLoadingMessageDisplay();
         }
     }
 }

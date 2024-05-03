@@ -36,10 +36,9 @@ namespace PageantVotingSystem.Sources.Forms
             ApplicationFormStyle.SetupFormStyles(this);
             informationLayout = new InformationLayout(informationLayoutControl);
             topSideNavigationLayout = new TopSideNavigationLayout(topSideNavigationLayoutControl);
-            topSideNavigationLayout.HideReloadButton();
             contestantsLayout = new OrderedValueItemLayout(contestantsLayoutControl, ContestantLayoutItem_SingleClick);
-            contestantsLayout.RenderOrdered(EditEventCache.ContestantFullNames);
-            contestantsCountLabel.Text = $"{EditEventCache.Contestants.ItemCount}";
+            contestantsLayout.Render(EditEventCache.ContestantFullNames);
+            contestantsCountLabel.Text = $"{EditEventCache.ContestantEntities.ItemCount}";
             gendersLayout = new RadioButtonLayout(gendersLayoutControl, GenderCache.Types);
             maritalStatusLayout = new RadioButtonLayout(maritalStatusLayoutControl, MaritalStatusCache.Types);
         }
@@ -48,16 +47,10 @@ namespace PageantVotingSystem.Sources.Forms
         {
             informationLayout.StartLoadingMessageDisplay();
 
-            if (sender == saveButton)
+            if (sender == goBackButton)
             {
-                Result securityResult = ApplicationSecurity.AuthenticateNewEventContestants(EditEventCache.Contestants);
-                if (!securityResult.IsSuccessful)
-                {
-                    informationLayout.DisplayErrorMessage(securityResult.Message);
-                    return;
-                }
+                ApplicationFormNavigator.DisplayPreviousForm();
 
-                ApplicationFormNavigator.DisplayPrevious();
                 contestantsLayout.Unfocus();
                 contestantDataLayout.Hide();
                 SetupPictureBox(ApplicationConfiguration.DefaultUserProfileImagePath);
@@ -67,8 +60,8 @@ namespace PageantVotingSystem.Sources.Forms
                 contestantHomeAddressInput.Text = "";
                 contestantBirthDateInput.Text = "";
                 contestantAssumedAge.Text = "0";
-                gendersLayout.Clear();
-                maritalStatusLayout.Value = "";
+                gendersLayout.Value = "Rather Not Say";
+                maritalStatusLayout.Value = "Rather Not Say";
                 contestantHeightInCentimetersInput.Value = 0;
                 contestantWeightInKilogramsInput.Value = 0;
                 contestantTalentsAndSkillsInput.Text = "";
@@ -78,18 +71,18 @@ namespace PageantVotingSystem.Sources.Forms
                 contestantEducationInput.Text = "";
                 contestantMottoInput.Text = "";
             }
-            else if (sender == addContestantButton)
+            else if (sender == createContestantButton)
             {
                 string contestantName = $"Contestant";
                 ContestantEntity contestantEntity = new ContestantEntity();
                 contestantEntity.FullName = contestantName;
-                EditEventCache.Contestants.AddNewItem(contestantEntity);
-                contestantsLayout.RenderOrdered(contestantName);
-                contestantsCountLabel.Text = $"{EditEventCache.Contestants.ItemCount}";
+                EditEventCache.ContestantEntities.AddNewItem(contestantEntity);
+                contestantsLayout.Render(contestantName);
+                contestantsCountLabel.Text = $"{EditEventCache.ContestantEntities.ItemCount}";
             }
             else if (sender == resetButton)
             {
-                EditEventCache.Contestants.ClearAllItems();
+                EditEventCache.ContestantEntities.ClearAllItems();
                 contestantsLayout.Clear();
                 contestantsLayout.Unfocus();
                 contestantsCountLabel.Text = "0";
@@ -108,7 +101,7 @@ namespace PageantVotingSystem.Sources.Forms
             if (contestantsLayout.SelectedItem != null && e.KeyCode == Keys.NumPad8)
             {
                 OrderedValueItem selectedItem = contestantsLayout.SelectedItem;
-                EditEventCache.Contestants.MoveItemAtIndexUpwards(EditEventCache.Contestants.ItemCount - Convert.ToInt32(selectedItem.OrderedNumber));
+                EditEventCache.ContestantEntities.MoveItemAtIndexUpwards(EditEventCache.ContestantEntities.ItemCount - Convert.ToInt32(selectedItem.OrderedNumber));
 
                 contestantsLayout.MoveSelectedUpwards();
                 e.Handled = true;
@@ -116,7 +109,7 @@ namespace PageantVotingSystem.Sources.Forms
             else if (contestantsLayout.SelectedItem != null && e.KeyCode == Keys.NumPad2)
             {
                 OrderedValueItem selectedItem = contestantsLayout.SelectedItem;
-                EditEventCache.Contestants.MoveItemAtIndexDownwards(EditEventCache.Contestants.ItemCount - Convert.ToInt32(selectedItem.OrderedNumber));
+                EditEventCache.ContestantEntities.MoveItemAtIndexDownwards(EditEventCache.ContestantEntities.ItemCount - Convert.ToInt32(selectedItem.OrderedNumber));
 
                 contestantsLayout.MoveSelectedDownwards();
                 e.Handled = true;
@@ -124,31 +117,61 @@ namespace PageantVotingSystem.Sources.Forms
             else if (contestantsLayout.SelectedItem != null && e.KeyCode == Keys.Delete)
             {
                 OrderedValueItem selectedItem = contestantsLayout.SelectedItem;
-                EditEventCache.Contestants.RemoveItemAtIndex(EditEventCache.Contestants.ItemCount - Convert.ToInt32(selectedItem.OrderedNumber));
+                EditEventCache.ContestantEntities.RemoveItemAtIndex(EditEventCache.ContestantEntities.ItemCount - Convert.ToInt32(selectedItem.OrderedNumber));
 
                 contestantsLayout.RemoveSelected();
 
-                contestantsCountLabel.Text = $"{EditEventCache.Contestants.Items.Count}";
-                OrderedValueItem a = contestantsLayout.SelectedItem;
-                ContestantEntity c = EditEventCache.Contestants.Items[EditEventCache.Contestants.ItemCount - Convert.ToInt32(a.OrderedNumber)];
-                contestantImageFileInput.FileName = c.ImageResourcePath;
-                SetupPictureBox(c.ImageResourcePath);
-                contestantFullNameInput.Text = c.FullName;
-                contestantEmailInput.Text = c.Email;
-                contestantPhoneNumberInput.Text = c.PhoneNumber;
-                contestantHomeAddressInput.Text = c.HomeAddress;
-                contestantBirthDateInput.Text = c.BirthDate;
-                contestantAssumedAge.Text = $"{DateParser.CalculateAge(c.BirthDate)}";
-                gendersLayout.Value = c.GenderType;
-                maritalStatusLayout.Value = c.MaritalStatusType;
-                contestantHeightInCentimetersInput.Value = (decimal)c.HeightInCentimeters;
-                contestantWeightInKilogramsInput.Value = (decimal)c.WeightInKilograms;
-                contestantTalentsAndSkillsInput.Text = c.TalentsAndSkills;
-                contestantHobbiesInput.Text = c.Hobbies;
-                contestantLanguagesInput.Text = c.Languages;
-                contestantWorkExperiencesInput.Text = c.WorkExperiences;
-                contestantEducationInput.Text = c.Education;
-                contestantMottoInput.Text = c.Motto;
+                contestantsCountLabel.Text = $"{EditEventCache.ContestantEntities.Items.Count}";
+                if (EditEventCache.ContestantEntities.ItemCount > 0)
+                {
+                    OrderedValueItem a = contestantsLayout.SelectedItem;
+                    ContestantEntity c = EditEventCache.ContestantEntities.Items[EditEventCache.ContestantEntities.ItemCount - Convert.ToInt32(a.OrderedNumber)];
+                    contestantImageFileInput.FileName = c.ImageResourcePath;
+                    SetupPictureBox(c.ImageResourcePath);
+                    contestantFullNameInput.Text = c.FullName;
+                    contestantEmailInput.Text = c.Email;
+                    contestantPhoneNumberInput.Text = c.PhoneNumber;
+                    contestantHomeAddressInput.Text = c.HomeAddress;
+                    contestantBirthDateInput.Value = DateTime.Parse(c.BirthDate);
+                    contestantAssumedAge.Text = $"{DateParser.CalculateAge(c.BirthDate)}";
+                    gendersLayout.Value = c.GenderType;
+                    maritalStatusLayout.Value = c.MaritalStatusType;
+                    contestantHeightInCentimetersInput.Value = (decimal)c.HeightInCentimeters;
+                    contestantWeightInKilogramsInput.Value = (decimal)c.WeightInKilograms;
+                    contestantTalentsAndSkillsInput.Text = c.TalentsAndSkills;
+                    contestantHobbiesInput.Text = c.Hobbies;
+                    contestantLanguagesInput.Text = c.Languages;
+                    contestantWorkExperiencesInput.Text = c.WorkExperiences;
+                    contestantEducationInput.Text = c.Education;
+                    contestantMottoInput.Text = c.Motto;
+                }
+                else
+                {
+                    contestantDataLayout.Hide();
+                    SetupPictureBox(ApplicationConfiguration.DefaultUserProfileImagePath);
+                    contestantFullNameInput.Text = "";
+                    contestantEmailInput.Text = "";
+                    contestantPhoneNumberInput.Text = "";
+                    contestantHomeAddressInput.Text = "";
+                    contestantBirthDateInput.Text = "";
+                    contestantAssumedAge.Text = "0";
+                    gendersLayout.Value = "Rather Not Say";
+                    maritalStatusLayout.Value = "Rather Not Say";
+                    contestantHeightInCentimetersInput.Value = 0;
+                    contestantWeightInKilogramsInput.Value = 0;
+                    contestantTalentsAndSkillsInput.Text = "";
+                    contestantHobbiesInput.Text = "";
+                    contestantLanguagesInput.Text = "";
+                    contestantWorkExperiencesInput.Text = "";
+                    contestantEducationInput.Text = "";
+                    contestantMottoInput.Text = "";
+                }
+                e.Handled = true;
+            }
+
+            if (e.KeyData == Keys.Escape)
+            {
+                ApplicationFormNavigator.DisplayPreviousForm();
                 e.Handled = true;
             }
         }
@@ -168,14 +191,14 @@ namespace PageantVotingSystem.Sources.Forms
             if (contestantsLayout.SelectedItem != null)
             {
                 OrderedValueItem orderedValueItem = contestantsLayout.SelectedItem;
-                ContestantEntity contestant = EditEventCache.Contestants.Items[EditEventCache.Contestants.ItemCount - Convert.ToInt32(orderedValueItem.OrderedNumber)];
+                ContestantEntity contestant = EditEventCache.ContestantEntities.Items[EditEventCache.ContestantEntities.ItemCount - Convert.ToInt32(orderedValueItem.OrderedNumber)];
                 contestant.ImageResourcePath = StringParser.StandardizeFilePath(contestantImageFileInput.FileName);
                 contestant.FullName = contestantFullNameInput.Text;
                 orderedValueItem.Value = contestantFullNameInput.Text;
                 contestant.Email = contestantEmailInput.Text;
                 contestant.PhoneNumber = contestantPhoneNumberInput.Text;
                 contestant.HomeAddress = contestantHomeAddressInput.Text;
-                contestant.BirthDate = contestantBirthDateInput.Text;
+                contestant.BirthDate = Convert.ToString(contestantBirthDateInput.Value);
                 contestant.GenderType = gendersLayout.Value;
                 contestant.MaritalStatusType = maritalStatusLayout.Value;
                 contestant.HeightInCentimeters = (float) contestantHeightInCentimetersInput.Value;
@@ -189,14 +212,14 @@ namespace PageantVotingSystem.Sources.Forms
             }
 
             OrderedValueItem a = (OrderedValueItem) sender;
-            ContestantEntity c = EditEventCache.Contestants.Items[EditEventCache.Contestants.ItemCount - Convert.ToInt32(a.OrderedNumber)];
+            ContestantEntity c = EditEventCache.ContestantEntities.Items[EditEventCache.ContestantEntities.ItemCount - Convert.ToInt32(a.OrderedNumber)];
             contestantImageFileInput.FileName = c.ImageResourcePath;
             SetupPictureBox(c.ImageResourcePath);
             contestantFullNameInput.Text = c.FullName;
             contestantEmailInput.Text = c.Email;
             contestantPhoneNumberInput.Text = c.PhoneNumber;
             contestantHomeAddressInput.Text = c.HomeAddress;
-            contestantBirthDateInput.Text = c.BirthDate;
+            contestantBirthDateInput.Value = DateTime.Parse(c.BirthDate);
             contestantAssumedAge.Text = $"{DateParser.CalculateAge(c.BirthDate)}";
             gendersLayout.Value = c.GenderType;
             maritalStatusLayout.Value = c.MaritalStatusType;
@@ -216,6 +239,35 @@ namespace PageantVotingSystem.Sources.Forms
             {
                 SetupPictureBox(contestantImageFileInput.FileName);
             }
+        }
+
+        public void Render()
+        {
+            contestantsLayout.Clear();
+            contestantsCountLabel.Text = $"{EditEventCache.ContestantEntities.Items.Count}";
+            for (int orderdNumber = EditEventCache.ContestantEntities.Items.Count; orderdNumber > 0; orderdNumber--)
+            {
+                ContestantEntity contestantEntity = EditEventCache.ContestantEntities.Items[EditEventCache.ContestantEntities.Items.Count - orderdNumber];
+                contestantsLayout.Render($"{orderdNumber}", contestantEntity.FullName, contestantEntity);
+            }
+            contestantDataLayout.Hide();
+            SetupPictureBox(ApplicationConfiguration.DefaultUserProfileImagePath);
+            contestantFullNameInput.Text = "";
+            contestantEmailInput.Text = "";
+            contestantPhoneNumberInput.Text = "";
+            contestantHomeAddressInput.Text = "";
+            contestantBirthDateInput.Text = "";
+            contestantAssumedAge.Text = "0";
+            gendersLayout.Value = "Rather Not Say";
+            maritalStatusLayout.Value = "Rather Not Say";
+            contestantHeightInCentimetersInput.Value = 0;
+            contestantWeightInKilogramsInput.Value = 0;
+            contestantTalentsAndSkillsInput.Text = "";
+            contestantHobbiesInput.Text = "";
+            contestantLanguagesInput.Text = "";
+            contestantWorkExperiencesInput.Text = "";
+            contestantEducationInput.Text = "";
+            contestantMottoInput.Text = "";
         }
 
         private void SetupPictureBox(string fileName)

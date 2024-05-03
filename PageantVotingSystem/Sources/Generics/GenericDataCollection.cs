@@ -13,15 +13,15 @@ namespace PageantVotingSystem.Sources.Generics
             data["Private"] = new Dictionary<object, object>();
         }
 
-        public void SetPublicData(object key, object value)
+        public void SetDataToPublic(object key, object value)
         {
-            if (getDataCollection("Private").ContainsKey(key))
+            if (GetDataCollection("Private").ContainsKey(key))
             {
                 throw new Exception($"'GenericDataCollection' - Attribute '{key}' already exists");
             }
             try
             {
-                getDataCollection("Public")[key] = value;
+                GetDataCollection("Public")[key] = value;
             }
             catch
             {
@@ -29,15 +29,15 @@ namespace PageantVotingSystem.Sources.Generics
             }
         }
 
-        public void SetPrivateData(object key, object value)
+        public void SetDataToPrivate(object key, object value)
         {
-            if (getDataCollection("Private").ContainsKey(key))
+            if (GetDataCollection("Private").ContainsKey(key))
             {
                 throw new Exception($"'GenericDataCollection' - Cannot set '{key}' as a attribute");
             }
             try
             {
-                getDataCollection("Private")[key] = value;
+                GetDataCollection("Private")[key] = value;
             }
             catch
             {
@@ -47,7 +47,7 @@ namespace PageantVotingSystem.Sources.Generics
 
         public GenericData GetData(object key)
         {
-            Dictionary<object, object> dataCollection = getDataCollectionAttribute(key);
+            Dictionary<object, object> dataCollection = GetDataCollectionAttribute(key);
             try
             {
                 return new GenericData(dataCollection[key]);
@@ -60,7 +60,7 @@ namespace PageantVotingSystem.Sources.Generics
 
         public Type GetData<Type>(object key)
         {
-            Dictionary<object, object> dataCollection = getDataCollectionAttribute(key);
+            Dictionary<object, object> dataCollection = GetDataCollectionAttribute(key);
             try
             {
                 return (Type) dataCollection[key];
@@ -73,7 +73,7 @@ namespace PageantVotingSystem.Sources.Generics
 
         public void RemoveData(object key)
         {
-            Dictionary<object, object> dataCollection = getDataCollectionAttribute(key);
+            Dictionary<object, object> dataCollection = GetDataCollectionAttribute(key);
             try
             {
                 dataCollection.Remove(key);
@@ -88,7 +88,7 @@ namespace PageantVotingSystem.Sources.Generics
         {
             try
             {
-                getDataCollection("Public").Clear();
+                GetDataCollection("Public").Clear();
             }
             catch
             {
@@ -100,7 +100,7 @@ namespace PageantVotingSystem.Sources.Generics
         {
             try
             {
-                getDataCollection("Private").Clear();
+                GetDataCollection("Private").Clear();
             }
             catch
             {
@@ -125,7 +125,7 @@ namespace PageantVotingSystem.Sources.Generics
         {
             try
             {
-                return getDataCollection("Public").ContainsKey(key);
+                return GetDataCollection("Public").ContainsKey(key);
             }
             catch
             {
@@ -137,7 +137,7 @@ namespace PageantVotingSystem.Sources.Generics
         {
             try
             {
-                return getDataCollection("Private").ContainsKey(key);
+                return GetDataCollection("Private").ContainsKey(key);
             }
             catch
             {
@@ -157,15 +157,15 @@ namespace PageantVotingSystem.Sources.Generics
             }
         }
 
-        private Dictionary<object, object> getDataCollectionAttribute(object key)
+        private Dictionary<object, object> GetDataCollectionAttribute(object key)
         {
-            if (getDataCollection("Public").ContainsKey(key))
+            if (GetDataCollection("Public").ContainsKey(key))
             {
-                return getDataCollection("Public");
+                return GetDataCollection("Public");
             }
-            else if (getDataCollection("Private").ContainsKey(key))
+            else if (GetDataCollection("Private").ContainsKey(key))
             {
-                return getDataCollection("Private");
+                return GetDataCollection("Private");
             }
             else
             {
@@ -173,7 +173,7 @@ namespace PageantVotingSystem.Sources.Generics
             }
         }
 
-        private Dictionary<object, object> getDataCollection(string accessor)
+        private Dictionary<object, object> GetDataCollection(string accessor)
         {
             Dictionary<object, object> data = (Dictionary<object, object>)Data;
             if (!data.ContainsKey(accessor))

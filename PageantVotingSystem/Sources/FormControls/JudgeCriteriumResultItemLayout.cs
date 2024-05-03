@@ -5,18 +5,16 @@ using System.Collections.Generic;
 
 using PageantVotingSystem.Sources.Entities;
 using PageantVotingSystem.Sources.Generics;
-using PageantVotingSystem.Sources.Databases;
-using PageantVotingSystem.Sources.FormControls;
 
 namespace PageantVotingSystem.Sources.FormControls
 {
     public partial class JudgeCriteriumResultItemLayout : UserControl
     {
+        public GenericDoublyLinkedList Items { get; private set; }
+
         public EventHandler ItemSingleClick { get; set; }
 
         public EventHandler ItemDoubleClick { get; set; }
-
-        public GenericDoublyLinkedList Items { get; private set; }
 
         private readonly Panel parentControl;
 
@@ -30,7 +28,8 @@ namespace PageantVotingSystem.Sources.FormControls
 
         public void Render(JudgeCriteriumEntity judgeCriteriumEntity)
         {
-            Items.AddToLast(GenerateItem(judgeCriteriumEntity).Features.GenericItemReference);
+            Items.AddToLast(
+                GenerateItem(judgeCriteriumEntity).Features.GenericItemReference);
         }
 
         public void Render(List<JudgeCriteriumEntity> judgeCriteriumEntities)
@@ -40,25 +39,26 @@ namespace PageantVotingSystem.Sources.FormControls
             Hide();
             for (int index = judgeCriteriumEntities.Count - 1; index > -1; index--)
             {
-                Items.AddToLast(GenerateItem(judgeCriteriumEntities[index]).Features.GenericItemReference);
+                Items.AddToLast(
+                    GenerateItem(judgeCriteriumEntities[index]).Features.GenericItemReference);
             }
             Show();
         }
 
-        public void UpdateContestantResults()
+        private JudgeCriteriumResultItem GenerateItem(JudgeCriteriumEntity judgeCriteriumEntity)
         {
-            GenericDoublyLinkedListItem currentItem = Items.FirstItem;
-            JudgeCriteriumResultItem judgeCriteriumResultItem = null;
-            while (currentItem != null)
+            JudgeCriteriumResultItem newItem =
+                new JudgeCriteriumResultItem(parentControl, judgeCriteriumEntity);
+            if (ItemSingleClick != null)
             {
-                judgeCriteriumResultItem = (JudgeCriteriumResultItem)currentItem.Value;
-                ApplicationDatabase.UpdateContestantJudgeCriterium(judgeCriteriumResultItem.Data);
-                currentItem = currentItem.NextItem;
+                newItem.Features.SingleClick += new EventHandler(ItemSingleClick);
             }
-            if (judgeCriteriumResultItem != null)
+            if (ItemDoubleClick != null)
             {
-                ApplicationDatabase.UpdateRoundContestantStatusToComplete(judgeCriteriumResultItem.Data);
+                newItem.Features.DoubleClick += new EventHandler(ItemDoubleClick);
             }
+            return newItem;
+
         }
 
         public void Clear()
@@ -82,21 +82,6 @@ namespace PageantVotingSystem.Sources.FormControls
             }
         }
 
-        private JudgeCriteriumResultItem GenerateItem(JudgeCriteriumEntity judgeCriteriumEntity)
-        {
-            JudgeCriteriumResultItem newItem = new JudgeCriteriumResultItem(parentControl, judgeCriteriumEntity);
-            if (ItemSingleClick != null)
-            {
-                newItem.Features.SingleClick += new EventHandler(ItemSingleClick);
-            }
-            if (ItemDoubleClick != null)
-            {
-                newItem.Features.DoubleClick += new EventHandler(ItemDoubleClick);
-            }
-            return newItem;
-
-        }
-
         private void DisposeItem(JudgeCriteriumResultItem targetItem)
         {
             if (ItemSingleClick != null)
@@ -111,9 +96,3 @@ namespace PageantVotingSystem.Sources.FormControls
         }
     }
 }
-
-
-//foreach (JudgeCriteriumEntity judgeCriteriumEntity in judgeCriteriumResultItemLayout.JudgeCriteriumEntities)
-//{
-//    ApplicationDatabase.UpdateContestantJudgeCriterium(judgeCriteriumEntity);
-//}

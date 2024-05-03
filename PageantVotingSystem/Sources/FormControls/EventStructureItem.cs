@@ -33,7 +33,11 @@ namespace PageantVotingSystem.Sources.FormControls
 
         private int layer;
 
-        public EventStructureItem(Panel parentControl, string value, object data, int layer = 0)
+        public EventStructureItem(
+            Panel parentControl,
+            string value,
+            object data,
+            int layer = 0)
         {
             ThrowIfParentControlIsNull(parentControl);
             ThrowIfDataIsNull(data);

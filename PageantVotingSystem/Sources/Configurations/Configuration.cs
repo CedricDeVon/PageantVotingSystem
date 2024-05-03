@@ -6,16 +6,14 @@ namespace PageantVotingSystem.Sources.Configurations
 {
     public class Configuration
     {
-        // All values retrieved from 'App.config' are of type 'string'.
-        public static string GetAppConfigValue(string key)
+        public static string GetApplicationConfigurationValue(string key)
         {
             string value = ConfigurationManager.AppSettings[key];
-            ThrowIfAppConfigKeyIsNull(key, value);
-
+            ThrowIfApplicationConfigurationKeyIsNull(key, value);
             return value;
         }
 
-        protected static void ThrowIfAppConfigKeyIsNull(string key, string value)
+        protected static void ThrowIfApplicationConfigurationKeyIsNull(string key, string value)
         {
             if (value == null)
             {

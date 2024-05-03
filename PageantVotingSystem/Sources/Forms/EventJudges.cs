@@ -13,44 +13,47 @@ namespace PageantVotingSystem.Sources.Forms
 {
     public partial class EventJudges : Form
     {
-        public InformationLayout InformationLayout { get; private set; }
+        private readonly InformationLayout informationLayout;
 
         private readonly TopSideNavigationLayout topSideNavigationLayout;
 
-        private readonly SingleValuedItemLayout resultsLayout;
+        private readonly OrderedValueItemLayout resultsLayout;
 
         public EventJudges()
         {
             InitializeComponent();
 
             ApplicationFormStyle.SetupFormStyles(this);
-            InformationLayout = new InformationLayout(informationLayoutControl);
+            informationLayout = new InformationLayout(informationLayoutControl);
             topSideNavigationLayout = new TopSideNavigationLayout(topSideNavigationLayoutControl);
-            topSideNavigationLayout.HideReloadButton();
-            resultsLayout = new SingleValuedItemLayout(resultsLayoutControl, Item_Click);
+            resultsLayout = new OrderedValueItemLayout(resultsLayoutControl, Item_Click);
         }
 
-        public void Render(EventEntity entity)
+        private void Button_Click(object sender, EventArgs e)
         {
-            List<UserEntity> userEntities = ApplicationDatabase.ReadManyUsers(entity.Id);
-            foreach (UserEntity userEntity in userEntities)
+            if (sender == goBackButton)
             {
-                resultsLayout.Render(userEntity.Email, userEntity);
+                DisplayPreviousForm();
             }
-            resultCountLabel.Text = $"{userEntities.Count}";
+            else if (sender == informationButton &&
+                resultsLayout.SelectedItem != null)
+            {
+                DisplayUserProfileForm();
+            }
         }
 
-        private void ResetAllData()
+        private void Form_KeyDown(object sender, KeyEventArgs e)
         {
-            resultCountLabel.Text = "0";
-            resultsLayout.Clear();
-            optionsControl.Hide();
+            if (e.KeyCode == Keys.Escape)
+            {
+                DisplayPreviousForm();
+            }
         }
 
         private void Item_Click(object sender, EventArgs e)
         {
-            SingleValuedItem item = (SingleValuedItem)sender;
-            if (item.Features.IsToggled)
+            OrderedValueItem orderedValueItem = (OrderedValueItem)sender;
+            if (orderedValueItem.Features.IsToggled)
             {
                 optionsControl.Hide();
             }
@@ -60,27 +63,42 @@ namespace PageantVotingSystem.Sources.Forms
             }
         }
 
-        private void Button_Click(object sender, EventArgs e)
+        public void DisplayPreviousForm()
         {
-            if (sender == goBackButton)
-            {
-                ApplicationFormNavigator.DisplayPrevious();
-                ResetAllData();
-            }
-            else if (sender == informationButton &&
-                resultsLayout.SelectedItem != null)
-            {
-                ApplicationFormNavigator.DisplayUserProfileForm((UserEntity)resultsLayout.SelectedItem.Data);
-            }
+            informationLayout.StartLoadingMessageDisplay();
+
+            ApplicationFormNavigator.DisplayPreviousForm();
+            Clear();
+
+            informationLayout.StopLoadingMessageDisplay();
         }
 
-        private void Form_KeyDown(object sender, KeyEventArgs e)
+        public void DisplayUserProfileForm()
         {
-            if (e.KeyCode == Keys.Escape)
+            informationLayout.StartLoadingMessageDisplay();
+
+            ApplicationFormNavigator.DisplayUserProfileForm(((JudgeUserEntity)resultsLayout.SelectedItem.Data).Email);
+            resultsLayout.Unfocus();
+            optionsControl.Hide();
+
+            informationLayout.StopLoadingMessageDisplay();
+        }
+
+        public void Render(EventEntity entity)
+        {
+            List<JudgeUserEntity> judgeUserEntities = ApplicationDatabase.ReadManyJudgeEntities(entity.Id);
+            foreach (JudgeUserEntity userEntity in judgeUserEntities)
             {
-                ApplicationFormNavigator.DisplayPrevious();
-                ResetAllData();
+                resultsLayout.Render($"{userEntity.OrderNumber}", userEntity.Email, userEntity);
             }
+            resultCountLabel.Text = $"{judgeUserEntities.Count}";
+        }
+
+        private void Clear()
+        {
+            resultCountLabel.Text = "0";
+            resultsLayout.Clear();
+            optionsControl.Hide();
         }
     }
 }

@@ -2,17 +2,17 @@
 using System;
 using System.Windows.Forms;
 
-using PageantVotingSystem.Sources.FormControls;
-using PageantVotingSystem.Sources.FormNavigators;
-using PageantVotingSystem.Sources.FormStyles;
 using PageantVotingSystem.Sources.Entities;
 using PageantVotingSystem.Sources.Databases;
+using PageantVotingSystem.Sources.FormStyles;
+using PageantVotingSystem.Sources.FormControls;
+using PageantVotingSystem.Sources.FormNavigators;
 
 namespace PageantVotingSystem.Sources.Forms
 {
     public partial class EventLayout : Form
     {
-        public InformationLayout InformationLayout { get; private set; }
+        private readonly InformationLayout informationLayout;
         
         private readonly TopSideNavigationLayout topSideNavigationLayout;
 
@@ -23,22 +23,96 @@ namespace PageantVotingSystem.Sources.Forms
             InitializeComponent();
 
             ApplicationFormStyle.SetupFormStyles(this);
-            InformationLayout = new InformationLayout(informationLayoutControl);
+            informationLayout = new InformationLayout(informationLayoutControl);
             topSideNavigationLayout = new TopSideNavigationLayout(topSideNavigationLayoutControl);
-            topSideNavigationLayout.HideReloadButton();
             eventStructureItemLayout = new EventStructureItemLayout(resultLayoutControl, Item_Click);
         }
 
-        public void Render(EventEntity eventEntity)
+        private void Button_Click(object sender, EventArgs e)
         {
-            ApplicationDatabase.ReadOneEventLayout(eventEntity);
-            eventStructureItemLayout.Render(eventEntity);
+            if (sender == goBackButton)
+            {
+                DisplayPreviousForm();
+            }
+            else if (sender == informationButton)
+            {
+                DisplayEventStructureItemProfile();
+            }
+            else if (sender == resultsButton)
+            {
+                DisplayEventStructureItemResult();
+            }
+        }
+
+        private void Form_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                DisplayPreviousForm();
+            }
         }
 
         private void Item_Click(object sender, EventArgs e)
         {
-            EventStructureItem item = (EventStructureItem)sender;
-            if (item.Layer == 0)
+            EventStructureItem eventStructureItem = (EventStructureItem)sender;
+            HideOrShowResultsButton(eventStructureItem);
+            HideOrShowOptions(eventStructureItem);
+        }
+
+        public void DisplayPreviousForm()
+        {
+            informationLayout.StartLoadingMessageDisplay();
+
+            ApplicationFormNavigator.DisplayPreviousForm();
+            Clear();
+
+            informationLayout.StopLoadingMessageDisplay();
+        }
+
+        private void DisplayEventStructureItemProfile()
+        {
+            EventStructureItem eventStructureItem = eventStructureItemLayout.SelectedItem;
+            if (eventStructureItem.Layer == 0)
+            {
+                ApplicationFormNavigator.DisplayEventProfileForm(((EventEntity)eventStructureItem.Data).Id);
+            }
+            else if (eventStructureItem.Layer == 1)
+            {
+                ApplicationFormNavigator.DisplayEventSegmentProfileForm(((SegmentEntity)eventStructureItem.Data).Id);
+            }
+            else if (eventStructureItem.Layer == 2)
+            {
+                ApplicationFormNavigator.DisplayEventRoundProfileForm(((RoundEntity)eventStructureItem.Data).Id);
+            }
+            else if (eventStructureItem.Layer == 3)
+            {
+                ApplicationFormNavigator.DisplayEventCriteriumProfileForm(((CriteriumEntity)eventStructureItem.Data).Id);
+            }
+            Unfocus();
+
+        }
+
+        private void DisplayEventStructureItemResult()
+        {
+            EventStructureItem eventStructureItem = eventStructureItemLayout.SelectedItem;
+            if (eventStructureItem.Layer == 1)
+            {
+                ApplicationFormNavigator.DisplayEventSegmentResultForm(((SegmentEntity)eventStructureItem.Data).Id);
+            }
+            else if (eventStructureItem.Layer == 2)
+            {
+                ApplicationFormNavigator.DisplayEventRoundResultForm(((RoundEntity)eventStructureItem.Data).Id);
+            }
+            else if (eventStructureItem.Layer == 3)
+            {
+                ApplicationFormNavigator.DisplayEventCriteriumResultForm(((CriteriumEntity)eventStructureItem.Data).Id);
+            }
+            Unfocus();
+        }
+
+        private void HideOrShowResultsButton(EventStructureItem eventStructureItem)
+        {
+            if (eventStructureItem.Layer == 0)
             {
                 resultsButton.Hide();
             }
@@ -46,8 +120,11 @@ namespace PageantVotingSystem.Sources.Forms
             {
                 resultsButton.Show();
             }
+        }
 
-            if (item.Features.IsToggled)
+        private void HideOrShowOptions(EventStructureItem eventStructureItem)
+        {
+            if (eventStructureItem.Features.IsToggled)
             {
                 optionsControl.Hide();
             }
@@ -57,69 +134,23 @@ namespace PageantVotingSystem.Sources.Forms
             }
         }
 
-        private void Button_Click(object sender, EventArgs e)
+        public void Render(EventEntity eventEntity)
         {
-            if (sender == goBackButton)
-            {
-                ApplicationFormNavigator.DisplayPrevious();
-                ResetAllData();
-            }
-            else if (sender == informationButton)
-            {
-                EventStructureItem item = eventStructureItemLayout.SelectedItem;
-                if (item.Layer == 0)
-                {
-                    EventEntity entity = ApplicationDatabase.ReadOneEvent(((EventEntity)item.Data).Id);
-                    ApplicationFormNavigator.DisplayEventProfileForm(entity);
-                }
-                else if (item.Layer == 1)
-                {
-                    SegmentEntity entity = ApplicationDatabase.ReadOneSegment(((SegmentEntity)item.Data).Id);
-                    ApplicationFormNavigator.DisplayEventSegmentProfileForm(entity);
-                }
-                else if (item.Layer == 2)
-                {
-                    RoundEntity entity = ApplicationDatabase.ReadOneRound(((RoundEntity)item.Data).Id);
-                    ApplicationFormNavigator.DisplayEventRoundProfileForm(entity);
-                }
-                else if (item.Layer == 3)
-                {
-                    CriteriumEntity entity = ApplicationDatabase.ReadOneCriterium(((CriteriumEntity)item.Data).Id);
-                    ApplicationFormNavigator.DisplayEventCriteriumProfileForm(entity);
-                }
-            }
-            else if (sender == resultsButton)
-            {
-                EventStructureItem item = eventStructureItemLayout.SelectedItem;
-                if (item.Layer == 1)
-                {
-                    ApplicationFormNavigator.DisplayEventSegmentResultForm(((SegmentEntity)item.Data).Id);
-                }
-                else if (item.Layer == 2)
-                {
-                    ApplicationFormNavigator.DisplayEventRoundResultForm(((RoundEntity)item.Data).Id);
-                }
-                else if (item.Layer == 3)
-                {
-                    ApplicationFormNavigator.DisplayEventCriteriumResultForm(((CriteriumEntity)item.Data).Id);
-                }
-            }
+            ApplicationDatabase.ReadOneEventLayoutEntity(eventEntity);
+            eventStructureItemLayout.Render(eventEntity);
         }
 
-        private void ResetAllData()
+        private void Clear()
         {
             eventStructureItemLayout.Clear();
             optionsControl.Hide();
             resultsButton.Hide();
         }
 
-        private void Form_KeyDown(object sender, KeyEventArgs e)
+        private void Unfocus()
         {
-            if (e.KeyCode == Keys.Escape)
-            {
-                ApplicationFormNavigator.DisplayPrevious();
-                ResetAllData();
-            }
+            eventStructureItemLayout.Unfocus();
+            optionsControl.Hide();
         }
     }
 }

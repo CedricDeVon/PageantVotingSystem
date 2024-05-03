@@ -1,50 +1,95 @@
+
 DROP DATABASE IF EXISTS pageant_voting_system_testing;
 CREATE DATABASE IF NOT EXISTS pageant_voting_system_testing;
 USE pageant_voting_system_testing;
 
-CREATE TABLE IF NOT EXISTS image_resource
+CREATE TABLE IF NOT EXISTS resource
 (
-	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    data BLOB,
-	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL,
-    timestamp_modified TIMESTAMP DEFAULT NOW() NOT NULL
+    path VARCHAR(512) PRIMARY KEY,
+    timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS current_status
+CREATE TABLE IF NOT EXISTS judge_status
 (
     type VARCHAR(64) PRIMARY KEY,
-	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL,
-    timestamp_modified TIMESTAMP DEFAULT NOW() NOT NULL
+	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS result_remark
+CREATE TABLE IF NOT EXISTS contestant_status
 (
     type VARCHAR(64) PRIMARY KEY,
-	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL,
-    timestamp_modified TIMESTAMP DEFAULT NOW() NOT NULL
+	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS round_status
+(
+    type VARCHAR(64) PRIMARY KEY,
+	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS user_role
 (
     type VARCHAR(64) PRIMARY KEY,
-	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL,
-    timestamp_modified TIMESTAMP DEFAULT NOW() NOT NULL
+	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS marital_status
+(
+    type VARCHAR(64) PRIMARY KEY,
+	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS gender
+(
+    type VARCHAR(64) PRIMARY KEY,
+	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS scoring_system
 (
     type VARCHAR(64) PRIMARY KEY,
-	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL,
-    timestamp_modified TIMESTAMP DEFAULT NOW() NOT NULL
+	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS event_layout_status
+(
+    type VARCHAR(64) PRIMARY KEY,
+	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS round_contestant_status
+(
+    type VARCHAR(64) PRIMARY KEY,
+	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS judge_status
+(
+    type VARCHAR(64) PRIMARY KEY,
+	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS contestant
 (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     full_name VARCHAR(128) NOT NULL,
-    image_resource_id INT UNSIGNED,
-	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL,
-    timestamp_modified TIMESTAMP DEFAULT NOW() NOT NULL
+    order_number INT UNSIGNED NOT NULL,
+    height_in_centimeters FLOAT DEFAULT 0,
+    weight_in_kilograms FLOAT DEFAULT 0,
+    birth_date DATETIME DEFAULT NOW(),
+    email TEXT,
+    phone_number TEXT,
+    motto TEXT,
+    home_address TEXT,
+    talents_and_skills TEXT,
+    hobbies TEXT,
+    languages TEXT,
+    work_experiences TEXT,
+    education TEXT,
+    timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL,
+    marital_status_type VARCHAR(64) NOT NULL,
+    gender_type VARCHAR(64) NOT NULL,
+    image_resource_path VARCHAR(512) DEFAULT '../../Profiles/DefaultProfile.png'
 );
 
 CREATE TABLE IF NOT EXISTS user
@@ -52,53 +97,92 @@ CREATE TABLE IF NOT EXISTS user
     email VARCHAR(128) PRIMARY KEY,
     full_name VARCHAR(128) NOT NULL,
     password VARCHAR(128) NOT NULL,
+    description TEXT,
+    timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL,
     user_role_type VARCHAR(64) NOT NULL,
-	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL,
-    timestamp_modified TIMESTAMP DEFAULT NOW() NOT NULL
+    image_resource_path VARCHAR(512) DEFAULT '../../Profiles/DefaultProfile.png'
 );
 
 CREATE TABLE IF NOT EXISTS event
 (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(128) NOT NULL,
-    host_address TEXT NOT NULL,
-    scoring_system_type VARCHAR(64) NOT NULL,
-    current_status_type VARCHAR(64) NOT NULL,
-    manager_user_email VARCHAR(128) NOT NULL,
+    description TEXT,
+    host_address TEXT,
     timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL,
-    timestamp_modified TIMESTAMP DEFAULT NOW() NOT NULL
+    timestamp_ended TIMESTAMP,
+    scoring_system_type VARCHAR(64) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS segment
 (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(128) NOT NULL,
-    maximum_contestant_count NUMERIC(3, 0) NOT NULL,
-    event_id INT UNSIGNED NOT NULL,
-    current_status_type VARCHAR(64) NOT NULL,
+    description TEXT,
 	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL,
-    timestamp_modified TIMESTAMP DEFAULT NOW() NOT NULL
+    event_id INT UNSIGNED NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS round
 (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(128) NOT NULL,
-    segment_id INT UNSIGNED NOT NULL,
-    current_status_type VARCHAR(64) NOT NULL,
+    description TEXT,
 	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL,
-    timestamp_modified TIMESTAMP DEFAULT NOW() NOT NULL
+    segment_id INT UNSIGNED NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS criteria
+CREATE TABLE IF NOT EXISTS criterium
 (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(128) NOT NULL,
-    maximum_value NUMERIC(5, 2) NOT NULL,
-    percentage_weight NUMERIC(3, 2) NOT NULL,
-    round_id INT UNSIGNED NOT NULL,
+    description TEXT,
+    maximum_value INT UNSIGNED DEFAULT 100 NOT NULL,
+    percentage_weight FLOAT DEFAULT 100 NOT NULL,
 	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL,
-    timestamp_modified TIMESTAMP DEFAULT NOW() NOT NULL
+    round_id INT UNSIGNED NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS event_layout
+(
+    round_id INT UNSIGNED PRIMARY KEY,
+	event_id INT UNSIGNED NOT NULL,
+    segment_id INT UNSIGNED NOT NULL,
+	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL,
+    event_layout_status_type VARCHAR(64) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS round_contestant
+(
+    round_id INT UNSIGNED NOT NULL,
+    contestant_id INT UNSIGNED NOT NULL,
+    judge_user_email VARCHAR(128) NOT NULL,
+	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL,
+    round_contestant_status_type VARCHAR(64) NOT NULL DEFAULT 'Incomplete'
+);
+
+CREATE TABLE IF NOT EXISTS event_manager
+(
+    event_id INT UNSIGNED PRIMARY KEY,
+	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL,
+    manager_user_email VARCHAR(128) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS event_contestant
+(
+    event_id INT UNSIGNED NOT NULL,
+    contestant_id INT UNSIGNED NOT NULL,
+    contestant_status_type VARCHAR(64) NOT NULL DEFAULT 'Qualified',
+	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS event_judge
+(
+    event_id INT UNSIGNED NOT NULL,
+    judge_user_email VARCHAR(128) NOT NULL,
+    order_number INT UNSIGNED NOT NULL,
+	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL,
+    judge_status_type VARCHAR(64) NOT NULL DEFAULT 'Present'
 );
 
 CREATE TABLE IF NOT EXISTS result
@@ -106,102 +190,89 @@ CREATE TABLE IF NOT EXISTS result
     event_id INT UNSIGNED NOT NULL,
     segment_id INT UNSIGNED NOT NULL,
     round_id INT UNSIGNED NOT NULL,
-    criteria_id INT UNSIGNED NOT NULL,
-    base_value NUMERIC(5, 2) UNSIGNED NOT NULL,
+    criterium_id INT UNSIGNED NOT NULL,
+    base_value FLOAT NOT NULL DEFAULT 0,
+	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL,
     contestant_id INT UNSIGNED NOT NULL,
-    result_remark_type VARCHAR(64) NOT NULL,
-    judge_user_email VARCHAR(128) NOT NULL,
-	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL,
-    timestamp_modified TIMESTAMP DEFAULT NOW() NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS event_manager
-(
-    event_id INT UNSIGNED PRIMARY KEY,
-    manager_user_email VARCHAR(128) NOT NULL,
-	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL,
-    timestamp_modified TIMESTAMP DEFAULT NOW() NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS event_contestant
-(
-    event_id INT UNSIGNED NOT NULL,
-    contestant_id INT UNSIGNED NOT NULL,
-    number NUMERIC(3, 0) UNSIGNED NOT NULL,
-    current_status_type VARCHAR(64) NOT NULL,
-	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL,
-    timestamp_modified TIMESTAMP DEFAULT NOW() NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS event_judge
-(
-    event_id INT UNSIGNED NOT NULL,
-    judge_user_email VARCHAR(128) NOT NULL,
-    number NUMERIC(3, 0) UNSIGNED NOT NULL,
-    current_status_type VARCHAR(64) NOT NULL,
-	timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL,
-    timestamp_modified TIMESTAMP DEFAULT NOW() NOT NULL
+    judge_user_email VARCHAR(128) NOT NULL
 );
 
 ALTER TABLE contestant
-ADD FOREIGN KEY(image_resource_id)
-REFERENCES image_resource(id)
-ON DELETE SET NULL;
+ADD FOREIGN KEY(marital_status_type)
+REFERENCES marital_status(type)
+ON DELETE CASCADE;
+ALTER TABLE contestant
+ADD FOREIGN KEY(gender_type)
+REFERENCES gender(type)
+ON DELETE CASCADE;
+ALTER TABLE contestant
+ADD FOREIGN KEY(image_resource_path)
+REFERENCES resource(path)
+ON DELETE CASCADE;
 
 ALTER TABLE user
 ADD FOREIGN KEY(user_role_type)
 REFERENCES user_role(type)
 ON DELETE CASCADE;
+ALTER TABLE user
+ADD FOREIGN KEY(image_resource_path)
+REFERENCES resource(path)
+ON DELETE SET NULL;
 
 ALTER TABLE event
 ADD FOREIGN KEY(scoring_system_type)
 REFERENCES scoring_system(type)
-ON DELETE CASCADE;
-ALTER TABLE event
-ADD FOREIGN KEY(current_status_type)
-REFERENCES current_status(type)
-ON DELETE CASCADE;
-ALTER TABLE event
-ADD FOREIGN KEY(manager_user_email)
-REFERENCES user(email)
 ON DELETE CASCADE;
 
 ALTER TABLE segment
 ADD FOREIGN KEY(event_id)
 REFERENCES event(id)
 ON DELETE CASCADE;
-ALTER TABLE segment
-ADD FOREIGN KEY(current_status_type)
-REFERENCES current_status(type)
-ON DELETE CASCADE;
 
 ALTER TABLE round
 ADD FOREIGN KEY(segment_id)
 REFERENCES segment(id)
 ON DELETE CASCADE;
-ALTER TABLE round
-ADD FOREIGN KEY(current_status_type)
-REFERENCES current_status(type)
-ON DELETE CASCADE;
 
-ALTER TABLE criteria
+ALTER TABLE criterium
 ADD FOREIGN KEY(round_id)
 REFERENCES round(id)
 ON DELETE CASCADE;
 
-ALTER TABLE result
-ADD PRIMARY KEY(event_id, segment_id, round_id, criteria_id);
-ALTER TABLE result
-ADD FOREIGN KEY(result_remark_type)
-REFERENCES result_remark(type)
+ALTER TABLE event_layout
+ADD FOREIGN KEY(event_id)
+REFERENCES event(id)
 ON DELETE CASCADE;
-ALTER TABLE result
+ALTER TABLE event_layout
+ADD FOREIGN KEY(segment_id)
+REFERENCES segment(id)
+ON DELETE CASCADE;
+ALTER TABLE event_layout
+ADD FOREIGN KEY(round_id)
+REFERENCES round(id)
+ON DELETE CASCADE;
+ALTER TABLE event_layout
+ADD FOREIGN KEY(event_layout_status_type)
+REFERENCES event_layout_status(type)
+ON DELETE CASCADE;
+
+ALTER TABLE round_contestant
+ADD PRIMARY KEY(round_id, contestant_id, judge_user_email);
+ALTER TABLE round_contestant
+ADD FOREIGN KEY(round_id)
+REFERENCES round(id)
+ON DELETE CASCADE;
+ALTER TABLE round_contestant
 ADD FOREIGN KEY(contestant_id)
 REFERENCES contestant(id)
 ON DELETE CASCADE;
-ALTER TABLE result
+ALTER TABLE round_contestant
 ADD FOREIGN KEY(judge_user_email)
 REFERENCES user(email)
+ON DELETE CASCADE;
+ALTER TABLE round_contestant
+ADD FOREIGN KEY(round_contestant_status_type)
+REFERENCES round_contestant_status(type)
 ON DELETE CASCADE;
 
 ALTER TABLE event_manager
@@ -224,8 +295,8 @@ ADD FOREIGN KEY(contestant_id)
 REFERENCES contestant(id)
 ON DELETE CASCADE;
 ALTER TABLE event_contestant
-ADD FOREIGN KEY(current_status_type)
-REFERENCES current_status(type)
+ADD FOREIGN KEY(contestant_status_type)
+REFERENCES contestant_status(type)
 ON DELETE CASCADE;
 
 ALTER TABLE event_judge
@@ -235,31 +306,83 @@ ADD FOREIGN KEY(event_id)
 REFERENCES event(id)
 ON DELETE CASCADE;
 ALTER TABLE event_judge
+ADD FOREIGN KEY(judge_status_type)
+REFERENCES judge_status(type)
+ON DELETE CASCADE;
+
+ALTER TABLE result
+ADD PRIMARY KEY(criterium_id, contestant_id, judge_user_email);
+ALTER TABLE result
+ADD FOREIGN KEY(event_id)
+REFERENCES event(id)
+ON DELETE CASCADE;
+ALTER TABLE result
+ADD FOREIGN KEY(segment_id)
+REFERENCES segment(id)
+ON DELETE CASCADE;
+ALTER TABLE result
+ADD FOREIGN KEY(round_id)
+REFERENCES round(id)
+ON DELETE CASCADE;
+ALTER TABLE result
+ADD FOREIGN KEY(criterium_id)
+REFERENCES criterium(id)
+ON DELETE CASCADE;
+ALTER TABLE result
+ADD FOREIGN KEY(contestant_id)
+REFERENCES contestant(id)
+ON DELETE CASCADE;
+ALTER TABLE result
 ADD FOREIGN KEY(judge_user_email)
 REFERENCES user(email)
 ON DELETE CASCADE;
-ALTER TABLE event_judge
-ADD FOREIGN KEY(current_status_type)
-REFERENCES current_status(type)
-ON DELETE CASCADE;
 
-INSERT INTO current_status (type) VALUES ('Qualified'), ('Disqualified'), ('Present'), ('Abscent');
-INSERT INTO result_remark (type) VALUES ('Winner'), ('1st Runner-Up'), ('2nd Runner-Up');
-INSERT INTO user_role (type) VALUES ('Manager'), ('Judge');
+INSERT INTO resource (path) VALUES ('../../Profiles/DefaultProfile.png');
+INSERT INTO judge_status (type) VALUES ('Present'), ('Abscent');
 INSERT INTO scoring_system (type) VALUES ('Percentage'), ('Ranking');
+INSERT INTO user_role (type) VALUES ('Manager'), ('Judge');
+INSERT INTO round_status (type) VALUES ('Complete'), ('Incomplete');
+INSERT INTO marital_status (type) VALUES ('Single'), ('Married'), ('Divorced'), ('With Significant Other');
+INSERT INTO gender (type) VALUES ('Male'), ('Female'), ('Non-Binary');
+INSERT INTO contestant_status (type) VALUES ('Qualified'), ('Disqualified');
+INSERT INTO event_layout_status (type) VALUES ('Complete'), ('Incomplete'), ('Pending');
+INSERT INTO round_contestant_status (type) VALUES ('Complete'), ('Incomplete'), ('Pending');
+INSERT INTO judge_status (type) VALUES ('Complete'), ('Incomplete');
 
--- DROP TABLE IF EXISTS result;
--- DROP TABLE IF EXISTS event_manager;
--- DROP TABLE IF EXISTS event_judge;
--- DROP TABLE IF EXISTS event_contestant;
--- DROP TABLE IF EXISTS criteria;
--- DROP TABLE IF EXISTS round;
--- DROP TABLE IF EXISTS segment;
--- DROP TABLE IF EXISTS event;
--- DROP TABLE IF EXISTS contestant;
--- DROP TABLE IF EXISTS user;
--- DROP TABLE IF EXISTS current_status;
--- DROP TABLE IF EXISTS image_resource;
--- DROP TABLE IF EXISTS scoring_system;
--- DROP TABLE IF EXISTS user_role;
--- DROP TABLE IF EXISTS result_remark;
+INSERT INTO user (email, full_name, password, user_role_type, description)
+VALUES
+    ('manager_1@gmail.com', 'John A. Doe', 'Clj3ixSdV3qFFp8vSu5gMNG771Udu6rIQ8L0Xv1gYuHOPAikrBMqp2FpxYLlbcuct3KPpWY9LUg5jZSkXeB2hg==', 'Manager', 'The official profile of John A. Doe'),
+    ('manager_2@gmail.com', 'Jasmine B. Doe', 'Clj3ixSdV3qFFp8vSu5gMNG771Udu6rIQ8L0Xv1gYuHOPAikrBMqp2FpxYLlbcuct3KPpWY9LUg5jZSkXeB2hg==', 'Manager', 'The official profile of Jasmine B. Doe'),
+    ('manager_3@gmail.com', 'Johnson C. Doe', 'Clj3ixSdV3qFFp8vSu5gMNG771Udu6rIQ8L0Xv1gYuHOPAikrBMqp2FpxYLlbcuct3KPpWY9LUg5jZSkXeB2hg==', 'Manager', 'The official profile of Johnson C. Doe'),
+    ('judge_1@gmail.com', 'James D. Doe', 'Clj3ixSdV3qFFp8vSu5gMNG771Udu6rIQ8L0Xv1gYuHOPAikrBMqp2FpxYLlbcuct3KPpWY9LUg5jZSkXeB2hg==', 'Judge', 'The official profile of James D. Doe'),
+    ('judge_2@gmail.com', 'Jessie E. Doe', 'Clj3ixSdV3qFFp8vSu5gMNG771Udu6rIQ8L0Xv1gYuHOPAikrBMqp2FpxYLlbcuct3KPpWY9LUg5jZSkXeB2hg==', 'Judge', 'The official profile of Jessie E. Doe'),
+    ('judge_3@gmail.com', 'Jam F. Doe', 'Clj3ixSdV3qFFp8vSu5gMNG771Udu6rIQ8L0Xv1gYuHOPAikrBMqp2FpxYLlbcuct3KPpWY9LUg5jZSkXeB2hg==', 'Judge', 'The official profile of Jam F. Doe');
+
+INSERT INTO contestant (order_number, image_resource_path, full_name, email, phone_number, home_address, birth_date, gender_type, marital_status_type, height_in_centimeters, weight_in_kilograms, talents_and_skills, hobbies, languages, work_experiences, education, motto)
+VALUES
+    (1, '../../Profiles/DefaultProfile.png', 'Contestant - A', 'contestant_1@gmail.com', '1111-111-111', 'Home Address - A', '2000-01-01', 'Female', 'Single', 190, 60, 'Talents and Skills - A', 'Hobbies - A', 'Languages - A', 'Work Experiences - A', 'Education - A', 'Motto - A'),
+    (2, '../../Profiles/DefaultProfile.png', 'Contestant - B', 'contestant_1@gmail.com', '2222-222-222', 'Home Address - B', '2000-01-01', 'Female', 'Single', 190, 60, 'Talents and Skills - B', 'Hobbies - B', 'Languages - B', 'Work Experiences - B', 'Education - B', 'Motto - B'),
+    (3, '../../Profiles/DefaultProfile.png', 'Contestant - C', 'contestant_1@gmail.com', '3333-333-333', 'Home Address - C', '2000-01-01', 'Female', 'Single', 190, 60, 'Talents and Skills - B', 'Hobbies - C', 'Languages - C', 'Work Experiences - C', 'Education - C', 'Motto - C');
+
+INSERT INTO event (id, name, description, host_address, scoring_system_type)
+VALUES
+    (1, 'Event - A', 'Description - A', 'Host Address - A', 'Percentage');
+
+INSERT INTO segment (id, name, description, event_id)
+VALUES
+    (1, 'Segment - A', 'Description - A', 1),
+    (2, 'Segment - B', 'Description - B', 1);
+
+INSERT INTO round (id, name, description, segment_id)
+VALUES
+    (1, 'Round - A', 'Description - A', 1),
+    (2, 'Round - B', 'Description - B', 1),
+    (3, 'Round - C', 'Description - C', 2);
+    
+INSERT INTO criterium (id, name, description, maximum_value, percentage_weight, round_id)
+VALUES
+    (1, 'Criterium - A', 'Description - A', 100, 50, 1),
+    (2, 'Criterium - B', 'Description - B', 100, 30, 1),
+    (3, 'Criterium - C', 'Description - C', 100, 60, 2),
+    (4, 'Criterium - D', 'Description - D', 100, 40, 2),
+    (5, 'Criterium - E', 'Description - E', 100, 100, 3);

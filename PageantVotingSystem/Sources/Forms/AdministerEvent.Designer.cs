@@ -33,6 +33,10 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.selectedJudgeLayoutControl = new System.Windows.Forms.Panel();
             this.optionsControl = new System.Windows.Forms.Panel();
+            this.startVotingControl = new System.Windows.Forms.Panel();
+            this.startVotingButton = new System.Windows.Forms.Button();
+            this.panel51 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel46 = new System.Windows.Forms.Panel();
             this.panel47 = new System.Windows.Forms.Panel();
             this.panel48 = new System.Windows.Forms.Panel();
@@ -75,15 +79,12 @@
             this.panel16 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.contestantsButton = new System.Windows.Forms.Button();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.judgesButton = new System.Windows.Forms.Button();
-            this.panel30 = new System.Windows.Forms.Panel();
-            this.layoutButton = new System.Windows.Forms.Button();
+            this.panel53 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel23 = new System.Windows.Forms.Panel();
             this.panel44 = new System.Windows.Forms.Panel();
             this.abortButton = new System.Windows.Forms.Button();
             this.goBackButton = new System.Windows.Forms.Button();
-            this.panel14 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -101,14 +102,12 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.panel52 = new System.Windows.Forms.Panel();
-            this.startVotingButton = new System.Windows.Forms.Button();
-            this.panel51 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.selectedJudgeLayoutControl.SuspendLayout();
             this.optionsControl.SuspendLayout();
+            this.startVotingControl.SuspendLayout();
+            this.panel51.SuspendLayout();
             this.panel46.SuspendLayout();
             this.panel47.SuspendLayout();
             this.panel48.SuspendLayout();
@@ -132,16 +131,13 @@
             this.panel65.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel15.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel30.SuspendLayout();
+            this.panel53.SuspendLayout();
             this.panel23.SuspendLayout();
             this.panel44.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel22.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel52.SuspendLayout();
-            this.panel51.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel5
@@ -180,7 +176,6 @@
             this.selectedJudgeLayoutControl.Controls.Add(this.panel41);
             this.selectedJudgeLayoutControl.Controls.Add(this.panel16);
             this.selectedJudgeLayoutControl.Controls.Add(this.panel23);
-            this.selectedJudgeLayoutControl.Controls.Add(this.panel14);
             this.selectedJudgeLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.selectedJudgeLayoutControl.Location = new System.Drawing.Point(20, 223);
             this.selectedJudgeLayoutControl.Name = "selectedJudgeLayoutControl";
@@ -189,7 +184,7 @@
             // 
             // optionsControl
             // 
-            this.optionsControl.Controls.Add(this.panel52);
+            this.optionsControl.Controls.Add(this.startVotingControl);
             this.optionsControl.Controls.Add(this.panel51);
             this.optionsControl.Controls.Add(this.panel46);
             this.optionsControl.Controls.Add(this.panel38);
@@ -201,9 +196,60 @@
             this.optionsControl.Dock = System.Windows.Forms.DockStyle.Left;
             this.optionsControl.Location = new System.Drawing.Point(360, 0);
             this.optionsControl.Name = "optionsControl";
-            this.optionsControl.Size = new System.Drawing.Size(600, 512);
+            this.optionsControl.Size = new System.Drawing.Size(500, 512);
             this.optionsControl.TabIndex = 122;
-            this.optionsControl.Visible = false;
+            // 
+            // startVotingControl
+            // 
+            this.startVotingControl.Controls.Add(this.startVotingButton);
+            this.startVotingControl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.startVotingControl.Location = new System.Drawing.Point(0, 270);
+            this.startVotingControl.Name = "startVotingControl";
+            this.startVotingControl.Size = new System.Drawing.Size(440, 45);
+            this.startVotingControl.TabIndex = 280;
+            this.startVotingControl.Visible = false;
+            // 
+            // startVotingButton
+            // 
+            this.startVotingButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.startVotingButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.startVotingButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.startVotingButton.FlatAppearance.BorderSize = 0;
+            this.startVotingButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.startVotingButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
+            this.startVotingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.startVotingButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startVotingButton.Location = new System.Drawing.Point(0, 0);
+            this.startVotingButton.MaximumSize = new System.Drawing.Size(200, 40);
+            this.startVotingButton.MinimumSize = new System.Drawing.Size(200, 40);
+            this.startVotingButton.Name = "startVotingButton";
+            this.startVotingButton.Size = new System.Drawing.Size(200, 40);
+            this.startVotingButton.TabIndex = 88;
+            this.startVotingButton.Text = "Start Voting";
+            this.startVotingButton.UseVisualStyleBackColor = false;
+            this.startVotingButton.Click += new System.EventHandler(this.Button_Click);
+            // 
+            // panel51
+            // 
+            this.panel51.Controls.Add(this.label4);
+            this.panel51.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel51.Location = new System.Drawing.Point(0, 240);
+            this.panel51.Name = "panel51";
+            this.panel51.Size = new System.Drawing.Size(440, 30);
+            this.panel51.TabIndex = 279;
+            // 
+            // label4
+            // 
+            this.label4.AutoEllipsis = true;
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.label4.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 19);
+            this.label4.TabIndex = 243;
             // 
             // panel46
             // 
@@ -211,8 +257,8 @@
             this.panel46.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel46.Location = new System.Drawing.Point(0, 200);
             this.panel46.Name = "panel46";
-            this.panel46.Size = new System.Drawing.Size(540, 40);
-            this.panel46.TabIndex = 270;
+            this.panel46.Size = new System.Drawing.Size(440, 40);
+            this.panel46.TabIndex = 278;
             // 
             // panel47
             // 
@@ -224,7 +270,7 @@
             this.panel47.MaximumSize = new System.Drawing.Size(0, 35);
             this.panel47.MinimumSize = new System.Drawing.Size(0, 35);
             this.panel47.Name = "panel47";
-            this.panel47.Size = new System.Drawing.Size(540, 35);
+            this.panel47.Size = new System.Drawing.Size(440, 35);
             this.panel47.TabIndex = 237;
             // 
             // panel48
@@ -233,7 +279,7 @@
             this.panel48.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel48.Location = new System.Drawing.Point(155, 0);
             this.panel48.Name = "panel48";
-            this.panel48.Size = new System.Drawing.Size(385, 35);
+            this.panel48.Size = new System.Drawing.Size(285, 35);
             this.panel48.TabIndex = 234;
             // 
             // contestantNumberLabel
@@ -245,7 +291,7 @@
             this.contestantNumberLabel.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.contestantNumberLabel.Location = new System.Drawing.Point(0, 0);
             this.contestantNumberLabel.Name = "contestantNumberLabel";
-            this.contestantNumberLabel.Size = new System.Drawing.Size(385, 35);
+            this.contestantNumberLabel.Size = new System.Drawing.Size(285, 35);
             this.contestantNumberLabel.TabIndex = 238;
             this.contestantNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -289,8 +335,8 @@
             this.panel38.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel38.Location = new System.Drawing.Point(0, 160);
             this.panel38.Name = "panel38";
-            this.panel38.Size = new System.Drawing.Size(540, 40);
-            this.panel38.TabIndex = 269;
+            this.panel38.Size = new System.Drawing.Size(440, 40);
+            this.panel38.TabIndex = 277;
             // 
             // panel39
             // 
@@ -302,7 +348,7 @@
             this.panel39.MaximumSize = new System.Drawing.Size(0, 35);
             this.panel39.MinimumSize = new System.Drawing.Size(0, 35);
             this.panel39.Name = "panel39";
-            this.panel39.Size = new System.Drawing.Size(540, 35);
+            this.panel39.Size = new System.Drawing.Size(440, 35);
             this.panel39.TabIndex = 237;
             // 
             // panel40
@@ -311,7 +357,7 @@
             this.panel40.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel40.Location = new System.Drawing.Point(155, 0);
             this.panel40.Name = "panel40";
-            this.panel40.Size = new System.Drawing.Size(385, 35);
+            this.panel40.Size = new System.Drawing.Size(285, 35);
             this.panel40.TabIndex = 234;
             // 
             // contestantNameLabel
@@ -323,7 +369,7 @@
             this.contestantNameLabel.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.contestantNameLabel.Location = new System.Drawing.Point(0, 0);
             this.contestantNameLabel.Name = "contestantNameLabel";
-            this.contestantNameLabel.Size = new System.Drawing.Size(385, 35);
+            this.contestantNameLabel.Size = new System.Drawing.Size(285, 35);
             this.contestantNameLabel.TabIndex = 238;
             this.contestantNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -367,7 +413,7 @@
             this.panel33.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel33.Location = new System.Drawing.Point(0, 110);
             this.panel33.Name = "panel33";
-            this.panel33.Size = new System.Drawing.Size(540, 50);
+            this.panel33.Size = new System.Drawing.Size(440, 50);
             this.panel33.TabIndex = 266;
             // 
             // panel34
@@ -380,7 +426,7 @@
             this.panel34.MaximumSize = new System.Drawing.Size(0, 35);
             this.panel34.MinimumSize = new System.Drawing.Size(0, 35);
             this.panel34.Name = "panel34";
-            this.panel34.Size = new System.Drawing.Size(540, 35);
+            this.panel34.Size = new System.Drawing.Size(440, 35);
             this.panel34.TabIndex = 237;
             // 
             // panel35
@@ -389,7 +435,7 @@
             this.panel35.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel35.Location = new System.Drawing.Point(155, 0);
             this.panel35.Name = "panel35";
-            this.panel35.Size = new System.Drawing.Size(385, 35);
+            this.panel35.Size = new System.Drawing.Size(285, 35);
             this.panel35.TabIndex = 234;
             // 
             // roundNameLabel
@@ -401,7 +447,7 @@
             this.roundNameLabel.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.roundNameLabel.Location = new System.Drawing.Point(0, 0);
             this.roundNameLabel.Name = "roundNameLabel";
-            this.roundNameLabel.Size = new System.Drawing.Size(385, 35);
+            this.roundNameLabel.Size = new System.Drawing.Size(285, 35);
             this.roundNameLabel.TabIndex = 238;
             this.roundNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -445,7 +491,7 @@
             this.panel26.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel26.Location = new System.Drawing.Point(0, 70);
             this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(540, 40);
+            this.panel26.Size = new System.Drawing.Size(440, 40);
             this.panel26.TabIndex = 265;
             // 
             // panel27
@@ -458,7 +504,7 @@
             this.panel27.MaximumSize = new System.Drawing.Size(0, 35);
             this.panel27.MinimumSize = new System.Drawing.Size(0, 35);
             this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(540, 35);
+            this.panel27.Size = new System.Drawing.Size(440, 35);
             this.panel27.TabIndex = 237;
             // 
             // panel28
@@ -467,7 +513,7 @@
             this.panel28.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel28.Location = new System.Drawing.Point(155, 0);
             this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(385, 35);
+            this.panel28.Size = new System.Drawing.Size(285, 35);
             this.panel28.TabIndex = 234;
             // 
             // segmentNameLabel
@@ -479,7 +525,7 @@
             this.segmentNameLabel.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.segmentNameLabel.Location = new System.Drawing.Point(0, 0);
             this.segmentNameLabel.Name = "segmentNameLabel";
-            this.segmentNameLabel.Size = new System.Drawing.Size(385, 35);
+            this.segmentNameLabel.Size = new System.Drawing.Size(285, 35);
             this.segmentNameLabel.TabIndex = 238;
             this.segmentNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -523,7 +569,7 @@
             this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel17.Location = new System.Drawing.Point(0, 30);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(540, 40);
+            this.panel17.Size = new System.Drawing.Size(440, 40);
             this.panel17.TabIndex = 264;
             // 
             // panel18
@@ -536,7 +582,7 @@
             this.panel18.MaximumSize = new System.Drawing.Size(0, 35);
             this.panel18.MinimumSize = new System.Drawing.Size(0, 35);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(540, 35);
+            this.panel18.Size = new System.Drawing.Size(440, 35);
             this.panel18.TabIndex = 237;
             // 
             // panel19
@@ -545,7 +591,7 @@
             this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel19.Location = new System.Drawing.Point(155, 0);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(385, 35);
+            this.panel19.Size = new System.Drawing.Size(285, 35);
             this.panel19.TabIndex = 234;
             // 
             // eventNameLabel
@@ -557,7 +603,7 @@
             this.eventNameLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.eventNameLabel.Location = new System.Drawing.Point(0, 0);
             this.eventNameLabel.Name = "eventNameLabel";
-            this.eventNameLabel.Size = new System.Drawing.Size(385, 35);
+            this.eventNameLabel.Size = new System.Drawing.Size(285, 35);
             this.eventNameLabel.TabIndex = 239;
             this.eventNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -601,7 +647,7 @@
             this.panel65.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel65.Location = new System.Drawing.Point(0, 0);
             this.panel65.Name = "panel65";
-            this.panel65.Size = new System.Drawing.Size(540, 30);
+            this.panel65.Size = new System.Drawing.Size(440, 30);
             this.panel65.TabIndex = 249;
             // 
             // label9
@@ -621,7 +667,7 @@
             // panel20
             // 
             this.panel20.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel20.Location = new System.Drawing.Point(540, 0);
+            this.panel20.Location = new System.Drawing.Point(440, 0);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(60, 512);
             this.panel20.TabIndex = 112;
@@ -637,8 +683,7 @@
             // panel16
             // 
             this.panel16.Controls.Add(this.panel15);
-            this.panel16.Controls.Add(this.panel11);
-            this.panel16.Controls.Add(this.panel30);
+            this.panel16.Controls.Add(this.panel53);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel16.Location = new System.Drawing.Point(0, 0);
             this.panel16.MinimumSize = new System.Drawing.Size(300, 0);
@@ -650,10 +695,10 @@
             // 
             this.panel15.Controls.Add(this.contestantsButton);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel15.Location = new System.Drawing.Point(0, 90);
+            this.panel15.Location = new System.Drawing.Point(0, 30);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(300, 45);
-            this.panel15.TabIndex = 253;
+            this.panel15.TabIndex = 257;
             // 
             // contestantsButton
             // 
@@ -675,63 +720,28 @@
             this.contestantsButton.UseVisualStyleBackColor = false;
             this.contestantsButton.Click += new System.EventHandler(this.Button_Click);
             // 
-            // panel11
+            // panel53
             // 
-            this.panel11.Controls.Add(this.judgesButton);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel11.Location = new System.Drawing.Point(0, 45);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(300, 45);
-            this.panel11.TabIndex = 252;
+            this.panel53.Controls.Add(this.label7);
+            this.panel53.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel53.Location = new System.Drawing.Point(0, 0);
+            this.panel53.Name = "panel53";
+            this.panel53.Size = new System.Drawing.Size(300, 30);
+            this.panel53.TabIndex = 254;
             // 
-            // judgesButton
+            // label7
             // 
-            this.judgesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.judgesButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.judgesButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.judgesButton.FlatAppearance.BorderSize = 0;
-            this.judgesButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.judgesButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
-            this.judgesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.judgesButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.judgesButton.Location = new System.Drawing.Point(0, 0);
-            this.judgesButton.MaximumSize = new System.Drawing.Size(200, 40);
-            this.judgesButton.MinimumSize = new System.Drawing.Size(200, 40);
-            this.judgesButton.Name = "judgesButton";
-            this.judgesButton.Size = new System.Drawing.Size(200, 40);
-            this.judgesButton.TabIndex = 88;
-            this.judgesButton.Text = "Judges";
-            this.judgesButton.UseVisualStyleBackColor = false;
-            this.judgesButton.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // panel30
-            // 
-            this.panel30.Controls.Add(this.layoutButton);
-            this.panel30.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel30.Location = new System.Drawing.Point(0, 0);
-            this.panel30.Name = "panel30";
-            this.panel30.Size = new System.Drawing.Size(300, 45);
-            this.panel30.TabIndex = 251;
-            // 
-            // layoutButton
-            // 
-            this.layoutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.layoutButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.layoutButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.layoutButton.FlatAppearance.BorderSize = 0;
-            this.layoutButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.layoutButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
-            this.layoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.layoutButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutButton.Location = new System.Drawing.Point(0, 0);
-            this.layoutButton.MaximumSize = new System.Drawing.Size(200, 40);
-            this.layoutButton.MinimumSize = new System.Drawing.Size(200, 40);
-            this.layoutButton.Name = "layoutButton";
-            this.layoutButton.Size = new System.Drawing.Size(200, 40);
-            this.layoutButton.TabIndex = 88;
-            this.layoutButton.Text = "Layout";
-            this.layoutButton.UseVisualStyleBackColor = false;
-            this.layoutButton.Click += new System.EventHandler(this.Button_Click);
+            this.label7.AutoEllipsis = true;
+            this.label7.AutoSize = true;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.label7.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.label7.Location = new System.Drawing.Point(0, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(38, 19);
+            this.label7.TabIndex = 243;
+            this.label7.Text = "Data";
             // 
             // panel23
             // 
@@ -739,7 +749,7 @@
             this.panel23.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel23.Location = new System.Drawing.Point(0, 512);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(1144, 100);
+            this.panel23.Size = new System.Drawing.Size(1204, 100);
             this.panel23.TabIndex = 116;
             // 
             // panel44
@@ -751,7 +761,7 @@
             this.panel44.MaximumSize = new System.Drawing.Size(0, 40);
             this.panel44.MinimumSize = new System.Drawing.Size(0, 40);
             this.panel44.Name = "panel44";
-            this.panel44.Size = new System.Drawing.Size(1144, 40);
+            this.panel44.Size = new System.Drawing.Size(1204, 40);
             this.panel44.TabIndex = 111;
             // 
             // abortButton
@@ -764,7 +774,7 @@
             this.abortButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
             this.abortButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.abortButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.abortButton.Location = new System.Drawing.Point(944, 0);
+            this.abortButton.Location = new System.Drawing.Point(1004, 0);
             this.abortButton.MaximumSize = new System.Drawing.Size(200, 40);
             this.abortButton.MinimumSize = new System.Drawing.Size(200, 40);
             this.abortButton.Name = "abortButton";
@@ -793,14 +803,6 @@
             this.goBackButton.Text = "Go Back";
             this.goBackButton.UseVisualStyleBackColor = false;
             this.goBackButton.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // panel14
-            // 
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel14.Location = new System.Drawing.Point(1144, 0);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(60, 612);
-            this.panel14.TabIndex = 113;
             // 
             // panel21
             // 
@@ -975,56 +977,6 @@
             this.panel9.Size = new System.Drawing.Size(1424, 50);
             this.panel9.TabIndex = 19;
             // 
-            // panel52
-            // 
-            this.panel52.Controls.Add(this.startVotingButton);
-            this.panel52.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel52.Location = new System.Drawing.Point(0, 270);
-            this.panel52.Name = "panel52";
-            this.panel52.Size = new System.Drawing.Size(540, 45);
-            this.panel52.TabIndex = 272;
-            // 
-            // startVotingButton
-            // 
-            this.startVotingButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.startVotingButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.startVotingButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.startVotingButton.FlatAppearance.BorderSize = 0;
-            this.startVotingButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.startVotingButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
-            this.startVotingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.startVotingButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startVotingButton.Location = new System.Drawing.Point(0, 0);
-            this.startVotingButton.MaximumSize = new System.Drawing.Size(200, 40);
-            this.startVotingButton.MinimumSize = new System.Drawing.Size(200, 40);
-            this.startVotingButton.Name = "startVotingButton";
-            this.startVotingButton.Size = new System.Drawing.Size(200, 40);
-            this.startVotingButton.TabIndex = 88;
-            this.startVotingButton.Text = "Start Voting";
-            this.startVotingButton.UseVisualStyleBackColor = false;
-            // 
-            // panel51
-            // 
-            this.panel51.Controls.Add(this.label4);
-            this.panel51.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel51.Location = new System.Drawing.Point(0, 240);
-            this.panel51.Name = "panel51";
-            this.panel51.Size = new System.Drawing.Size(540, 30);
-            this.panel51.TabIndex = 271;
-            // 
-            // label4
-            // 
-            this.label4.AutoEllipsis = true;
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.label4.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 19);
-            this.label4.TabIndex = 243;
-            // 
             // AdministerEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -1039,10 +991,14 @@
             this.Name = "AdministerEvent";
             this.Text = "Pageant Voting System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             this.panel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.selectedJudgeLayoutControl.ResumeLayout(false);
             this.optionsControl.ResumeLayout(false);
+            this.startVotingControl.ResumeLayout(false);
+            this.panel51.ResumeLayout(false);
+            this.panel51.PerformLayout();
             this.panel46.ResumeLayout(false);
             this.panel47.ResumeLayout(false);
             this.panel48.ResumeLayout(false);
@@ -1072,8 +1028,8 @@
             this.panel65.PerformLayout();
             this.panel16.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
-            this.panel30.ResumeLayout(false);
+            this.panel53.ResumeLayout(false);
+            this.panel53.PerformLayout();
             this.panel23.ResumeLayout(false);
             this.panel44.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
@@ -1082,9 +1038,6 @@
             this.panel22.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            this.panel52.ResumeLayout(false);
-            this.panel51.ResumeLayout(false);
-            this.panel51.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1113,7 +1066,6 @@
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.Panel panel44;
         private System.Windows.Forms.Button goBackButton;
-        private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Button abortButton;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Panel optionsControl;
@@ -1139,22 +1091,17 @@
         private System.Windows.Forms.Panel panel65;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label eventNameLabel;
-        private System.Windows.Forms.Panel panel38;
-        private System.Windows.Forms.Panel panel39;
-        private System.Windows.Forms.Panel panel40;
-        private System.Windows.Forms.Label contestantNameLabel;
-        private System.Windows.Forms.Panel panel42;
-        private System.Windows.Forms.Panel panel43;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel36;
         private System.Windows.Forms.Panel panel29;
         private System.Windows.Forms.Panel panel24;
+        private System.Windows.Forms.Panel panel53;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Button contestantsButton;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Button judgesButton;
-        private System.Windows.Forms.Panel panel30;
-        private System.Windows.Forms.Button layoutButton;
+        private System.Windows.Forms.Panel startVotingControl;
+        private System.Windows.Forms.Button startVotingButton;
+        private System.Windows.Forms.Panel panel51;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel46;
         private System.Windows.Forms.Panel panel47;
         private System.Windows.Forms.Panel panel48;
@@ -1162,9 +1109,12 @@
         private System.Windows.Forms.Panel panel49;
         private System.Windows.Forms.Panel panel50;
         private System.Windows.Forms.Label label;
-        private System.Windows.Forms.Panel panel52;
-        private System.Windows.Forms.Button startVotingButton;
-        private System.Windows.Forms.Panel panel51;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel38;
+        private System.Windows.Forms.Panel panel39;
+        private System.Windows.Forms.Panel panel40;
+        private System.Windows.Forms.Label contestantNameLabel;
+        private System.Windows.Forms.Panel panel42;
+        private System.Windows.Forms.Panel panel43;
+        private System.Windows.Forms.Label label11;
     }
 }

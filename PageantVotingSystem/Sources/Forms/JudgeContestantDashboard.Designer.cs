@@ -32,6 +32,10 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.contentLayoutControl = new System.Windows.Forms.Panel();
+            this.criteriumLayoutControl = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
             this.panel18 = new System.Windows.Forms.Panel();
             this.fullInfoButton = new System.Windows.Forms.Button();
@@ -57,7 +61,7 @@
             this.panel23 = new System.Windows.Forms.Panel();
             this.panel44 = new System.Windows.Forms.Panel();
             this.resetButton = new System.Windows.Forms.Button();
-            this.submitButton = new System.Windows.Forms.Button();
+            this.confirmButton = new System.Windows.Forms.Button();
             this.panel21 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel32 = new System.Windows.Forms.Panel();
@@ -74,13 +78,11 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.criteriumLayoutControl = new System.Windows.Forms.Panel();
-            this.panel15 = new System.Windows.Forms.Panel();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.contentLayoutControl.SuspendLayout();
+            this.criteriumLayoutControl.SuspendLayout();
+            this.panel16.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel27.SuspendLayout();
             this.panel26.SuspendLayout();
@@ -93,8 +95,6 @@
             this.panel22.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel16.SuspendLayout();
-            this.criteriumLayoutControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel5
@@ -141,6 +141,49 @@
             this.contentLayoutControl.Name = "contentLayoutControl";
             this.contentLayoutControl.Size = new System.Drawing.Size(1204, 612);
             this.contentLayoutControl.TabIndex = 114;
+            // 
+            // criteriumLayoutControl
+            // 
+            this.criteriumLayoutControl.AutoScroll = true;
+            this.criteriumLayoutControl.Controls.Add(this.panel15);
+            this.criteriumLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.criteriumLayoutControl.Location = new System.Drawing.Point(360, 133);
+            this.criteriumLayoutControl.Name = "criteriumLayoutControl";
+            this.criteriumLayoutControl.Size = new System.Drawing.Size(844, 379);
+            this.criteriumLayoutControl.TabIndex = 128;
+            // 
+            // panel15
+            // 
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel15.Location = new System.Drawing.Point(784, 0);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(60, 379);
+            this.panel15.TabIndex = 113;
+            // 
+            // panel16
+            // 
+            this.panel16.Controls.Add(this.label2);
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel16.Location = new System.Drawing.Point(360, 103);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(844, 30);
+            this.panel16.TabIndex = 126;
+            // 
+            // label2
+            // 
+            this.label2.AutoEllipsis = true;
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.MaximumSize = new System.Drawing.Size(300, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 19);
+            this.label2.TabIndex = 107;
+            this.label2.Text = "Criteria";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel20
             // 
@@ -426,7 +469,7 @@
             // panel44
             // 
             this.panel44.Controls.Add(this.resetButton);
-            this.panel44.Controls.Add(this.submitButton);
+            this.panel44.Controls.Add(this.confirmButton);
             this.panel44.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel44.Location = new System.Drawing.Point(0, 60);
             this.panel44.MaximumSize = new System.Drawing.Size(0, 40);
@@ -455,25 +498,25 @@
             this.resetButton.UseVisualStyleBackColor = false;
             this.resetButton.Click += new System.EventHandler(this.Button_Click);
             // 
-            // submitButton
+            // confirmButton
             // 
-            this.submitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.submitButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.submitButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.submitButton.FlatAppearance.BorderSize = 0;
-            this.submitButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.submitButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
-            this.submitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.submitButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submitButton.Location = new System.Drawing.Point(0, 0);
-            this.submitButton.MaximumSize = new System.Drawing.Size(200, 40);
-            this.submitButton.MinimumSize = new System.Drawing.Size(200, 40);
-            this.submitButton.Name = "submitButton";
-            this.submitButton.Size = new System.Drawing.Size(200, 40);
-            this.submitButton.TabIndex = 36;
-            this.submitButton.Text = "Submit";
-            this.submitButton.UseVisualStyleBackColor = false;
-            this.submitButton.Click += new System.EventHandler(this.Button_Click);
+            this.confirmButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.confirmButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.confirmButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.confirmButton.FlatAppearance.BorderSize = 0;
+            this.confirmButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.confirmButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
+            this.confirmButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.confirmButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmButton.Location = new System.Drawing.Point(0, 0);
+            this.confirmButton.MaximumSize = new System.Drawing.Size(200, 40);
+            this.confirmButton.MinimumSize = new System.Drawing.Size(200, 40);
+            this.confirmButton.Name = "confirmButton";
+            this.confirmButton.Size = new System.Drawing.Size(200, 40);
+            this.confirmButton.TabIndex = 36;
+            this.confirmButton.Text = "Confirm";
+            this.confirmButton.UseVisualStyleBackColor = false;
+            this.confirmButton.Click += new System.EventHandler(this.Button_Click);
             // 
             // panel21
             // 
@@ -630,49 +673,6 @@
             this.panel9.Size = new System.Drawing.Size(1424, 50);
             this.panel9.TabIndex = 19;
             // 
-            // panel16
-            // 
-            this.panel16.Controls.Add(this.label2);
-            this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel16.Location = new System.Drawing.Point(360, 103);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(844, 30);
-            this.panel16.TabIndex = 126;
-            // 
-            // label2
-            // 
-            this.label2.AutoEllipsis = true;
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.MaximumSize = new System.Drawing.Size(300, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 19);
-            this.label2.TabIndex = 107;
-            this.label2.Text = "Criteria";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // criteriumLayoutControl
-            // 
-            this.criteriumLayoutControl.AutoScroll = true;
-            this.criteriumLayoutControl.Controls.Add(this.panel15);
-            this.criteriumLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.criteriumLayoutControl.Location = new System.Drawing.Point(360, 133);
-            this.criteriumLayoutControl.Name = "criteriumLayoutControl";
-            this.criteriumLayoutControl.Size = new System.Drawing.Size(844, 379);
-            this.criteriumLayoutControl.TabIndex = 128;
-            // 
-            // panel15
-            // 
-            this.panel15.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel15.Location = new System.Drawing.Point(784, 0);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(60, 379);
-            this.panel15.TabIndex = 113;
-            // 
             // JudgeContestantDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -690,6 +690,9 @@
             this.panel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.contentLayoutControl.ResumeLayout(false);
+            this.criteriumLayoutControl.ResumeLayout(false);
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
             this.panel18.ResumeLayout(false);
             this.panel27.ResumeLayout(false);
             this.panel27.PerformLayout();
@@ -707,9 +710,6 @@
             this.panel22.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
-            this.criteriumLayoutControl.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -758,7 +758,7 @@
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.Panel panel44;
         private System.Windows.Forms.Button resetButton;
-        private System.Windows.Forms.Button submitButton;
+        private System.Windows.Forms.Button confirmButton;
         private System.Windows.Forms.Label contestantOrderNumber;
         private System.Windows.Forms.Panel criteriumLayoutControl;
         private System.Windows.Forms.Panel panel15;

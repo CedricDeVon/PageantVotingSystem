@@ -657,6 +657,7 @@
             this.Name = "LogIn";
             this.Text = "Pageant Voting System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             this.panel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel23.ResumeLayout(false);

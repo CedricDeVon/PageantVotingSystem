@@ -27,7 +27,6 @@ namespace PageantVotingSystem.Sources.Forms
             ApplicationFormStyle.SetupFormStyles(this);
             informationLayout = new InformationLayout(informationLayoutControl);
             topSideNavigationLayout = new TopSideNavigationLayout(topSideNavigationLayoutControl);
-            topSideNavigationLayout.HideReloadButton();
             segmentsLayout = new OrderedValueItemLayout(segmentsLayoutControl);
             segmentsLayout.ItemSingleClick += new EventHandler(SegmentsLayoutItem_SingleClick);
             segmentsLayout.ItemDoubleClick += new EventHandler(SegmentsLayoutItem_DoubleClick);
@@ -37,44 +36,87 @@ namespace PageantVotingSystem.Sources.Forms
         {
             informationLayout.StartLoadingMessageDisplay();
 
-            if (sender == saveButton)
+            if (sender == goBackButton)
             {
-                Result securityResult = ApplicationSecurity.AuthenticateNewEventSegmentsLayout(EditEventCache.Event);
-                if (!securityResult.IsSuccessful)
-                {
-                    informationLayout.DisplayErrorMessage(securityResult.Message);
-                    return;
-                }
-
-                ApplicationFormNavigator.DisplayPrevious();
+                ApplicationFormNavigator.DisplayPreviousForm();
                 segmentsLayout.Unfocus();
                 segmentsDataLayoutControl.Hide();
                 segmentNameInput.Text = "";
                 segmentDescriptionInput.Text = "";
-                segmentMaximumContestantLimitInput.Value = 0;
             }
             else if (sender == createSegmentButton)
             {
-                string segmentName = $"Segment";
+                string segmentName = "Segment";
                 SegmentEntity segmentEntity = new SegmentEntity();
                 segmentEntity.Name = segmentName;
-                EditEventCache.Event.Segments.AddNewItem(segmentEntity);
-                segmentsLayout.RenderOrdered(segmentName);
-                segmentCountLabel.Text = $"{EditEventCache.Event.Segments.ItemCount}";
+                EditEventCache.EventEntity.Segments.AddNewItem(segmentEntity);
+                segmentsLayout.Render(segmentName);
+                segmentCountLabel.Text = $"{EditEventCache.EventEntity.Segments.ItemCount}";
             }
             else if (sender == resetButton)
             {
-                EditEventCache.Event.Segments.ClearAllItems();
+                EditEventCache.EventEntity.Segments.ClearAllItems();
                 segmentsLayout.Clear();
                 segmentsLayout.Unfocus();
                 segmentsDataLayoutControl.Hide();            
                 segmentCountLabel.Text = "0";
                 segmentNameInput.Text = "";
                 segmentDescriptionInput.Text = "";
-                segmentMaximumContestantLimitInput.Value = 0;
             }
 
             informationLayout.StopLoadingMessageDisplay();
+        }
+
+        private void Form_KeyPress(object sender, KeyEventArgs e)
+        {
+            if (segmentsLayout.SelectedItem != null && e.KeyCode == Keys.NumPad8)
+            {
+                OrderedValueItem selectedItem = segmentsLayout.SelectedItem;
+                EditEventCache.EventEntity.Segments.MoveItemAtIndexUpwards(EditEventCache.EventEntity.Segments.ItemCount - Convert.ToInt32(selectedItem.OrderedNumber));
+
+                segmentsLayout.MoveSelectedUpwards();
+                e.Handled = true;
+            }
+            else if (segmentsLayout.SelectedItem != null && e.KeyCode == Keys.NumPad2)
+            {
+                OrderedValueItem selectedItem = segmentsLayout.SelectedItem;
+                EditEventCache.EventEntity.Segments.MoveItemAtIndexDownwards(EditEventCache.EventEntity.Segments.ItemCount - Convert.ToInt32(selectedItem.OrderedNumber));
+
+                segmentsLayout.MoveSelectedDownwards();
+                e.Handled = true;
+            }
+            else if (segmentsLayout.SelectedItem != null && e.KeyCode == Keys.Delete)
+            {
+                OrderedValueItem selectedItem = segmentsLayout.SelectedItem;
+                EditEventCache.EventEntity.Segments.RemoveItemAtIndex(EditEventCache.EventEntity.Segments.ItemCount - Convert.ToInt32(selectedItem.OrderedNumber));
+
+                segmentsLayout.RemoveSelected();
+
+                segmentCountLabel.Text = $"{EditEventCache.EventEntity.Segments.Items.Count}";
+                selectedItem = segmentsLayout.SelectedItem;
+
+                if (selectedItem == null)
+                {
+                    segmentCountLabel.Text = "0";
+                    segmentNameInput.Text = "";
+                    segmentDescriptionInput.Text = "";
+                    segmentsDataLayoutControl.Hide();
+                }
+                else
+                {
+                    SegmentEntity newSegment = EditEventCache.EventEntity.Segments.Items[EditEventCache.EventEntity.Segments.ItemCount - Convert.ToInt32(selectedItem.OrderedNumber)];
+                    segmentNameInput.Text = newSegment.Name;
+                    segmentDescriptionInput.Text = newSegment.Description;
+                }
+
+                e.Handled = true;
+            }
+
+            if (e.KeyData == Keys.Escape)
+            {
+                ApplicationFormNavigator.DisplayPreviousForm();
+                e.Handled = true;
+            }
         }
 
         private void SegmentsLayoutItem_SingleClick(object sender, EventArgs e)
@@ -92,78 +134,37 @@ namespace PageantVotingSystem.Sources.Forms
             if (segmentsLayout.SelectedItem != null)
             {
                 OrderedValueItem oldOrderedValueItem = segmentsLayout.SelectedItem;
-                SegmentEntity oldSegment = EditEventCache.Event.Segments.Items[EditEventCache.Event.Segments.ItemCount - Convert.ToInt32(oldOrderedValueItem.OrderedNumber)];
+                SegmentEntity oldSegment = EditEventCache.EventEntity.Segments.Items[EditEventCache.EventEntity.Segments.ItemCount - Convert.ToInt32(oldOrderedValueItem.OrderedNumber)];
                 oldSegment.Name = segmentNameInput.Text;
                 oldSegment.Description = segmentDescriptionInput.Text;
-                oldSegment.MaximumContestantCount = Convert.ToInt32(segmentMaximumContestantLimitInput.Text);
                 oldOrderedValueItem.Value = segmentNameInput.Text;
             }
 
             OrderedValueItem newOrderedValueItem = (OrderedValueItem) sender;
-            SegmentEntity newSegment = EditEventCache.Event.Segments.Items[EditEventCache.Event.Segments.ItemCount - Convert.ToInt32(newOrderedValueItem.OrderedNumber)];
+            SegmentEntity newSegment = EditEventCache.EventEntity.Segments.Items[EditEventCache.EventEntity.Segments.ItemCount - Convert.ToInt32(newOrderedValueItem.OrderedNumber)];
             segmentNameInput.Text = newSegment.Name;
             segmentDescriptionInput.Text = newSegment.Description;
-            segmentMaximumContestantLimitInput.Text = $"{newSegment.MaximumContestantCount}";
         }
 
         private void SegmentsLayoutItem_DoubleClick(object sender, EventArgs e)
         {
             OrderedValueItem oldOrderedValueItem = (OrderedValueItem)sender;
-            SegmentEntity oldSegment = EditEventCache.Event.Segments.Items[EditEventCache.Event.Segments.ItemCount - Convert.ToInt32(oldOrderedValueItem.OrderedNumber)];
+            SegmentEntity oldSegment = EditEventCache.EventEntity.Segments.Items[EditEventCache.EventEntity.Segments.ItemCount - Convert.ToInt32(oldOrderedValueItem.OrderedNumber)];
             segmentsLayout.Unfocus();
             segmentsDataLayoutControl.Hide();
             segmentNameInput.Text = "";
             segmentDescriptionInput.Text = "";
-            segmentMaximumContestantLimitInput.Value = 0;
             ApplicationFormNavigator.DisplayEditEventRoundStructureForm(oldSegment);
         }
 
-        private void Form_KeyPress(object sender, KeyEventArgs e)
+        public void Render()
         {
-            if (segmentsLayout.SelectedItem != null && e.KeyCode == Keys.NumPad8)
-            {
-                OrderedValueItem selectedItem = segmentsLayout.SelectedItem;
-                EditEventCache.Event.Segments.MoveItemAtIndexUpwards(EditEventCache.Event.Segments.ItemCount - Convert.ToInt32(selectedItem.OrderedNumber));
-
-                segmentsLayout.MoveSelectedUpwards();
-                e.Handled = true;
-            }
-            else if (segmentsLayout.SelectedItem != null && e.KeyCode == Keys.NumPad2)
-            {
-                OrderedValueItem selectedItem = segmentsLayout.SelectedItem;
-                EditEventCache.Event.Segments.MoveItemAtIndexDownwards(EditEventCache.Event.Segments.ItemCount - Convert.ToInt32(selectedItem.OrderedNumber));
-
-                segmentsLayout.MoveSelectedDownwards();
-                e.Handled = true;
-            }
-            else if (segmentsLayout.SelectedItem != null && e.KeyCode == Keys.Delete)
-            {
-                OrderedValueItem selectedItem = segmentsLayout.SelectedItem;
-                EditEventCache.Event.Segments.RemoveItemAtIndex(EditEventCache.Event.Segments.ItemCount - Convert.ToInt32(selectedItem.OrderedNumber));
-
-                segmentsLayout.RemoveSelected();
-
-                segmentCountLabel.Text = $"{EditEventCache.Event.Segments.Items.Count}";
-                selectedItem = segmentsLayout.SelectedItem;
-
-                if (selectedItem == null)
-                {
-                    segmentCountLabel.Text = "0";
-                    segmentNameInput.Text = "";
-                    segmentDescriptionInput.Text = "";
-                    segmentMaximumContestantLimitInput.Value = 0;
-                    segmentsDataLayoutControl.Hide();
-                }
-                else
-                {
-                    SegmentEntity newSegment = EditEventCache.Event.Segments.Items[EditEventCache.Event.Segments.ItemCount - Convert.ToInt32(selectedItem.OrderedNumber)];
-                    segmentNameInput.Text = newSegment.Name;
-                    segmentDescriptionInput.Text = newSegment.Description;
-                    segmentMaximumContestantLimitInput.Text = $"{newSegment.MaximumContestantCount}";
-                }
-
-                e.Handled = true;
-            }
+            segmentsLayout.Clear();
+            segmentsDataLayoutControl.Hide();
+            segmentCountLabel.Text = $"{EditEventCache.EventEntity.Segments.Items.Count}";
+            segmentsLayout.Render(EditEventCache.EventEntity.SegmentNamesInReverseOrder);
+            segmentNameInput.Text = "";
+            segmentDescriptionInput.Text = "";
         }
     }
 }

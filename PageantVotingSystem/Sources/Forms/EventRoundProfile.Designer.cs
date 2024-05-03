@@ -51,9 +51,6 @@
             this.panel54 = new System.Windows.Forms.Panel();
             this.panel55 = new System.Windows.Forms.Panel();
             this.panel56 = new System.Windows.Forms.Panel();
-            this.label17 = new System.Windows.Forms.Label();
-            this.panel57 = new System.Windows.Forms.Panel();
-            this.label16 = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
             this.panel62 = new System.Windows.Forms.Panel();
             this.panel67 = new System.Windows.Forms.Panel();
@@ -107,7 +104,6 @@
             this.panel50.SuspendLayout();
             this.panel51.SuspendLayout();
             this.panel53.SuspendLayout();
-            this.panel56.SuspendLayout();
             this.panel33.SuspendLayout();
             this.panel36.SuspendLayout();
             this.panel37.SuspendLayout();
@@ -356,9 +352,6 @@
             // 
             // panel56
             // 
-            this.panel56.Controls.Add(this.label17);
-            this.panel56.Controls.Add(this.panel57);
-            this.panel56.Controls.Add(this.label16);
             this.panel56.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel56.Location = new System.Drawing.Point(20, 0);
             this.panel56.MaximumSize = new System.Drawing.Size(0, 33);
@@ -366,48 +359,6 @@
             this.panel56.Name = "panel56";
             this.panel56.Size = new System.Drawing.Size(1144, 33);
             this.panel56.TabIndex = 259;
-            // 
-            // label17
-            // 
-            this.label17.AutoEllipsis = true;
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.label17.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(2)))), ((int)(((byte)(22)))));
-            this.label17.Location = new System.Drawing.Point(150, 0);
-            this.label17.Name = "label17";
-            this.label17.Padding = new System.Windows.Forms.Padding(16, 8, 16, 8);
-            this.label17.Size = new System.Drawing.Size(107, 29);
-            this.label17.TabIndex = 54;
-            this.label17.Text = "Event Results";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel57
-            // 
-            this.panel57.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel57.Location = new System.Drawing.Point(145, 0);
-            this.panel57.Name = "panel57";
-            this.panel57.Size = new System.Drawing.Size(5, 33);
-            this.panel57.TabIndex = 53;
-            // 
-            // label16
-            // 
-            this.label16.AutoEllipsis = true;
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.label16.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(2)))), ((int)(((byte)(22)))));
-            this.label16.Location = new System.Drawing.Point(0, 0);
-            this.label16.Name = "label16";
-            this.label16.Padding = new System.Windows.Forms.Padding(16, 8, 16, 8);
-            this.label16.Size = new System.Drawing.Size(145, 29);
-            this.label16.TabIndex = 50;
-            this.label16.Text = "Manager Dashboard";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel19
             // 
@@ -872,8 +823,6 @@
             this.panel51.ResumeLayout(false);
             this.panel53.ResumeLayout(false);
             this.panel53.PerformLayout();
-            this.panel56.ResumeLayout(false);
-            this.panel56.PerformLayout();
             this.panel33.ResumeLayout(false);
             this.panel36.ResumeLayout(false);
             this.panel37.ResumeLayout(false);
@@ -950,9 +899,6 @@
         private System.Windows.Forms.Panel panel54;
         private System.Windows.Forms.Panel panel55;
         private System.Windows.Forms.Panel panel56;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Panel panel57;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.Panel panel58;
         private System.Windows.Forms.Panel panel59;

@@ -1,7 +1,6 @@
 ﻿
 using System;
 using System.Windows.Forms;
-using System.Collections.Generic;
 
 using PageantVotingSystem.Sources.Entities;
 using PageantVotingSystem.Sources.Generics;
@@ -10,13 +9,13 @@ namespace PageantVotingSystem.Sources.FormControls
 {
     public partial class EventStructureItemLayout : UserControl
     {
-        public EventHandler ItemSingleClick { get; set; }
-
-        public EventHandler ItemDoubleClick { get; set; }
-
         public EventStructureItem SelectedItem { get; private set; }
 
         public GenericDoublyLinkedList Items { get; private set; }
+
+        public EventHandler ItemSingleClick { get; set; }
+
+        public EventHandler ItemDoubleClick { get; set; }
 
         private readonly Panel parentControl;
 
@@ -32,38 +31,6 @@ namespace PageantVotingSystem.Sources.FormControls
             ItemSingleClick = itemSingleClick;
             ItemDoubleClick = itemDoubleClick;
             Items = new GenericDoublyLinkedList();
-        }
-
-        public void MoveSelectedUpwards()
-        {
-            if (SelectedItem == null || SelectedItem.Features.GenericItemReference.NextItem == null)
-            {
-                return;
-            }
-
-            EventStructureItem targetItem = GenericDoublyLinkedListItem.GetNextItemValue<EventStructureItem>(SelectedItem.Features.GenericItemReference);
-            string targetItemValue = targetItem.Value;
-            targetItem.Value = SelectedItem.Value;
-            SelectedItem.Value = targetItemValue;
-            SelectedItem.Features.Toggle();
-            SelectedItem = targetItem;
-            SelectedItem.Features.Toggle();
-        }
-
-        public void MoveSelectedDownwards()
-        {
-            if (SelectedItem == null || SelectedItem.Features.GenericItemReference.PreviousItem == null)
-            {
-                return;
-            }
-
-            EventStructureItem targetItem = GenericDoublyLinkedListItem.GetPreviousItemValue<EventStructureItem>(SelectedItem.Features.GenericItemReference);
-            string targetItemValue = targetItem.Value;
-            targetItem.Value = SelectedItem.Value;
-            SelectedItem.Value = targetItemValue;
-            SelectedItem.Features.Toggle();
-            SelectedItem = targetItem;
-            SelectedItem.Features.Toggle();
         }
 
         public void Render(EventEntity entity)
@@ -93,20 +60,19 @@ namespace PageantVotingSystem.Sources.FormControls
             for (int index = entity.Criteria.ItemCount - 1; index > -1; index--)
             {
                 CriteriumEntity criteriumEntity = entity.Criteria.GetItemAtIndex(index);
-                Items.AddToLast(GenerateItem(criteriumEntity.Name, criteriumEntity, 3).Features.GenericItemReference);
+                Items.AddToLast(
+                    GenerateItem(criteriumEntity.Name, criteriumEntity, 3).Features.GenericItemReference);
             }
             Items.AddToLast(GenerateItem(entity.Name, entity, 2).Features.GenericItemReference);
         }
 
-        public void Clear()
+        public void Unfocus()
         {
-            Hide();
-            while (Items.Count != 0)
+            if (SelectedItem != null)
             {
-                DisposeItem(Items.RemoveLast<EventStructureItem>());
+                SelectedItem.Features.DisableToggle();
+                SelectedItem = null;
             }
-            SelectedItem = null;
-            Show();
         }
 
         private EventStructureItem GenerateItem(string value, object data, int ratio = 0)
@@ -122,6 +88,55 @@ namespace PageantVotingSystem.Sources.FormControls
             }
             newItem.Features.SingleClick += new EventHandler(Item_SingleClick);
             return newItem;
+        }
+
+        public void MoveSelectedUpwards()
+        {
+            if (SelectedItem == null ||
+                SelectedItem.Features.GenericItemReference.NextItem == null)
+            {
+                return;
+            }
+
+            EventStructureItem targetItem =
+                GenericDoublyLinkedListItem.GetNextItemValue<EventStructureItem>(
+                    SelectedItem.Features.GenericItemReference);
+            string targetItemValue = targetItem.Value;
+            targetItem.Value = SelectedItem.Value;
+            SelectedItem.Value = targetItemValue;
+            SelectedItem.Features.Toggle();
+            SelectedItem = targetItem;
+            SelectedItem.Features.Toggle();
+        }
+
+        public void MoveSelectedDownwards()
+        {
+            if (SelectedItem == null ||
+                SelectedItem.Features.GenericItemReference.PreviousItem == null)
+            {
+                return;
+            }
+
+            EventStructureItem targetItem =
+                GenericDoublyLinkedListItem.GetPreviousItemValue<EventStructureItem>(
+                    SelectedItem.Features.GenericItemReference);
+            string targetItemValue = targetItem.Value;
+            targetItem.Value = SelectedItem.Value;
+            SelectedItem.Value = targetItemValue;
+            SelectedItem.Features.Toggle();
+            SelectedItem = targetItem;
+            SelectedItem.Features.Toggle();
+        }
+
+        public void Clear()
+        {
+            Hide();
+            while (Items.Count != 0)
+            {
+                DisposeItem(Items.RemoveLast<EventStructureItem>());
+            }
+            SelectedItem = null;
+            Show();
         }
 
         private void DisposeItem(EventStructureItem targetItem)

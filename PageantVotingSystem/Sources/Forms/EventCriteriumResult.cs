@@ -13,7 +13,7 @@ namespace PageantVotingSystem.Sources.Forms
 {
     public partial class EventCriteriumResult : Form
     {
-        public InformationLayout InformationLayout { get; private set; }
+        private readonly InformationLayout informationLayout;
         
         private readonly TopSideNavigationLayout topSideNavigationLayout;
 
@@ -24,15 +24,14 @@ namespace PageantVotingSystem.Sources.Forms
             InitializeComponent();
 
             ApplicationFormStyle.SetupFormStyles(this);
-            InformationLayout = new InformationLayout(informationLayoutControl);
+            informationLayout = new InformationLayout(informationLayoutControl);
             topSideNavigationLayout = new TopSideNavigationLayout(topSideNavigationLayoutControl);
-            topSideNavigationLayout.HideReloadButton();
             resultLayout = new EventResultItemLayout(resultLayoutControl);
         }
 
         public void Render(int id)
         {
-            List<ContestantResultEntity> entities = ApplicationDatabase.ReadManyCriteriumResults(id);
+            List<ContestantResultEntity> entities = ApplicationDatabase.ReadManyCriteriumResultEntities(id);
             resultLayout.Render(entities);
         }
 
@@ -45,7 +44,7 @@ namespace PageantVotingSystem.Sources.Forms
         {
             if (e.KeyCode == Keys.Escape)
             {
-                ApplicationFormNavigator.DisplayPrevious();
+                ApplicationFormNavigator.DisplayPreviousForm();
                 ResetAllData();
             }
         }
@@ -54,7 +53,7 @@ namespace PageantVotingSystem.Sources.Forms
         {
             if (sender == goBackButton)
             {
-                ApplicationFormNavigator.DisplayPrevious();
+                ApplicationFormNavigator.DisplayPreviousForm();
                 ResetAllData();
             }
         }

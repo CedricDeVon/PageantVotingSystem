@@ -1,6 +1,5 @@
 ﻿
 using System.Collections.Generic;
-using static Mysqlx.Expect.Open.Types.Condition.Types;
 
 namespace PageantVotingSystem.Sources.Generics
 {
@@ -110,6 +109,20 @@ namespace PageantVotingSystem.Sources.Generics
             (keys[index], keys[newIndex]) = (keys[newIndex], keys[index]);
         }
 
+        public void UpdateItemKey(KeyType oldKey, KeyType newKey)
+        {
+            if (!items.ContainsKey(oldKey) || items.ContainsKey(newKey))
+            {
+                return;
+            }
+
+            ValueType value = items[oldKey];
+            items.Remove(oldKey);
+            items[newKey] = value;
+            int index = keys.IndexOf(oldKey);
+            keys[index] = newKey;
+        }
+
         public void RemoveItemAtIndex(int index)
         {
             if (-1 > index || index > keys.Count - 1)
@@ -131,20 +144,6 @@ namespace PageantVotingSystem.Sources.Generics
 
             keys.Remove(key);
             items.Remove(key);
-        }
-
-        public void UpdateItemKey(KeyType oldKey, KeyType newKey)
-        {
-            if (!items.ContainsKey(oldKey) || items.ContainsKey(newKey))
-            {
-                return;
-            }
-
-            ValueType value = items[oldKey];
-            items.Remove(oldKey);
-            items[newKey] = value;
-            int index = keys.IndexOf(oldKey);
-            keys[index] = newKey;
         }
 
         public void ClearAllItems()

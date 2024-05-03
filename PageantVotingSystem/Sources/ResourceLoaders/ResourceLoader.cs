@@ -20,6 +20,27 @@ namespace PageantVotingSystem.Sources.ResourceLoaders
             return !IsResourceFound(filePath);
         }
 
+        public static Bitmap LoadResource(string filePath)
+        {
+            ThrowIfResourceDoesNotExist(filePath);
+
+            return resources[filePath].Load();
+        }
+
+        public static Bitmap ReloadResource(string filePath)
+        {
+            ThrowIfResourceDoesNotExist(filePath);
+
+            return resources[filePath].Reload();
+        }
+
+        public static void UnloadResource(string filePath)
+        {
+            ThrowIfResourceAlreadyExist(filePath);
+
+            resources[filePath] = null;
+        }
+
         public static void AddResource(string filePath)
         {
             ThrowIfFileDoesNotExist(filePath);
@@ -43,25 +64,9 @@ namespace PageantVotingSystem.Sources.ResourceLoaders
             resources.Remove(filePath);
         }
 
-        public static Bitmap LoadResource(string filePath)
+        public static void ClearAllResources()
         {
-            ThrowIfResourceDoesNotExist(filePath);
-
-            return resources[filePath].Load();
-        }
-
-        public static Bitmap ReloadResource(string filePath)
-        {
-            ThrowIfResourceDoesNotExist(filePath);
-
-            return resources[filePath].Reload();
-        }
-
-        public static void UnloadResource(string filePath)
-        {
-            ThrowIfResourceAlreadyExist(filePath);
-            
-            resources[filePath] = null;
+            resources.Clear();
         }
 
         protected static void ThrowIfResourceAlreadyExist(string filePath)
@@ -86,11 +91,6 @@ namespace PageantVotingSystem.Sources.ResourceLoaders
             {
                 throw new Exception($"'ResourceLoader' - File '{filePath}' does not exist");
             }
-        }
-
-        public static void ClearAllResources()
-        {
-            resources.Clear();
         }
     }
 }

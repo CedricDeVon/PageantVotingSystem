@@ -25,14 +25,19 @@ namespace PageantVotingSystem.Sources.Entities
         public UserEntity(
             string email)
         {
-            SetAllAttributes(ApplicationConfiguration.DefaultUserProfileImagePath, email);
+            SetAllAttributes(
+                ApplicationConfiguration.DefaultUserProfileImagePath,
+                email);
         }
 
         public UserEntity(
             string email,
             string fullName)
         {
-            SetAllAttributes(ApplicationConfiguration.DefaultUserProfileImagePath, email, fullName);
+            SetAllAttributes(
+                ApplicationConfiguration.DefaultUserProfileImagePath,
+                email,
+                fullName);
         }
 
         public UserEntity(
@@ -40,7 +45,11 @@ namespace PageantVotingSystem.Sources.Entities
             string fullName,
             string userRoleType)
         {
-            SetAllAttributes(ApplicationConfiguration.DefaultUserProfileImagePath, email, fullName, userRoleType);
+            SetAllAttributes(
+                ApplicationConfiguration.DefaultUserProfileImagePath,
+                email,
+                fullName,
+                userRoleType);
         }
 
         public UserEntity(
@@ -49,7 +58,12 @@ namespace PageantVotingSystem.Sources.Entities
             string userRoleType,
             string password)
         {
-            SetAllAttributes(ApplicationConfiguration.DefaultUserProfileImagePath, email, fullName, userRoleType, password);
+            SetAllAttributes(
+                ApplicationConfiguration.DefaultUserProfileImagePath,
+                email,
+                fullName,
+                userRoleType,
+                password);
         }
 
         public UserEntity(
@@ -59,20 +73,21 @@ namespace PageantVotingSystem.Sources.Entities
             string description,
             string imageResourcePath)
         {
-            SetAllAttributes(imageResourcePath, email, fullName, userRoleType, "", description);
+            SetAllAttributes(
+                imageResourcePath,
+                email,
+                fullName,
+                userRoleType,
+                "",
+                description);
         }
 
-        public override void ClearAllAttributes()
-        {
-            SetAllAttributesToDefault();
-        }
-
-        private void SetAllAttributesToDefault()
+        protected void SetAllAttributesToDefault()
         {
             SetAllAttributes(ApplicationConfiguration.DefaultUserProfileImagePath);
         }
 
-        private void SetAllAttributes(
+        protected void SetAllAttributes(
             string imageResourcePath,
             string email = "",
             string fullName = "",
@@ -86,6 +101,11 @@ namespace PageantVotingSystem.Sources.Entities
             Password = password;
             Description = description;
             ImageResourcePath = imageResourcePath;
+        }
+
+        public override void ClearAllAttributes()
+        {
+            SetAllAttributesToDefault();
         }
     }
 }

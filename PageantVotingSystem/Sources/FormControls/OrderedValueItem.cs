@@ -27,7 +27,11 @@ namespace PageantVotingSystem.Sources.FormControls
 
         public AllButtonItemFeatureCollection Features { get; private set; }
         
-        public OrderedValueItem(Panel parentControl, string orderedNumber, string value, object data = null)
+        public OrderedValueItem(
+            Panel parentControl,
+            string orderedNumber,
+            string value,
+            object data = null)
         {
             ThrowIfParentControlIsNull(parentControl);
             InitializeComponent();
@@ -35,7 +39,8 @@ namespace PageantVotingSystem.Sources.FormControls
             OrderedNumber = orderedNumber;
             Value = value;
             List<Button> buttons = new List<Button>() { this.orderedNumber, this.value };
-            Features = new AllButtonItemFeatureCollection(this, parentControl, itemControl, buttons);
+            Features =
+                new AllButtonItemFeatureCollection(this, parentControl, itemControl, buttons);
             Features.ConnectButtonsToAllEvents(buttons);
             Data = data;
         }

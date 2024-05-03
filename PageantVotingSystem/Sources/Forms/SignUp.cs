@@ -3,19 +3,20 @@ using System;
 using System.Windows.Forms;
 
 using PageantVotingSystem.Sources.Caches;
-using PageantVotingSystem.Sources.FormStyles;
-using PageantVotingSystem.Sources.FormNavigators;
-using PageantVotingSystem.Sources.FormControls;
-using PageantVotingSystem.Sources.Security;
 using PageantVotingSystem.Sources.Results;
-using PageantVotingSystem.Sources.Databases;
+using PageantVotingSystem.Sources.Loggers;
+using PageantVotingSystem.Sources.Security;
 using PageantVotingSystem.Sources.Entities;
+using PageantVotingSystem.Sources.Databases;
+using PageantVotingSystem.Sources.FormStyles;
+using PageantVotingSystem.Sources.FormControls;
+using PageantVotingSystem.Sources.FormNavigators;
 
 namespace PageantVotingSystem.Sources.Forms
 {
     public partial class SignUp : Form
     {
-        public InformationLayout InformationLayout { get; private set; }
+        private readonly InformationLayout informationLayout;
 
         private readonly RadioButtonLayout userRoleOptions;
 
@@ -26,50 +27,122 @@ namespace PageantVotingSystem.Sources.Forms
             InitializeComponent();
 
             ApplicationFormStyle.SetupFormStyles(this);
-            InformationLayout = new InformationLayout(informationLayoutControl);
-            userRoleOptions = new RadioButtonLayout(rolesLayoutControl, UserRoleCache.Types);
-            ApplicationFormNavigator.ListenToFormKeyDownEvent(this);
-            topSideNavigationLayout = new TopSideNavigationLayout(topSideNavigationLayoutControl);
+            informationLayout = new InformationLayout(informationLayoutControl);
+            userRoleOptions =
+                new RadioButtonLayout(rolesLayoutControl, UserRoleCache.Types);
+            topSideNavigationLayout =
+                new TopSideNavigationLayout(topSideNavigationLayoutControl);
             topSideNavigationLayout.HideEditUserProfileButton();
             topSideNavigationLayout.HideAboutButton();
-            topSideNavigationLayout.HideReloadButton();
         }
 
         private void Button_Click(object sender, EventArgs e)
         {
-            InformationLayout.StartLoadingMessageDisplay();
-            
             if (sender == goBackButton)
             {
-                ApplicationFormNavigator.DisplayStartingMenuForm();
+                GoBack();
             }
             else if (sender == enterButton)
             {
-                Result result = ApplicationSecurity.AuthenticateNewUser(emailInput.Text, fullNameInput.Text, passwordInput.Text, passwordConfirmationInput.Text, userRoleOptions.Value);
-                if (!result.IsSuccessful)
-                {
-                    InformationLayout.DisplayErrorMessage(result.Message);
-                    return;
-                }
-
-                ApplicationDatabase.CreateNewUser(
-                    new UserEntity(emailInput.Text, fullNameInput.Text, userRoleOptions.Value, ApplicationCryptographer.SecurePasswordViaMethod1(passwordInput.Text))
-                );
-                UserProfileCache.Update(new UserEntity(emailInput.Text, fullNameInput.Text, userRoleOptions.Value));
-                ApplicationFormNavigator.DisplayManagerOrJudgeDashboardForm(userRoleOptions.Value);
-                ResetAllInputs();
+                SignUpUser();
             }
-
-            InformationLayout.StopLoadingMessageDisplay();
         }
 
-        private void ResetAllInputs()
+        private void GoBack()
+        {
+            informationLayout.StartLoadingMessageDisplay();
+
+            ApplicationFormNavigator.DisplayPreviousForm();
+            Clear();
+
+            informationLayout.StopLoadingMessageDisplay();
+        }
+
+        private void SignUpUser()
+        {
+            informationLayout.StartLoadingMessageDisplay();
+
+            Result result = AuthenticateNewUser();
+            if (!result.IsSuccessful)
+            {
+                informationLayout.DisplayErrorMessage(result.Message);
+                return;
+            }
+
+            ApplicationLogger.LogInformationMessage($"'SignUp' user '{emailInput.Text}' signed up");
+            CreateNewUser();
+            UpdateUserProfileCache();
+            DisplayManagerOrJudgeDashboardForm();
+            Clear();
+
+            informationLayout.StopLoadingMessageDisplay();
+        }
+
+        private Result AuthenticateNewUser()
+        {
+            return ApplicationSecurity.AuthenticateNewUser(
+                    emailInput.Text,
+                    fullNameInput.Text,
+                    passwordInput.Text,
+                    passwordConfirmationInput.Text,
+                    userRoleOptions.Value);
+        }
+
+        private void CreateNewUser()
+        {
+            ApplicationDatabase.CreateNewUser(
+                    new UserEntity(
+                        emailInput.Text,
+                        fullNameInput.Text,
+                        userRoleOptions.Value,
+                        ApplicationCryptographer.SecurePasswordViaMethod1(passwordInput.Text)
+                    )
+            );
+        }
+
+        private void UpdateUserProfileCache()
+        {
+            UserProfileCache.Update(
+                    new UserEntity(
+                        emailInput.Text,
+                        fullNameInput.Text,
+                        userRoleOptions.Value
+                    )
+                );
+        }
+
+        private void DisplayManagerOrJudgeDashboardForm()
+        {
+            ApplicationFormNavigator.DisplayManagerOrJudgeDashboardForm(
+                    userRoleOptions.Value);
+        }
+
+        private void Clear()
         {
             emailInput.Text = "";
             fullNameInput.Text = "";
             passwordInput.Text = "";
             passwordConfirmationInput.Text = "";
             userRoleOptions.Clear();
+        }
+
+        private void Form_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                GoBack();
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                SignUpUser();
+            }
+
+
+            if (e.KeyCode == Keys.Escape ||
+                e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

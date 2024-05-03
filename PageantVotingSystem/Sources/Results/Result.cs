@@ -24,26 +24,26 @@ namespace PageantVotingSystem.Sources.Results
         public Result(bool isSuccessful)
         {
             IsSuccessful = isSuccessful;
-            data.SetPrivateData("Data", new List<Dictionary<object, object>>());
+            SetDataToPrivate();
         }
 
         public Result(bool isSuccessful, List<Dictionary<object, object>> values)
         {
             IsSuccessful = isSuccessful;
-            data.SetPrivateData("Data", values);
+            SetDataToPrivate(values);
         }
 
         public Result(string message)
         {
             Message = message;
-            data.SetPrivateData("Data", new List<Dictionary<object, object>>());
+            SetDataToPrivate();
         }
 
         public Result(bool isSuccessful, string message)
         {
             IsSuccessful = isSuccessful;
             Message = message;
-            data.SetPrivateData("Data", new List<Dictionary<object, object>>());
+            SetDataToPrivate();
         }
 
         public Type GetData<Type>(object key)
@@ -68,6 +68,16 @@ namespace PageantVotingSystem.Sources.Results
             {
                 throw new Exception($"'Result' - Cannot be accessed via '{index}' index nor '{key}' key");
             }
+        }
+
+        private void SetDataToPrivate(object value)
+        {
+            data.SetDataToPrivate("Data", value);
+        }
+
+        private void SetDataToPrivate()
+        {
+            SetDataToPrivate(new List<Dictionary<object, object>>());
         }
     }
 }

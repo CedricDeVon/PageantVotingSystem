@@ -13,7 +13,7 @@ namespace PageantVotingSystem.Sources.Forms
 {
     public partial class EventContestants : Form
     {
-        public InformationLayout InformationLayout { get; private set; }
+        private readonly InformationLayout informationLayout;
         
         private readonly TopSideNavigationLayout topSideNavigationLayout;
 
@@ -24,20 +24,29 @@ namespace PageantVotingSystem.Sources.Forms
             InitializeComponent();
 
             ApplicationFormStyle.SetupFormStyles(this);
-            InformationLayout = new InformationLayout(informationLayoutControl);
+            informationLayout = new InformationLayout(informationLayoutControl);
             topSideNavigationLayout = new TopSideNavigationLayout(topSideNavigationLayoutControl);
-            topSideNavigationLayout.HideReloadButton();
             resultsLayout = new OrderedValueItemLayout(resultsLayoutControl, Item_Click);
         }
 
-        public void Render(EventEntity entity)
+        private void Button_Click(object sender, EventArgs e)
         {
-            List<ContestantEntity> contestantEntities = ApplicationDatabase.ReadManyEventContestants(entity.Id);
-            foreach (ContestantEntity contestantEntity in contestantEntities)
+            if (sender == goBackButton)
             {
-                resultsLayout.RenderOrdered($"{contestantEntity.OrderNumber}", contestantEntity.FullName, contestantEntity);
+                DisplayPreviousForm();
             }
-            resultCountLabel.Text = $"{contestantEntities.Count}";
+            else if (sender == informationButton && resultsLayout.SelectedItem != null)
+            {
+                DisplayEventContestantProfileForm();
+            }
+        }
+
+        private void Form_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                DisplayPreviousForm();
+            }
         }
 
         private void Item_Click(object sender, EventArgs e)
@@ -53,37 +62,43 @@ namespace PageantVotingSystem.Sources.Forms
             }
         }
 
-        private void ResetAllData()
+        public void DisplayPreviousForm()
+        {
+            informationLayout.StartLoadingMessageDisplay();
+
+            ApplicationFormNavigator.DisplayPreviousForm();
+            Clear();
+
+            informationLayout.StopLoadingMessageDisplay();
+        }
+
+        public void DisplayEventContestantProfileForm()
+        {
+            informationLayout.StartLoadingMessageDisplay();
+
+            ApplicationFormNavigator.DisplayEventContestantProfileForm(((ContestantEntity)resultsLayout.SelectedItem.Data).Id);
+            resultsLayout.Unfocus();
+            optionsControl.Hide();
+
+            informationLayout.StopLoadingMessageDisplay();
+        }
+
+        public void Render(EventEntity entity)
+        {
+            List<ContestantEntity> contestantEntities = ApplicationDatabase.ReadManyEventContestantEntities(entity.Id);
+            foreach (ContestantEntity contestantEntity in contestantEntities)
+            {
+                resultsLayout.Render($"{contestantEntity.OrderNumber}", contestantEntity.FullName, contestantEntity);
+            }
+            resultCountLabel.Text = $"{contestantEntities.Count}";
+        }
+
+        private void Clear()
         {
             resultCountLabel.Text = "0";
             resultsLayout.Clear();
             optionsControl.Hide();
         }
-
-        private void Button_Click(object sender, EventArgs e)
-        {
-            if (sender == goBackButton)
-            {
-                ApplicationFormNavigator.DisplayPrevious();
-                ResetAllData();
-            }
-            else if (sender == informationButton && resultsLayout.SelectedItem != null)
-            {
-                ContestantEntity entity = ApplicationDatabase.ReadOneContestant(((ContestantEntity)resultsLayout.SelectedItem.Data).Id);
-                ApplicationFormNavigator.DisplayEventContestantProfileForm(entity);
-            }
-        }
-
-        private void Form_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-            {
-                ApplicationFormNavigator.DisplayPrevious();
-                ResetAllData();
-            }
-        }
     }
 }
 
-
-// DisplayEventContestantProfile

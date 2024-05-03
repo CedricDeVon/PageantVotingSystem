@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using PageantVotingSystem.Sources.Setups;
+using PageantVotingSystem.Sources.Loggers;
 using PageantVotingSystem.Sources.Entities;
 using PageantVotingSystem.Sources.Generics;
 
@@ -9,18 +10,18 @@ namespace PageantVotingSystem.Sources.Caches
 {
     public class EditEventCache : Cache
     {
-        public static EventEntity Event { get; private set; }
+        public static EventEntity EventEntity { get; private set; }
 
-        public static GenericOrderedList<string> Judges { get; private set; }
+        public static GenericOrderedList<string> JudgeEntities { get; private set; }
 
-        public static GenericOrderedList<ContestantEntity> Contestants { get; private set; }
+        public static GenericOrderedList<ContestantEntity> ContestantEntities { get; private set; }
 
         public static List<string> ContestantFullNames
         {
             get
             {
                 List<string> contestantFullNames = new List<string>();
-                foreach (ContestantEntity contestantEntity in Contestants.Items)
+                foreach (ContestantEntity contestantEntity in ContestantEntities.Items)
                 {
                     contestantFullNames.Add(contestantEntity.FullName);
                 }
@@ -30,25 +31,24 @@ namespace PageantVotingSystem.Sources.Caches
             private set { }
         }
 
-        public static void Setup(
-            EventEntity @event,
-            GenericOrderedList<string> judges,
-            GenericOrderedList<ContestantEntity> contestants)
+        public static void Setup()
         {
             SetupRecorder.ThrowIfAlreadySetup("EditEventCache");
+            ApplicationLogger.LogInformationMessage("'EditEventCache' setup began");
 
-            Event = @event;
-            Judges = judges;
-            Contestants = contestants;
+            EventEntity = new EventEntity();
+            JudgeEntities = new GenericOrderedList<string>();
+            ContestantEntities = new GenericOrderedList<ContestantEntity>();
 
             SetupRecorder.Add("EditEventCache");
+            ApplicationLogger.LogInformationMessage("'EditEventCache' setup complete");
         }
 
-        public static void ClearAllAttributes()
+        public static void Clear()
         {
-            Event.ClearAllAttributes();
-            Judges.ClearAllItems();
-            Contestants.ClearAllItems();
+            EventEntity.ClearAllAttributes();
+            JudgeEntities.ClearAllItems();
+            ContestantEntities.ClearAllItems();
         }
     }
 }

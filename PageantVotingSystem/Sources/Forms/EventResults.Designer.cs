@@ -45,16 +45,6 @@
             this.dataOptionsLayoutControl = new System.Windows.Forms.Panel();
             this.panel24 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.eventManagerEmailInput = new System.Windows.Forms.TextBox();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.panel25 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel142 = new System.Windows.Forms.Panel();
             this.panel140 = new System.Windows.Forms.Panel();
             this.panel43 = new System.Windows.Forms.Panel();
@@ -95,9 +85,6 @@
             this.panel45.SuspendLayout();
             this.panel28.SuspendLayout();
             this.panel24.SuspendLayout();
-            this.panel15.SuspendLayout();
-            this.panel16.SuspendLayout();
-            this.panel25.SuspendLayout();
             this.panel140.SuspendLayout();
             this.panel43.SuspendLayout();
             this.panel65.SuspendLayout();
@@ -263,9 +250,6 @@
             // 
             this.panel28.Controls.Add(this.dataOptionsLayoutControl);
             this.panel28.Controls.Add(this.panel24);
-            this.panel28.Controls.Add(this.panel14);
-            this.panel28.Controls.Add(this.panel15);
-            this.panel28.Controls.Add(this.panel25);
             this.panel28.Controls.Add(this.panel142);
             this.panel28.Controls.Add(this.panel140);
             this.panel28.Controls.Add(this.panel65);
@@ -279,16 +263,16 @@
             // dataOptionsLayoutControl
             // 
             this.dataOptionsLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataOptionsLayoutControl.Location = new System.Drawing.Point(0, 210);
+            this.dataOptionsLayoutControl.Location = new System.Drawing.Point(0, 120);
             this.dataOptionsLayoutControl.Name = "dataOptionsLayoutControl";
-            this.dataOptionsLayoutControl.Size = new System.Drawing.Size(400, 302);
+            this.dataOptionsLayoutControl.Size = new System.Drawing.Size(400, 392);
             this.dataOptionsLayoutControl.TabIndex = 201;
             // 
             // panel24
             // 
             this.panel24.Controls.Add(this.label4);
             this.panel24.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel24.Location = new System.Drawing.Point(0, 180);
+            this.panel24.Location = new System.Drawing.Point(0, 90);
             this.panel24.Name = "panel24";
             this.panel24.Size = new System.Drawing.Size(400, 30);
             this.panel24.TabIndex = 198;
@@ -306,108 +290,6 @@
             this.label4.TabIndex = 22;
             this.label4.Text = "Data Options";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel14
-            // 
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel14.Location = new System.Drawing.Point(0, 160);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(400, 20);
-            this.panel14.TabIndex = 197;
-            // 
-            // panel15
-            // 
-            this.panel15.Controls.Add(this.panel16);
-            this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel15.Location = new System.Drawing.Point(0, 120);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(400, 40);
-            this.panel15.TabIndex = 196;
-            // 
-            // panel16
-            // 
-            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(219)))), ((int)(((byte)(175)))));
-            this.panel16.Controls.Add(this.eventManagerEmailInput);
-            this.panel16.Controls.Add(this.panel17);
-            this.panel16.Controls.Add(this.panel18);
-            this.panel16.Controls.Add(this.panel19);
-            this.panel16.Controls.Add(this.panel20);
-            this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel16.Location = new System.Drawing.Point(0, 0);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(400, 40);
-            this.panel16.TabIndex = 194;
-            // 
-            // eventManagerEmailInput
-            // 
-            this.eventManagerEmailInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(219)))), ((int)(((byte)(175)))));
-            this.eventManagerEmailInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.eventManagerEmailInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.eventManagerEmailInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(2)))), ((int)(((byte)(22)))));
-            this.eventManagerEmailInput.Location = new System.Drawing.Point(20, 10);
-            this.eventManagerEmailInput.MaximumSize = new System.Drawing.Size(0, 20);
-            this.eventManagerEmailInput.MaxLength = 128;
-            this.eventManagerEmailInput.MinimumSize = new System.Drawing.Size(0, 20);
-            this.eventManagerEmailInput.Name = "eventManagerEmailInput";
-            this.eventManagerEmailInput.Size = new System.Drawing.Size(360, 20);
-            this.eventManagerEmailInput.TabIndex = 21;
-            // 
-            // panel17
-            // 
-            this.panel17.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel17.Location = new System.Drawing.Point(20, 30);
-            this.panel17.MaximumSize = new System.Drawing.Size(0, 10);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(360, 10);
-            this.panel17.TabIndex = 4;
-            // 
-            // panel18
-            // 
-            this.panel18.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel18.Location = new System.Drawing.Point(20, 0);
-            this.panel18.MaximumSize = new System.Drawing.Size(0, 10);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(360, 10);
-            this.panel18.TabIndex = 3;
-            // 
-            // panel19
-            // 
-            this.panel19.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel19.Location = new System.Drawing.Point(380, 0);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(20, 40);
-            this.panel19.TabIndex = 2;
-            // 
-            // panel20
-            // 
-            this.panel20.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel20.Location = new System.Drawing.Point(0, 0);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(20, 40);
-            this.panel20.TabIndex = 1;
-            // 
-            // panel25
-            // 
-            this.panel25.Controls.Add(this.label3);
-            this.panel25.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel25.Location = new System.Drawing.Point(0, 90);
-            this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(400, 30);
-            this.panel25.TabIndex = 195;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 19);
-            this.label3.TabIndex = 22;
-            this.label3.Text = "Event Manager Email";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel142
             // 
@@ -777,6 +659,7 @@
             this.Name = "EventResults";
             this.Text = "Pageant Voting System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             this.panel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.resultsControl.ResumeLayout(false);
@@ -786,11 +669,6 @@
             this.panel28.ResumeLayout(false);
             this.panel24.ResumeLayout(false);
             this.panel24.PerformLayout();
-            this.panel15.ResumeLayout(false);
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
-            this.panel25.ResumeLayout(false);
-            this.panel25.PerformLayout();
             this.panel140.ResumeLayout(false);
             this.panel43.ResumeLayout(false);
             this.panel43.PerformLayout();
@@ -844,16 +722,6 @@
         private System.Windows.Forms.Panel panel53;
         private System.Windows.Forms.Panel panel64;
         private System.Windows.Forms.Panel panel142;
-        private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.TextBox eventManagerEmailInput;
-        private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.Panel panel19;
-        private System.Windows.Forms.Panel panel20;
-        private System.Windows.Forms.Panel panel25;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel30;
         private System.Windows.Forms.Panel resultsControl;
         private System.Windows.Forms.Panel panel45;

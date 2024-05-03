@@ -3,21 +3,23 @@ using System;
 
 namespace PageantVotingSystem.Sources.Loggers
 {
-    public class ConsoleLogger
+    public class ConsoleLogger : Logger
     {
-        public static void LogInformationMessage(string input, bool allowedToLog = true)
+        public ConsoleLogger() : base() {}
+
+        public override void LogInformationMessage(string input)
         {
-            LogMessage("Information", input, allowedToLog);
+            LogMessage("Information", input);
         }
 
-        public static void LogErrorMessage(string input, bool allowedToLog = true)
+        public override void LogErrorMessage(string input)
         {
-            LogMessage("Error", input, allowedToLog);
+            LogMessage("Error", input);
         }
 
-        public static void LogMessage(string type, string input, bool allowedToLog = true)
+        public void LogMessage(string type, string input)
         {
-            if (!allowedToLog)
+            if (!IsAllowedToLog)
             {
                 return;
             }
@@ -25,7 +27,7 @@ namespace PageantVotingSystem.Sources.Loggers
             Console.WriteLine(GenerateLogMessageFormat(type, input));
         }
 
-        private static string GenerateLogMessageFormat(string type, string input)
+        private string GenerateLogMessageFormat(string type, string input)
         {
             return $"[{type}] [{DateTime.Now}] - {input}";
         }

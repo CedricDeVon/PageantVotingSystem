@@ -35,7 +35,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel44 = new System.Windows.Forms.Panel();
-            this.okButton = new System.Windows.Forms.Button();
+            this.goBackButton = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel23 = new System.Windows.Forms.Panel();
@@ -136,7 +136,7 @@
             // 
             // panel44
             // 
-            this.panel44.Controls.Add(this.okButton);
+            this.panel44.Controls.Add(this.goBackButton);
             this.panel44.Controls.Add(this.panel10);
             this.panel44.Controls.Add(this.panel8);
             this.panel44.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -146,22 +146,23 @@
             this.panel44.Size = new System.Drawing.Size(343, 40);
             this.panel44.TabIndex = 65;
             // 
-            // okButton
+            // goBackButton
             // 
-            this.okButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.okButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.okButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.okButton.FlatAppearance.BorderSize = 0;
-            this.okButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.okButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
-            this.okButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.okButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.okButton.Location = new System.Drawing.Point(92, 0);
-            this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(159, 40);
-            this.okButton.TabIndex = 42;
-            this.okButton.Text = "Ok";
-            this.okButton.UseVisualStyleBackColor = false;
+            this.goBackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.goBackButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.goBackButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.goBackButton.FlatAppearance.BorderSize = 0;
+            this.goBackButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.goBackButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
+            this.goBackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.goBackButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.goBackButton.Location = new System.Drawing.Point(92, 0);
+            this.goBackButton.Name = "goBackButton";
+            this.goBackButton.Size = new System.Drawing.Size(159, 40);
+            this.goBackButton.TabIndex = 42;
+            this.goBackButton.Text = "Go Back";
+            this.goBackButton.UseVisualStyleBackColor = false;
+            this.goBackButton.Click += new System.EventHandler(this.Button_Click);
             // 
             // panel10
             // 
@@ -518,7 +519,7 @@
         private System.Windows.Forms.Label messageLabel;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button okButton;
+        private System.Windows.Forms.Button goBackButton;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel8;
     }
