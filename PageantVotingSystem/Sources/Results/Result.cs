@@ -29,6 +29,11 @@ namespace PageantVotingSystem.Sources.Results
 
         public Result(bool isSuccessful, List<Dictionary<object, object>> values)
         {
+            if (values == null || values.Contains(null))
+            {
+                throw new Exception("'Result' - Cannot contain a null 'values' argument");
+            }
+
             IsSuccessful = isSuccessful;
             SetDataToPrivate(values);
         }

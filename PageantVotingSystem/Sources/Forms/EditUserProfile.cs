@@ -108,7 +108,7 @@ namespace PageantVotingSystem.Sources.Forms
                 userFullNameInput.Text, 
                 userRoleTypeLabel.Text,
                 userDescriptionInput.Text,
-                StringParser.StandardizeFilePath(userImageProfileFileDialog.FileName));
+                FilePathParser.Standardize(userImageProfileFileDialog.FileName));
             UserProfileCache.Update(entity);
             ApplicationDatabase.UpdateOldUser(entity);
         }
@@ -133,7 +133,7 @@ namespace PageantVotingSystem.Sources.Forms
                 userProfileImageInput.Size.Width,
                 userProfileImageInput.Size.Height);
             userProfileImageInput.Image = ApplicationResourceLoader.SafeLoadResource(
-                StringParser.StandardizeFilePath(fileName));
+                FilePathParser.Standardize(fileName));
         }
     }
 }

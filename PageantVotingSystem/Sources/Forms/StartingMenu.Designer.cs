@@ -39,9 +39,7 @@
             this.signUpButton = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
             this.panel19 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -53,6 +51,8 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -188,19 +188,6 @@
             this.panel19.Size = new System.Drawing.Size(670, 100);
             this.panel19.TabIndex = 34;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Elephant", 60F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(336, 103);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "System";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panel15
             // 
             this.panel15.Controls.Add(this.label1);
@@ -208,19 +195,6 @@
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(670, 100);
             this.panel15.TabIndex = 30;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Elephant", 60F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(664, 103);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Pageant Voting";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel14
             // 
@@ -333,6 +307,32 @@
             this.panel9.Size = new System.Drawing.Size(1424, 50);
             this.panel9.TabIndex = 19;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Elephant", 60F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(336, 103);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "System";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Elephant", 60F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(664, 103);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Pageant Voting";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // StartingMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -377,11 +377,9 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel topSideNavigationLayoutControl;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button signUpButton;
         private System.Windows.Forms.Button logInButton;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel panel14;
@@ -390,5 +388,7 @@
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Panel informationLayoutControl;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 
 namespace PageantVotingSystem.Sources.Generics
@@ -38,9 +39,9 @@ namespace PageantVotingSystem.Sources.Generics
 
         public ItemType GetItemAtIndex(int index)
         {
-            if (index < 0 || index > ItemCount)
+            if (index < 0 || index >= ItemCount)
             {
-                return default;
+                throw new Exception("'GenericOrderedList' - index is out of bounds");
             }
 
             return items[index];

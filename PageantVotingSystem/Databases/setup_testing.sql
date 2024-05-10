@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS contestant
     order_number INT UNSIGNED NOT NULL,
     height_in_centimeters FLOAT DEFAULT 0,
     weight_in_kilograms FLOAT DEFAULT 0,
-    birth_date DATETIME DEFAULT NOW(),
+    birth_date DATETIME,
     email TEXT,
     phone_number TEXT,
     motto TEXT,
@@ -87,8 +87,8 @@ CREATE TABLE IF NOT EXISTS contestant
     work_experiences TEXT,
     education TEXT,
     timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL,
-    marital_status_type VARCHAR(64) NOT NULL,
-    gender_type VARCHAR(64) NOT NULL,
+    marital_status_type VARCHAR(64) DEFAULT 'Rather Not Say',
+    gender_type VARCHAR(64) DEFAULT 'Rather Not Say',
     image_resource_path VARCHAR(512) DEFAULT '../../Profiles/DefaultProfile.png'
 );
 
@@ -342,8 +342,8 @@ INSERT INTO judge_status (type) VALUES ('Present'), ('Abscent');
 INSERT INTO scoring_system (type) VALUES ('Percentage'), ('Ranking');
 INSERT INTO user_role (type) VALUES ('Manager'), ('Judge');
 INSERT INTO round_status (type) VALUES ('Complete'), ('Incomplete');
-INSERT INTO marital_status (type) VALUES ('Single'), ('Married'), ('Divorced'), ('With Significant Other');
-INSERT INTO gender (type) VALUES ('Male'), ('Female'), ('Non-Binary');
+INSERT INTO marital_status (type) VALUES ('Single'), ('Married'), ('Divorced'), ('With Significant Other'), ('Rather Not Say');
+INSERT INTO gender (type) VALUES ('Male'), ('Female'), ('Non-Binary'), ('Rather Not Say');
 INSERT INTO contestant_status (type) VALUES ('Qualified'), ('Disqualified');
 INSERT INTO event_layout_status (type) VALUES ('Complete'), ('Incomplete'), ('Pending');
 INSERT INTO round_contestant_status (type) VALUES ('Complete'), ('Incomplete'), ('Pending');
@@ -357,32 +357,3 @@ VALUES
     ('judge_1@gmail.com', 'James D. Doe', 'Clj3ixSdV3qFFp8vSu5gMNG771Udu6rIQ8L0Xv1gYuHOPAikrBMqp2FpxYLlbcuct3KPpWY9LUg5jZSkXeB2hg==', 'Judge', 'The official profile of James D. Doe'),
     ('judge_2@gmail.com', 'Jessie E. Doe', 'Clj3ixSdV3qFFp8vSu5gMNG771Udu6rIQ8L0Xv1gYuHOPAikrBMqp2FpxYLlbcuct3KPpWY9LUg5jZSkXeB2hg==', 'Judge', 'The official profile of Jessie E. Doe'),
     ('judge_3@gmail.com', 'Jam F. Doe', 'Clj3ixSdV3qFFp8vSu5gMNG771Udu6rIQ8L0Xv1gYuHOPAikrBMqp2FpxYLlbcuct3KPpWY9LUg5jZSkXeB2hg==', 'Judge', 'The official profile of Jam F. Doe');
-
-INSERT INTO contestant (order_number, image_resource_path, full_name, email, phone_number, home_address, birth_date, gender_type, marital_status_type, height_in_centimeters, weight_in_kilograms, talents_and_skills, hobbies, languages, work_experiences, education, motto)
-VALUES
-    (1, '../../Profiles/DefaultProfile.png', 'Contestant - A', 'contestant_1@gmail.com', '1111-111-111', 'Home Address - A', '2000-01-01', 'Female', 'Single', 190, 60, 'Talents and Skills - A', 'Hobbies - A', 'Languages - A', 'Work Experiences - A', 'Education - A', 'Motto - A'),
-    (2, '../../Profiles/DefaultProfile.png', 'Contestant - B', 'contestant_1@gmail.com', '2222-222-222', 'Home Address - B', '2000-01-01', 'Female', 'Single', 190, 60, 'Talents and Skills - B', 'Hobbies - B', 'Languages - B', 'Work Experiences - B', 'Education - B', 'Motto - B'),
-    (3, '../../Profiles/DefaultProfile.png', 'Contestant - C', 'contestant_1@gmail.com', '3333-333-333', 'Home Address - C', '2000-01-01', 'Female', 'Single', 190, 60, 'Talents and Skills - B', 'Hobbies - C', 'Languages - C', 'Work Experiences - C', 'Education - C', 'Motto - C');
-
-INSERT INTO event (id, name, description, host_address, scoring_system_type)
-VALUES
-    (1, 'Event - A', 'Description - A', 'Host Address - A', 'Percentage');
-
-INSERT INTO segment (id, name, description, event_id)
-VALUES
-    (1, 'Segment - A', 'Description - A', 1),
-    (2, 'Segment - B', 'Description - B', 1);
-
-INSERT INTO round (id, name, description, segment_id)
-VALUES
-    (1, 'Round - A', 'Description - A', 1),
-    (2, 'Round - B', 'Description - B', 1),
-    (3, 'Round - C', 'Description - C', 2);
-    
-INSERT INTO criterium (id, name, description, maximum_value, percentage_weight, round_id)
-VALUES
-    (1, 'Criterium - A', 'Description - A', 100, 50, 1),
-    (2, 'Criterium - B', 'Description - B', 100, 30, 1),
-    (3, 'Criterium - C', 'Description - C', 100, 60, 2),
-    (4, 'Criterium - D', 'Description - D', 100, 40, 2),
-    (5, 'Criterium - E', 'Description - E', 100, 100, 3);

@@ -192,7 +192,7 @@ namespace PageantVotingSystem.Sources.Forms
             {
                 OrderedValueItem orderedValueItem = contestantsLayout.SelectedItem;
                 ContestantEntity contestant = EditEventCache.ContestantEntities.Items[EditEventCache.ContestantEntities.ItemCount - Convert.ToInt32(orderedValueItem.OrderedNumber)];
-                contestant.ImageResourcePath = StringParser.StandardizeFilePath(contestantImageFileInput.FileName);
+                contestant.ImageResourcePath = FilePathParser.Standardize(contestantImageFileInput.FileName);
                 contestant.FullName = contestantFullNameInput.Text;
                 orderedValueItem.Value = contestantFullNameInput.Text;
                 contestant.Email = contestantEmailInput.Text;
@@ -277,7 +277,7 @@ namespace PageantVotingSystem.Sources.Forms
                 contestantImageInput.Size.Width,
                 contestantImageInput.Size.Height);
             contestantImageInput.Image = ApplicationResourceLoader.SafeLoadResource(
-                StringParser.StandardizeFilePath(fileName));
+                FilePathParser.Standardize(fileName));
         }
     }
 }

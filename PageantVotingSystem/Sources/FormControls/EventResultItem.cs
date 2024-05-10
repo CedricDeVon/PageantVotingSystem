@@ -10,13 +10,6 @@ namespace PageantVotingSystem.Sources.FormControls
 {
     public partial class EventResultItem : UserControl
     {
-        public string Remark
-        {
-            get { return remarkLabel.Text; }
-
-            private set { remarkLabel.Text = value; }
-        }
-
         public string Rank
         {
             get { return rankLabel.Text; }
@@ -62,7 +55,6 @@ namespace PageantVotingSystem.Sources.FormControls
             ThrowIfContestantResultEntityIsNull(entity);
             InitializeComponent();
 
-            Remark = "";
             Rank = entity.RankingLabel;
             OrderNumber = $"{entity.OrderNumber}";
             ContestantName = entity.FullName;
@@ -71,7 +63,6 @@ namespace PageantVotingSystem.Sources.FormControls
 
             List<Button> buttons = new List<Button>()
             {
-                remarkLabel,
                 rankLabel,
                 orderNumberLabel,
                 contestantNameLabel,

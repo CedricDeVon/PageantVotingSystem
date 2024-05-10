@@ -45,8 +45,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.horizontalMargin1 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel32 = new System.Windows.Forms.Panel();
             this.panel23 = new System.Windows.Forms.Panel();
             this.panel44 = new System.Windows.Forms.Panel();
@@ -164,8 +162,6 @@
             this.panel16.Controls.Add(this.label10);
             this.panel16.Controls.Add(this.panel18);
             this.panel16.Controls.Add(this.label8);
-            this.panel16.Controls.Add(this.horizontalMargin1);
-            this.panel16.Controls.Add(this.label5);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel16.Location = new System.Drawing.Point(0, 0);
             this.panel16.Name = "panel16";
@@ -178,7 +174,7 @@
             this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
             this.label13.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.label13.Location = new System.Drawing.Point(725, 0);
+            this.label13.Location = new System.Drawing.Point(560, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(200, 30);
             this.label13.TabIndex = 117;
@@ -187,7 +183,7 @@
             // panel24
             // 
             this.panel24.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel24.Location = new System.Drawing.Point(720, 0);
+            this.panel24.Location = new System.Drawing.Point(555, 0);
             this.panel24.Name = "panel24";
             this.panel24.Size = new System.Drawing.Size(5, 30);
             this.panel24.TabIndex = 116;
@@ -198,7 +194,7 @@
             this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
             this.label12.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.label12.Location = new System.Drawing.Point(600, 0);
+            this.label12.Location = new System.Drawing.Point(435, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(120, 30);
             this.label12.TabIndex = 115;
@@ -207,7 +203,7 @@
             // panel20
             // 
             this.panel20.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel20.Location = new System.Drawing.Point(595, 0);
+            this.panel20.Location = new System.Drawing.Point(430, 0);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(5, 30);
             this.panel20.TabIndex = 114;
@@ -218,7 +214,7 @@
             this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
             this.label11.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.label11.Location = new System.Drawing.Point(355, 0);
+            this.label11.Location = new System.Drawing.Point(190, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(240, 30);
             this.label11.TabIndex = 113;
@@ -227,7 +223,7 @@
             // panel19
             // 
             this.panel19.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel19.Location = new System.Drawing.Point(350, 0);
+            this.panel19.Location = new System.Drawing.Point(185, 0);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(5, 30);
             this.panel19.TabIndex = 112;
@@ -238,7 +234,7 @@
             this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
             this.label10.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.label10.Location = new System.Drawing.Point(270, 0);
+            this.label10.Location = new System.Drawing.Point(105, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(80, 30);
             this.label10.TabIndex = 111;
@@ -247,7 +243,7 @@
             // panel18
             // 
             this.panel18.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel18.Location = new System.Drawing.Point(265, 0);
+            this.panel18.Location = new System.Drawing.Point(100, 0);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(5, 30);
             this.panel18.TabIndex = 110;
@@ -258,31 +254,11 @@
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
             this.label8.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.label8.Location = new System.Drawing.Point(165, 0);
+            this.label8.Location = new System.Drawing.Point(0, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(100, 30);
             this.label8.TabIndex = 109;
             this.label8.Text = "Rank";
-            // 
-            // horizontalMargin1
-            // 
-            this.horizontalMargin1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.horizontalMargin1.Location = new System.Drawing.Point(160, 0);
-            this.horizontalMargin1.Name = "horizontalMargin1";
-            this.horizontalMargin1.Size = new System.Drawing.Size(5, 30);
-            this.horizontalMargin1.TabIndex = 108;
-            // 
-            // label5
-            // 
-            this.label5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.label5.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.label5.Location = new System.Drawing.Point(0, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(160, 30);
-            this.label5.TabIndex = 107;
-            this.label5.Text = "Remark";
             // 
             // panel32
             // 
@@ -625,8 +601,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel horizontalMargin1;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel14;
     }
 }

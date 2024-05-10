@@ -1,15 +1,7 @@
 ﻿
-using System;
-using System.Collections.Generic;
-
-using PageantVotingSystem.Sources.Caches;
 using PageantVotingSystem.Sources.Results;
 using PageantVotingSystem.Sources.Entities;
 using PageantVotingSystem.Sources.Generics;
-using PageantVotingSystem.Sources.Miscellaneous;
-using PageantVotingSystem.Sources.ResourceLoaders;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-
 
 namespace PageantVotingSystem.Sources.Security
 {

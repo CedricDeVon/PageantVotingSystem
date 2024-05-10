@@ -1,7 +1,6 @@
 ﻿
 using System;
 
-using PageantVotingSystem.Sources.Miscellaneous;
 using PageantVotingSystem.Sources.Configurations;
 
 namespace PageantVotingSystem.Sources.Entities

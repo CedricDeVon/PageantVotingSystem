@@ -635,7 +635,7 @@ namespace PageantVotingSystem.Sources.Databases
             Dictionary<object, object> result = QueryOneEntity($"SELECT id FROM event ORDER BY id DESC LIMIT 1");
             if (result == null)
             {
-                return null;
+                return new EventEntity(0);
             }
             EventEntity eventEntity = new EventEntity(
                 Convert.ToInt32(result["id"]));
@@ -647,7 +647,7 @@ namespace PageantVotingSystem.Sources.Databases
             Dictionary<object, object> result = QueryOneEntity($"SELECT id FROM segment ORDER BY id DESC LIMIT 1");
             if (result == null)
             {
-                return null;
+                return new SegmentEntity(0);
             }
             SegmentEntity segmentEntity = new SegmentEntity(
                 Convert.ToInt32(result["id"]));
@@ -659,7 +659,7 @@ namespace PageantVotingSystem.Sources.Databases
             Dictionary<object, object> result = QueryOneEntity($"SELECT id FROM round ORDER BY id DESC LIMIT 1");
             if (result == null)
             {
-                return null;
+                return new RoundEntity(0);
             }
             RoundEntity roundEntity = new RoundEntity(
                 Convert.ToInt32(result["id"]));
@@ -671,7 +671,7 @@ namespace PageantVotingSystem.Sources.Databases
             Dictionary<object, object> result = QueryOneEntity($"SELECT id FROM criterium ORDER BY id DESC LIMIT 1");
             if (result == null)
             {
-                return null;
+                return new CriteriumEntity(0);
             }
             CriteriumEntity criteriumEntity = new CriteriumEntity(
                 Convert.ToInt32(result["id"]));
@@ -683,7 +683,7 @@ namespace PageantVotingSystem.Sources.Databases
             Dictionary<object, object> result = QueryOneEntity($"SELECT id FROM contestant ORDER BY id DESC LIMIT 1");
             if (result == null)
             {
-                return null;
+                return new ContestantEntity(0);
             }
             ContestantEntity contestantEntity = new ContestantEntity(
                 Convert.ToInt32(result["id"]));
@@ -838,9 +838,9 @@ namespace PageantVotingSystem.Sources.Databases
             ExecuteStatement($"UPDATE user SET full_name = '{entity.FullName}', description = '{entity.Description}', image_resource_path = '{entity.ImageResourcePath}' WHERE email = '{entity.Email}'");
         }
 
-        public static void UpdateContestantJudgeCriteriumEntity(JudgeCriteriumEntity judgeCriteriumEntity)
+        public static void UpdateContestantJudgeCriteriumEntity(JudgeCriteriumEntity judgeCriteriumEntity, string judgeUserEmail)
         {
-            ExecuteStatement($"UPDATE result SET base_value = {judgeCriteriumEntity.Result.BaseValue} WHERE criterium_id = {judgeCriteriumEntity.Result.CriteriumId} AND judge_user_email = '{judgeCriteriumEntity.Result.JudgeUserEmail}' AND contestant_id = {judgeCriteriumEntity.Result.ContestantId}");
+            ExecuteStatement($"UPDATE result SET base_value = {judgeCriteriumEntity.Result.BaseValue} WHERE criterium_id = {judgeCriteriumEntity.Result.CriteriumId} AND judge_user_email = '{judgeUserEmail}' AND contestant_id = {judgeCriteriumEntity.Result.ContestantId}");
         }
 
         public static void UpdateRoundContestantStatusEntityToComplete(JudgeCriteriumEntity judgeCriteriumEntity, string judgeUserEmail)

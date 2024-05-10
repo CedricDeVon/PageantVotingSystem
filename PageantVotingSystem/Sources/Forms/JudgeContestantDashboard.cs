@@ -91,7 +91,8 @@ namespace PageantVotingSystem.Sources.Forms
             while (currentItem != null)
             {
                 judgeCriteriumResultItem = (JudgeCriteriumResultItem)currentItem.Value;
-                ApplicationDatabase.UpdateContestantJudgeCriteriumEntity(judgeCriteriumResultItem.Data);
+                ApplicationDatabase.UpdateContestantJudgeCriteriumEntity(
+                    judgeCriteriumResultItem.Data, UserProfileCache.Data.Email);
                 currentItem = currentItem.NextItem;
             }
             if (judgeCriteriumResultItem != null)

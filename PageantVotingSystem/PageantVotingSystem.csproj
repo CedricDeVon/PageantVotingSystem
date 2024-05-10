@@ -578,7 +578,7 @@
     <Compile Include="Sources\Loggers\Logger.cs" />
     <Compile Include="Sources\Loggers\CompositeLogger.cs" />
     <Compile Include="Sources\Miscellaneous\DateParser.cs" />
-    <Compile Include="Sources\Miscellaneous\StringParser.cs" />
+    <Compile Include="Sources\Miscellaneous\FilePathParser.cs" />
     <Compile Include="Sources\ResourceLoaders\ApplicationResourceLoader.cs" />
     <Compile Include="Sources\ResourceLoaders\ResourceData.cs" />
     <Compile Include="Sources\ResourceLoaders\ResourceLoader.cs" />

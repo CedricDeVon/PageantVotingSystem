@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace PageantVotingSystem.Sources.Generics
 {
     public class GenericDoublyLinkedList
@@ -49,6 +51,11 @@ namespace PageantVotingSystem.Sources.Generics
 
         public void AddToFirst(GenericDoublyLinkedListItem newItem)
         {
+            if (newItem == null)
+            {
+                throw new Exception("'GenericDoublyLinkedList' - 'newItem' cannot be null");
+            }
+
             if (firstItem == null && lastItem == null)
             {
                 firstItem = newItem;
@@ -65,6 +72,11 @@ namespace PageantVotingSystem.Sources.Generics
 
         public void AddToLast(GenericDoublyLinkedListItem newItem)
         {
+            if (newItem == null)
+            {
+                throw new Exception("'GenericDoublyLinkedList' - 'newItem' cannot be null");
+            }
+
             if (firstItem == null && lastItem == null)
             {
                 firstItem = newItem;
@@ -129,7 +141,12 @@ namespace PageantVotingSystem.Sources.Generics
 
         public Type RemoveItem<Type>(GenericDoublyLinkedListItem targetItem)
         {
-            if (Count <= 0 || targetItem == null)
+            if (targetItem == null)
+            {
+                throw new Exception("'GenericDoublyLinkedList' - 'newItem' cannot be null");
+            }
+
+            if (Count <= 0)
             {
                 return default;
             }

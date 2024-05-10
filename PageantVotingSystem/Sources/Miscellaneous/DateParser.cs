@@ -17,29 +17,26 @@ namespace PageantVotingSystem.Sources.Miscellaneous
             return dateTime.ToShortDateString();
         }
 
-        public static string ShortenDate(string dateTimeString)
-        {
-            return DateTime.Parse(dateTimeString).ToShortDateString();
-        }
-
         public static int CalculateAge(string dateTimeString)
         {
-            return CalculateAge(DateTime.Parse(dateTimeString));
+            if (string.IsNullOrEmpty(dateTimeString))
+            {
+                throw new Exception("'DateParser' - 'dateTimeString' cannot be null or empty");
+            }
+
+            try
+            {
+                return CalculateAge(DateTime.Parse(dateTimeString));
+            }
+            catch
+            {
+                throw new Exception("'DateParser' - 'dateTimeString' must represent this format 'YYYY-MM-DD'");
+            }
         }
 
-        public static int CalculateAge(DateTime birthDate)
-        {
-            return CalculateAge(birthDate, DateTime.Now);
-        }
-
-        public static int CalculateAge(DateTime birthDate, DateTime targetDate)
-        {
-            return (targetDate.Year - birthDate.Year) - ((birthDate.Month > targetDate.Month || birthDate.Day > targetDate.Day) ? 1 : 0);
-        }
-        
         public static bool IsInThePast(DateTime targetDateTime)
         {
-            return !IsInTheFuture(targetDateTime);
+            return PresentLinuxTime > ToLinuxDateTime(targetDateTime);
         }
 
         public static bool IsInTheFuture(DateTime targetDateTime)
@@ -47,9 +44,20 @@ namespace PageantVotingSystem.Sources.Miscellaneous
             return PresentLinuxTime < ToLinuxDateTime(targetDateTime);
         }
 
-        public static int ToLinuxDateTime(DateTime targetDateTime)
+        private static int ToLinuxDateTime(DateTime targetDateTime)
         {
             return (int) targetDateTime.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
         }
+
+        private static int CalculateAge(DateTime birthDate)
+        {
+            return CalculateAge(birthDate, DateTime.Now);
+        }
+
+        private static int CalculateAge(DateTime birthDate, DateTime targetDate)
+        {
+            return (targetDate.Year - birthDate.Year) - ((birthDate.Month > targetDate.Month || birthDate.Day > targetDate.Day) ? 1 : 0);
+        }
+
     }
 }

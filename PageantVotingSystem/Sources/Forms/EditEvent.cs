@@ -9,6 +9,7 @@ using PageantVotingSystem.Sources.Databases;
 using PageantVotingSystem.Sources.FormStyles;
 using PageantVotingSystem.Sources.FormControls;
 using PageantVotingSystem.Sources.FormNavigators;
+using System;
 
 namespace PageantVotingSystem.Sources.Forms
 {
@@ -60,7 +61,7 @@ namespace PageantVotingSystem.Sources.Forms
                 if (!result.IsSuccessful)
                 {
                     informationLayout.DisplayErrorMessage(result.Message);
-                    return;
+                    return;   
                 }
 
                 int judgeOrderNumber = EditEventCache.JudgeEntities.ItemCount;
@@ -77,18 +78,21 @@ namespace PageantVotingSystem.Sources.Forms
                 int firstRoundId = ApplicationDatabase.ReadOneRecentRound().Id + 1;
                 int currentRoundId = firstRoundId;
                 int currentCriteriumId = ApplicationDatabase.ReadOneRecentCriterium().Id + 1;
-                foreach (SegmentEntity segmentEntity in EditEventCache.EventEntity.Segments.Items)
+                for (int segmentIndex = EditEventCache.EventEntity.Segments.ItemCount - 1; segmentIndex > -1; segmentIndex--)
                 {
+                    SegmentEntity segmentEntity = EditEventCache.EventEntity.Segments.Items[segmentIndex];
                     segmentEntity.Id = currentSegmentId;
                     segmentEntity.EventId = currentEventId;
                     ApplicationDatabase.CreateSegment(segmentEntity);
-                    foreach (RoundEntity roundEntity in segmentEntity.Rounds.Items)
+                    for (int roundIndex = segmentEntity.Rounds.ItemCount - 1; roundIndex > -1; roundIndex--)
                     {
+                        RoundEntity roundEntity = segmentEntity.Rounds.Items[roundIndex];
                         roundEntity.Id = currentRoundId;
                         roundEntity.SegmentId = segmentEntity.Id;
                         ApplicationDatabase.CreateRound(roundEntity);
-                        foreach (CriteriumEntity criteriumEntity in roundEntity.Criteria.Items)
+                        for (int criteriumIndex = roundEntity.Criteria.ItemCount - 1; criteriumIndex > -1; criteriumIndex--)
                         {
+                            CriteriumEntity criteriumEntity = roundEntity.Criteria.Items[criteriumIndex];
                             criteriumEntity.Id = currentCriteriumId;
                             criteriumEntity.RoundId = roundEntity.Id;
                             ApplicationDatabase.CreateCriterium(criteriumEntity);
@@ -119,7 +123,6 @@ namespace PageantVotingSystem.Sources.Forms
                     }
                     currentContestantId++;
                 }
-
                 ApplicationFormNavigator.DisplayManagerDashboardForm();
                 EditEventCache.Clear();
             }

@@ -9,11 +9,6 @@ namespace PageantVotingSystem.Sources.Results
 
         public ResultFailed(string exceptionMessage) : base(exceptionMessage) { }
 
-        public ResultFailed(string exceptionName, string exceptionMessage) : base(exceptionMessage)
-        {
-            ExceptionName = exceptionName;
-        }
-
         public ResultFailed(Exception exception) : base(exception.Message)
         {
             ThrowIfNull(exception);

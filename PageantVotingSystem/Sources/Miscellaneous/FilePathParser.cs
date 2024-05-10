@@ -1,10 +1,17 @@
 ﻿
+using System;
+
 namespace PageantVotingSystem.Sources.Miscellaneous
 {
-    public class StringParser
+    public class FilePathParser
     {
-        public static string StandardizeFilePath(string filePath)
+        public static string Standardize(string filePath)
         {
+            if (filePath == null)
+            {
+                throw new Exception("'StringParser' - 'filePath' must not be null");
+            }
+
             string updatedFilePath = "";
             for (int index = 0; index < filePath.Length; index++)
             {

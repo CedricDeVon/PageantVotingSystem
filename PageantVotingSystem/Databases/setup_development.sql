@@ -87,8 +87,8 @@ CREATE TABLE IF NOT EXISTS contestant
     work_experiences TEXT,
     education TEXT,
     timestamp_created TIMESTAMP DEFAULT NOW() NOT NULL,
-    marital_status_type VARCHAR(64),
-    gender_type VARCHAR(64),
+    marital_status_type VARCHAR(64) DEFAULT 'Rather Not Say',
+    gender_type VARCHAR(64) DEFAULT 'Rather Not Say',
     image_resource_path VARCHAR(512) DEFAULT '../../Profiles/DefaultProfile.png'
 );
 
@@ -357,84 +357,3 @@ VALUES
     ('judge_1@gmail.com', 'James D. Doe', 'Clj3ixSdV3qFFp8vSu5gMNG771Udu6rIQ8L0Xv1gYuHOPAikrBMqp2FpxYLlbcuct3KPpWY9LUg5jZSkXeB2hg==', 'Judge', 'The official profile of James D. Doe'),
     ('judge_2@gmail.com', 'Jessie E. Doe', 'Clj3ixSdV3qFFp8vSu5gMNG771Udu6rIQ8L0Xv1gYuHOPAikrBMqp2FpxYLlbcuct3KPpWY9LUg5jZSkXeB2hg==', 'Judge', 'The official profile of Jessie E. Doe'),
     ('judge_3@gmail.com', 'Jam F. Doe', 'Clj3ixSdV3qFFp8vSu5gMNG771Udu6rIQ8L0Xv1gYuHOPAikrBMqp2FpxYLlbcuct3KPpWY9LUg5jZSkXeB2hg==', 'Judge', 'The official profile of Jam F. Doe');
-
-INSERT INTO contestant (order_number, full_name, email, phone_number, home_address, birth_date, gender_type, marital_status_type, height_in_centimeters, weight_in_kilograms, talents_and_skills, hobbies, languages, work_experiences, education, motto)
-VALUES
-    (1, 'Contestant - A', 'contestant_1@gmail.com', '1111-111-111', 'Home Address - A', '2000-01-01', 'Female', 'Single', 190, 60, 'Talents and Skills - A', 'Hobbies - A', 'Languages - A', 'Work Experiences - A', 'Education - A', 'Motto - A'),
-    (2, 'Contestant - B', 'contestant_1@gmail.com', '2222-222-222', 'Home Address - B', '2000-01-01', 'Female', 'Single', 190, 60, 'Talents and Skills - B', 'Hobbies - B', 'Languages - B', 'Work Experiences - B', 'Education - B', 'Motto - B'),
-    (3, 'Contestant - C', 'contestant_1@gmail.com', '3333-333-333', 'Home Address - C', '2000-01-01', 'Female', 'Single', 190, 60, 'Talents and Skills - B', 'Hobbies - C', 'Languages - C', 'Work Experiences - C', 'Education - C', 'Motto - C');
-
-INSERT INTO event (id, name, description, host_address, scoring_system_type)
-VALUES
-    (1, 'Event - A', 'Description - A', 'Host Address - A', 'Percentage');
-
-INSERT INTO segment (id, name, description, event_id)
-VALUES
-    (1, 'Segment - A', 'Description - A', 1),
-    (2, 'Segment - B', 'Description - B', 1);
-
-INSERT INTO round (id, name, description, segment_id)
-VALUES
-    (1, 'Round - A', 'Description - A', 1),
-    (2, 'Round - B', 'Description - B', 1),
-    (3, 'Round - C', 'Description - C', 2);
-    
-INSERT INTO criterium (id, name, description, maximum_value, percentage_weight, round_id)
-VALUES
-    (1, 'Criterium - A', 'Description - A', 100, 50, 1),
-    (2, 'Criterium - B', 'Description - B', 100, 30, 1),
-    (3, 'Criterium - C', 'Description - C', 100, 60, 2),
-    (4, 'Criterium - D', 'Description - D', 100, 40, 2),
-    (5, 'Criterium - E', 'Description - E', 100, 100, 3);
-
-INSERT INTO event_layout (event_id, segment_id, round_id, event_layout_status_type)
-VALUES
-	(1, 1, 1, 'Pending'),
-    (1, 1, 2, 'Incomplete'),
-    (1, 2, 3, 'Incomplete');
-
-INSERT INTO event_manager (event_id, manager_user_email)
-VALUES
-    (1, 'manager_1@gmail.com');
-
-INSERT INTO event_judge (event_id, order_number, judge_user_email)
-VALUES
-    (1, 1, 'judge_1@gmail.com'),
-    (1, 2, 'judge_2@gmail.com');
-
-INSERT INTO event_contestant (event_id, contestant_id)
-VALUES
-    (1, 1),
-    (1, 2),
-    (1, 3);
-
-INSERT INTO round_contestant (round_id, contestant_id, judge_user_email, round_contestant_status_type)
-VALUES
-	(1, 1, 'judge_1@gmail.com', 'Incomplete'),
-    (1, 2, 'judge_1@gmail.com', 'Incomplete'),
-    (1, 3, 'judge_1@gmail.com', 'Incomplete'),
-	(1, 1, 'judge_2@gmail.com', 'Incomplete'),
-    (1, 2, 'judge_2@gmail.com', 'Incomplete'),
-    (1, 3, 'judge_2@gmail.com', 'Incomplete');
-
-INSERT INTO result (event_id, segment_id, round_id, criterium_id, contestant_id, judge_user_email, base_value)
-VALUES
-(1, 1, 1, 1, 1, 'judge_1@gmail.com', 60), (1, 1, 1, 1, 1, 'judge_2@gmail.com', 55.85),
-(1, 1, 1, 2, 1, 'judge_1@gmail.com', 60), (1, 1, 1, 2, 1, 'judge_2@gmail.com', 55.85),
-(1, 1, 1, 1, 2, 'judge_1@gmail.com', 70), (1, 1, 1, 1, 2, 'judge_2@gmail.com', 65.85),
-(1, 1, 1, 2, 2, 'judge_1@gmail.com', 70), (1, 1, 1, 2, 2, 'judge_2@gmail.com', 65.85),
-(1, 1, 1, 1, 3, 'judge_1@gmail.com', 80), (1, 1, 1, 1, 3, 'judge_2@gmail.com', 75.85),
-(1, 1, 1, 2, 3, 'judge_1@gmail.com', 80), (1, 1, 1, 2, 3, 'judge_2@gmail.com', 75.85),
-
-(1, 1, 2, 3, 1, 'judge_1@gmail.com', 60), (1, 1, 2, 3, 1, 'judge_2@gmail.com', 55.85),
-(1, 1, 2, 4, 1, 'judge_1@gmail.com', 60), (1, 1, 2, 4, 1, 'judge_2@gmail.com', 55.85),
-(1, 1, 2, 3, 2, 'judge_1@gmail.com', 70), (1, 1, 2, 3, 2, 'judge_2@gmail.com', 65.85),
-(1, 1, 2, 4, 2, 'judge_1@gmail.com', 70), (1, 1, 2, 4, 2, 'judge_2@gmail.com', 65.85),
-(1, 1, 2, 3, 3, 'judge_1@gmail.com', 80), (1, 1, 2, 3, 3, 'judge_2@gmail.com', 75.85),
-(1, 1, 2, 4, 3, 'judge_1@gmail.com', 80), (1, 1, 2, 4, 3, 'judge_2@gmail.com', 75.85),
-
-(1, 2, 3, 5, 2, 'judge_1@gmail.com', 70), (1, 2, 3, 5, 2, 'judge_2@gmail.com', 65.85),
-(1, 2, 3, 5, 3, 'judge_1@gmail.com', 80), (1, 2, 3, 5, 3, 'judge_2@gmail.com', 75.85);
-
-
-
