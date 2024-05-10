@@ -43,10 +43,6 @@ namespace PageantVotingSystem.Sources.Forms
             {
                 DisplayAdministerEventQueryForm();
             }
-            else if (sender == abortButton)
-            {
-                DisplayAdministerEventQueryForm();
-            }
 
             informationLayout.StopLoadingMessageDisplay();
         }

@@ -83,7 +83,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.panel23 = new System.Windows.Forms.Panel();
             this.panel44 = new System.Windows.Forms.Panel();
-            this.abortButton = new System.Windows.Forms.Button();
             this.goBackButton = new System.Windows.Forms.Button();
             this.panel21 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -754,7 +753,6 @@
             // 
             // panel44
             // 
-            this.panel44.Controls.Add(this.abortButton);
             this.panel44.Controls.Add(this.goBackButton);
             this.panel44.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel44.Location = new System.Drawing.Point(0, 60);
@@ -763,26 +761,6 @@
             this.panel44.Name = "panel44";
             this.panel44.Size = new System.Drawing.Size(1204, 40);
             this.panel44.TabIndex = 111;
-            // 
-            // abortButton
-            // 
-            this.abortButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.abortButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.abortButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.abortButton.FlatAppearance.BorderSize = 0;
-            this.abortButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.abortButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
-            this.abortButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.abortButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.abortButton.Location = new System.Drawing.Point(1004, 0);
-            this.abortButton.MaximumSize = new System.Drawing.Size(200, 40);
-            this.abortButton.MinimumSize = new System.Drawing.Size(200, 40);
-            this.abortButton.Name = "abortButton";
-            this.abortButton.Size = new System.Drawing.Size(200, 40);
-            this.abortButton.TabIndex = 84;
-            this.abortButton.Text = "Abort";
-            this.abortButton.UseVisualStyleBackColor = false;
-            this.abortButton.Click += new System.EventHandler(this.Button_Click);
             // 
             // goBackButton
             // 
@@ -1066,7 +1044,6 @@
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.Panel panel44;
         private System.Windows.Forms.Button goBackButton;
-        private System.Windows.Forms.Button abortButton;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Panel optionsControl;
         private System.Windows.Forms.Panel panel20;

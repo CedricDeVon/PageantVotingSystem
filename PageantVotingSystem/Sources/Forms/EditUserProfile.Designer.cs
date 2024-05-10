@@ -32,6 +32,44 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel46 = new System.Windows.Forms.Panel();
+            this.panel52 = new System.Windows.Forms.Panel();
+            this.panel68 = new System.Windows.Forms.Panel();
+            this.panel69 = new System.Windows.Forms.Panel();
+            this.userDescriptionInput = new System.Windows.Forms.TextBox();
+            this.panel70 = new System.Windows.Forms.Panel();
+            this.panel71 = new System.Windows.Forms.Panel();
+            this.panel72 = new System.Windows.Forms.Panel();
+            this.panel73 = new System.Windows.Forms.Panel();
+            this.panel74 = new System.Windows.Forms.Panel();
+            this.panel75 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel63 = new System.Windows.Forms.Panel();
+            this.panel140 = new System.Windows.Forms.Panel();
+            this.panel58 = new System.Windows.Forms.Panel();
+            this.userFullNameInput = new System.Windows.Forms.TextBox();
+            this.panel59 = new System.Windows.Forms.Panel();
+            this.panel60 = new System.Windows.Forms.Panel();
+            this.panel61 = new System.Windows.Forms.Panel();
+            this.panel64 = new System.Windows.Forms.Panel();
+            this.panel141 = new System.Windows.Forms.Panel();
+            this.panel57 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel56 = new System.Windows.Forms.Panel();
+            this.panel54 = new System.Windows.Forms.Panel();
+            this.userRoleTypeLabel = new System.Windows.Forms.Label();
+            this.panel55 = new System.Windows.Forms.Panel();
+            this.panel53 = new System.Windows.Forms.Panel();
+            this.userEmailLabel = new System.Windows.Forms.Label();
+            this.panel67 = new System.Windows.Forms.Panel();
+            this.panel62 = new System.Windows.Forms.Panel();
+            this.panel36 = new System.Windows.Forms.Panel();
+            this.panel33 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.userProfileImageInput = new System.Windows.Forms.PictureBox();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.panel35 = new System.Windows.Forms.Panel();
             this.panel41 = new System.Windows.Forms.Panel();
             this.panel42 = new System.Windows.Forms.Panel();
@@ -99,47 +137,22 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.userImageProfileFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel52 = new System.Windows.Forms.Panel();
-            this.panel68 = new System.Windows.Forms.Panel();
-            this.panel69 = new System.Windows.Forms.Panel();
-            this.userDescriptionInput = new System.Windows.Forms.TextBox();
-            this.panel70 = new System.Windows.Forms.Panel();
-            this.panel71 = new System.Windows.Forms.Panel();
-            this.panel72 = new System.Windows.Forms.Panel();
-            this.panel73 = new System.Windows.Forms.Panel();
-            this.panel74 = new System.Windows.Forms.Panel();
-            this.panel75 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.panel63 = new System.Windows.Forms.Panel();
-            this.panel140 = new System.Windows.Forms.Panel();
-            this.panel58 = new System.Windows.Forms.Panel();
-            this.userFullNameInput = new System.Windows.Forms.TextBox();
-            this.panel59 = new System.Windows.Forms.Panel();
-            this.panel60 = new System.Windows.Forms.Panel();
-            this.panel61 = new System.Windows.Forms.Panel();
-            this.panel64 = new System.Windows.Forms.Panel();
-            this.panel141 = new System.Windows.Forms.Panel();
-            this.panel57 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel56 = new System.Windows.Forms.Panel();
-            this.panel54 = new System.Windows.Forms.Panel();
-            this.userRoleTypeLabel = new System.Windows.Forms.Label();
-            this.panel55 = new System.Windows.Forms.Panel();
-            this.panel53 = new System.Windows.Forms.Panel();
-            this.userEmailLabel = new System.Windows.Forms.Label();
-            this.panel67 = new System.Windows.Forms.Panel();
-            this.panel62 = new System.Windows.Forms.Panel();
-            this.panel36 = new System.Windows.Forms.Panel();
-            this.panel33 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.userProfileImageInput = new System.Windows.Forms.PictureBox();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel46.SuspendLayout();
+            this.panel52.SuspendLayout();
+            this.panel68.SuspendLayout();
+            this.panel69.SuspendLayout();
+            this.panel75.SuspendLayout();
+            this.panel140.SuspendLayout();
+            this.panel58.SuspendLayout();
+            this.panel57.SuspendLayout();
+            this.panel54.SuspendLayout();
+            this.panel53.SuspendLayout();
+            this.panel33.SuspendLayout();
+            this.panel20.SuspendLayout();
+            this.panel21.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userProfileImageInput)).BeginInit();
             this.panel35.SuspendLayout();
             this.panel41.SuspendLayout();
             this.panel42.SuspendLayout();
@@ -161,19 +174,6 @@
             this.panel16.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel52.SuspendLayout();
-            this.panel68.SuspendLayout();
-            this.panel69.SuspendLayout();
-            this.panel75.SuspendLayout();
-            this.panel140.SuspendLayout();
-            this.panel58.SuspendLayout();
-            this.panel57.SuspendLayout();
-            this.panel54.SuspendLayout();
-            this.panel53.SuspendLayout();
-            this.panel33.SuspendLayout();
-            this.panel20.SuspendLayout();
-            this.panel21.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userProfileImageInput)).BeginInit();
             this.SuspendLayout();
             // 
             // panel5
@@ -216,6 +216,400 @@
             this.panel46.Name = "panel46";
             this.panel46.Size = new System.Drawing.Size(1224, 749);
             this.panel46.TabIndex = 205;
+            // 
+            // panel52
+            // 
+            this.panel52.AutoScroll = true;
+            this.panel52.Controls.Add(this.panel68);
+            this.panel52.Controls.Add(this.panel75);
+            this.panel52.Controls.Add(this.panel63);
+            this.panel52.Controls.Add(this.panel140);
+            this.panel52.Controls.Add(this.panel57);
+            this.panel52.Controls.Add(this.panel56);
+            this.panel52.Controls.Add(this.panel54);
+            this.panel52.Controls.Add(this.panel55);
+            this.panel52.Controls.Add(this.panel53);
+            this.panel52.Controls.Add(this.panel67);
+            this.panel52.Controls.Add(this.panel62);
+            this.panel52.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel52.Location = new System.Drawing.Point(280, 100);
+            this.panel52.MaximumSize = new System.Drawing.Size(600, 0);
+            this.panel52.Name = "panel52";
+            this.panel52.Size = new System.Drawing.Size(600, 649);
+            this.panel52.TabIndex = 218;
+            // 
+            // panel68
+            // 
+            this.panel68.Controls.Add(this.panel69);
+            this.panel68.Controls.Add(this.panel74);
+            this.panel68.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel68.Location = new System.Drawing.Point(0, 230);
+            this.panel68.Name = "panel68";
+            this.panel68.Size = new System.Drawing.Size(540, 40);
+            this.panel68.TabIndex = 239;
+            // 
+            // panel69
+            // 
+            this.panel69.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(219)))), ((int)(((byte)(175)))));
+            this.panel69.Controls.Add(this.userDescriptionInput);
+            this.panel69.Controls.Add(this.panel70);
+            this.panel69.Controls.Add(this.panel71);
+            this.panel69.Controls.Add(this.panel72);
+            this.panel69.Controls.Add(this.panel73);
+            this.panel69.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel69.Location = new System.Drawing.Point(0, 0);
+            this.panel69.Name = "panel69";
+            this.panel69.Size = new System.Drawing.Size(480, 40);
+            this.panel69.TabIndex = 194;
+            // 
+            // userDescriptionInput
+            // 
+            this.userDescriptionInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(219)))), ((int)(((byte)(175)))));
+            this.userDescriptionInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.userDescriptionInput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userDescriptionInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(2)))), ((int)(((byte)(22)))));
+            this.userDescriptionInput.Location = new System.Drawing.Point(20, 10);
+            this.userDescriptionInput.MaximumSize = new System.Drawing.Size(0, 20);
+            this.userDescriptionInput.MaxLength = 1024;
+            this.userDescriptionInput.MinimumSize = new System.Drawing.Size(0, 20);
+            this.userDescriptionInput.Name = "userDescriptionInput";
+            this.userDescriptionInput.Size = new System.Drawing.Size(440, 20);
+            this.userDescriptionInput.TabIndex = 21;
+            // 
+            // panel70
+            // 
+            this.panel70.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel70.Location = new System.Drawing.Point(20, 30);
+            this.panel70.MaximumSize = new System.Drawing.Size(0, 10);
+            this.panel70.Name = "panel70";
+            this.panel70.Size = new System.Drawing.Size(440, 10);
+            this.panel70.TabIndex = 4;
+            // 
+            // panel71
+            // 
+            this.panel71.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel71.Location = new System.Drawing.Point(20, 0);
+            this.panel71.MaximumSize = new System.Drawing.Size(0, 10);
+            this.panel71.Name = "panel71";
+            this.panel71.Size = new System.Drawing.Size(440, 10);
+            this.panel71.TabIndex = 3;
+            // 
+            // panel72
+            // 
+            this.panel72.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel72.Location = new System.Drawing.Point(460, 0);
+            this.panel72.Name = "panel72";
+            this.panel72.Size = new System.Drawing.Size(20, 40);
+            this.panel72.TabIndex = 2;
+            // 
+            // panel73
+            // 
+            this.panel73.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel73.Location = new System.Drawing.Point(0, 0);
+            this.panel73.Name = "panel73";
+            this.panel73.Size = new System.Drawing.Size(20, 40);
+            this.panel73.TabIndex = 1;
+            // 
+            // panel74
+            // 
+            this.panel74.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel74.Location = new System.Drawing.Point(480, 0);
+            this.panel74.Name = "panel74";
+            this.panel74.Size = new System.Drawing.Size(60, 40);
+            this.panel74.TabIndex = 112;
+            // 
+            // panel75
+            // 
+            this.panel75.Controls.Add(this.label9);
+            this.panel75.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel75.Location = new System.Drawing.Point(0, 200);
+            this.panel75.Name = "panel75";
+            this.panel75.Size = new System.Drawing.Size(540, 30);
+            this.panel75.TabIndex = 238;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.label9.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.label9.Location = new System.Drawing.Point(0, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(81, 19);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Description";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel63
+            // 
+            this.panel63.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel63.Location = new System.Drawing.Point(0, 180);
+            this.panel63.Name = "panel63";
+            this.panel63.Size = new System.Drawing.Size(540, 20);
+            this.panel63.TabIndex = 237;
+            // 
+            // panel140
+            // 
+            this.panel140.Controls.Add(this.panel58);
+            this.panel140.Controls.Add(this.panel141);
+            this.panel140.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel140.Location = new System.Drawing.Point(0, 140);
+            this.panel140.Name = "panel140";
+            this.panel140.Size = new System.Drawing.Size(540, 40);
+            this.panel140.TabIndex = 236;
+            // 
+            // panel58
+            // 
+            this.panel58.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(219)))), ((int)(((byte)(175)))));
+            this.panel58.Controls.Add(this.userFullNameInput);
+            this.panel58.Controls.Add(this.panel59);
+            this.panel58.Controls.Add(this.panel60);
+            this.panel58.Controls.Add(this.panel61);
+            this.panel58.Controls.Add(this.panel64);
+            this.panel58.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel58.Location = new System.Drawing.Point(0, 0);
+            this.panel58.Name = "panel58";
+            this.panel58.Size = new System.Drawing.Size(480, 40);
+            this.panel58.TabIndex = 194;
+            // 
+            // userFullNameInput
+            // 
+            this.userFullNameInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(219)))), ((int)(((byte)(175)))));
+            this.userFullNameInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.userFullNameInput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userFullNameInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(2)))), ((int)(((byte)(22)))));
+            this.userFullNameInput.Location = new System.Drawing.Point(20, 10);
+            this.userFullNameInput.MaximumSize = new System.Drawing.Size(0, 20);
+            this.userFullNameInput.MaxLength = 128;
+            this.userFullNameInput.MinimumSize = new System.Drawing.Size(0, 20);
+            this.userFullNameInput.Name = "userFullNameInput";
+            this.userFullNameInput.Size = new System.Drawing.Size(440, 20);
+            this.userFullNameInput.TabIndex = 21;
+            // 
+            // panel59
+            // 
+            this.panel59.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel59.Location = new System.Drawing.Point(20, 30);
+            this.panel59.MaximumSize = new System.Drawing.Size(0, 10);
+            this.panel59.Name = "panel59";
+            this.panel59.Size = new System.Drawing.Size(440, 10);
+            this.panel59.TabIndex = 4;
+            // 
+            // panel60
+            // 
+            this.panel60.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel60.Location = new System.Drawing.Point(20, 0);
+            this.panel60.MaximumSize = new System.Drawing.Size(0, 10);
+            this.panel60.Name = "panel60";
+            this.panel60.Size = new System.Drawing.Size(440, 10);
+            this.panel60.TabIndex = 3;
+            // 
+            // panel61
+            // 
+            this.panel61.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel61.Location = new System.Drawing.Point(460, 0);
+            this.panel61.Name = "panel61";
+            this.panel61.Size = new System.Drawing.Size(20, 40);
+            this.panel61.TabIndex = 2;
+            // 
+            // panel64
+            // 
+            this.panel64.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel64.Location = new System.Drawing.Point(0, 0);
+            this.panel64.Name = "panel64";
+            this.panel64.Size = new System.Drawing.Size(20, 40);
+            this.panel64.TabIndex = 1;
+            // 
+            // panel141
+            // 
+            this.panel141.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel141.Location = new System.Drawing.Point(480, 0);
+            this.panel141.Name = "panel141";
+            this.panel141.Size = new System.Drawing.Size(60, 40);
+            this.panel141.TabIndex = 112;
+            // 
+            // panel57
+            // 
+            this.panel57.Controls.Add(this.label8);
+            this.panel57.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel57.Location = new System.Drawing.Point(0, 110);
+            this.panel57.Name = "panel57";
+            this.panel57.Size = new System.Drawing.Size(540, 30);
+            this.panel57.TabIndex = 235;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.label8.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.label8.Location = new System.Drawing.Point(0, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 19);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Full Name";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel56
+            // 
+            this.panel56.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel56.Location = new System.Drawing.Point(0, 90);
+            this.panel56.Name = "panel56";
+            this.panel56.Size = new System.Drawing.Size(540, 20);
+            this.panel56.TabIndex = 234;
+            // 
+            // panel54
+            // 
+            this.panel54.Controls.Add(this.userRoleTypeLabel);
+            this.panel54.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel54.Location = new System.Drawing.Point(0, 60);
+            this.panel54.Name = "panel54";
+            this.panel54.Size = new System.Drawing.Size(540, 30);
+            this.panel54.TabIndex = 233;
+            // 
+            // userRoleTypeLabel
+            // 
+            this.userRoleTypeLabel.AutoSize = true;
+            this.userRoleTypeLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.userRoleTypeLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.userRoleTypeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.userRoleTypeLabel.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.userRoleTypeLabel.Location = new System.Drawing.Point(0, 0);
+            this.userRoleTypeLabel.Name = "userRoleTypeLabel";
+            this.userRoleTypeLabel.Size = new System.Drawing.Size(102, 19);
+            this.userRoleTypeLabel.TabIndex = 22;
+            this.userRoleTypeLabel.Text = "User Role Type";
+            this.userRoleTypeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel55
+            // 
+            this.panel55.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel55.Location = new System.Drawing.Point(0, 40);
+            this.panel55.Name = "panel55";
+            this.panel55.Size = new System.Drawing.Size(540, 20);
+            this.panel55.TabIndex = 232;
+            // 
+            // panel53
+            // 
+            this.panel53.Controls.Add(this.userEmailLabel);
+            this.panel53.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel53.Location = new System.Drawing.Point(0, 10);
+            this.panel53.Name = "panel53";
+            this.panel53.Size = new System.Drawing.Size(540, 30);
+            this.panel53.TabIndex = 231;
+            // 
+            // userEmailLabel
+            // 
+            this.userEmailLabel.AutoSize = true;
+            this.userEmailLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.userEmailLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.userEmailLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.userEmailLabel.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.userEmailLabel.Location = new System.Drawing.Point(0, 0);
+            this.userEmailLabel.Name = "userEmailLabel";
+            this.userEmailLabel.Size = new System.Drawing.Size(43, 19);
+            this.userEmailLabel.TabIndex = 22;
+            this.userEmailLabel.Text = "Email";
+            this.userEmailLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel67
+            // 
+            this.panel67.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel67.Location = new System.Drawing.Point(0, 0);
+            this.panel67.Name = "panel67";
+            this.panel67.Size = new System.Drawing.Size(540, 10);
+            this.panel67.TabIndex = 230;
+            // 
+            // panel62
+            // 
+            this.panel62.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel62.Location = new System.Drawing.Point(540, 0);
+            this.panel62.Name = "panel62";
+            this.panel62.Size = new System.Drawing.Size(60, 649);
+            this.panel62.TabIndex = 110;
+            // 
+            // panel36
+            // 
+            this.panel36.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel36.Location = new System.Drawing.Point(260, 100);
+            this.panel36.Name = "panel36";
+            this.panel36.Size = new System.Drawing.Size(20, 649);
+            this.panel36.TabIndex = 217;
+            // 
+            // panel33
+            // 
+            this.panel33.AutoScroll = true;
+            this.panel33.Controls.Add(this.label5);
+            this.panel33.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel33.Location = new System.Drawing.Point(260, 0);
+            this.panel33.Name = "panel33";
+            this.panel33.Size = new System.Drawing.Size(964, 100);
+            this.panel33.TabIndex = 216;
+            // 
+            // label5
+            // 
+            this.label5.AutoEllipsis = true;
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label5.Font = new System.Drawing.Font("Elephant", 60F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.label5.Location = new System.Drawing.Point(0, 0);
+            this.label5.MaximumSize = new System.Drawing.Size(0, 100);
+            this.label5.MinimumSize = new System.Drawing.Size(0, 100);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(543, 100);
+            this.label5.TabIndex = 206;
+            this.label5.Text = "User Profile";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel18
+            // 
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel18.Location = new System.Drawing.Point(220, 0);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(40, 749);
+            this.panel18.TabIndex = 215;
+            // 
+            // panel20
+            // 
+            this.panel20.Controls.Add(this.panel21);
+            this.panel20.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel20.Location = new System.Drawing.Point(20, 0);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(200, 749);
+            this.panel20.TabIndex = 214;
+            // 
+            // panel21
+            // 
+            this.panel21.Controls.Add(this.userProfileImageInput);
+            this.panel21.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel21.Location = new System.Drawing.Point(0, 0);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(200, 200);
+            this.panel21.TabIndex = 206;
+            // 
+            // userProfileImageInput
+            // 
+            this.userProfileImageInput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userProfileImageInput.Image = ((System.Drawing.Image)(resources.GetObject("userProfileImageInput.Image")));
+            this.userProfileImageInput.InitialImage = ((System.Drawing.Image)(resources.GetObject("userProfileImageInput.InitialImage")));
+            this.userProfileImageInput.Location = new System.Drawing.Point(0, 0);
+            this.userProfileImageInput.Name = "userProfileImageInput";
+            this.userProfileImageInput.Size = new System.Drawing.Size(200, 200);
+            this.userProfileImageInput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.userProfileImageInput.TabIndex = 0;
+            this.userProfileImageInput.TabStop = false;
+            this.userProfileImageInput.Click += new System.EventHandler(this.Button_Click);
+            // 
+            // panel11
+            // 
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel11.Location = new System.Drawing.Point(0, 0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(20, 749);
+            this.panel11.TabIndex = 213;
             // 
             // panel35
             // 
@@ -935,400 +1329,6 @@
             this.userImageProfileFileDialog.FileName = "../../Profiles/DefaultProfile.png";
             this.userImageProfileFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenFileDialog_FileOk);
             // 
-            // panel11
-            // 
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel11.Location = new System.Drawing.Point(0, 0);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(20, 749);
-            this.panel11.TabIndex = 213;
-            // 
-            // panel52
-            // 
-            this.panel52.AutoScroll = true;
-            this.panel52.Controls.Add(this.panel68);
-            this.panel52.Controls.Add(this.panel75);
-            this.panel52.Controls.Add(this.panel63);
-            this.panel52.Controls.Add(this.panel140);
-            this.panel52.Controls.Add(this.panel57);
-            this.panel52.Controls.Add(this.panel56);
-            this.panel52.Controls.Add(this.panel54);
-            this.panel52.Controls.Add(this.panel55);
-            this.panel52.Controls.Add(this.panel53);
-            this.panel52.Controls.Add(this.panel67);
-            this.panel52.Controls.Add(this.panel62);
-            this.panel52.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel52.Location = new System.Drawing.Point(280, 100);
-            this.panel52.MaximumSize = new System.Drawing.Size(600, 0);
-            this.panel52.Name = "panel52";
-            this.panel52.Size = new System.Drawing.Size(600, 649);
-            this.panel52.TabIndex = 218;
-            // 
-            // panel68
-            // 
-            this.panel68.Controls.Add(this.panel69);
-            this.panel68.Controls.Add(this.panel74);
-            this.panel68.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel68.Location = new System.Drawing.Point(0, 230);
-            this.panel68.Name = "panel68";
-            this.panel68.Size = new System.Drawing.Size(540, 40);
-            this.panel68.TabIndex = 239;
-            // 
-            // panel69
-            // 
-            this.panel69.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(219)))), ((int)(((byte)(175)))));
-            this.panel69.Controls.Add(this.userDescriptionInput);
-            this.panel69.Controls.Add(this.panel70);
-            this.panel69.Controls.Add(this.panel71);
-            this.panel69.Controls.Add(this.panel72);
-            this.panel69.Controls.Add(this.panel73);
-            this.panel69.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel69.Location = new System.Drawing.Point(0, 0);
-            this.panel69.Name = "panel69";
-            this.panel69.Size = new System.Drawing.Size(480, 40);
-            this.panel69.TabIndex = 194;
-            // 
-            // userDescriptionInput
-            // 
-            this.userDescriptionInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(219)))), ((int)(((byte)(175)))));
-            this.userDescriptionInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.userDescriptionInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userDescriptionInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(2)))), ((int)(((byte)(22)))));
-            this.userDescriptionInput.Location = new System.Drawing.Point(20, 10);
-            this.userDescriptionInput.MaximumSize = new System.Drawing.Size(0, 20);
-            this.userDescriptionInput.MaxLength = 1024;
-            this.userDescriptionInput.MinimumSize = new System.Drawing.Size(0, 20);
-            this.userDescriptionInput.Name = "userDescriptionInput";
-            this.userDescriptionInput.Size = new System.Drawing.Size(440, 20);
-            this.userDescriptionInput.TabIndex = 21;
-            // 
-            // panel70
-            // 
-            this.panel70.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel70.Location = new System.Drawing.Point(20, 30);
-            this.panel70.MaximumSize = new System.Drawing.Size(0, 10);
-            this.panel70.Name = "panel70";
-            this.panel70.Size = new System.Drawing.Size(440, 10);
-            this.panel70.TabIndex = 4;
-            // 
-            // panel71
-            // 
-            this.panel71.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel71.Location = new System.Drawing.Point(20, 0);
-            this.panel71.MaximumSize = new System.Drawing.Size(0, 10);
-            this.panel71.Name = "panel71";
-            this.panel71.Size = new System.Drawing.Size(440, 10);
-            this.panel71.TabIndex = 3;
-            // 
-            // panel72
-            // 
-            this.panel72.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel72.Location = new System.Drawing.Point(460, 0);
-            this.panel72.Name = "panel72";
-            this.panel72.Size = new System.Drawing.Size(20, 40);
-            this.panel72.TabIndex = 2;
-            // 
-            // panel73
-            // 
-            this.panel73.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel73.Location = new System.Drawing.Point(0, 0);
-            this.panel73.Name = "panel73";
-            this.panel73.Size = new System.Drawing.Size(20, 40);
-            this.panel73.TabIndex = 1;
-            // 
-            // panel74
-            // 
-            this.panel74.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel74.Location = new System.Drawing.Point(480, 0);
-            this.panel74.Name = "panel74";
-            this.panel74.Size = new System.Drawing.Size(60, 40);
-            this.panel74.TabIndex = 112;
-            // 
-            // panel75
-            // 
-            this.panel75.Controls.Add(this.label9);
-            this.panel75.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel75.Location = new System.Drawing.Point(0, 200);
-            this.panel75.Name = "panel75";
-            this.panel75.Size = new System.Drawing.Size(540, 30);
-            this.panel75.TabIndex = 238;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.label9.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.label9.Location = new System.Drawing.Point(0, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(81, 19);
-            this.label9.TabIndex = 22;
-            this.label9.Text = "Description";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel63
-            // 
-            this.panel63.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel63.Location = new System.Drawing.Point(0, 180);
-            this.panel63.Name = "panel63";
-            this.panel63.Size = new System.Drawing.Size(540, 20);
-            this.panel63.TabIndex = 237;
-            // 
-            // panel140
-            // 
-            this.panel140.Controls.Add(this.panel58);
-            this.panel140.Controls.Add(this.panel141);
-            this.panel140.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel140.Location = new System.Drawing.Point(0, 140);
-            this.panel140.Name = "panel140";
-            this.panel140.Size = new System.Drawing.Size(540, 40);
-            this.panel140.TabIndex = 236;
-            // 
-            // panel58
-            // 
-            this.panel58.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(219)))), ((int)(((byte)(175)))));
-            this.panel58.Controls.Add(this.userFullNameInput);
-            this.panel58.Controls.Add(this.panel59);
-            this.panel58.Controls.Add(this.panel60);
-            this.panel58.Controls.Add(this.panel61);
-            this.panel58.Controls.Add(this.panel64);
-            this.panel58.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel58.Location = new System.Drawing.Point(0, 0);
-            this.panel58.Name = "panel58";
-            this.panel58.Size = new System.Drawing.Size(480, 40);
-            this.panel58.TabIndex = 194;
-            // 
-            // userFullNameInput
-            // 
-            this.userFullNameInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(219)))), ((int)(((byte)(175)))));
-            this.userFullNameInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.userFullNameInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userFullNameInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(2)))), ((int)(((byte)(22)))));
-            this.userFullNameInput.Location = new System.Drawing.Point(20, 10);
-            this.userFullNameInput.MaximumSize = new System.Drawing.Size(0, 20);
-            this.userFullNameInput.MaxLength = 128;
-            this.userFullNameInput.MinimumSize = new System.Drawing.Size(0, 20);
-            this.userFullNameInput.Name = "userFullNameInput";
-            this.userFullNameInput.Size = new System.Drawing.Size(440, 20);
-            this.userFullNameInput.TabIndex = 21;
-            // 
-            // panel59
-            // 
-            this.panel59.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel59.Location = new System.Drawing.Point(20, 30);
-            this.panel59.MaximumSize = new System.Drawing.Size(0, 10);
-            this.panel59.Name = "panel59";
-            this.panel59.Size = new System.Drawing.Size(440, 10);
-            this.panel59.TabIndex = 4;
-            // 
-            // panel60
-            // 
-            this.panel60.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel60.Location = new System.Drawing.Point(20, 0);
-            this.panel60.MaximumSize = new System.Drawing.Size(0, 10);
-            this.panel60.Name = "panel60";
-            this.panel60.Size = new System.Drawing.Size(440, 10);
-            this.panel60.TabIndex = 3;
-            // 
-            // panel61
-            // 
-            this.panel61.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel61.Location = new System.Drawing.Point(460, 0);
-            this.panel61.Name = "panel61";
-            this.panel61.Size = new System.Drawing.Size(20, 40);
-            this.panel61.TabIndex = 2;
-            // 
-            // panel64
-            // 
-            this.panel64.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel64.Location = new System.Drawing.Point(0, 0);
-            this.panel64.Name = "panel64";
-            this.panel64.Size = new System.Drawing.Size(20, 40);
-            this.panel64.TabIndex = 1;
-            // 
-            // panel141
-            // 
-            this.panel141.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel141.Location = new System.Drawing.Point(480, 0);
-            this.panel141.Name = "panel141";
-            this.panel141.Size = new System.Drawing.Size(60, 40);
-            this.panel141.TabIndex = 112;
-            // 
-            // panel57
-            // 
-            this.panel57.Controls.Add(this.label8);
-            this.panel57.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel57.Location = new System.Drawing.Point(0, 110);
-            this.panel57.Name = "panel57";
-            this.panel57.Size = new System.Drawing.Size(540, 30);
-            this.panel57.TabIndex = 235;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.label8.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.label8.Location = new System.Drawing.Point(0, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(73, 19);
-            this.label8.TabIndex = 22;
-            this.label8.Text = "Full Name";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel56
-            // 
-            this.panel56.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel56.Location = new System.Drawing.Point(0, 90);
-            this.panel56.Name = "panel56";
-            this.panel56.Size = new System.Drawing.Size(540, 20);
-            this.panel56.TabIndex = 234;
-            // 
-            // panel54
-            // 
-            this.panel54.Controls.Add(this.userRoleTypeLabel);
-            this.panel54.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel54.Location = new System.Drawing.Point(0, 60);
-            this.panel54.Name = "panel54";
-            this.panel54.Size = new System.Drawing.Size(540, 30);
-            this.panel54.TabIndex = 233;
-            // 
-            // userRoleTypeLabel
-            // 
-            this.userRoleTypeLabel.AutoSize = true;
-            this.userRoleTypeLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.userRoleTypeLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.userRoleTypeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.userRoleTypeLabel.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.userRoleTypeLabel.Location = new System.Drawing.Point(0, 0);
-            this.userRoleTypeLabel.Name = "userRoleTypeLabel";
-            this.userRoleTypeLabel.Size = new System.Drawing.Size(102, 19);
-            this.userRoleTypeLabel.TabIndex = 22;
-            this.userRoleTypeLabel.Text = "User Role Type";
-            this.userRoleTypeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel55
-            // 
-            this.panel55.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel55.Location = new System.Drawing.Point(0, 40);
-            this.panel55.Name = "panel55";
-            this.panel55.Size = new System.Drawing.Size(540, 20);
-            this.panel55.TabIndex = 232;
-            // 
-            // panel53
-            // 
-            this.panel53.Controls.Add(this.userEmailLabel);
-            this.panel53.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel53.Location = new System.Drawing.Point(0, 10);
-            this.panel53.Name = "panel53";
-            this.panel53.Size = new System.Drawing.Size(540, 30);
-            this.panel53.TabIndex = 231;
-            // 
-            // userEmailLabel
-            // 
-            this.userEmailLabel.AutoSize = true;
-            this.userEmailLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.userEmailLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.userEmailLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.userEmailLabel.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.userEmailLabel.Location = new System.Drawing.Point(0, 0);
-            this.userEmailLabel.Name = "userEmailLabel";
-            this.userEmailLabel.Size = new System.Drawing.Size(43, 19);
-            this.userEmailLabel.TabIndex = 22;
-            this.userEmailLabel.Text = "Email";
-            this.userEmailLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel67
-            // 
-            this.panel67.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel67.Location = new System.Drawing.Point(0, 0);
-            this.panel67.Name = "panel67";
-            this.panel67.Size = new System.Drawing.Size(540, 10);
-            this.panel67.TabIndex = 230;
-            // 
-            // panel62
-            // 
-            this.panel62.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel62.Location = new System.Drawing.Point(540, 0);
-            this.panel62.Name = "panel62";
-            this.panel62.Size = new System.Drawing.Size(60, 649);
-            this.panel62.TabIndex = 110;
-            // 
-            // panel36
-            // 
-            this.panel36.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel36.Location = new System.Drawing.Point(260, 100);
-            this.panel36.Name = "panel36";
-            this.panel36.Size = new System.Drawing.Size(20, 649);
-            this.panel36.TabIndex = 217;
-            // 
-            // panel33
-            // 
-            this.panel33.AutoScroll = true;
-            this.panel33.Controls.Add(this.label5);
-            this.panel33.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel33.Location = new System.Drawing.Point(260, 0);
-            this.panel33.Name = "panel33";
-            this.panel33.Size = new System.Drawing.Size(964, 100);
-            this.panel33.TabIndex = 216;
-            // 
-            // label5
-            // 
-            this.label5.AutoEllipsis = true;
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label5.Font = new System.Drawing.Font("Elephant", 60F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.label5.Location = new System.Drawing.Point(0, 0);
-            this.label5.MaximumSize = new System.Drawing.Size(0, 100);
-            this.label5.MinimumSize = new System.Drawing.Size(0, 100);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(543, 100);
-            this.label5.TabIndex = 206;
-            this.label5.Text = "User Profile";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel18
-            // 
-            this.panel18.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel18.Location = new System.Drawing.Point(220, 0);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(40, 749);
-            this.panel18.TabIndex = 215;
-            // 
-            // panel20
-            // 
-            this.panel20.Controls.Add(this.panel21);
-            this.panel20.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel20.Location = new System.Drawing.Point(20, 0);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(200, 749);
-            this.panel20.TabIndex = 214;
-            // 
-            // panel21
-            // 
-            this.panel21.Controls.Add(this.userProfileImageInput);
-            this.panel21.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel21.Location = new System.Drawing.Point(0, 0);
-            this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(200, 200);
-            this.panel21.TabIndex = 206;
-            // 
-            // userProfileImageInput
-            // 
-            this.userProfileImageInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userProfileImageInput.Image = ((System.Drawing.Image)(resources.GetObject("userProfileImageInput.Image")));
-            this.userProfileImageInput.InitialImage = ((System.Drawing.Image)(resources.GetObject("userProfileImageInput.InitialImage")));
-            this.userProfileImageInput.Location = new System.Drawing.Point(0, 0);
-            this.userProfileImageInput.Name = "userProfileImageInput";
-            this.userProfileImageInput.Size = new System.Drawing.Size(200, 200);
-            this.userProfileImageInput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.userProfileImageInput.TabIndex = 0;
-            this.userProfileImageInput.TabStop = false;
-            this.userProfileImageInput.Click += new System.EventHandler(this.Button_Click);
-            // 
             // EditUserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -1347,6 +1347,26 @@
             this.panel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel46.ResumeLayout(false);
+            this.panel52.ResumeLayout(false);
+            this.panel68.ResumeLayout(false);
+            this.panel69.ResumeLayout(false);
+            this.panel69.PerformLayout();
+            this.panel75.ResumeLayout(false);
+            this.panel75.PerformLayout();
+            this.panel140.ResumeLayout(false);
+            this.panel58.ResumeLayout(false);
+            this.panel58.PerformLayout();
+            this.panel57.ResumeLayout(false);
+            this.panel57.PerformLayout();
+            this.panel54.ResumeLayout(false);
+            this.panel54.PerformLayout();
+            this.panel53.ResumeLayout(false);
+            this.panel53.PerformLayout();
+            this.panel33.ResumeLayout(false);
+            this.panel33.PerformLayout();
+            this.panel20.ResumeLayout(false);
+            this.panel21.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.userProfileImageInput)).EndInit();
             this.panel35.ResumeLayout(false);
             this.panel41.ResumeLayout(false);
             this.panel42.ResumeLayout(false);
@@ -1376,26 +1396,6 @@
             this.panel16.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            this.panel52.ResumeLayout(false);
-            this.panel68.ResumeLayout(false);
-            this.panel69.ResumeLayout(false);
-            this.panel69.PerformLayout();
-            this.panel75.ResumeLayout(false);
-            this.panel75.PerformLayout();
-            this.panel140.ResumeLayout(false);
-            this.panel58.ResumeLayout(false);
-            this.panel58.PerformLayout();
-            this.panel57.ResumeLayout(false);
-            this.panel57.PerformLayout();
-            this.panel54.ResumeLayout(false);
-            this.panel54.PerformLayout();
-            this.panel53.ResumeLayout(false);
-            this.panel53.PerformLayout();
-            this.panel33.ResumeLayout(false);
-            this.panel33.PerformLayout();
-            this.panel20.ResumeLayout(false);
-            this.panel21.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.userProfileImageInput)).EndInit();
             this.ResumeLayout(false);
 
         }

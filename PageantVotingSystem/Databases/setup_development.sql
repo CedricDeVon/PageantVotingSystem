@@ -1,7 +1,7 @@
 
-DROP DATABASE IF EXISTS pageant_voting_system_development;
-CREATE DATABASE IF NOT EXISTS pageant_voting_system_development;
-USE pageant_voting_system_development;
+DROP DATABASE IF EXISTS pageant_voting_system_production;
+CREATE DATABASE IF NOT EXISTS pageant_voting_system_production;
+USE pageant_voting_system_production;
 
 CREATE TABLE IF NOT EXISTS resource
 (
@@ -339,7 +339,7 @@ ON DELETE CASCADE;
 
 INSERT INTO resource (path) VALUES ('../../Profiles/DefaultProfile.png');
 INSERT INTO judge_status (type) VALUES ('Present'), ('Abscent');
-INSERT INTO scoring_system (type) VALUES ('Percentage'), ('Ranking');
+INSERT INTO scoring_system (type) VALUES ('Percentage');
 INSERT INTO user_role (type) VALUES ('Manager'), ('Judge');
 INSERT INTO round_status (type) VALUES ('Complete'), ('Incomplete');
 INSERT INTO marital_status (type) VALUES ('Single'), ('Married'), ('Divorced'), ('With Significant Other'), ('Rather Not Say');
@@ -347,8 +347,6 @@ INSERT INTO gender (type) VALUES ('Male'), ('Female'), ('Non-Binary'), ('Rather 
 INSERT INTO contestant_status (type) VALUES ('Qualified'), ('Disqualified');
 INSERT INTO event_layout_status (type) VALUES ('Complete'), ('Incomplete'), ('Pending');
 INSERT INTO round_contestant_status (type) VALUES ('Complete'), ('Incomplete'), ('Pending');
-INSERT INTO judge_status (type) VALUES ('Complete'), ('Incomplete');
-
 INSERT INTO user (email, full_name, password, user_role_type, description)
 VALUES
     ('manager_1@gmail.com', 'John A. Doe', 'Clj3ixSdV3qFFp8vSu5gMNG771Udu6rIQ8L0Xv1gYuHOPAikrBMqp2FpxYLlbcuct3KPpWY9LUg5jZSkXeB2hg==', 'Manager', 'The official profile of John A. Doe'),

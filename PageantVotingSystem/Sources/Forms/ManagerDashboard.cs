@@ -35,7 +35,7 @@ namespace PageantVotingSystem.Sources.Forms
             {
                 ApplicationFormNavigator.DisplayAdministerEventQueryForm();
             }
-            else if (sender == eventResultsEvent)
+            else if (sender == eventResultsButton)
             {
                 ApplicationFormNavigator.DisplayEventResultsForm();
             }

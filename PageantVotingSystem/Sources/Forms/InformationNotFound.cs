@@ -29,7 +29,7 @@ namespace PageantVotingSystem.Sources.Forms
 
         private void Button_Click(object sender, EventArgs e)
         {
-            if (sender == button8)
+            if (sender == goBackButton)
             {
                 ApplicationFormNavigator.DisplayPreviousForm();
             }

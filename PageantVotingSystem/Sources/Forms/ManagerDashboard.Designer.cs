@@ -32,7 +32,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel30 = new System.Windows.Forms.Panel();
-            this.eventResultsEvent = new System.Windows.Forms.Button();
+            this.eventResultsButton = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel31 = new System.Windows.Forms.Panel();
             this.panel28 = new System.Windows.Forms.Panel();
@@ -101,7 +101,7 @@
             // 
             // panel30
             // 
-            this.panel30.Controls.Add(this.eventResultsEvent);
+            this.panel30.Controls.Add(this.eventResultsButton);
             this.panel30.Controls.Add(this.panel15);
             this.panel30.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel30.Location = new System.Drawing.Point(0, 313);
@@ -111,23 +111,23 @@
             // 
             // eventResultsEvent
             // 
-            this.eventResultsEvent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.eventResultsEvent.Dock = System.Windows.Forms.DockStyle.Left;
-            this.eventResultsEvent.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.eventResultsEvent.FlatAppearance.BorderSize = 0;
-            this.eventResultsEvent.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
-            this.eventResultsEvent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
-            this.eventResultsEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.eventResultsEvent.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eventResultsEvent.Location = new System.Drawing.Point(20, 0);
-            this.eventResultsEvent.MaximumSize = new System.Drawing.Size(200, 40);
-            this.eventResultsEvent.MinimumSize = new System.Drawing.Size(200, 40);
-            this.eventResultsEvent.Name = "eventResultsEvent";
-            this.eventResultsEvent.Size = new System.Drawing.Size(200, 40);
-            this.eventResultsEvent.TabIndex = 88;
-            this.eventResultsEvent.Text = "Event Results";
-            this.eventResultsEvent.UseVisualStyleBackColor = false;
-            this.eventResultsEvent.Click += new System.EventHandler(this.Button_Click);
+            this.eventResultsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.eventResultsButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.eventResultsButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.eventResultsButton.FlatAppearance.BorderSize = 0;
+            this.eventResultsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(14)))));
+            this.eventResultsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(0)))), ((int)(((byte)(241)))));
+            this.eventResultsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.eventResultsButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventResultsButton.Location = new System.Drawing.Point(20, 0);
+            this.eventResultsButton.MaximumSize = new System.Drawing.Size(200, 40);
+            this.eventResultsButton.MinimumSize = new System.Drawing.Size(200, 40);
+            this.eventResultsButton.Name = "eventResultsEvent";
+            this.eventResultsButton.Size = new System.Drawing.Size(200, 40);
+            this.eventResultsButton.TabIndex = 88;
+            this.eventResultsButton.Text = "Event Results";
+            this.eventResultsButton.UseVisualStyleBackColor = false;
+            this.eventResultsButton.Click += new System.EventHandler(this.Button_Click);
             // 
             // panel15
             // 
@@ -426,7 +426,7 @@
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.Button eventResultsEvent;
+        private System.Windows.Forms.Button eventResultsButton;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Button administerEventButton;
         private System.Windows.Forms.Panel panel14;
